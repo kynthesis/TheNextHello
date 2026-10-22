@@ -1,6 +1,6 @@
 # Nostalgic mobile social UI
 
-Creator direction, 22 October 2026: a mobile social app inspired by early social-network menus and Emily is Away's intimate conversations. Use our own teal, warm paper, muted coral and custom pixel icons. The app belongs to Asahi. No desktop sidebars or copied Facebook branding.
+Creator direction, 22 October 2026: recreate old Facebook mobile using the supplied reference images, including its blue gradients, wordmark, multicolor icons, red badges and chat bubbles. This replaces the previous teal theme direction. The account belongs to Asahi, with Emily is Away's intimate conversations. No desktop sidebars. This remains a local story game with fictional content and no Facebook login or connection.
 
 ## Seven main sections
 
@@ -14,13 +14,15 @@ Creator direction, 22 October 2026: a mobile social app inspired by early social
 | Messages | Private DMs, group conversations, call transcripts, drafts and attachments. |
 | Requests | Accept or decline new friend requests after story encounters. |
 
-Settings is a header utility. Games, Work, Notes and Calendar remain stable internal narrative/save keys. They are not extra menu sections. Events links to Lantern Quest and work scenes when the story needs them; the Messages conversation list also provides these links. Legacy Notes/Calendar navigation opens Events.
+Settings and Music are header utilities. Games, Work, Notes and Calendar remain stable internal narrative/save keys. They are not extra menu sections. Events links to Lantern Quest and work scenes when the story needs them; the Messages conversation list also provides these links. Legacy Notes/Calendar navigation opens Events.
 
 ## Layout and tone
 
-Use a 414×896 portrait app canvas, scaled uniformly to fit the window, centered in plain dark teal margins on desktop. Default window is the portrait size. Home has exactly seven labeled pixel icons in a three-column grid, a small own-photo shelf, Events and Notifications links. No hardware bezel, wallpaper, large clock, device dock or gesture bar. One standard reading size; metadata and headings have a fixed hierarchy, with no alternate text scaling.
+Use a 414×896 portrait app canvas, scaled uniformly to fit the window, centered in plain dark blue-gray margins on desktop. Default window is the portrait size. A glossy blue header carries the white facebook wordmark, Settings and Music. Home has Search friends, exactly seven labeled multicolor icons in a three-column grid, three own-photo thumbnails, an Events link and a fixed blue Notifications footer. Search opens an accepted friend's profile by name. No hardware bezel, wallpaper, large clock, device dock or gesture bar. One standard reading size; metadata and headings have a fixed hierarchy, with no alternate text scaling.
 
-Incoming chat bubbles align left; Asahi's pale-sage bubbles align right. Skippable typing dots, variable message delays and pauses during Asahi's composition retain the selected wording. Explicit Send commits a reply; Sent/Read never score affection. Only Later advances fictional dates. Buttons, mouse/touch scrolling, visible keyboard focus and Escape provide navigation.
+Incoming white bubbles align left; Asahi's pale-blue bubbles align right. Both have fine borders, shallow gradients and small speech tails. Square pixel portraits stand in for profile photos. News Feed uses compact blue Like/Comment/Share links on gray-lilac action strips. Skippable typing dots, variable message delays and pauses during Asahi's composition retain the selected wording. Explicit Send commits a reply; Sent/Read never score affection. Only Later advances fictional dates. Buttons, mouse/touch scrolling, visible keyboard focus and Escape provide navigation.
+
+Interface audio is synthesized: a soft key click during visible composition, a short sending chirp and a glassy two-note inbox bell. These recreate the period's sound; they are not extracted Facebook recordings. Global interface volume still mutes every cue independently of music.
 
 ## Social actions and privacy
 

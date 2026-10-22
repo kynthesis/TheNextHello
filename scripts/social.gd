@@ -4,12 +4,14 @@ const Story := preload("res://scripts/story.gd")
 const AppIcon := preload("res://scripts/app_icon.gd")
 const PixelArt := preload("res://scripts/pixel_art.gd")
 const MusicLibrary := preload("res://scripts/music.gd")
-const INK := Color("293f40")
-const MUTED := Color("77817c")
-const CORAL := Color("285552")
-const SURFACE := Color("fffdf8")
-const PAPER := Color("f0eee7")
-const RULE := Color("d0d8ce")
+const ChatBubble := preload("res://scripts/chat_bubble.gd")
+const Avatar := preload("res://scripts/avatar.gd")
+const INK := Color("252525")
+const MUTED := Color("777c85")
+const BLUE := Color("3b5998")
+const SURFACE := Color("ffffff")
+const PAPER := Color("eef0f7")
+const RULE := Color("c4c9d4")
 const MOBILE_SIZE := Vector2(414, 896)
 const SECTION_NAMES := {"Home": "Home", "Calendar": "Events", "Notes": "Events", "Games": "Lantern Quest", "Work": "Work messages"}
 var profile_view := false
@@ -62,7 +64,7 @@ var known_songs: Array = []
 func _ready() -> void:
 	story = await Story.create()
 	get_tree().auto_accept_quit = false
-	RenderingServer.set_default_clear_color(Color("1c302f"))
+	RenderingServer.set_default_clear_color(Color("171c28"))
 	sfx = AudioStreamPlayer.new()
 	sfx.name = "InterfaceSounds"
 	sfx.max_polyphony = 4
@@ -71,7 +73,7 @@ func _ready() -> void:
 	music.name = "MusicLibrary"
 	add_child(music)
 	music.changed.connect(_music_changed)
-	for cue: String in ["tap", "sent", "received"]:
+	for cue: String in ["tap", "typing", "sent", "received"]:
 		sounds[cue] = _sound(cue)
 	banner_timer = Timer.new()
 	banner_timer.one_shot = true
@@ -136,30 +138,60 @@ func _style(color: Color, border := Color.TRANSPARENT) -> StyleBoxFlat:
 	box.bg_color = color
 	box.border_color = border
 	box.set_border_width_all(1 if border.a > 0 else 0)
-	box.set_corner_radius_all(2)
+	box.set_corner_radius_all(0)
 	box.content_margin_left = 12
 	box.content_margin_right = 12
 	box.content_margin_top = 8
 	box.content_margin_bottom = 8
 	return box
 
+func _bevel(top: Color, bottom: Color, border := Color("8e99af")) -> StyleBoxTexture:
+	var pixels := Image.create(64, 32, false, Image.FORMAT_RGBA8)
+	for y in range(32):
+		for x in range(64):
+			var color := top.lerp(bottom, float(y) / 31)
+			if x == 0 or x == 63 or y == 0 or y == 31: color = border
+			elif y == 1: color = top.lightened(0.22)
+			pixels.set_pixel(x, y, color)
+	var style := StyleBoxTexture.new()
+	style.texture = ImageTexture.create_from_image(pixels)
+	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]: style.set_texture_margin(side, 1)
+	style.content_margin_left = 10
+	style.content_margin_right = 10
+	style.content_margin_top = 7
+	style.content_margin_bottom = 7
+	return style
+
 func _theme() -> Theme:
 	var result := Theme.new()
+	var font := SystemFont.new()
+	font.font_names = PackedStringArray(["Arial", "Helvetica", "Liberation Sans"])
+	result.default_font = font
 	result.default_font_size = 16
 	result.set_color("font_color", "Label", INK)
-	result.set_color("font_color", "Button", CORAL)
+	result.set_color("font_color", "Button", BLUE)
 	result.set_color("font_hover_color", "Button", INK)
-	result.set_color("font_focus_color", "Button", CORAL)
-	result.set_stylebox("normal", "Button", _style(SURFACE, RULE))
-	result.set_stylebox("hover", "Button", _style(Color("e5eee6"), CORAL))
-	result.set_stylebox("pressed", "Button", _style(Color("d4e2d8"), CORAL))
+	result.set_color("font_focus_color", "Button", BLUE)
+	result.set_color("font_pressed_color", "Button", INK)
+	result.set_stylebox("normal", "Button", _bevel(Color("ffffff"), Color("e5e8ef")))
+	result.set_stylebox("hover", "Button", _bevel(Color("ffffff"), Color("d6dfef"), BLUE))
+	result.set_stylebox("pressed", "Button", _bevel(Color("c7d4e9"), Color("e5ebf6"), BLUE))
 	var focus := _style(Color.TRANSPARENT, INK)
 	focus.set_border_width_all(2)
 	result.set_stylebox("focus", "Button", focus)
 	result.set_stylebox("disabled", "Button", _style(PAPER, RULE))
 	result.set_color("font_disabled_color", "Button", MUTED)
-	result.set_constant("separation", "VBoxContainer", 10)
-	result.set_constant("separation", "HBoxContainer", 10)
+	result.set_constant("separation", "VBoxContainer", 8)
+	result.set_constant("separation", "HBoxContainer", 8)
+	result.set_color("font_color", "TextEdit", INK)
+	result.set_color("font_color", "LineEdit", INK)
+	result.set_color("font_placeholder_color", "LineEdit", MUTED)
+	result.set_stylebox("normal", "TextEdit", _style(SURFACE, Color("a7afbd")))
+	result.set_stylebox("focus", "TextEdit", _style(SURFACE, BLUE))
+	var search_style := _style(SURFACE, Color("a7afbd"))
+	search_style.set_corner_radius_all(16)
+	result.set_stylebox("normal", "LineEdit", search_style)
+	result.set_stylebox("focus", "LineEdit", _style(SURFACE, BLUE))
 	return result
 
 func _label(text: String, font_size := 16, color := INK) -> Label:
@@ -183,15 +215,20 @@ func _button(text: String, action: Callable, parent: Node = null) -> Button:
 	(parent if parent != null else body).add_child(button)
 	return button
 
-func _card(title: String, copy: String, parent: Node = null) -> VBoxContainer:
+func _card(title: String, copy: String, parent: Node = null, outgoing: Variant = null) -> VBoxContainer:
 	var panel := PanelContainer.new()
-	var card_style := _style(SURFACE, RULE)
+	var card_style: StyleBox = _style(SURFACE, RULE)
+	if outgoing != null:
+		panel.set_script(ChatBubble)
+		panel.outgoing = bool(outgoing)
+		panel.name = "SentBubble" if outgoing else "ReceivedBubble"
+		card_style = _bevel(Color("e5effc"), Color("c8dcf4"), Color("8da4c2")) if outgoing else _bevel(Color.WHITE, Color("f1f2f4"), Color("b8bdc5"))
 	panel.add_theme_stylebox_override("panel", card_style)
 	(parent if parent != null else body).add_child(panel)
 	var stack := VBoxContainer.new()
 	panel.add_child(stack)
 	if title != "":
-		stack.add_child(_label(title, 13, CORAL))
+		stack.add_child(_label(title, 13, BLUE))
 	if copy != "":
 		stack.add_child(_label(copy))
 	return stack
@@ -291,8 +328,8 @@ func _render(refocus := true) -> void:
 		var back := _button("‹ Home", _open.bind("Home"), crumb)
 		back.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 		back.autowrap_mode = TextServer.AUTOWRAP_OFF
-		crumb.add_child(_label(title, 20, CORAL))
-	if status != "": center.add_child(_label(status, 13, CORAL))
+		crumb.add_child(_label(title, 20, BLUE))
+	if status != "": center.add_child(_label(status, 13, BLUE))
 	scroller = ScrollContainer.new()
 	scroller.name = "ContentScroll"
 	scroller.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -324,6 +361,8 @@ func _render(refocus := true) -> void:
 			"Calendar": _events()
 			"Settings": _settings()
 			"Notes": _events()
+	if story.state.app == "Home" and not (profile_view or feed_view or friends_view or requests_view or music_view or friend_profile != ""):
+		_home_footer(column)
 	_layout()
 	_refresh_overlay()
 	saved_app = story.state.app
@@ -340,17 +379,12 @@ func _open_profile() -> void:
 	_render()
 
 func _avatar(who: String, parent: Node) -> void:
-	var avatar := PanelContainer.new()
+	var avatar := Control.new()
+	avatar.set_script(Avatar)
+	avatar.who = who
 	avatar.custom_minimum_size = Vector2(32, 32)
 	avatar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	var colors := {"asahi": "647b93", "mizuki": "987b92", "natsumi": "ad8862", "mossbyte": "718a73", "daichi": "718a73", "misaki": "8e789f"}
-	var style := _style(Color(colors.get(who.to_lower(), "7e899c")))
-	style.set_content_margin_all(4)
-	avatar.add_theme_stylebox_override("panel", style)
 	parent.add_child(avatar)
-	var initial := _label(who.left(1).to_upper(), 16, Color.WHITE)
-	initial.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	avatar.add_child(initial)
 
 func _known_contacts() -> Array[String]:
 	var contacts: Array[String] = []
@@ -376,24 +410,52 @@ func _restore_scroll(app: String, value: int) -> void:
 func _status_bar(column: VBoxContainer) -> void:
 	var bar := PanelContainer.new()
 	bar.name = "SiteHeader"
-	var header_style := _style(CORAL, Color("b77b67"))
-	header_style.border_width_bottom = 3
+	var header_style := _bevel(Color("6b83b0"), Color("334d80"), Color("243b68"))
+	header_style.content_margin_left = 12
+	header_style.content_margin_right = 8
+	header_style.content_margin_top = 3
+	header_style.content_margin_bottom = 3
 	bar.add_theme_stylebox_override("panel", header_style)
 	column.add_child(bar)
 	var row := HBoxContainer.new()
 	bar.add_child(row)
-	var logo := _button("hello", _open.bind("Home"), row)
+	row.add_theme_constant_override("separation", 0)
+	var logo := _button("facebook", _open.bind("Home"), row)
 	logo.name = "SiteLogo"
-	logo.add_theme_font_size_override("font_size", 24)
+	logo.add_theme_font_size_override("font_size", 31)
+	logo.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	logo.custom_minimum_size.y = 52
+	var wordmark_font := SystemFont.new()
+	wordmark_font.font_names = PackedStringArray(["Arial", "Helvetica", "Liberation Sans"])
+	wordmark_font.font_weight = 800
+	logo.add_theme_font_override("font", wordmark_font)
 	logo.autowrap_mode = TextServer.AUTOWRAP_OFF
-	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: logo.add_theme_color_override(state, Color("fff8e9"))
-	logo.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-	var notices := _button("Updates", _show_notifications, row)
-	notices.name = "Notifications"
+	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: logo.add_theme_color_override(state, Color.WHITE)
+	for state: String in ["normal", "hover", "pressed"]: logo.add_theme_stylebox_override(state, StyleBoxEmpty.new())
+	logo.add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("98afd3")))
 	var settings := _button("Settings", _open.bind("Settings"), row)
 	settings.name = "SettingsLink"
 	var music_link := _button("Music", _show_music, row)
 	music_link.name = "MusicLink"
+	for link: Button in [settings, music_link]:
+		link.size_flags_horizontal = Control.SIZE_SHRINK_END
+		link.custom_minimum_size = Vector2(80, 44)
+		link.autowrap_mode = TextServer.AUTOWRAP_OFF
+		for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: link.add_theme_color_override(state, Color.WHITE)
+		link.add_theme_stylebox_override("normal", _bevel(Color("617ca9"), Color("334d80"), Color("2a416c")))
+		link.add_theme_stylebox_override("hover", _bevel(Color("7992bb"), Color("3b5998"), Color("223962")))
+		link.add_theme_stylebox_override("pressed", _bevel(Color("2e4776"), Color("526e9f"), Color("223962")))
+
+func _home_footer(column: VBoxContainer) -> void:
+	var footer := _button("Notifications", _show_notifications, column)
+	footer.name = "Notifications"
+	footer.custom_minimum_size.y = 48
+	footer.icon = load("res://assets/ui/notification_globe.svg")
+	footer.add_theme_font_size_override("font_size", 19)
+	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: footer.add_theme_color_override(state, Color.WHITE)
+	footer.add_theme_stylebox_override("normal", _bevel(Color("728abb"), Color("3b568a"), Color("263d68")))
+	footer.add_theme_stylebox_override("hover", _bevel(Color("839ac5"), Color("45679e"), Color("263d68")))
+	footer.add_theme_stylebox_override("pressed", _bevel(Color("344d7c"), Color("5c78a6"), Color("263d68")))
 
 func _animate_open() -> void:
 	if reduce_motion: return
@@ -451,7 +513,7 @@ func _refresh_overlay() -> void:
 	overlay.add_child(stack)
 	if notification_center:
 		overlay.size.y = maxf(180, frame.size.y - 90)
-		stack.add_child(_label("Notifications", 20, CORAL))
+		stack.add_child(_label("Notifications", 20, BLUE))
 		var done := _button("Done", _close_notifications, stack)
 		done.grab_focus.call_deferred()
 		var scroll := ScrollContainer.new()
@@ -494,19 +556,32 @@ func _play_sound(cue: String) -> void:
 	sfx.play()
 
 func _sound(cue: String) -> AudioStreamWAV:
-	var duration := 0.045 if cue == "tap" else 0.3
+	# Recreated interface audio: glassy inbox bell, short send chirp, soft keys.
+	# These are synthesized cues, not recordings taken from Facebook.
+	var duration := 0.025 if cue in ["tap", "typing"] else 0.24 if cue == "sent" else 0.55
 	var samples := PackedByteArray()
-	var rate := 22050
+	var rate := 44100
 	var count := int(rate * duration)
 	samples.resize(count * 2)
 	for i in count:
 		var t := float(i) / rate
-		var frequency := 680.0 if cue == "tap" else (880.0 if cue == "sent" else 1046.5)
-		if cue == "received" and t > 0.13:
-			frequency = 1318.5
-		var envelope := minf(t / 0.005, 1) * exp(-t * (80 if cue == "tap" else 13)) * minf((duration - t) / 0.01, 1)
-		var sample := sin(TAU * frequency * t) * envelope * 0.16
-		samples.encode_s16(i * 2, int(sample * 32767))
+		var sample := 0.0
+		if cue in ["tap", "typing"]:
+			var pitch := 1700.0 if cue == "tap" else 2300.0
+			var attack := minf(t / 0.0015, 1.0)
+			sample = (sin(TAU * pitch * t) + sin(TAU * pitch * 2.73 * t) * 0.25) * exp(-t * 200.0) * attack * (0.085 if cue == "tap" else 0.045)
+		elif cue == "sent":
+			var phase := TAU * (680.0 * t + 1300.0 * t * t)
+			sample = sin(phase) * exp(-t * 19.0) * minf(t / 0.004, 1.0) * 0.13
+		else:
+			for note in range(2):
+				var age := t - note * 0.105
+				if age < 0: continue
+				var pitch := 1046.5 if note == 0 else 1568.0
+				var tone := sin(TAU * pitch * age) + sin(TAU * pitch * 2.01 * age) * 0.22 + sin(TAU * pitch * 3.97 * age) * 0.06
+				sample += tone * exp(-age * 14.0) * minf(age / 0.003, 1.0) * 0.15
+		sample *= minf((duration - t) / 0.008, 1.0)
+		samples.encode_s16(i * 2, int(clampf(sample, -1, 1) * 32767))
 	var wav := AudioStreamWAV.new()
 	wav.format = AudioStreamWAV.FORMAT_16_BITS
 	wav.mix_rate = rate
@@ -569,26 +644,66 @@ func _gesture_scroller() -> ScrollContainer:
 	return scroller
 
 func _home() -> void:
-	body.add_child(_label("Asahi / " + _story_date(), 14, MUTED))
-	var menu := _card("", "")
+	var search := LineEdit.new()
+	search.name = "FriendSearch"
+	search.placeholder_text = "Search friends"
+	search.custom_minimum_size.y = 36
+	search.text_submitted.connect(_search_friends)
+	body.add_child(search)
+	body.add_child(_label("Asahi  ·  Tokyo, Japan", 13, MUTED))
 	var grid := GridContainer.new()
 	grid.name = "SectionGrid"
 	grid.columns = 3
 	grid.add_theme_constant_override("h_separation", 8)
-	grid.add_theme_constant_override("v_separation", 12)
-	menu.add_child(grid)
+	grid.add_theme_constant_override("v_separation", 19)
+	body.add_child(grid)
 	_menu_tile("News Feed", "Home", _show_feed, grid)
 	_menu_tile("Profile", "Profile", _open_profile, grid)
 	_menu_tile("Friends", "Friends", _show_friends, grid)
-	_menu_tile("Photos", "Photos", _open.bind("Photos"), grid)
-	_menu_tile("Events", "Calendar", _open.bind("Calendar"), grid)
 	_menu_tile("Messages", "Messages", _open.bind("Messages"), grid)
+	_menu_tile("Events", "Calendar", _open.bind("Calendar"), grid)
+	_menu_tile("Photos", "Photos", _open.bind("Photos"), grid)
 	_menu_tile("Requests", "Requests", _show_requests, grid)
-	var shelf := _card("MY PHOTOS", "")
-	_art("city", shelf, 100)
-	_button("View my photos", _open.bind("Photos"), shelf)
+	var spacer := Control.new()
+	spacer.custom_minimum_size.y = 22
+	body.add_child(spacer)
+	var shelf := PanelContainer.new()
+	shelf.name = "PhotoShelf"
+	shelf.add_theme_stylebox_override("panel", _bevel(Color("bdc2ce"), Color("aab2c2"), Color("929aa9")))
+	body.add_child(shelf)
+	var photos := HBoxContainer.new()
+	photos.add_theme_constant_override("separation", 7)
+	shelf.add_child(photos)
+	for kind: String in ["city", "desk", "city_morning"]:
+		var photo := Button.new()
+		photo.name = "PhotoPreview_" + kind
+		photo.tooltip_text = "View my photos"
+		photo.custom_minimum_size.y = 94
+		photo.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		photo.add_theme_stylebox_override("normal", _style(Color.WHITE, Color("777f8d")))
+		photos.add_child(photo)
+		var art := Control.new()
+		art.set_script(PixelArt)
+		art.kind = kind
+		art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		art.offset_left = 3
+		art.offset_top = 3
+		art.offset_right = -3
+		art.offset_bottom = -3
+		photo.add_child(art)
+		photo.pressed.connect(_open.bind("Photos"))
+		photo.pressed.connect(_play_sound.bind("tap"))
 	_button("Events / " + story.text(story.current().title), _open.bind("Calendar"))
-	_button("Notifications", _show_notifications)
+
+func _search_friends(query: String) -> void:
+	query = query.strip_edges().to_lower()
+	if query.is_empty(): return
+	for person: String in story.social().friends:
+		if query in person.to_lower() or query in str(story.characters[person].get("name", person)).to_lower():
+			_view_friend(person)
+			return
+	status = "No friends found for that name."
+	_render()
 
 func _menu_tile(label: String, icon_key: String, action: Callable, parent: Node) -> void:
 	var tile := VBoxContainer.new()
@@ -608,7 +723,7 @@ func _menu_tile(label: String, icon_key: String, action: Callable, parent: Node)
 	icon.focus_entered.connect(icon.queue_redraw)
 	icon.focus_exited.connect(icon.queue_redraw)
 	tile.add_child(icon)
-	var caption := _label(label, 14, INK)
+	var caption := _label(label, 17, INK)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	tile.add_child(caption)
 
@@ -669,7 +784,7 @@ func _friend_profile() -> void:
 func _feed() -> void:
 	var heading := HBoxContainer.new()
 	body.add_child(heading)
-	heading.add_child(_label("News Feed", 22, CORAL))
+	heading.add_child(_label("News Feed", 22, BLUE))
 	var date := _label(_story_date(), 12, MUTED)
 	date.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	heading.add_child(date)
@@ -709,15 +824,27 @@ func _feed_post(id: String, author: String, copy: String, art: String, audience:
 	var byline := VBoxContainer.new()
 	byline.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(byline)
-	byline.add_child(_label(author, 16, CORAL))
+	byline.add_child(_label(author, 16, BLUE))
 	byline.add_child(_label(audience + " / Saved update", 12, MUTED))
 	post.add_child(_label(copy))
 	if art != "": _art(art, post, 140)
 	var actions := HBoxContainer.new()
-	post.add_child(actions)
+	var action_strip := PanelContainer.new()
+	action_strip.name = "FeedActionStrip"
+	var strip_style := _style(Color("eceff5"))
+	strip_style.set_content_margin_all(3)
+	action_strip.add_theme_stylebox_override("panel", strip_style)
+	post.add_child(action_strip)
+	action_strip.add_child(actions)
 	_like_button(id, actions)
 	_button("Hide comment" if comments_open == id else "Comment", func() -> void: _remember(); comment_draft = ""; comments_open = "" if comments_open == id else id; _render(), actions)
 	if _public_posts().has(id): _button("Shared" if id in story.social().shares else "Share", _share_post.bind(id), actions)
+	for link: Button in actions.get_children():
+		link.custom_minimum_size.y = 28
+		link.add_theme_font_size_override("font_size", 14)
+		link.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+		link.add_theme_stylebox_override("hover", _style(Color("dde4f0")))
+		link.add_theme_stylebox_override("pressed", _style(Color("cbd7eb")))
 	if comments_open == id:
 		if comment != "": post.add_child(_label(comment, 14, MUTED))
 		for message: String in story.social().comments.get(id, []): post.add_child(_label("Asahi: " + message, 16))
@@ -780,7 +907,7 @@ func _events() -> void:
 	var next := _card("STORY COMPLETE" if journal.complete else "CURRENT OBJECTIVE", journal.objective)
 	next.add_child(_label("Chapter %d / " % int(journal.chapter) + journal.title, 14, MUTED))
 	_button(("Read in " if journal.complete else "Continue in ") + _section_name(journal.app) + "  >", _open.bind(journal.app), next)
-	if journal.draft_pending: next.add_child(_label("I have an unsent reply.", 14, CORAL))
+	if journal.draft_pending: next.add_child(_label("I have an unsent reply.", 14, BLUE))
 	_card("MY PLANS", story.state.facts.get("commitment", "Nothing confirmed yet."))
 	if story.state.facts.has("work"): _card("WORK", story.state.facts.work)
 	if story.current().app == "Calendar": _render_thread()
@@ -800,7 +927,7 @@ func _thread() -> String:
 func _conversation() -> void:
 	if story.state.app == "Games":
 		_art("lantern")
-		body.add_child(_label("LANTERN QUEST", 12, CORAL))
+		body.add_child(_label("LANTERN QUEST", 12, BLUE))
 	elif inbox:
 		body.add_child(_label("Conversations", 22))
 		for thread: String in story.threads():
@@ -820,7 +947,7 @@ func _conversation() -> void:
 	_render_thread()
 
 func _shared_attachments() -> void:
-	body.add_child(_label("PRIVATE / MIZUKI & ASAHI", 13, CORAL))
+	body.add_child(_label("PRIVATE / MIZUKI & ASAHI", 13, BLUE))
 	if story.state.facts.get("desk_photo", false) and not story.state.facts.get("draft_withdrawn", false):
 		var photo := _card("MIZUKI'S DESK", "Private work draft. Mizuki asked me not to publish it.")
 		_art("desk", photo, 160)
@@ -848,15 +975,10 @@ func _render_thread() -> void:
 			spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			if speaker == "asahi": row.add_child(spacer)
 			else: _avatar(speaker, row)
-			var card := _card("Me" if speaker == "asahi" else speaker.capitalize(), story.text(entry.text), row)
+			var card := _card("Me" if speaker == "asahi" else speaker.capitalize(), story.text(entry.text), row, speaker == "asahi")
 			var panel := card.get_parent() as PanelContainer
 			panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			panel.size_flags_stretch_ratio = 5
-			var bubble := _style(Color("dce9df") if speaker == "asahi" else SURFACE, RULE)
-			bubble.set_corner_radius_all(8)
-			bubble.corner_radius_top_right = 1 if speaker == "asahi" else 8
-			bubble.corner_radius_top_left = 8 if speaker == "asahi" else 1
-			panel.add_theme_stylebox_override("panel", bubble)
 			if speaker != "asahi": row.add_child(spacer)
 			if entry.has("delivery"): card.add_child(_label(entry.delivery, 11, MUTED))
 	if story.state.app != story.current().app or _thread() != story.current().thread:
@@ -928,10 +1050,15 @@ func _type_draft() -> void:
 		var boundary := character in [",", ".", "?", "!", ";"]
 		if boundary or index == label.text.length() - 1:
 			var end := index + 1
-			draft_tween.tween_property(label, "visible_characters", end, maxf(0.06, (end - start) * 0.022))
+			draft_tween.tween_method(_compose_chars.bind(label), start, end, maxf(0.06, (end - start) * 0.022))
 			if boundary and end < label.text.length(): draft_tween.tween_interval(0.22)
 			start = end
 	draft_tween.finished.connect(_finish_typing)
+
+func _compose_chars(count: int, label: Label) -> void:
+	if not is_instance_valid(label): return
+	if count != label.visible_characters and count % 3 == 0: _play_sound("typing")
+	label.visible_characters = count
 
 func _finish_typing() -> void:
 	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
@@ -950,7 +1077,7 @@ func _story_controls() -> void:
 		_button("Show messages now", _show_messages)
 		return
 	if not story.choices().is_empty():
-		body.add_child(_label("CHOOSE A DRAFT  /  Nothing sends until you say so", 11, CORAL))
+		body.add_child(_label("CHOOSE A DRAFT  /  Nothing sends until you say so", 11, BLUE))
 		for choice: Dictionary in story.choices():
 			_button(story.text(choice.text), _draft.bind(choice.id))
 		if story.state.draft != "":
@@ -1053,6 +1180,10 @@ func _gallery() -> void:
 	var photo := _card("TOKYO WINDOW / MY PHOTO", "Rain against my apartment window.")
 	_art("city", photo, 160)
 	_like_button("tokyo_window", photo, "Favorite photo")
+	photo = _card("MY WORKTABLE", "Before I get coffee on any of this.")
+	_art("desk", photo, 160)
+	photo = _card("SAME WINDOW, EARLIER", "Made it up before the alarm for once.")
+	_art("city_morning", photo, 160)
 	if story.state.facts.get("screenshot", false):
 		photo = _card("MY LANTERN QUEST SCREENSHOT", "The first garden run with Mizuki.")
 		_art("lantern", photo, 160)
@@ -1068,10 +1199,10 @@ func _settings() -> void:
 	_card("DISPLAY & READING", "A portrait social app with seven sections. Events holds my next objective; Messages holds private conversations. The story waits while I read.")
 	_button("Instant messages: " + ("On" if instant_messages else "Off"), func() -> void: instant_messages = not instant_messages; _save_settings(); _render())
 	_button("Reduce motion: " + ("On" if reduce_motion else "Off"), func() -> void: reduce_motion = not reduce_motion; _save_settings(); _render())
-	body.add_child(_label("WINDOW RESOLUTION", 12, CORAL))
+	body.add_child(_label("WINDOW RESOLUTION", 12, BLUE))
 	for resolution: Vector2i in [Vector2i(1280, 720), Vector2i(1280, 900), Vector2i(1920, 1080), Vector2i(2560, 1440), Vector2i(480, 1040)]:
 		_button("%d × %d" % [resolution.x, resolution.y], _set_resolution.bind(resolution))
-	body.add_child(_label("NOTIFICATIONS & INTERFACE SOUNDS", 12, CORAL))
+	body.add_child(_label("NOTIFICATIONS & INTERFACE SOUNDS", 12, BLUE))
 	var sound_slider := HSlider.new()
 	sound_slider.min_value = 0
 	sound_slider.max_value = 1
@@ -1187,7 +1318,7 @@ func _music_page() -> void:
 	for version: String in ["a", "b"]:
 		_button("Version " + version.to_upper(), music.select.bind(selected.id, version), versions).name = "MusicVersion" + version.to_upper()
 	if music.error != "": body.add_child(_label(music.error, 16, MUTED))
-	body.add_child(_label("IN MY LIBRARY", 13, CORAL))
+	body.add_child(_label("IN MY LIBRARY", 13, BLUE))
 	for entry: Dictionary in music.available():
 		var label: String = entry.title + (" / vocals" if entry.vocals else "")
 		_button(label, music.select.bind(entry.id, music.options().variant)).name = "Track_" + entry.id

@@ -44,8 +44,8 @@ func _draw() -> void:
 		for x in [38, 43, 47]:
 			block(x, 43 + x % 3, 2, 17, "677d73")
 	else:
-		block(0, 0, 160, 54, "666b87")
-		block(0, 37, 160, 19, "b68c91")
+		block(0, 0, 160, 54, "a5bac9" if kind == "city_morning" else "666b87")
+		block(0, 37, 160, 19, "d4bcaa" if kind == "city_morning" else "b68c91")
 		block(0, 53, 160, 37, "353e53")
 		block(122, 12, 10, 10, "efd5b2")
 		var heights := [30, 42, 22, 36, 51, 25, 38, 19, 33]

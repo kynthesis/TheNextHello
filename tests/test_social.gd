@@ -131,6 +131,20 @@ func _initialize() -> void:
 	check(phone.frame.find_child("ChatSidebar", true, false) == null, "mobile layout never adds desktop sidebars")
 	var tiles: Array = phone.body.find_children("*", "Button", true, false).filter(func(button: Node) -> bool: return button.get_script() == phone.AppIcon)
 	check(tiles.size() == 7, "exactly seven main sections")
+	check(phone.frame.find_child("SiteLogo", true, false).text == "facebook", "requested Facebook wordmark is displayed")
+	check(phone.frame.find_child("Notifications", true, false) != null, "Home has the classic Notifications footer")
+	var search: LineEdit = phone.body.find_child("FriendSearch", true, false)
+	search.text_submitted.emit("natsumi")
+	await settle()
+	check(phone.friend_profile == "Natsumi", "friend search opens an accepted friend's profile")
+	phone._open("Home")
+	await settle()
+	search = phone.body.find_child("FriendSearch", true, false)
+	search.text_submitted.emit("mizuki")
+	await settle()
+	check(phone.friend_profile == "" and phone.status == "No friends found for that name.", "friend search cannot reveal a future contact")
+	phone._open("Home")
+	await settle()
 	check(phone.frame.find_child("MusicLink", true, false) != null, "music is a header utility")
 	var music_node_before: String = phone.story.state.node
 	phone._show_music()
@@ -254,6 +268,7 @@ func _initialize() -> void:
 	check(phone.scroller.scroll_vertical > old_scroll, "mouse drag scrolls content")
 	phone._open("Settings")
 	await settle()
+	phone.scroller.scroll_vertical = 0
 	old_scroll = phone.scroller.scroll_vertical
 	await swipe(Vector2(220, 650), Vector2(220, 280), true)
 	check(phone.scroller.scroll_vertical > old_scroll, "touch drag scrolls mobile content")

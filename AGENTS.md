@@ -1,14 +1,14 @@
 # Project workflow
 
 - Build this game with Godot, focused on 2D and pixel art.
-- Present the game as a nostalgic mobile social app from Asahi's account, with our own identity inspired by early social-network UI and Emily is Away. Use a 414×896 portrait app canvas that scales uniformly; no desktop sidebars or copied Facebook branding.
+- Present the game from Asahi's account in a recreation of old Facebook mobile, following the creator's latest reference images and explicit request for its blue colors, wordmark, icons and chat style. Use a 414×896 portrait app canvas that scales uniformly; no desktop sidebars.
 - Set the story in Japan from October 2009 into spring 2010. Use distinct, natural 2009-style English chats; character birthdays must preserve the established opening ages. Read design/CHARACTERS.md and content/characters.json for voices and preferences.
 - Author dialogue in content/dialogue/*.dialogue using the bundled Dialogue Manager. Keep stable IDs and read-only predicates; plot effects belong in content/story.json. Regenerate through tools/build_content.py and run tools/check.ps1.
 - Use the humanizer skill when writing or revising story prose and character profiles.
 - Support one standard text size only; do not add text-size settings or alternate text-scale layouts.
 - Keep exactly seven main sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. Profile is Asahi's account with statuses/comments/shares; Friends opens friends' profiles and their photos; Photos contains Asahi's own photos; Events holds story objectives; Messages contains DMs; Requests handles new friends. Settings is a header utility. Games, Work, Notes and Calendar remain internal save/story keys, not extra main sections.
 - Asahi and Mizuki meet coincidentally through random game matchmaking, with no guild or mutual-friend introduction. Daichi appears only later.
-- Keep UI minimal so players can focus on the story: no decorative wallpaper, oversized clock, duplicate dock, or texture controls. Use our own teal, warm paper and muted coral theme and custom pixel icons; do not copy Facebook branding or its blue theme.
+- Keep UI minimal so players can focus on the story: no decorative wallpaper, oversized clock, duplicate dock, or texture controls. Use old Facebook blue gradients, pale gray-lilac backgrounds, beveled multicolor icons, red badges, white incoming/blue outgoing bubbles and compact feed actions. Interface sounds are synthesized recreations; do not describe them as extracted original Facebook audio.
 - Use Emily is Away as a reference for intimate chat, awkward pauses, ordinary details and relationships changing over time. Keep Asahi's account viewpoint, consequential choices and the selected reply's meaning intact.
 - Prefer CLI tools for all development and asset work. Use Swallowtail (`godot-mcp-go`) first for Godot editor inspection, automation, validation, and debugging; use the Godot CLI for imports, headless checks, and exports. Use Aseprite's batch CLI for supported sprite operations.
 - Use MCP, including `hi-godot/godot-ai`, only when CLI tools cannot fulfill the task. Explain the missing CLI capability when switching to MCP.

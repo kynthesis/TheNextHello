@@ -3,7 +3,7 @@
 **Game Design Document · v0.3 · 22 October 2026**  
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
 **Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
-**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account on an original fictional social network, presented as a nostalgic mobile social app with exactly seven sections. The latest mobile direction supersedes the earlier desktop site layout.
+**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account through a recreation of old Facebook mobile, presented as a nostalgic mobile social app with exactly seven sections. The latest mobile direction supersedes the earlier desktop site layout.
 **Engine:** Godot 4.7.2, selected by the creator's project instructions. A complete playable six-act first draft is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
@@ -279,11 +279,11 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** Minimal, story-focused social-network UI. Use our own deep teal navigation, warm paper background, muted coral accents, custom pixel icons and readable labels. Home has a compact section grid, a private photo shelf and Notifications. News Feed and private Messages are separate. Incoming chat bubbles align left; Asahi's pale-sage replies align right. No Facebook branding or blue theme. Pixel illustrations remain where they carry story context.
+**Visual identity:** Recreate the old Facebook mobile UI from the creator's reference images: blue gradient navigation and white wordmark, a pale gray-lilac background, beveled multicolor icons, red badges and readable labels. Home has a three-column section grid, accepted-friend search, an own-photo shelf and a fixed blue Notifications footer. News Feed and private Messages are separate. White incoming bubbles align left; Asahi's pale-blue replies align right, with small speech tails. Pixel illustrations remain where they carry story context.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
-**Composition and viewpoint:** Asahi's logged-in fictional mobile social app fills a 414×896 portrait canvas. Uniformly scale it to fit larger windows with plain dark teal margins. No desktop sidebars. Preserve one standard reading size, wrapping and scrolling. Exactly seven main menu sections, own-profile and friend-photo separation, Requests, and Events as the objective list follow the latest creator direction. Private content never automatically appears in News Feed.
+**Composition and viewpoint:** Asahi's logged-in fictional mobile social app fills a 414×896 portrait canvas. Uniformly scale it to fit larger windows with plain dark blue-gray margins. No desktop sidebars. Preserve one standard reading size, wrapping and scrolling. Exactly seven main menu sections, own-profile and friend-photo separation, Requests, and Events as the objective list follow the latest creator direction. Private content never automatically appears in News Feed.
 
 **Character presence:** Avatars, evolving profile photos, typing habits, personal photo compositions, and selected meeting illustrations carry personality. No constant full-screen talking portraits.
 
@@ -431,4 +431,4 @@ This is a whole-game proposal rather than an approved per-system specification. 
 
 Dialogue Manager v4.1.0 is pinned and bundled under its MIT license. Conversations are six native `.dialogue` files in `content/dialogue/`, editable in Godot's Dialogue tab. The custom mobile interface reads them through the addon's runtime. Stable `[ID:...]` keys preserve saved histories and outgoing drafts. Plot facts, response destinations and once-only consequences remain in `content/story.json`; cast details live in `content/characters.json`. Native predicates read state without changing it. Send and Later apply consequences. The build uses the upstream compiler, regenerates the review script/audit cache and replays all eight endings.
 
-The story opens on 23 October 2009 and continues into spring 2010. The fictional network retains the requested Sent/Read presentation. This is an original social app, not a claim about the exact features of Facebook in 2009. Public profiles show birthdays and selected interests; private motives stay in writer notes and character behavior. Zodiac signs are flavor details with no compatibility score.
+The story opens on 23 October 2009 and continues into spring 2010. The fictional network retains the requested Sent/Read presentation. The interface recreates the requested old Facebook references, while fictional Sent/Read and story interactions retain their established behavior. It uses no Facebook account or service. Interface sounds are synthesized recreations. Public profiles show birthdays and selected interests; private motives stay in writer notes and character behavior. Zodiac signs are flavor details with no compatibility score.

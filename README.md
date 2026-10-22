@@ -1,6 +1,6 @@
 # The Next Hello
 
-A branching story about long-distance love beginning in Japan in October 2009, told through Asahi's account on an original fictional social network. Meet by chance in Lantern Quest, share ordinary days, and make choices that change friendships, trust, travel and the future.
+A branching story about long-distance love beginning in Japan in October 2009, told through Asahi's account in a recreation of old Facebook mobile. Meet by chance in Lantern Quest, share ordinary days, and make choices that change friendships, trust, travel and the future.
 
 Godot 4.7.2. The complete playable first draft has six acts, three activity paths, 94 authored scenes and eight endings. Read the [story script](design/STORY-SCRIPT.md) or [implemented consequence map](design/STORY-CHOICES.md). About 11,400 words including replies and guidance; reader-tested pacing and final art remain pending.
 
@@ -12,7 +12,7 @@ Open `project.godot` and press **F5**, or run:
 godot --path .
 ```
 
-The game is a nostalgic mobile social app with exactly seven sections: **News Feed, Profile, Friends, Photos, Events, Messages and Requests**. It uses our original teal, warm paper and muted coral identity, custom pixel icons and a 414×896 portrait canvas that scales uniformly inside larger windows. Settings is a header utility; Games and Work are story contexts reached from Events or Messages, not extra menu sections. One standard reading size is supported.
+The game is a nostalgic mobile social app with exactly seven sections: **News Feed, Profile, Friends, Photos, Events, Messages and Requests**. It recreates the supplied old Facebook references with blue gradient bars, the white wordmark, multicolor icons, red badges, a pale background, classic speech bubbles and a 414×896 portrait canvas that scales uniformly inside larger windows. Settings is a header utility; Games and Work are story contexts reached from Events or Messages, not extra menu sections. One standard reading size is supported.
 
 Open **Events** for the current objective and use its Continue link to start. Profile supports local statuses; News Feed displays them alongside friends' updates. Comments and shared friend posts persist. Friends opens accepted profiles and their photos; Photos shows Asahi's own photos. Requests accepts or declines new friends after story encounters. Natsumi is already Asahi's friend. DMs remain available independently of accepting requests. Private work attachments stay in Messages.
 
