@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Next Hello"
-run/main_scene="res://scenes/phone.tscn"
+run/main_scene="res://scenes/social.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
@@ -21,10 +21,10 @@ MCPGameInspector="*res://addons/swallowtail/services/game_inspector.gd"
 
 [display]
 
-window/size/viewport_width=414
-window/size/viewport_height=896
-window/size/window_width_override=414
-window/size/window_height_override=896
+window/size/viewport_width=1120
+window/size/viewport_height=800
+window/size/window_width_override=1120
+window/size/window_height_override=800
 
 [editor_plugins]
 

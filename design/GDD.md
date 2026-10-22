@@ -3,26 +3,26 @@
 **Game Design Document · v0.3 · 22 October 2026**  
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
 **Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
-**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's personal phone with only seven essential, plainly named apps: Messages, Games, Work, Photos, Calendar, Notes, and Settings.
+**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account on an original fictional social network, with compact section-grid navigation, a feed and private chat. The 22 October social-network direction supersedes the earlier phone-only design.
 **Engine:** Godot 4.7.2, selected by the creator's project instructions. A complete playable six-act first draft is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
 
-**Primary objective — creator direction:** Convey a story about long-distance love. Let players experience how Asahi and Mizuki build closeness while living apart: looking forward to a message, sharing ordinary moments, missing each other's presence, negotiating needs, and deciding how to sustain the relationship. The phone and its apps serve that story. App completeness and browsing volume are not the measure of success.
+**Primary objective — creator direction:** Convey a story about long-distance love. Let players experience how Asahi and Mizuki build closeness while living apart: looking forward to a message, sharing ordinary moments, missing each other's presence, negotiating needs, and deciding how to sustain the relationship. The social network serves that story. Feature completeness and browsing volume are not the measure of success.
 
 **Experience priorities:** Build shared routines before testing them. Make absence meaningful through authored situations rather than mandatory real-time waiting. Give both people independent lives and understandable needs. Let choices change how they support each other, handle conflict, meet, and return to distance afterward. A meeting is a relationship milestone, not an automatic solution to distance.
 
 **Feature filter:** Each substantial feature must help express connection, absence, trust, independent responsibilities, or a shared future. Ordinary browsing can provide breathing room, but must not crowd out relationship scenes or become required busywork. Music can establish a shared ritual; social posts can reveal a day the other person could not share; work can create an honest availability conflict; photos can make an unfamiliar place feel familiar.
 
-**Presentation boundary:** Convey the story entirely through Asahi's personal phone, consistent with project direction. Photos, messages, call transcripts, shared media, travel updates, and later recollections can show life beyond the device. External room exploration, voiced messages, and new utility apps mentioned during brainstorming are not approved additions.
+**Presentation boundary:** Convey the story through Asahi's account on the fictional social network hello, consistent with current creator direction. Photos, messages, call transcripts, shared media, travel updates, and later recollections can show life beyond the device. External room exploration, voiced messages, and new utility apps mentioned during brainstorming are not approved additions.
 
-> Fall in love one message at a time in a pixel art phone simulator. Meet through an online game, share photos, and navigate love, friendship, and distance through connected apps. Your choices shape the relationship and what happens when it's time to meet in person.
+> Fall in love one message at a time in a pixel art social-network story. Meet through an online game, share photos, and navigate love, friendship, and distance through connected sections. Your choices shape the relationship and what happens when it's time to meet in person.
 
 **Player fantasy:** Someone who was once a username becomes the person you want to tell about your day. Build that connection through small acts, discover who each of you is beyond the screen, and choose what place the relationship can have in your life.
 
 **Central dramatic question:** Can the intimacy you build online become a relationship that works in everyday life?
 
-**Genres:** Simulation, Indie. The simulation is a fictional phone and social life; narrative choices supply the main gameplay.
+**Genres:** Simulation, Indie. The simulation is a fictional social network and social life; narrative choices supply the main gameplay.
 
 **Steam tags supplied by the creator:** Romance, Choices Matter, Interactive Fiction, Story Rich, Pixel Graphics, Multiple Endings, Dating Sim, Emotional, Text-Based, Conversation, Singleplayer, Point & Click, Atmospheric, 2D.
 
@@ -35,7 +35,7 @@
 | Pillar | What the player experiences | Design test |
 |---|---|---|
 | Intimacy through ordinary things | A bad lunch photo matters because somebody remembers it later. | Each chapter contains a small detail that returns with new emotional meaning. |
-| A connected phone | Conversations, photos, game events, and plans refer to the same shared history. | Every chapter contains at least one meaningful cross-app consequence. |
+| A connected social world | Conversations, photos, game events, and plans refer to the same shared history. | Every chapter contains at least one meaningful cross-app consequence. |
 | Choices change events | Decisions alter what happens, who is involved, when the couple meets, and what can happen afterward. | Every major decision has an immediate branch and at least two later event or action consequences; changed dialogue alone does not qualify. |
 | Distance as lived experience | Conflicting routines and incomplete context complicate affection. | Friction arises from credible circumstances and character needs. |
 | A life large enough for love | Friendship, independence, and romance all have room to matter. | Setting a boundary can strengthen the relationship; friendship has a complete ending. |
@@ -44,15 +44,15 @@
 
 **Tone:** Tender, funny, sometimes awkward, occasionally painful. People can make mistakes and repair them. Avoid constant poetic dialogue: a character's jokes, abbreviations, interruptions, and mundane observations make the vulnerable messages land.
 
-**Conversation reference — creator direction:** Use [Emily is Away](https://store.steampowered.com/app/417860/Emily_is_Away/) as a reference for intimate chat, uncertainty and relationships changing between conversations. Keep Asahi's phone as the setting. Let short replies, uneven typing, ordinary details and callbacks carry emotion. Mizuki tends to type casually in lowercase; Asahi uses punctuation and dry jokes. Friends and work retain their own voices. Vulnerable messages should sound harder to send than everyday banter. Avoid giving every character a polished explanation of the scene's lesson. The player sees the complete reply before choosing; hesitation never changes its meaning or forces a different outcome. All eight endings remain consequential authored outcomes.
+**Conversation reference — creator direction:** Use [Emily is Away](https://store.steampowered.com/app/417860/Emily_is_Away/) as a reference for intimate chat, uncertainty and relationships changing between conversations. Keep Asahi's account as the viewpoint. Let short replies, uneven typing, ordinary details and callbacks carry emotion. Mizuki tends to type casually in lowercase; Asahi uses punctuation and dry jokes. Friends and work retain their own voices. Vulnerable messages should sound harder to send than everyday banter. Avoid giving every character a polished explanation of the scene's lesson. The player sees the complete reply before choosing; hesitation never changes its meaning or forces a different outcome. All eight endings remain consequential authored outcomes.
 
 ## 3. Scope and boundaries
 
-The player uses a fictional phone. All contacts and online-game players are authored characters. The online game is simulated inside this singleplayer experience and requires no account or connection.
+The player uses a fictional social network. All contacts and online-game players are authored characters. The online game is simulated inside this singleplayer experience and requires no account or connection.
 
 ### Included in the proposed release
 
-- Seven essential app surfaces: Messages, Games, Work, Photos, Calendar, Notes, and Settings. See [Phone apps and immersion](PHONE-APPS.md).
+- Familiar sections: News Feed, Profile, Friends, Messages, Games, Work, Photos, Events, Notes and Settings. See [Social UI](SOCIAL-UI.md).
 - One central relationship with three distinct story paths and a complete friendship alternative.
 - Major choices that open and close authored events before the ending, with lasting consequences.
 - Three supporting characters with individual needs and resolutions.
@@ -62,15 +62,15 @@ The player uses a fictional phone. All contacts and online-game players are auth
 
 ### Outside the first release
 
-Multiple romance routes, real multiplayer, freeform AI chat, user photo uploads, procedural story generation, real social network integration, voice acting, an explorable city, and a full RPG within the phone. There are no daily login requirements or real-time appointments.
+Multiple romance routes, real multiplayer, freeform AI chat, user photo uploads, procedural story generation, real social network integration, voice acting, an explorable city, and a full RPG within the social network. There are no daily login requirements or real-time appointments.
 
-**Cut order if scope grows:** Cosmetic phone customization → optional public posts → additional game encounter variations → extra ambient conversations. Preserve the central relationship, repair opportunities, cross-app consequences, and complete endings.
+**Cut order if scope grows:** Cosmetic account customization → optional public posts → additional game encounter variations → extra ambient conversations. Preserve the central relationship, repair opportunities, cross-app consequences, and complete endings.
 
 ## 4. Player identity and cast
 
 The protagonist is male and the love interest is female, as directed by the creator. All principal characters are adults. The central names and ages are creator-confirmed: Tachibana Asahi, 29, and Yukimura Mizuki, 23. Other cast details and city proposals remain editable.
 
-**Setting proposal:** Contemporary Japan. Asahi lives in Tokyo and Mizuki in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through the phone. Keep cultural details specific to each character rather than relying on stereotypes.
+**Setting proposal:** Contemporary Japan. Asahi lives in Tokyo and Mizuki in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through messages and photos. Keep cultural details specific to each character rather than relying on stereotypes.
 
 **Central couple:** Tachibana Asahi and Yukimura Mizuki, who first know each other through their game usernames. Their first meeting is purely coincidental: random matchmaking places them in the same Lantern Quest session. No guild or mutual friend introduces them. Daichi only appears later as a player joining an open party.
 
@@ -90,7 +90,7 @@ The protagonist is male and the love interest is female, as directed by the crea
 
 **Notice → explore context → choose an action → see a response → carry a memory forward.**
 
-1. Open the phone at an authored date and time; see two or three available threads or activities.
+1. Open the site at an authored date and time; see two or three available threads or activities.
 2. Read messages and inspect relevant photos, posts, game invitations, or plans.
 3. Choose a reply, select something to share, join an activity, or state a boundary.
 4. Receive an immediate reaction; a significant choice also records a future consequence.
@@ -106,18 +106,18 @@ The protagonist is male and the love interest is female, as directed by the crea
 
 No currency, grind, affection farming, or mandatory collectible hunt. Optional interactions add perspective and personalized callbacks. Required context is always available on the main path.
 
-## 6. The phone and its connected apps
+## 6. The social network and connected sections
 
-The launcher contains only seven essential apps with familiar names. Lantern Quest remains the game title inside Games. Standalone social feeds, music, video, short-video and book apps are outside the current scope. Relevant shared media or interests may appear in authored Messages scenes without adding a separate browsing app. See [Phone apps and immersion](PHONE-APPS.md).
+Home uses a compact section grid and private photo shelf, inspired by the supplied early social-network references. News Feed, Profile and Friends complement Messages, Games, Work, Photos, Events, Notes and Settings. The identity and teal/paper/coral palette are original. Lantern Quest stays inside Games. See [Social UI](SOCIAL-UI.md).
 
-| App | Player actions | Purpose | Example connection |
+| Section | Player actions | Purpose | Example connection |
 |---|---|---|---|
 | **Messages** | Direct/group conversations, call transcripts, drafts and explicit replies. | Main narrative and relationship expression. | A game-night mistake becomes an inside joke in a direct message. |
 | **Games** | Open Lantern Quest, read party chat, choose cooperative actions. | Establish closeness through doing something together. | A screenshot becomes a memory in Photos. |
 | **Work** | Team messages, handoffs, leave and availability choices. | Asahi's independent responsibilities. | A work agreement changes feasible visit dates. |
 | **Photos** | Inspect images and descriptions, revisit shared memories. | Make observing and remembering personal. | A private photo provides context for a reply. |
-| **Calendar** | Review commitments, availability and travel plans. | Make practical agreements tangible. | A changed commitment is reflected in Messages. |
-| **Notes** | Read first-person reminders, chapters, next-action links and completed entries. | Keep guidance inside Asahi's personal device. | An unsent reply stays on his reminder list. |
+| **Events** | Review commitments, availability and travel plans. | Make practical agreements tangible. | A changed commitment is reflected in Messages. |
+| **Notes** | Read first-person reminders, chapters, next-action links and completed entries. | Keep guidance inside Asahi's private account. | An unsent reply stays on his reminder list. |
 | **Settings** | Account, display, sound, reduced motion and saves. | Access essential preferences and recovery. | Restore an unsent draft without advancing time. |
 
 **Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Photos shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
@@ -203,7 +203,7 @@ The story spans roughly four fictional months across six narrative acts. The num
 
 Each day contains one required anchor scene and up to two optional scenes. Unread optional content remains available until the next explicit time jump. The day-end panel names anything that will be left behind. Previously delivered messages and images remain in history afterward.
 
-Time advances only when the player chooses **Later**, **Go to sleep**, or a clearly labeled chapter transition. The phone clock is fictional; it never reads the player's wall clock for narrative deadlines.
+Time advances only when the player chooses **Later**, **Go to sleep**, or a clearly labeled chapter transition. The site date is fictional; it never reads the player's wall clock for narrative deadlines.
 
 **Overlapping plans:** A conflict only occurs when the script presents two events as overlapping and the player explicitly accepts incompatible plans or chooses one. Merely reading one conversation before another cannot break a promise. The Calendar offers attend, decline, or renegotiate where authored; the consequence is shown in dialogue.
 
@@ -246,7 +246,7 @@ No route is the correct way to love Mizuki. Good communication can avoid a preve
 
 ### The in-person meeting
 
-The meeting is playable and resolved on screen. The meeting can occur in act four or act six. Calendar records the agreed place; Messages handles arrival; the phone then opens a short illustrated scene with dialogue choices for the first greeting and conversation. A new shared photo returns the player to Photos afterward.
+The meeting is playable and resolved on screen. The meeting can occur in act four or act six. Calendar records the agreed place; Messages handles arrival; the site then opens a short illustrated scene with dialogue choices for the first greeting and conversation. A new shared photo returns the player to Photos afterward.
 
 Use a small set of bespoke pixel illustrations rather than a navigable environment. The first greeting can be a joke, an honest admission of nerves, or a quiet hello. A touch or hug requires an offered choice and reciprocal acceptance. The scene acknowledges that in-person chemistry may differ without making either person deceptive.
 
@@ -254,7 +254,7 @@ If the pair postpones or separates, the final act uses a fully authored conversa
 
 ## 12. Endings and resolution rules
 
-Eight planned endings cover good, bad, neutral, open and secret outcomes. The creator requested this wider range; the names and exact eligibility below are working proposals. Categories are internal authoring labels, not a visible score or judgment of the player. Each ending needs its own final conversation, a photo or phone-state change, and an epilogue. A changed closing caption alone is not another ending.
+Eight planned endings cover good, bad, neutral, open and secret outcomes. The creator requested this wider range; the names and exact eligibility below are working proposals. Categories are internal authoring labels, not a visible score or judgment of the player. Each ending needs its own final conversation, a photo or account-state change, and an epilogue. A changed closing caption alone is not another ending.
 
 | Category | Ending | Eligibility and resolution |
 |---|---|---|
@@ -277,11 +277,11 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** Minimal, story-focused phone UI. Use a plain warm background, midnight-blue text, a restrained coral accent, familiar pixel icons and readable labels. Home contains seven apps once each, a small date and the status-bar clock. No decorative wallpaper, oversized clock, duplicate app dock, textured surfaces or external title/instructions. Conversations use simple cream/peach panels and clear speakers; Notes keeps only the useful chapter, reminder and history information. Pixel illustrations remain where they carry story context, such as shared photos and the game itself.
+**Visual identity:** Minimal, story-focused social-network UI. Use our own deep teal navigation, warm paper background, muted coral accents, custom pixel icons and readable labels. Home has a compact section grid, a private photo shelf and Notifications. News Feed and private Messages are separate. Incoming chat bubbles align left; Asahi's pale-sage replies align right. No Facebook branding or blue theme. Pixel illustrations remain where they carry story context.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
-**Composition and viewpoint:** The entire game is presented through Asahi's personal phone. No title, tagline, instructions or other UI sits beside the device. Home shows his local clock and Tokyo location, not a promotional view of the relationship. Notes uses first-person reminders; Settings identifies only his account; Messages identifies a contact rather than presenting a character biography. The default window is 414×896 and the phone fills it. The device has a fixed 414:896 reference aspect ratio. Larger or wider windows center it in plain dark margins; it scales uniformly to fit and never widens, stretches, or crops. One standard text size is supported; content wraps and scrolls inside the same device proportions. Mobile safe-area handling must preserve that invariant.
+**Composition and viewpoint:** The entire game is Asahi's logged-in fictional social network. No device shell, OS battery/signal indicators or home gesture bar. Default window is 1120×800. The site fills the viewport; at 1060 pixels it shows navigation, content and a chat sidebar; at 720 pixels it shows navigation and content; narrow windows use a top section strip and one content column. Wrapping and scrolling preserve one standard reading size. Profile and Notes use Asahi's viewpoint. Private content never automatically appears in the public feed.
 
 **Character presence:** Avatars, evolving profile photos, typing habits, personal photo compositions, and selected meeting illustrations carry personality. No constant full-screen talking portraits.
 
@@ -293,7 +293,7 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 **Provisional asset budget:** Seven app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, six music cues, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos.
 
-The earlier standalone social/music/video/book app expansion is deferred. Keep content focused on the existing relationship scenes and revise provisional illustration/audio counts after the branching prototype; see PHONE-APPS.md for the essential app scope.
+The earlier standalone social/music/video/book app expansion is deferred. Keep content focused on the existing relationship scenes and revise provisional illustration/audio counts after the branching prototype; see SOCIAL-UI.md for the essential app scope.
 
 This establishes direction for a later art bible; it does not approve an asset-production style or commission final art.
 
@@ -301,7 +301,7 @@ This establishes direction for a later art bible; it does not approve an asset-p
 
 ### Screen flow
 
-Title → New Game / Continue / Load / Settings → Phone home → App → Thread or item → Optional reply draft → Send → Response. Back returns to the previous surface and restores its scroll position. Settings and save menus pause presentation.
+Social Home → Section → Thread or item → Optional reply draft → Send → Response. Home returns to the section grid; each section restores its scroll position. Settings and save menus pause presentation.
 
 **Controls:** On PC, mouse for selection and scrolling; keyboard focus traversal and arrows for navigation; Enter/Space to activate; Escape to close the top overlay or go back. On iOS and Android, tap to select, swipe to scroll, and a visible Back control; platform back actions close the top surface before leaving the game. No hover-only interaction or swipe-only essential action. Touch targets use platform-appropriate accessible sizing, with an initial design target of at least 48 logical units and separated adjacent actions. Selecting a reply never sends it with the same input event. Mobile home/background interruptions pause presentation without making story choices. Gamepad support is a separate scope decision; layout should permit it without assuming launch support.
 
@@ -401,7 +401,7 @@ These are release acceptance targets. The complete first draft has automated nar
 | Branches exceed writing capacity | Limit the cast and three central paths; reuse assets and cap optional content before cutting event divergence. | Choice ledger and revised scene/word budget remain feasible after the branching slice. |
 | Characters become reward machines | Preserve refusals, independent obligations, and meaningful friendship. | Readers recognize Mizuki's needs and feel able to disagree. |
 | Simulated delay becomes tedious | Make typing and waiting skippable; use explicit time jumps. | Replays retain emotional pacing without forced pauses. |
-| Phone art makes text too small | Separate text rendering from pixel art; reflow and scroll within the fixed phone aspect ratio. | Layout checks pass at the standard text size without stretching the device. |
+| Dense UI makes text too small | Separate text rendering from pixel art; reflow into responsive columns and scroll. | Layout checks pass at the standard reading size from narrow to ultrawide windows. |
 | Meeting feels like a teaser | Budget its illustrations and final conversation from the start. | Each ending resolves the central question on screen. |
 
 ## 19. Decisions to revisit with the creator
@@ -414,7 +414,7 @@ Creator direction establishes a Japanese game, a male protagonist, a female love
 | Identities and setting | Male protagonist Tachibana Asahi and female love interest Yukimura Mizuki; Tokyo–Hokkaido setting, with Sapporo as the proposed city and Japanese supporting cast. | Names and ages confirmed; review cities and biographies before final character art. |
 | Tone and content | Hopeful adult romance, emotional friction, non-explicit intimacy. | Before detailed script and content-rating planning. |
 | Length and scale | Six acts, three central paths, 3–4 hours per run, eight endings; 94-scene first draft; release length remains unmeasured. | Reassess after first playable reading times. |
-| Meeting presentation | Phone-led arrival followed by illustrated dialogue vignettes. | Prototype before commissioning final illustrations. |
+| Meeting presentation | Message-led arrival followed by illustrated dialogue vignettes. | Prototype before commissioning final illustrations. |
 | Platform and technology | PC/Steam, iOS, and Android confirmed as targets; Godot 4.7.2 selected. OS minimums and release order undecided. | Validate save lifecycle, touch UI, and builds during prototype before production implementation. |
 | Input and access | Mouse/keyboard on PC and touch on mobile; investigate screen-reader feasibility. | During the first playable. |
 | Commercial details | Premium release; price, launch date, languages, mobile purchase model, and platform release order unset. | Separate production and release planning. |

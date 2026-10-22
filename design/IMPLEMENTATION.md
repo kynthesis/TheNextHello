@@ -14,16 +14,16 @@ Updated 22 October 2026. Godot 4.7.2. The full plot is now playable; this is an 
 
 ## Messaging presentation
 
-- Incoming messages display an animated typing indicator, naming the upcoming speaker, then arrive one at a time. Longer replies take a little longer (0.65–1.8 seconds); receipts and phone notes use shorter delays. Outgoing committed replies display Sent followed by Read. These are simulated presentation states, not real service receipts and never a relationship score.
+- Incoming messages display an animated typing indicator, naming the upcoming speaker, then arrive one at a time. Longer replies take a little longer (0.65–1.8 seconds); receipts and saved notes use shorter delays. Outgoing committed replies display Sent followed by Read. These are simulated presentation states, not real service receipts and never a relationship score.
 - A selected reply types into Asahi's unsent composer character by character, with short pauses at punctuation. Send remains separate and is disabled until composition completes or the player chooses Finish typing. Complete choice wording is always visible before selection and stays unchanged by the animation.
 - The Emily is Away reference informs an initial voice pass on the chance encounter, ordinary calls, visit planning/arrival/return, conflict, space, confession and first date. Short messages and mundane callbacks carry more of the emotion. The rest of the manuscript still needs the same editorial attention and reader feedback.
 - Show messages now, Instant messages and Reduce Motion skip presentation waits without selecting or sending anything. Closing or changing apps never sends a draft.
 - Delivered-message cursor and Sent/Read states are saved. Older saves without presentation metadata load as already delivered. A saved partial composition restores its complete unsent text rather than resuming a fragile character tween. Suspension pauses timers/tweens; returning resumes presentation without advancing story time.
 - Messages offers separate contact/group threads. Games and Work keep their own histories. Thread navigation cannot advance the story or expose another contact's conversation inside the selected thread.
 
-## Phone and saving
+## Social network and saving
 
-Only Asahi's phone appears. It fills the default 414×896 window and stays proportionate in larger windows. The seven apps are Messages, Games, Work, Photos, Calendar, Notes and Settings. One standard text size, minimal flat panels, familiar pixel icons, mouse/touch scrolling and visible keyboard focus remain. No decorative wallpaper, oversized clock, duplicate dock or texture controls.
+The game now uses Asahi's account on the original fictional social network **hello**, with deep teal, warm paper and muted coral. Home has a compact section grid and private photo shelf; News Feed, Profile and Friends are additional Home views. Messages uses left/right chat bubbles. The responsive site fills its window; navigation moves to a top strip on narrow windows. The phone shell, OS status bar, gesture shortcuts and fixed 414:896 aspect are removed. See [SOCIAL-UI.md](SOCIAL-UI.md).
 
 Local JSON saves retain story position, unsent drafts, facts, consumed event IDs, histories, notifications, read state, scroll and presentation state. Checked writes and previous-valid backups remain. Opening-era app and cast names migrate without restarting the story; existing terminal opening saves now have a continuation. Legacy optional-library fields remain harmless saved data with no active app or playback UI.
 
@@ -31,6 +31,6 @@ Local JSON saves retain story position, unsent drafts, facts, consumed event IDs
 
 `tools/validate_content.py` exhaustively explores decision-relevant state and verifies every node, valid conditional choices, ending guards and all eight endings on each of the three activity paths. It emits compact witness paths for Godot. `tests/test_story.gd` replays those paths through the real runtime and checks saves, recovery, legacy migration, presentation isolation and explicit date transitions.
 
-`tests/test_phone.gd` renders every app and every ending, checks separate contact histories, actual mouse/touch gestures, drafts, typing dots, character composition, Sent/Read display, animation skipping, unread badges, sounds and fixed phone proportions from portrait through ultrawide. Screenshots are written to ignored `.local/`. `tools/check.ps1` isolates QA saves and settings. Swallowtail performs cold script checks; Godot CLI performs imports and tests.
+`tests/test_social.gd` renders every section and every ending, checks separate contact histories, actual mouse/touch gestures, drafts, typing dots, character composition, Sent/Read display, animation skipping, unread badges, sounds and responsive site layouts from portrait through ultrawide. Screenshots are written to ignored `.local/`. `tools/check.ps1` isolates QA saves and settings. Swallowtail performs cold script checks; Godot CLI performs imports and tests.
 
 Automated coverage does not certify emotional pacing, cultural nuance or usability. First-reader feedback, final art, localization, expanded save slots/replay, screen readers, device safe areas and platform exports remain pending. The earlier 45,000–60,000-word release estimate is not presented as delivered by this first draft.

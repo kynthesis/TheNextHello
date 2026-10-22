@@ -1,32 +1,24 @@
 # The Next Hello
 
-Fall in love one message at a time in a pixel art phone simulator. Meet through an online game, share photos, and navigate love, friendship, and distance through connected apps. Your choices shape the relationship and what happens when it's time to meet in person.
+A branching story about long-distance love, told through Asahi's account on an original fictional social network. Meet by chance in Lantern Quest, share ordinary days, and make choices that change friendships, trust, travel and the future.
 
-The game now includes a complete playable branching first draft in Godot 4.7.2: six acts, three activity paths, 94 authored scenes and eight endings. Asahi and Mizuki meet by chance in a randomly matched Lantern Quest session. Commitments, privacy, work, meeting timing, repair and relationship choices change later scenes and available actions.
-
-Read the [complete story script](design/STORY-SCRIPT.md), or see the [implemented consequence map](design/STORY-CHOICES.md). This is a roughly 12,800-word first draft including replies and guidance, with temporary art. Reader-tested pacing and the earlier release-length target remain unverified.
-
-The screen contains only Asahi's personal phone. It opens in a 414×896 portrait window; wider windows leave plain dark margins around the device. Home shows his Tokyo clock, Notes contains his personal reminders, and Settings holds his account.
+Godot 4.7.2. The complete playable first draft has six acts, three activity paths, 94 authored scenes and eight endings. Read the [story script](design/STORY-SCRIPT.md) or [implemented consequence map](design/STORY-CHOICES.md). About 12,800 words including replies and guidance; reader-tested pacing and final art remain pending.
 
 ## Play
 
-Open `project.godot` in Godot and press **F6** with `scenes/phone.tscn` open, or **F5** to run the project. From this directory:
+Open `project.godot` and press **F5**, or run:
 
 ```powershell
 godot --path .
 ```
 
-Open **Notes** for your current chapter, objective, and completed tasks. Press **Continue in Games** to start the opening. Notes always links to the app where your next action takes place, and updates from your saved story progress without revealing unchosen paths. Chapter and objective guidance stays inside Notes rather than a home-screen mission panel.
+Home uses a compact section grid, private photo shelf and Notifications entry. News Feed, Profile, Friends, Photos, Events and Messages have familiar names. Games holds Lantern Quest; Work, Notes and Settings support the story. The original visual theme uses deep teal, warm paper, muted coral and custom pixel icons. There is no phone shell, battery bar or gesture indicator. The site fills the window and adapts between one, two and three columns, starting at 1120×800. One standard text size is supported.
 
-Red numbered bubbles on app icons show unseen updates. New objectives flag Notes, new photos flag Photos, and changed plans flag Calendar. Opening an app clears only its own bubble; read status persists across saves. Updates already displayed in the active app do not remain marked as new.
+Use **Continue in Games** to begin. **Notes** always links to the next story action. News Feed is an optional set of authored updates; private chat and client drafts never appear there. Contacts unlock through the current run. **Like** saves a reaction; **Comment** opens an authored comment without advancing the story.
 
-Select a reply to watch Asahi compose it. Use **Finish typing** to reveal it immediately, then press **Send reply** to commit it. Incoming messages show an animated typing indicator; outgoing replies progress from **Sent** to **Read**. **Show messages now**, **Instant messages**, and Reduce Motion skip presentation delays without choosing a reply. Use **Conversations** in Messages to switch contacts. **Later** explicitly advances story time. Tap app icons to open them. The seven essential apps share one Home page. Drag vertically to scroll, swipe up from the bottom to go Home, and swipe down from the top for Notification Center. The home indicator and status-bar button provide click/keyboard alternatives; Escape returns Home or closes notifications. Tab and Enter navigate controls.
+Select a complete reply to watch Asahi compose it. **Finish typing** skips composition; **Send reply** commits it. Incoming messages show typing dots; outgoing replies show Sent then Read. **Show messages now**, Instant messages and Reduce Motion skip presentation waits. **Later** explicitly advances fictional time. Section links, mouse/touch scrolling, Tab/Enter and Escape support navigation. Escape returns Home or closes notifications.
 
-The phone uses a minimal warm palette, clear labels and simple pixel icons. Home contains seven apps once each, with no decorative wallpaper, large clock, duplicate dock or paper texture controls. The device keeps its **414:896 aspect ratio** with one standard text size. Settings offers window resolution presets, interface sound volume, Instant messages, Reduce Motion, manual saving and a new-story confirmation. Story events create saved, tappable notifications and unread badges; ordinary navigation never advances the story.
-
-The essential apps are **Messages, Games, Work, Photos, Calendar, Notes, and Settings**. Lantern Quest lives inside Games. The separate social, music, video and book apps are removed. Photos and Calendar reflect story choices. Favorites, drafts and story state persist locally with a recoverable save backup. Older app names migrate automatically, and saves last open in a removed app return to Home. No external services are used.
-
-The complete plot and all eight ending scenes are playable. Final illustrations, localization, ten manual slots, rotating autosaves, release accessibility certification, human playtesting and platform exports remain future work. See [implementation notes](design/IMPLEMENTATION.md).
+Existing phone-era story saves retain position, choices, drafts, private histories, read states, reactions and commitments. The internal `Calendar` save key is displayed as Events. Only stable narrative keys are stored; opening a section never sends a draft or changes story facts. Save writes retain a recoverable previous version. No external social services or accounts are used.
 
 ## Validate
 
@@ -34,13 +26,6 @@ The complete plot and all eight ending scenes are playable. Final illustrations,
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/check.ps1
 ```
 
-The checks cover all 131 flow nodes and all eight endings from each activity path, drafts, route divergence, save recovery and cast migration, app rendering, mouse/touch gestures, notifications, sounds and fixed phone proportions from portrait to ultrawide. The UI check briefly opens a Godot window and writes screenshots into ignored `.local/`. Validation uses isolated saves, separate from play sessions.
+Checks cover all 131 flow nodes and eight endings on every activity path, conditional choices, save recovery, migration, typing, receipts, section navigation, feed privacy, notifications and responsive layouts from narrow windows through ultrawide. The UI suite opens a Godot window and saves screenshots to ignored `.local/`. QA saves are isolated from play sessions.
 
-- [Game Design Document](design/GDD.md) — concept, core loop, phone apps, characters, narrative arc, relationship rules, endings, presentation, scope, and validation plan.
-
-Creator direction: a Japanese game with a male protagonist and a female love interest living in Hokkaido. The confirmed leads are Tachibana Asahi, 29, and Yukimura Mizuki, 23. The first draft places them in Tokyo and Sapporo, Hokkaido; city and supporting-story details remain editable.
-
-- [Branching story and choice ledger](design/BRANCHING-STORY.md) — three paths and eight major decisions that change events.
-- [Phone apps and immersion](design/PHONE-APPS.md) — the seven essential apps and their story connections.
-
-Target platforms: PC/Steam, iOS, and Android. The central names and ages, consequential branching, fixed phone proportions and expanded phone are creator requirements; the earlier iOS/liquid-glass theme restriction has been lifted, and the current stationery style is the chosen visual direction; paths, content budgets, supporting identities and app branding remain proposals.
+See the [GDD](design/GDD.md), [social UI spec](design/SOCIAL-UI.md), and [implementation notes](design/IMPLEMENTATION.md). The principal characters are Tachibana Asahi, 29, in Tokyo and Yukimura Mizuki, 23, in Sapporo. Final illustrations, localization, expanded save slots/replay, screen-reader support, human playtesting and platform exports remain future work. PC/Steam, iOS and Android are target platforms; exports have not been certified.

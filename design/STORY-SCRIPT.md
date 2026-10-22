@@ -2,7 +2,7 @@
 
 Six acts, three activity paths, eight endings. This is the full playable first draft, with every authored line and choice; production pacing and final art remain to be reviewed.
 
-Read one branch at a time. Conditions below are authoring notes and never appear as scores in the phone. All scenes are presented as phone messages, transcripts, photographs or saved notes.
+Read one branch at a time. Conditions below are authoring notes and never appear as scores in the interface. All scenes are presented as private messages, transcripts, photographs or saved notes.
 
 ## Act 1: A Chance Encounter
 
@@ -140,7 +140,7 @@ ID: `guild_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 
 **mizuki:** Next Saturday, same garden? I'd like a little time with just you after.
 
-**system:** The conversation stays in your phone. There is another evening ahead, when you choose to continue.
+**system:** The conversation stays in your message history. There is another evening ahead, when you choose to continue.
 
 **Later:** `party_evening`.
 
@@ -183,7 +183,7 @@ ID: `private_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 
 **mizuki:** Can I show you the finished illustration? And I found a short story we could read together.
 
-**system:** The conversation stays in your phone. There is another evening ahead, when you choose to continue.
+**system:** The conversation stays in your message history. There is another evening ahead, when you choose to continue.
 
 **Later:** `illustration_evening`.
 
@@ -232,7 +232,7 @@ ID: `lives_callback` · TUE  27 OCT     20:16 · Calendar / Mizuki
 
 **system:** You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise.
 
-**system:** The conversation stays in your phone. There is another evening ahead, when you choose to continue.
+**system:** The conversation stays in your message history. There is another evening ahead, when you choose to continue.
 
 **Later:** `sister_intro`.
 

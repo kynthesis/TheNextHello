@@ -39,7 +39,7 @@ def extend(nodes, strings, node, string):
         n['chapter_title'] = string(f'chapter.{n["chapter"]}.title', acts[n['chapter']])
     for old, target in [('guild_callback', 'party_evening'), ('private_callback', 'illustration_evening'), ('lives_callback', 'sister_intro')]:
         nodes[old]['later'] = target
-        strings[f'{old}.line.2'] = 'The conversation stays in your phone. There is another evening ahead, when you choose to continue.'
+        strings[f'{old}.line.2'] = 'The conversation stays in your message history. There is another evening ahead, when you choose to continue.'
     for key in ['night']: nodes[key]['decision'] = 'D01'
 
     scene('party_evening', 'The smallest party', 2, '2026-10-31T19:40', 'Lantern Quest', '''

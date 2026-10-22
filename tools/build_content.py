@@ -173,7 +173,7 @@ for key, data in list(nodes.items()):
         if any(datetime.strptime('2026 ' + nodes[target]['timestamp'], '%Y %a  %d %b     %H:%M').strftime('%m-%d') != today for target in destinations):
             gate = f'wait__{key}__{i}'
             node(gate, 'A reply, then a little time', data['app'], data['day'],
-                 [('system', 'Reply saved. The next scene takes place later. You can browse your phone before choosing Later.')], later=choice['to'])
+                 [('system', 'Reply saved. The next scene takes place later. You can browse the site before choosing Later.')], later=choice['to'])
             nodes[gate].update(chapter=data['chapter'], chapter_title=data['chapter_title'],
                                thread=data['thread'], timestamp=data['timestamp'], interlude=True,
                                objective=string(f'{gate}.objective', 'I sent my reply. I can keep browsing before continuing to the next scene.'))
@@ -196,7 +196,7 @@ out.write_text(json.dumps({'strings': strings, 'nodes': nodes, 'photos': photos}
 # A reviewable, complete manuscript generated from the actual playable graph.
 book = ['# The Next Hello: complete branching first draft', '',
         'Six acts, three activity paths, eight endings. This is the full playable first draft, with every authored line and choice; production pacing and final art remain to be reviewed.', '',
-        'Read one branch at a time. Conditions below are authoring notes and never appear as scores in the phone. All scenes are presented as phone messages, transcripts, photographs or saved notes.', '']
+        'Read one branch at a time. Conditions below are authoring notes and never appear as scores in the interface. All scenes are presented as private messages, transcripts, photographs or saved notes.', '']
 for act in range(1, 7):
     book += [f'## Act {act}: {acts[act]}', '']
     for key, data in nodes.items():

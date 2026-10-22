@@ -7,7 +7,8 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 
 func block(x: float, y: float, w: float, h: float, color: String) -> void:
-	draw_rect(Rect2(x, y, w, h), Color(color))
+	var bounds := Rect2(0, 0, 160, 90)
+	draw_rect(Rect2(x, y, w, h).intersection(bounds), Color(color))
 
 func _draw() -> void:
 	draw_set_transform(Vector2.ZERO, 0, size / Vector2(160, 90))
