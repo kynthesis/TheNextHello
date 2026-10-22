@@ -14,13 +14,33 @@ func check(condition: bool, label: String) -> void:
 
 func _initialize() -> void:
 	var model := Story.new()
-	walk(model)
+	full_paths()
 	check(visited.size() == model.content.nodes.size(), "all authored nodes reachable")
 	check(model.state.node == "invite", "exploration does not mutate original")
 	check(model.text("invite.line.0").contains("Random matchmaking"), "opening establishes a chance encounter")
 	for entry: Dictionary in model.state.log:
 		check(entry.speaker != "mossbyte", "Daichi does not introduce the couple")
 	check(not model.send(), "no send without draft")
+	var delivery := Story.new()
+	var original_facts: Dictionary = delivery.state.facts.duplicate(true)
+	delivery.advance_delivery()
+	check(delivery.state.node == "invite" and delivery.state.facts == original_facts, "typing/delivery cannot advance narrative or facts")
+	delivery.reveal_all()
+	check(not delivery.delivery_pending(), "instant reveal completes only presentation")
+	delivery.draft("invite.choice.0")
+	delivery.send()
+	check(delivery.state.log.any(func(entry: Dictionary) -> bool: return entry.get("delivery") == "Sent"), "committed outgoing reply starts Sent")
+	check(delivery.save_to("user://test_delivery.json"), "save while an outgoing message awaits its read receipt")
+	var resumed := Story.new()
+	check(resumed.load_from("user://test_delivery.json") and resumed.state == JSON.parse_string(JSON.stringify(delivery.state)), "pending delivery and Sent state restore exactly")
+	resumed.advance_delivery()
+	check(resumed.state.log.any(func(entry: Dictionary) -> bool: return entry.get("delivery") == "Read"), "read receipt is a presentation transition")
+	check(resumed.state.node == "bridge" and resumed.state.consumed == delivery.state.consumed, "read receipt cannot replay a choice")
+	resumed.reveal_all()
+	var delivered_log: Array = resumed.state.log.duplicate(true)
+	resumed.reveal_all()
+	check(resumed.state.log == delivered_log, "reveal and revisit cannot duplicate messages")
+	DirAccess.remove_absolute("user://test_delivery.json")
 	var badges := Story.new()
 	check(badges.unread_count("Notes") == 1 and badges.unread_count("Games") == 1, "opening highlights objectives and game invitation")
 	badges.mark_app_read("Notes")
@@ -110,9 +130,11 @@ func _initialize() -> void:
 		check(branch.later(), "route's immediate event")
 		check(branch.draft(str(branch.state.node) + ".choice.0") and branch.send(), "route event played")
 		check(branch.later(), "later callback played")
+		while not branch.state.facts.has("available_events") and branch.current().has("later"):
+			check(branch.later(), "explicit time gate before opening callback")
 		path_events.append(branch.state.facts.available_events)
-		check(branch.choices().is_empty() and not branch.current().has("later"), "route terminates cleanly")
-		check(branch.journal().complete, "Notes marks the opening complete")
+		check(branch.current().has("later"), "opening route continues into its later playable consequence")
+		check(not branch.journal().complete, "Notes points onward after the opening")
 		for entry: Dictionary in branch.journal().completed:
 			check(entry.id in branch.state.consumed, "Notes only lists events in this run")
 	check(path_events[0] != path_events[1] and path_events[1] != path_events[2] and path_events[0] != path_events[2], "three routes unlock different later actions")
@@ -122,25 +144,27 @@ func _initialize() -> void:
 	print("Story tests: %d passed, %d failed; %d nodes covered" % [passed, failed, visited.size()])
 	quit(1 if failed else 0)
 
-func walk(model: RefCounted) -> void:
-	visited[model.state.node] = true
-	check(model.current().app in Story.APPS, "story node uses an essential app")
-	var journal: Dictionary = model.journal()
-	check(journal.objective != "" and journal.app == model.current().app, "every node has actionable objective guidance")
-	check(model.content.strings.has(model.current().objective), "objective has a stable string ID")
-	for entry: Dictionary in model.current().get("lines", []):
-		check(model.content.strings.has(entry.text), "localized line " + entry.text)
-	for choice: Dictionary in model.choices():
-		check(model.content.nodes.has(choice.to), "valid target " + choice.to)
-		var child := Story.new()
-		child.state = model.state.duplicate(true)
-		check(child.draft(choice.id) and child.send(), "choice executes " + choice.id)
-		check(child.valid(child.state), "result is serializable valid state")
-		if not visited.has(child.state.node):
-			walk(child)
-	if model.current().has("later"):
-		var child := Story.new()
-		child.state = model.state.duplicate(true)
-		check(child.later(), "day transition")
-		if not visited.has(child.state.node):
-			walk(child)
+func full_paths() -> void:
+	var paths: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tests/story_paths.json"))
+	var endings: Dictionary = {}
+	for fixture: Dictionary in paths:
+		var run := Story.new()
+		visited[run.state.node] = true
+		for step: String in fixture.steps:
+			var previous_date: String = run.current().timestamp.substr(0, 11)
+			if step == "later":
+				check(run.later(), fixture.name + " explicit time transition")
+			else:
+				check(run.draft(step) and run.send(), fixture.name + " choice " + step)
+				check(run.current().timestamp.substr(0, 11) == previous_date, "sending cannot advance to another story date")
+			visited[run.state.node] = true
+			check(run.valid(run.state), "reachable state is saveable")
+		check(run.state.node == fixture.node, "runtime matches content audit: " + fixture.name)
+		check(run.current().app in Story.APPS, "scene uses an essential app")
+		check(run.content.strings.has(run.current().objective), "scene objective has a stable ID")
+		if fixture.has("ending"):
+			check(run.state.facts.ending == fixture.ending and run.journal().complete, "ending resolves and Notes completes")
+			endings[fixture.ending] = true
+			if run.state.facts.get("first_meeting", false):
+				check(run.state.facts.meeting_plan == "completed", "later uncertainty or separation cannot erase a completed meeting")
+	check(endings.size() == 8, "all eight endings play through the Godot runtime")

@@ -4,7 +4,7 @@
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
 **Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
 **Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's personal phone with only seven essential, plainly named apps: Messages, Games, Work, Photos, Calendar, Notes, and Settings.
-**Engine:** Godot 4.7.2, selected by the creator's project instructions. The opening prototype is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
+**Engine:** Godot 4.7.2, selected by the creator's project instructions. A complete playable six-act first draft is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
 
@@ -43,6 +43,8 @@
 **Emotional rhythm:** Curiosity → ritual → vulnerability → friction → negotiation → recognition.
 
 **Tone:** Tender, funny, sometimes awkward, occasionally painful. People can make mistakes and repair them. Avoid constant poetic dialogue: a character's jokes, abbreviations, interruptions, and mundane observations make the vulnerable messages land.
+
+**Conversation reference — creator direction:** Use [Emily is Away](https://store.steampowered.com/app/417860/Emily_is_Away/) as a reference for intimate chat, uncertainty and relationships changing between conversations. Keep Asahi's phone as the setting. Let short replies, uneven typing, ordinary details and callbacks carry emotion. Mizuki tends to type casually in lowercase; Asahi uses punctuation and dry jokes. Friends and work retain their own voices. Vulnerable messages should sound harder to send than everyday banter. Avoid giving every character a polished explanation of the scene's lesson. The player sees the complete reply before choosing; hesitation never changes its meaning or forces a different outcome. All eight endings remain consequential authored outcomes.
 
 ## 3. Scope and boundaries
 
@@ -228,10 +230,10 @@ The opening session teaches the complete loop: coordinate with `mizuki`, recover
 | Act | Shared dramatic purpose | What can differ through choices |
 |---|---|---|
 | 1. **A Chance Encounter** | Establish Asahi, Mizuki, and their first game session. | The next invitation can be a party activity, private photo exchange, or personal call. |
-| 2. **How We Spend Our Time** | Establish the relationship's habits through actions. | The player chooses an activity with Mizuki's agreement; this selects Game-first, Private connection, or Shared lives. Commitments determine which people take part. |
-| 3. **Beyond the Username** | Decide what to reveal and who to include. | Party disagreement, a private creative collaboration, or preparation for a visit. A friend can become a confidant, stay uninvolved, or become someone owed a repair. |
+| 2. **A Place in the Day** | Establish the relationship's habits through actions. | The player chooses an activity with Mizuki's agreement; this selects Game-first, Private connection, or Shared lives. Commitments determine which people take part. |
+| 3. **What We Carry** | Decide what to reveal and who to include. | Party disagreement, a private creative collaboration, or preparation for a visit. A friend can become a confidant, stay uninvolved, or become someone owed a repair. |
 | 4. **The Distance Between Us** | Experience the consequences of prior commitments. | An early meeting, a privacy conflict, a canceled collaboration, or an honest scheduling negotiation. A conflict does not occur if its trigger never happened. |
-| 5. **What Comes Next** | Choose practical and emotional next steps. | Post-meeting adjustment, an unrepaired issue, a friendship transition, or a first-meeting proposal. Mizuki makes her own work decision; support affects the shared plan, not ownership of her career. |
+| 5. **What We Ask of Each Other** | Choose practical and emotional next steps. | Post-meeting adjustment, an unrepaired issue, a friendship transition, or a first-meeting proposal. Mizuki makes her own work decision; support affects the shared plan, not ownership of her career. |
 | 6. **The Next Hello** | Resolve the relationship's future. | First meeting, second meeting, continued distance with a concrete plan, friendship, or separation. Earlier choices determine which proposals remain credible and available. |
 
 ### Different paths, different events
@@ -271,7 +273,7 @@ Eight planned endings cover good, bad, neutral, open and secret outcomes. The cr
 
 **Secret-ending rules:** No perfect-reply score, feed completion, hidden collectible hunt, extra app, or prior acquaintance is required. Earlier choices must produce observable ritual scenes; discovery can reward paying attention without concealing required context. The secret ending never reveals that the initial meeting was arranged or that the couple already knew each other. Asahi and Mizuki still meet entirely by chance.
 
-Within an ending, memories, Natsumi's commitments and communication agreements choose contextual details. These variants do not add to the count of eight endings. Names and categories appear in replay records only after discovery, with any hints spoiler gated. The opening prototype still has no implemented release ending or resolver.
+Within an ending, memories, Natsumi's commitments and communication agreements choose contextual details. These variants do not add to the count of eight endings. Names and categories appear in replay records only after discovery, with any hints spoiler gated. All eight endings are now implemented in the complete branching first draft; see STORY-SCRIPT.md and STORY-CHOICES.md. Editorial review, final art and release validation remain pending.
 
 ## 13. Presentation, art, and audio direction
 
@@ -306,7 +308,7 @@ Title → New Game / Continue / Load / Settings → Phone home → App → Threa
 ### Required reading conveniences
 
 - Full conversation history and a chapter/date index; image descriptions accessible from history.
-- One standard text size, instant reveal, adjustable simulated reply delay, and a reduce-motion toggle.
+- One standard text size, incoming typing indicators, Sent/Read states and character-by-character composition for Asahi's unsent drafts. Finish typing, Show messages now, Instant messages and Reduce Motion skip animation waits without sending or choosing.
 - Auto-advance pauses on choices, unread attachments, and required context; notifications do not steal focus.
 - Skip-read mode stops at unseen variants and decisions, including changed image captions. It never makes a choice automatically.
 - Clear focus indicators; state communicated through labels and symbols as well as color.
@@ -334,24 +336,20 @@ Settings and globally seen text live separately from playthrough state. Seen-tex
 
 | Content | Proposed first-release budget |
 |---|---|
-| Narrative acts / authored scenes | 6 / 44 across all paths; sequence varies by run |
-| Shared foundation scenes | 6 |
-| Path-specific scenes | 18: 6 per central path |
-| Conditional cross-path events | 8, including early/late meeting and commitment outcomes |
-| Optional social scenes | 4 |
-| Ending sequences | 8 distinct ending sequences: 2 good, 2 bad, 2 neutral, 1 open, 1 secret |
-| Major decisions | 8, with additional expressive replies and smaller consequential actions |
-| Lantern Quest sessions | Up to 5 per run, drawn from authored scene content |
-| Total authored words | Revised target 45,000–60,000 across paths; validate production cost in the branching prototype |
-| Words seen per typical run | 18,000–24,000; validate 3–4 hour duration with readers |
+| Narrative acts / authored scenes | 6 / 94 in the complete first draft; route varies by run |
+| Explicit time gates | 37 generated presentation/flow nodes, separate from authored scenes |
+| Ending sequences | 8: 2 good, 2 bad, 2 neutral, 1 open, 1 secret |
+| Major decisions | 8, with expressive replies, repair opportunities and smaller commitments |
+| Draft words | Approximately 12,800 including replies and guidance across all paths |
+| Earlier release-length target | 45,000–60,000 words and 3–4 hours per run; not delivered or verified by this compact first draft |
 
-The six scene buckets now total 44 (6 shared + 18 path-specific + 8 conditional + 4 optional + 8 ending). The broader ending plan adds two finale scenes to the previous budget; ritual and consequence setup must fit within the existing path/conditional scenes. They are exclusive accounting categories, not a promise that every run sees all scenes. The larger total writing budget replaces the earlier 28,000–36,000-word estimate. Reassess art and audio counts against approved branch scripts before commissioning them.
+The previous 44-scene proposal is superseded by a finer-grained 94-scene draft with the complete plot and all endings. Generated waiting nodes are explicit story-time boundaries, not additional authored scenes. See [the complete script](STORY-SCRIPT.md) and [implemented consequence map](STORY-CHOICES.md). Measure reading time and assess editorial expansion before treating the first draft as the release baseline. Reassess art/audio counts against the reviewed script.
 
 **Scene definition:** One bounded interaction with an entry condition, dramatic purpose, and terminal state. A genuinely different event needs its own scene ID; a changed greeting does not. Eight major choices are specified in [the branching ledger](BRANCHING-STORY.md). No single playthrough can experience all three central paths or all mutually exclusive outcomes.
 
 **Each scene record must include:** Stable ID; chapter/day; participating characters; allowed app surfaces; entry condition; required context; line and choice IDs; state effects; attachment IDs; exit event; fallback for missing optional context; later callback references, path eligibility, excluded events, and a record of the major choice causing this scene.
 
-**Narrative runtime contract:** Content yields a message, a choice set, an app command, a wait-for-player interaction, a jump, or an end. Conditions read typed narrative state. Commands update it once through recorded event IDs. Presentation handles bubbles and transitions separately from story logic. Authoring format remains a technical decision to validate during the prototype.
+**Narrative runtime contract:** Content yields a message, a choice set, an app command, a wait-for-player interaction, a jump, or an end. Conditions read typed narrative state. Commands update it once through recorded event IDs. Presentation handles bubbles and transitions separately from story logic. The implemented JSON graph has stable IDs, conditional choices/lines, ordered destinations, conditional fact updates and once-only event effects. Source authoring lives in tools/build_content.py and tools/story_chapters.py.
 
 **Localization:** Stable string IDs from the first draft, separate speaker identities and display names, localized captions and image descriptions, no sentence assembly from fragments, flexible bubble height, and no player text embedded in art. Initial writing language is English; release languages are undecided.
 
@@ -383,7 +381,7 @@ No schedule or staffing estimate is assumed. Actual production planning follows 
 
 ## 18. Acceptance criteria and principal risks
 
-These are release acceptance targets. The opening prototype has automated narrative and UI coverage; human playtesting and the full release checks remain pending. See [implementation notes](IMPLEMENTATION.md).
+These are release acceptance targets. The complete first draft has automated narrative and UI coverage; human playtesting and the full release checks remain pending. See [implementation notes](IMPLEMENTATION.md).
 
 | Area | Acceptance criterion |
 |---|---|
@@ -415,7 +413,7 @@ Creator direction establishes a Japanese game, a male protagonist, a female love
 | Romance structure | One central love interest with friendship as a complete alternative. | Before committing to the full narrative outline. |
 | Identities and setting | Male protagonist Tachibana Asahi and female love interest Yukimura Mizuki; Tokyo–Hokkaido setting, with Sapporo as the proposed city and Japanese supporting cast. | Names and ages confirmed; review cities and biographies before final character art. |
 | Tone and content | Hopeful adult romance, emotional friction, non-explicit intimacy. | Before detailed script and content-rating planning. |
-| Length and scale | Six acts, three central paths, 3–4 hours per run, eight endings; revised 44-scene budget. | Reassess after first playable reading times. |
+| Length and scale | Six acts, three central paths, 3–4 hours per run, eight endings; 94-scene first draft; release length remains unmeasured. | Reassess after first playable reading times. |
 | Meeting presentation | Phone-led arrival followed by illustrated dialogue vignettes. | Prototype before commissioning final illustrations. |
 | Platform and technology | PC/Steam, iOS, and Android confirmed as targets; Godot 4.7.2 selected. OS minimums and release order undecided. | Validate save lifecycle, touch UI, and builds during prototype before production implementation. |
 | Input and access | Mouse/keyboard on PC and touch on mobile; investigate screen-reader feasibility. | During the first playable. |

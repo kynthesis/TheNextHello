@@ -33,6 +33,16 @@ var gesture_dragged := false
 var gesture_scroll := 0
 var gesture_can_scroll := false
 var sounds: Dictionary = {}
+var delivery_timer: Timer
+var dots_timer: Timer
+var typing_label: Label
+var dots := 0
+var view_thread := ""
+var inbox := false
+var instant_messages := false
+var draft_tween: Tween
+var draft_typing := false
+var suspended := false
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
@@ -48,6 +58,16 @@ func _ready() -> void:
 	banner_timer.wait_time = 5
 	banner_timer.timeout.connect(func() -> void: banner_id = ""; _refresh_overlay())
 	add_child(banner_timer)
+	delivery_timer = Timer.new()
+	delivery_timer.one_shot = true
+	delivery_timer.wait_time = 0.45
+	delivery_timer.timeout.connect(_delivery_tick)
+	add_child(delivery_timer)
+	dots_timer = Timer.new()
+	dots_timer.wait_time = 0.25
+	dots_timer.timeout.connect(_animate_dots)
+	add_child(dots_timer)
+	dots_timer.start()
 	_load_settings()
 	story.load_from("user://autosave.json")
 	status = ""
@@ -63,7 +83,16 @@ func _ready() -> void:
 			_announce.call_deferred()
 
 func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_RESUMED and is_instance_valid(delivery_timer):
+		suspended = false
+		dots_timer.start()
+		if draft_tween and draft_tween.is_valid(): draft_tween.play()
+		_sync_presentation.call_deferred()
 	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST] and is_instance_valid(ui):
+		suspended = true
+		delivery_timer.stop()
+		dots_timer.stop()
+		if draft_tween and draft_tween.is_valid(): draft_tween.pause()
 		_remember()
 		story.save_to("user://autosave.json")
 		if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -156,6 +185,11 @@ func _remember() -> void:
 func _open(app: String) -> void:
 	if app not in Story.APPS:
 		return
+	delivery_timer.stop()
+	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
+	draft_typing = false
+	view_thread = ""
+	inbox = false
 	_remember()
 	var previous: String = story.state.app
 	story.state.app = app
@@ -179,7 +213,7 @@ func _layout() -> void:
 	frame.scale = Vector2.ONE * factor
 	frame.position = (size - PHONE_SIZE * factor) / 2
 
-func _render() -> void:
+func _render(refocus := true) -> void:
 	if transition and transition.is_valid():
 		transition.kill()
 	for child: Node in ui.get_children():
@@ -267,7 +301,8 @@ func _render() -> void:
 	_layout.call_deferred()
 	saved_app = story.state.app
 	_restore_scroll.call_deferred(story.state.app, int(story.state.scroll.get(story.state.app, 0)))
-	_focus_first.call_deferred()
+	if refocus: _focus_first.call_deferred()
+	_sync_presentation.call_deferred()
 
 func _focus_first() -> void:
 	var buttons := frame.find_children("*", "Button", true, false)
@@ -550,34 +585,135 @@ func _notes() -> void:
 		for entry: Dictionary in journal.completed:
 			_card("✓ CHAPTER %d" % int(entry.chapter), entry.title)
 	if journal.complete:
-		body.add_child(_label("End of the playable opening", 13, MUTED))
+		body.add_child(_label("Story complete", 13, MUTED))
+
+func _thread() -> String:
+	if story.state.app == "Games": return "Lantern Quest"
+	if story.state.app == "Work": return "Hoshino Studio"
+	if story.state.app != "Messages": return story.current().thread
+	if view_thread != "": return view_thread
+	if story.current().app == "Messages": return story.current().thread
+	for i in range(story.state.log.size() - 1, -1, -1):
+		if story.state.log[i].app == "Messages": return story.state.log[i].thread
+	return "Mizuki"
 
 func _conversation() -> void:
-	var is_game: bool = story.state.app == "Games"
-	if is_game:
+	if story.state.app == "Games":
 		_art("lantern")
-		body.add_child(_label("LANTERN QUEST  /  The ruined garden", 12, CORAL))
+		body.add_child(_label("LANTERN QUEST", 12, CORAL))
+	elif inbox:
+		body.add_child(_label("Conversations", 22))
+		for thread: String in story.threads():
+			_button(thread, func() -> void: view_thread = thread; inbox = false; _render())
+		if story.threads().is_empty(): body.add_child(_label("No conversations yet.", 14, MUTED))
+		return
 	else:
-		body.add_child(_label("Mizuki", 22))
-		body.add_child(_label("mizuki  /  Direct messages", 12, MUTED))
-	for entry: Dictionary in story.state.log:
-		# The shared history stays readable in both contexts; game messages retain speakers.
+		body.add_child(_label(_thread(), 22))
+		_button("Conversations", func() -> void: inbox = true; delivery_timer.stop(); _render())
+	_render_thread()
+
+func _render_thread() -> void:
+	for entry: Dictionary in story.visible_log(story.state.app, _thread()):
 		var speaker: String = entry.speaker
 		if speaker == "system":
 			body.add_child(_label(story.text(entry.text), 12, MUTED))
 		else:
-			var card := _card("Me" if speaker == "asahi" else speaker, story.text(entry.text))
+			var card := _card("Me" if speaker == "asahi" else speaker.capitalize(), story.text(entry.text))
 			var bubble := _style(Color("ecd0b9") if speaker == "asahi" else SURFACE, RULE)
-			bubble.set_corner_radius_all(5)
-			bubble.border_width_right = 4 if speaker == "asahi" else 1
-			bubble.border_width_left = 1 if speaker == "asahi" else 4
+			bubble.border_width_right = 3 if speaker == "asahi" else 1
 			(card.get_parent() as PanelContainer).add_theme_stylebox_override("panel", bubble)
-	if story.current().app != story.state.app:
+			if entry.has("delivery"):
+				card.add_child(_label(entry.delivery, 11, MUTED))
+	if story.state.app != story.current().app or _thread() != story.current().thread:
 		_button("Continue in " + story.current().app + "  >", _open.bind(story.current().app))
 	else:
 		_story_controls()
 
+func _can_present() -> bool:
+	return not suspended and not inbox and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app in ["Messages", "Games", "Work", "Calendar"]
+
+func _sync_presentation() -> void:
+	if not _can_present() or not story.delivery_pending(): return
+	if instant_messages or reduce_motion:
+		story.reveal_all()
+		_autosave()
+		_render(false)
+	elif delivery_timer.is_stopped():
+		delivery_timer.start(_delivery_delay())
+
+func _delivery_delay() -> float:
+	# Receipts and phone notes are quick; another person's words take a moment.
+	for entry: Dictionary in story.state.log:
+		if entry.get("delivery") == "Sent": return 0.65
+	var pending: Array = story.state.log.slice(int(story.state.shown_count))
+	if pending.is_empty(): return 0.45
+	var entry: Dictionary = pending[0]
+	if entry.speaker in ["system", "asahi"]: return 0.35
+	return clampf(0.55 + story.text(entry.text).length() * 0.012, 0.65, 1.8)
+
+func _delivery_tick() -> void:
+	if not _can_present(): return
+	var follow := scroller.scroll_vertical >= scroller.get_v_scroll_bar().max_value - scroller.size.y - 32
+	_remember()
+	story.advance_delivery()
+	_autosave()
+	_render(false)
+	if follow: _scroll_bottom.call_deferred()
+
+func _animate_dots() -> void:
+	dots = (dots + 1) % 4
+	if is_instance_valid(typing_label):
+		typing_label.text = _typing_copy()
+
+func _typing_copy() -> String:
+	for entry: Dictionary in story.state.log:
+		if entry.get("delivery") == "Sent": return "Waiting for read receipt"
+	for entry: Dictionary in story.state.log.slice(int(story.state.shown_count)):
+		if entry.speaker not in ["system", "asahi"]:
+			return entry.speaker.capitalize() + " is typing" + ".".repeat(dots + 1)
+	return "Updating conversation"
+
+func _show_messages() -> void:
+	delivery_timer.stop()
+	story.reveal_all()
+	_autosave()
+	_render()
+	_scroll_bottom.call_deferred()
+
+func _type_draft() -> void:
+	var label: Label = body.find_child("DraftText", true, false)
+	if label == null: return
+	label.visible_characters = 0
+	draft_tween = create_tween()
+	# Type in short bursts, hesitating at clause boundaries. The selected wording
+	# remains intact; presentation must never substitute a different decision.
+	var start := 0
+	for index: int in range(label.text.length()):
+		var character := label.text[index]
+		var boundary := character in [",", ".", "?", "!", ";"]
+		if boundary or index == label.text.length() - 1:
+			var end := index + 1
+			draft_tween.tween_property(label, "visible_characters", end, maxf(0.06, (end - start) * 0.022))
+			if boundary and end < label.text.length(): draft_tween.tween_interval(0.22)
+			start = end
+	draft_tween.finished.connect(_finish_typing)
+
+func _finish_typing() -> void:
+	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
+	draft_typing = false
+	var label: Label = body.find_child("DraftText", true, false)
+	if label: label.visible_characters = -1
+	var send: Button = body.find_child("SendDraft", true, false)
+	if send: send.disabled = false
+	var finish: Button = body.find_child("FinishTyping", true, false)
+	if finish: finish.hide()
+
 func _story_controls() -> void:
+	if story.delivery_pending():
+		typing_label = _label(_typing_copy(), 13, MUTED)
+		body.add_child(typing_label)
+		_button("Show messages now", _show_messages)
+		return
 	if not story.choices().is_empty():
 		body.add_child(_label("CHOOSE A DRAFT  /  Nothing sends until you say so", 11, CORAL))
 		for choice: Dictionary in story.choices():
@@ -585,8 +721,16 @@ func _story_controls() -> void:
 		if story.state.draft != "":
 			for choice: Dictionary in story.choices():
 				if choice.id == story.state.draft:
-					var card := _card("UNSENT DRAFT", story.text(choice.text))
-					_button("Send reply  >", _send, card)
+					var card := _card("UNSENT DRAFT", "")
+					var draft_text := _label(story.text(choice.text))
+					draft_text.name = "DraftText"
+					card.add_child(draft_text)
+					var send := _button("Send reply  >", _send, card)
+					send.name = "SendDraft"
+					send.disabled = draft_typing
+					if draft_typing:
+						var finish := _button("Finish typing", _finish_typing, card)
+						finish.name = "FinishTyping"
 					_button("Discard draft", _draft.bind(""), card)
 	elif story.current().has("later"):
 		if confirm_later:
@@ -596,10 +740,14 @@ func _story_controls() -> void:
 		else:
 			_button("Later  /  Advance story time", func() -> void: confirm_later = true; _render())
 	else:
-		_card("END OF THIS OPENING", "Your story is saved. This is the first playable milestone, not a full ending. Try another invitation through Settings > Start a new opening.")
+		var ending: Dictionary = story.current().get("ending", {})
+		_card("STORY COMPLETE", story.text(story.current().title))
+		if not ending.is_empty(): body.add_child(_label(ending.category + " ending", 13, MUTED))
 		_button("Review your Calendar", _open.bind("Calendar"))
 
 func _draft(id: String) -> void:
+	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
+	draft_typing = id != "" and not reduce_motion and not instant_messages
 	_remember()
 	if id == "":
 		story.state.draft = ""
@@ -609,9 +757,13 @@ func _draft(id: String) -> void:
 	_render()
 	if id != "":
 		_scroll_bottom.call_deferred()
+		if draft_typing: _type_draft.call_deferred()
 
 func _send() -> void:
+	if draft_typing: return
 	if story.send():
+		view_thread = ""
+		inbox = false
 		_play_sound("sent")
 		story.state.app = story.current().app
 		story.mark_app_read(story.state.app)
@@ -622,6 +774,8 @@ func _send() -> void:
 
 func _later() -> void:
 	if story.later():
+		view_thread = ""
+		inbox = false
 		story.state.app = story.current().app
 		story.mark_app_read(story.state.app)
 		confirm_later = false
@@ -647,18 +801,12 @@ func _like_button(id: String, parent: Node, verb := "Like") -> void:
 	_button(("Saved / " if id in story.state.likes else "") + verb, _like.bind(id), parent)
 
 func _story_date() -> String:
-	if story.state.node == "lives_call":
-		return "SUN  25 OCT     15:00"
-	if story.state.node == "lives_reschedule":
-		return "MON  26 OCT     19:30"
-	return ["", "FRI  23 OCT     23:08", "SAT  24 OCT     16:42", "TUE  27 OCT     20:16"][int(story.current().day)]
+	return story.current().timestamp
 
 func _desk() -> void:
 	_card("HOSHINO STUDIO / TEAM", "Handoff checklist\n• Check the exported layouts\n• Leave clear notes for Monday\n• Close the laptop at a sensible hour")
 	if story.current().app == "Work":
-		for entry: Dictionary in story.current().lines:
-			_card(entry.speaker, story.text(entry.text))
-		_story_controls()
+		_render_thread()
 	else:
 		_card("YOUR AVAILABILITY", story.state.facts.get("work", "Friday handoff check or Sunday review. A work decision becomes playable if you choose an everyday-life call with Mizuki."))
 		_like_button("work_checklist", body, "Pin checklist")
@@ -671,7 +819,7 @@ func _gallery() -> void:
 	if story.state.facts.get("screenshot", false):
 		photo = _card("THE FIRST PARTY  /  Shared memory", "Two small lanterns in a ruined garden. Saved after your first session with mizuki.")
 		_art("lantern", photo)
-	if story.state.facts.get("desk_photo", false):
+	if story.state.facts.get("desk_photo", false) and not story.state.facts.get("draft_withdrawn", false):
 		photo = _card("MIZUKI'S DESK  /  Private. Do not publish.", "A mug full of pens, an unfinished illustration on a laptop, and rain against the window. Mizuki asked to keep this between you.")
 		_art("desk", photo)
 		_button("Return to Mizuki's message", _open.bind("Messages"), photo)
@@ -679,20 +827,25 @@ func _gallery() -> void:
 		photo = _card("TWO WINDOWS  /  Private shared collection", "Your Tokyo skyline beside Mizuki's line drawing. Made in quiet company. Sharing permission stays private.")
 		_art("city", photo)
 		_art("desk", photo)
+	if story.state.facts.get("draft_withdrawn", false):
+		_card("WITHDRAWN WORK DRAFT", "Mizuki removed this image from the shared collection. The private postcard remains available.")
+	for photo_id: String in story.state.facts.get("photo_ids", []):
+		var item: Dictionary = story.content.photos.get(photo_id, {})
+		if not item.is_empty():
+			photo = _card(item.title, item.copy)
+			_art(item.kind, photo)
 	body.add_child(_label("Descriptions are part of every image. No detail hunt is required.", 12, MUTED))
 
 func _calendar() -> void:
 	body.add_child(_label("Room for what matters", 25))
-	_card("OCTOBER  /  STORY TIME", "23 FRI  •  A party invitation\n24 SAT  •  The next shared activity\n27 TUE  •  A follow-up")
+	_card("TODAY", _story_date())
 	_card("MY PLANS", story.state.facts.get("commitment", "Nothing confirmed yet."))
 	if story.state.facts.has("work"):
 		_card("WORK", story.state.facts.work)
 	if story.state.facts.has("memory"):
 		_card("A MEMORY TO KEEP", story.state.facts.memory)
 	if story.current().app == "Calendar":
-		for entry: Dictionary in story.current().lines:
-			_card(entry.speaker, story.text(entry.text))
-		_story_controls()
+		_render_thread()
 	else:
 		_button("Continue your story  >", _open.bind(story.current().app))
 	body.add_child(_label("Only a labeled story transition advances time. Reading slowly never breaks a promise.", 13, MUTED))
@@ -701,6 +854,7 @@ func _settings() -> void:
 	body.add_child(_label("Make yourself comfortable", 24))
 	_card("MY ACCOUNT", "Tachibana Asahi\nasahi\nTokyo, Japan")
 	_card("DISPLAY & READING", "The phone always keeps its 414:896 proportions. Window resolution changes its scale, never its shape. Swipe or drag to navigate; buttons remain available.")
+	_button("Instant messages: " + ("On" if instant_messages else "Off"), func() -> void: instant_messages = not instant_messages; _save_settings(); _render())
 	_button("Reduce motion: " + ("On" if reduce_motion else "Off"), func() -> void: reduce_motion = not reduce_motion; _save_settings(); _render())
 	body.add_child(_label("WINDOW RESOLUTION", 12, CORAL))
 	for resolution: Vector2i in [Vector2i(1280, 720), Vector2i(1280, 900), Vector2i(1920, 1080), Vector2i(2560, 1440), Vector2i(480, 1040)]:
@@ -716,18 +870,21 @@ func _settings() -> void:
 	body.add_child(sound_slider)
 	_button("Preview notification sound", _play_sound.bind("received"))
 	_button("Open Notification Center", _show_notifications)
-	_button("Save opening / manual slot", func() -> void: _remember(); status = "Manual save written." if story.save_to("user://manual.json") else story.last_error; _render())
+	_button("Save story / manual slot", func() -> void: _remember(); status = "Manual save written." if story.save_to("user://manual.json") else story.last_error; _render())
 	_button("Load manual save", func() -> void: _load_game("user://manual.json"))
 	_button("Continue autosave", func() -> void: _load_game("user://autosave.json"))
 	if confirm_restart:
-		_card("START OVER?", "This replaces the current opening and autosave. Your manual save is kept.")
-		_button("Start a new opening", _restart)
+		_card("START OVER?", "This replaces the current story and autosave. Your manual save is kept.")
+		_button("Start a new story", _restart)
 		_button("Keep this story", func() -> void: confirm_restart = false; _render())
 	else:
-		_button("Start a new opening...", func() -> void: confirm_restart = true; _render())
-	_card("ABOUT THIS BUILD", "Godot 4.7.2 / Opening prototype\nThree activity paths, seven essential apps and temporary pixel illustrations. Full chapters, endings, mobile exports and release accessibility work are still ahead.\n\nThemes: loneliness, distance and relationships. All principal characters are adults.")
+		_button("Start a new story...", func() -> void: confirm_restart = true; _render())
+	_card("ABOUT THIS BUILD", "Godot 4.7.2 / Complete story first draft\nSix acts, three activity paths, eight endings, seven essential apps and temporary pixel illustrations. Final art, reader testing, mobile exports and release accessibility work are still ahead.\n\nThemes: loneliness, distance and relationships. All principal characters are adults.")
 
 func _restart() -> void:
+	delivery_timer.stop()
+	view_thread = ""
+	inbox = false
 	story.reset()
 	confirm_restart = false
 	saved_app = ""
@@ -747,6 +904,7 @@ func _save_settings() -> void:
 	var settings := ConfigFile.new()
 	settings.set_value("audio", "interface_volume", sound_volume)
 	settings.set_value("display", "reduce_motion", reduce_motion)
+	settings.set_value("reading", "instant_messages", instant_messages)
 	settings.save("user://settings.cfg")
 
 func _load_settings() -> void:
@@ -754,6 +912,7 @@ func _load_settings() -> void:
 	if settings.load("user://settings.cfg") == OK:
 		sound_volume = clampf(float(settings.get_value("audio", "interface_volume", 0.55)), 0.0, 1.0)
 		reduce_motion = bool(settings.get_value("display", "reduce_motion", false))
+		instant_messages = bool(settings.get_value("reading", "instant_messages", false))
 
 func _set_resolution(resolution: Vector2i) -> void:
 	get_window().size = resolution

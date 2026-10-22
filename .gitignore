@@ -2,3 +2,7 @@
 .godot/
 *.tmp
 .local/
+
+# Python content-authoring caches.
+__pycache__/
+*.pyc

@@ -14,7 +14,7 @@ func _init() -> void:
 	reset()
 
 func reset() -> void:
-	state = {"version": 1, "content_version": CONTENT_VERSION, "node": "invite", "log": [], "facts": {}, "consumed": [], "draft": "", "app": "Home", "likes": [], "notes": "", "scroll": {}, "track": -1, "music_playing": false, "notifications": [], "app_updates": {}}
+	state = {"version": 1, "content_version": CONTENT_VERSION, "node": "invite", "log": [], "facts": {}, "consumed": [], "draft": "", "app": "Home", "likes": [], "notes": "", "scroll": {}, "track": -1, "music_playing": false, "notifications": [], "app_updates": {}, "shown_count": 0}
 	_enter("invite")
 
 func text(id: String) -> String:
@@ -24,14 +24,26 @@ func current() -> Dictionary:
 	return content.nodes[state.node]
 
 func choices() -> Array:
-	return current().get("choices", [])
+	return current().get("choices", []).filter(func(choice: Dictionary) -> bool: return matches(choice.get("if", {})))
+
+func matches(conditions: Dictionary) -> bool:
+	for key: String in conditions:
+		if state.facts.get(key) != conditions[key]:
+			return false
+	return true
+
+func destination(item: Dictionary, field := "to") -> String:
+	for branch: Dictionary in item.get("routes" if field == "to" else "later_routes", []):
+		if matches(branch.get("if", {})):
+			return branch.to
+	return item[field]
 
 func journal() -> Dictionary:
 	# Derive the checklist from the run, so loading or browsing cannot award progress.
 	var complete := choices().is_empty() and not current().has("later")
 	var completed: Array = []
 	for id: String in state.consumed:
-		if content.nodes.has(id) and (id != state.node or complete):
+		if content.nodes.has(id) and not content.nodes[id].get("interlude", false) and (id != state.node or complete):
 			var node: Dictionary = content.nodes[id]
 			completed.append({"id": id, "title": text(node.title), "chapter": node.chapter})
 	return {"chapter": current().chapter, "title": text(current().chapter_title),
@@ -49,36 +61,81 @@ func send() -> bool:
 	for choice: Dictionary in choices():
 		if choice.id == state.draft:
 			var before: Dictionary = state.facts.duplicate(true)
-			state.log.append({"speaker": "asahi", "text": choice.text})
+			state.log.append({"speaker": "asahi", "text": choice.text, "app": current().app, "thread": current().thread, "delivery": "Sent"})
+			state.shown_count = state.log.size()
 			state.consumed.append(choice.id)
 			state.facts.merge(choice.get("set", {}), true)
 			state.draft = ""
-			_enter(choice.to, before)
+			_enter(destination(choice), before)
 			return true
 	return false
 
 func later() -> bool:
 	if not current().has("later"):
 		return false
-	_enter(current().later)
+	_enter(destination(current(), "later"))
 	return true
 
 func _enter(id: String, before: Variant = null) -> void:
 	state.node = id
 	if id not in state.consumed:
 		var previous_facts: Dictionary = state.facts.duplicate(true) if before == null else before
-		state.log.append({"speaker": "system", "text": content.nodes[id].title})
-		state.log.append_array(content.nodes[id].get("lines", []).duplicate(true))
+		var context: Dictionary = content.nodes[id]
+		state.log.append({"speaker": "system", "text": context.title, "app": context.app, "thread": context.thread})
+		for authored: Dictionary in context.get("lines", []):
+			if matches(authored.get("if", {})):
+				var entry: Dictionary = authored.duplicate(true)
+				entry.app = context.app
+				entry.thread = context.thread
+				state.log.append(entry)
 		state.facts.merge(content.nodes[id].get("set", {}), true)
+		for rule: Dictionary in context.get("fact_rules", []):
+			if matches(rule.get("if", {})):
+				state.facts.merge(rule.get("set", {}), true)
+				break
+		var photo: String = context.get("set", {}).get("photo", "")
+		if photo != "":
+			if not state.facts.has("photo_ids"): state.facts.photo_ids = []
+			if photo not in state.facts.photo_ids: state.facts.photo_ids.append(photo)
 		state.consumed.append(id)
 		state.notifications.append({"id": id, "app": content.nodes[id].app, "text": content.nodes[id].title, "read": false})
 		state.app_updates.Notes = [id]
-		for key: String in ["screenshot", "desk_photo", "postcard"]:
+		for key: String in ["screenshot", "desk_photo", "postcard", "photo"]:
 			if state.facts.get(key, false) and not previous_facts.get(key, false):
 				_queue_update("Photos", id)
-		for key: String in ["commitment", "work", "meeting_plan"]:
+		for key: String in ["commitment", "work", "meeting_plan", "future_travel"]:
 			if state.facts.get(key) != previous_facts.get(key):
 				_queue_update("Calendar", id)
+
+func delivery_pending() -> bool:
+	if int(state.shown_count) < state.log.size():
+		return true
+	for entry: Dictionary in state.log:
+		if entry.get("delivery") == "Sent": return true
+	return false
+
+func advance_delivery() -> void:
+	# Presentation changes no story fact, choice, commitment or story time.
+	for entry: Dictionary in state.log:
+		if entry.get("delivery") == "Sent":
+			entry.delivery = "Read"
+			return
+	state.shown_count = mini(int(state.shown_count) + 1, state.log.size())
+
+func reveal_all() -> void:
+	state.shown_count = state.log.size()
+	for entry: Dictionary in state.log:
+		if entry.has("delivery"): entry.delivery = "Read"
+
+func visible_log(app: String, thread: String) -> Array:
+	return state.log.slice(0, int(state.shown_count)).filter(func(entry: Dictionary) -> bool: return entry.app == app and entry.thread == thread)
+
+func threads() -> Array:
+	var result: Array = []
+	for entry: Dictionary in state.log:
+		if entry.app == "Messages" and entry.thread not in result:
+			result.append(entry.thread)
+	return result
 
 func _queue_update(app: String, id: String) -> void:
 	if not state.app_updates.has(app):
@@ -145,10 +202,19 @@ func valid(data: Variant) -> bool:
 	for entry: Variant in data.log:
 		if not entry is Dictionary or not entry.get("speaker") is String or not entry.get("text") is String:
 			return false
+		if entry.has("delivery") and entry.delivery not in ["Sent", "Read"]:
+			return false
+		if entry.has("app") and entry.app not in APPS: return false
+		if entry.has("thread") and not entry.thread is String: return false
+	if data.has("shown_count") and (not (data.shown_count is float or data.shown_count is int) or data.shown_count < 0 or data.shown_count > data.log.size() or data.shown_count != int(data.shown_count)):
+		return false
 	if data.draft != "":
 		var found := false
 		for choice: Dictionary in content.nodes[data.node].get("choices", []):
-			found = found or choice.id == data.draft
+			var eligible := true
+			for key: String in choice.get("if", {}):
+				eligible = eligible and data.facts.get(key) == choice["if"][key]
+			found = found or (choice.id == data.draft and eligible)
 		if not found:
 			return false
 	return true
@@ -185,12 +251,16 @@ func load_from(path: String) -> bool:
 		var data: Variant = _read_json(candidate)
 		if valid(data):
 			state = data
+			if not state.has("shown_count"): state.shown_count = state.log.size()
 			if not state.has("app_updates"):
 				state.app_updates = {"Notes": [state.node]}
 			if not state.has("notifications"):
 				state.notifications = [{"id": state.node, "app": current().app, "text": current().title, "read": false}]
 			# Preserve prototype saves when the creator renames the cast.
 			for entry: Dictionary in state.log:
+				var context: Dictionary = content.nodes.get(entry.text.get_slice(".", 0), current())
+				if not entry.has("app"): entry.app = context.app
+				if not entry.has("thread"): entry.thread = context.thread
 				if entry.speaker == "haru": entry.speaker = "asahi"
 				if entry.speaker == "yuzu": entry.speaker = "mizuki"
 				# Stable line IDs now describe the corrected chance encounter.

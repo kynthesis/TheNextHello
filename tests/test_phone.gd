@@ -84,6 +84,26 @@ func fitted(label: String) -> void:
 	check(phone.body.size.x <= phone.scroller.size.x + 1, label + " content fits without horizontal clipping")
 	check(phone.ui.get_child_count() == 1 and phone.ui.get_child(0) == phone.frame, label + " only the phone is presented")
 
+func has_label(copy: String) -> bool:
+	for label: Node in phone.body.find_children("*", "Label", true, false):
+		if label.text == copy: return true
+	return false
+
+func load_scene_path(node: String) -> void:
+	var paths: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tests/story_paths.json"))
+	for fixture: Dictionary in paths:
+		if fixture.name != "node:" + node: continue
+		var run: RefCounted = phone.Story.new()
+		for step: String in fixture.steps:
+			if step == "later": run.later()
+			else: run.draft(step); run.send()
+		phone.story.state = run.state
+		phone.story.reveal_all()
+		phone._open(phone.story.current().app)
+		await settle()
+		return
+	check(false, "fixture exists: " + node)
+
 func _initialize() -> void:
 	await process_frame
 	phone = load("res://scenes/phone.tscn").instantiate()
@@ -100,6 +120,7 @@ func _initialize() -> void:
 	check(not legacy_settings.has_section_key("reading", "scale"), "saving settings removes obsolete text-scale preference")
 	phone.story.reset()
 	phone.reduce_motion = false
+	phone.instant_messages = true
 	root.size = Vector2i(1280, 900)
 	phone.sound_volume = 0.5
 	phone._render()
@@ -205,6 +226,71 @@ func _initialize() -> void:
 	check(root.size == Vector2i(1280, 900), "resolution setting resizes window")
 	phone.story.reset()
 	phone._open("Home")
+	# Four contacts are distinct threads; choosing history never progresses the story.
+	await load_scene_path("natsumi_invite")
+	check(phone._thread() == "Natsumi", "current contact opens the correct thread")
+	press("Conversations")
+	await settle()
+	press("Mizuki")
+	await settle()
+	check(phone._thread() == "Mizuki" and phone.story.state.node == "natsumi_invite", "thread navigation preserves story position")
+	check(not has_label(phone.story.text("natsumi_invite.line.0")), "another contact's messages cannot leak into Mizuki's thread")
+	for ending_node: String in ["end_together", "end_distance", "end_friendship", "end_goodbye", "end_unsaid", "end_burnout", "end_open", "end_secret"]:
+		await load_scene_path(ending_node)
+		check(has_label("STORY COMPLETE"), "ending renders its completion state: " + ending_node)
+		fitted(ending_node)
+	phone._scroll_bottom()
+	await capture("secret_ending")
+	# Exercise actual timed presentation separately from instant-message smoke coverage.
+	phone.instant_messages = false
+	phone.reduce_motion = false
+	phone._restart()
+	phone._open("Games")
+	await settle()
+	phone.delivery_timer.stop()
+	check(is_instance_valid(phone.typing_label), "incoming typing indicator is visible")
+	var dots_before: String = phone.typing_label.text
+	await create_timer(0.30).timeout
+	check(phone.typing_label.text != dots_before, "typing dots animate")
+	await capture("incoming_typing")
+	phone._show_messages()
+	phone._draft("invite.choice.0")
+	await process_frame
+	await create_timer(0.10).timeout
+	var preview: Label = phone.body.find_child("DraftText", true, false)
+	check(preview != null and preview.visible_characters > 0 and preview.visible_characters < preview.text.length(), "Asahi's draft visibly types character by character")
+	check(phone.story.state.node == "invite" and phone.draft_typing, "POV typing never sends a reply")
+	check(phone.body.find_child("SendDraft", true, false).disabled, "Send waits for typing or explicit skip")
+	await capture("asahi_typing")
+	await phone.draft_tween.finished
+	check(not phone.draft_typing and not phone.body.find_child("SendDraft", true, false).disabled, "natural composition completion enables Send")
+	check(preview.text == phone.story.text("invite.reply.0") and preview.visible_characters == -1, "typing pauses preserve the complete selected reply")
+	check(phone.story.state.node == "invite" and phone.story.state.draft == "invite.choice.0", "finishing composition leaves the reply unsent")
+	phone._draft("invite.choice.0")
+	await process_frame
+	phone._finish_typing()
+	phone._send()
+	await settle()
+	phone.delivery_timer.stop()
+	check(has_label("Sent"), "committed message displays Sent")
+	await capture("message_sent")
+	phone._delivery_tick()
+	await settle()
+	phone.delivery_timer.stop()
+	check(has_label("Read") and phone.story.state.node == "bridge", "read receipt changes presentation, not narrative position")
+	await capture("message_read")
+	var consumed_before: Array = phone.story.state.consumed.duplicate()
+	phone._show_messages()
+	check(phone.story.state.consumed == consumed_before, "skip typing cannot commit another choice")
+	phone._draft("bridge.choice.0")
+	await process_frame
+	phone._open("Home")
+	await settle()
+	check(phone.story.state.node == "bridge" and phone.story.state.draft == "bridge.choice.0" and not phone.draft_typing, "leaving mid-composition preserves the unsent draft")
+	phone.instant_messages = true
+	phone._open("Games")
+	await settle()
+	check(phone.story.state.node == "bridge", "returning to a draft never auto-sends it")
 	var inspector: Node = root.get_node_or_null("MCPGameInspector")
 	if inspector != null and inspector._error_log != null:
 		var runtime_errors: Dictionary = inspector._error_log.poll(0, false)

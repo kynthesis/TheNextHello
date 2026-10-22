@@ -24,7 +24,7 @@ Moments, Resonance, Vista, Loop and Bookmark are no longer standalone apps. Thei
 
 Home shows Asahi's local clock and Tokyo location. Notes uses his voice; Settings contains his account. All UI stays inside the phone. Photos and Calendar derive updates from the same committed story state as Messages, Games and Work. Opening an app never advances time, duplicates an event or sends a draft.
 
-Notes only lists this run's completed events and links to the app containing the next action. At the end of the opening it explicitly indicates the playable boundary. It never promises an unimplemented action.
+Notes only lists this run's completed events and links to the app containing the next action. At each ending it explicitly marks the story complete. Existing opening saves continue into the later acts.
 
 Images keep canonical IDs, captions and privacy context. Essential context remains available through direct links and text descriptions; players never search a collection for an invisible progression flag.
 
@@ -35,3 +35,7 @@ Existing saves translate Lantern Quest to Games, Desk to Work and Gallery to Pho
 ## Controls and verification
 
 One standard text size, keyboard focus, visible Home controls, mouse/touch scrolling, notification history, reduced motion remain. Phone proportions stay fixed at 414:896 across portrait and wide windows. For each app, verify navigation, useful content, valid outgoing links and saved state. Check all three story paths, older saves and notification deep links after renaming apps.
+
+## Message presentation
+
+Incoming speakers have animated typing dots before delivery. Asahi's selected reply composes character by character in an unsent draft; a separate Send commits it, followed by simulated Sent and Read states. Finish typing and Show messages now skip presentation; Instant messages and Reduce Motion provide persistent immediate alternatives. Presentation state is saved and never changes a relationship fact or a deadline. Messages has separate contact/group threads rather than a merged conversation history.
