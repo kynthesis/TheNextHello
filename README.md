@@ -4,6 +4,8 @@ Fall in love one message at a time in a pixel art phone simulator. Meet through 
 
 The project now includes a playable Godot 4.7.2 opening prototype. Meet Mizuki in Lantern Quest, draft and send replies, then choose a guild activity, a private postcard, or an everyday-life call. Each invitation leads to a different playable continuation and follow-up.
 
+The screen contains only Asahi's personal phone. It opens in a 414×896 portrait window; wider windows leave plain dark margins around the device. Home shows his Tokyo clock, Notes contains his personal reminders, and Settings holds his account.
+
 ## Play
 
 Open `project.godot` in Godot and press **F6** with `scenes/phone.tscn` open, or **F5** to run the project. From this directory:

@@ -270,7 +270,7 @@ Within an ending, shared memories choose callbacks, Natsumi's commitment chooses
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
-**Composition:** The device has a fixed 414:896 reference aspect ratio. Window resolution may change, but the phone scales uniformly to fit and never widens, stretches, or crops. This includes large-text mode: content reflows and scrolls inside the same device proportions. Center the phone in unused window space; mobile safe-area handling must preserve that invariant.
+**Composition and viewpoint:** The entire game is presented through Asahi's personal phone. No title, tagline, instructions or other UI sits beside the device. Home shows his local clock and Tokyo location, not a promotional view of the relationship. Notes uses first-person reminders; Settings identifies only his account; Messages identifies a contact rather than presenting a character biography. The default window is 414×896 and the phone fills it. The device has a fixed 414:896 reference aspect ratio. Larger or wider windows center it in plain dark margins; it scales uniformly to fit and never widens, stretches, or crops. This includes large-text mode: content reflows and scrolls inside the same device proportions. Mobile safe-area handling must preserve that invariant.
 
 **Character presence:** Avatars, evolving profile photos, typing habits, personal photo compositions, and selected meeting illustrations carry personality. No constant full-screen talking portraits.
 

@@ -46,7 +46,7 @@ var sounds: Dictionary = {}
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
-	RenderingServer.set_default_clear_color(Color("222f40"))
+	RenderingServer.set_default_clear_color(Color("10151c"))
 	player = AudioStreamPlayer.new()
 	player.name = "Music"
 	add_child(player)
@@ -194,13 +194,10 @@ func _open(app: String) -> void:
 func _layout() -> void:
 	if not is_instance_valid(frame):
 		return
-	var factor := maxf(0.05, minf((size.x - 24) / PHONE_SIZE.x, (size.y - 24) / PHONE_SIZE.y))
+	var factor := maxf(0.05, minf(size.x / PHONE_SIZE.x, size.y / PHONE_SIZE.y))
 	frame.size = PHONE_SIZE
 	frame.scale = Vector2.ONE * factor
 	frame.position = (size - PHONE_SIZE * factor) / 2
-	var side: Control = ui.get_node_or_null("Side")
-	if side:
-		side.visible = frame.position.x >= 310
 
 func _render() -> void:
 	if transition and transition.is_valid():
@@ -209,19 +206,6 @@ func _render() -> void:
 		ui.remove_child(child)
 		child.queue_free()
 	ui.theme = _theme()
-	var side := VBoxContainer.new()
-	side.name = "Side"
-	side.position = Vector2(48, 88)
-	side.size = Vector2(260, 400)
-	ui.add_child(side)
-	side.add_child(_label("A STORY IN SMALL MOMENTS", 11, Color("dfa58b")))
-	side.add_child(_label("The Next\nHello", 44, Color("e9e4dd")))
-	side.add_child(_label("Tokyo  /  Sapporo", 15, Color("c4c3b4")))
-	var space := Control.new()
-	space.custom_minimum_size.y = 24
-	side.add_child(space)
-	side.add_child(_label("Swipe. Tap. Stay a little longer.\n\nA life inside a small screen.", 16, Color("a6a7b7")))
-	side.add_child(_label("Drag to swipe  /  Esc for Home", 12, Color("a6a7b7")))
 	frame = Control.new()
 	frame.name = "Device"
 	ui.add_child(frame)
@@ -345,7 +329,7 @@ func _status_bar(column: VBoxContainer) -> void:
 	time.position = Vector2(12, 9)
 	time.size = Vector2(70, 24)
 	bar.add_child(time)
-	var signal_name := _label("hello / offline", 11, MUTED)
+	var signal_name := _label("JPN", 11, MUTED)
 	signal_name.position = Vector2(126, 13)
 	signal_name.size = Vector2(116, 24)
 	signal_name.autowrap_mode = TextServer.AUTOWRAP_OFF
@@ -600,16 +584,13 @@ func _gesture_scroller() -> ScrollContainer:
 	return scroller
 
 func _home() -> void:
-	var masthead := _label("A LITTLE CLOSER, EVERY DAY", 11, CORAL)
-	masthead.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	body.add_child(masthead)
 	var greeting := _label(_story_date().substr(0, 11), 15, INK)
 	greeting.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(greeting)
 	var clock := _label(_story_date().right(5), 54, INK)
 	clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(clock)
-	var caption := _label("Tokyo  ·  Under the same sky  ·  Sapporo", 11, MUTED)
+	var caption := _label("Tokyo", 13, MUTED)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(caption)
 	var grid := GridContainer.new()
@@ -633,23 +614,24 @@ func _home() -> void:
 
 func _notes() -> void:
 	var journal: Dictionary = story.journal()
-	body.add_child(_label("ASAHI'S NOTEBOOK", 11, CORAL))
+	body.add_child(_label("MY NOTES", 11, CORAL))
 	body.add_child(_label("Small things to remember", 26))
-	body.add_child(_label("Asahi's place to keep track of what comes next.", 14, MUTED))
+	body.add_child(_label("Things I don't want to forget.", 14, MUTED))
 	_card("CHAPTER %d" % int(journal.chapter), journal.title)
-	var objective := _card("OPENING COMPLETE" if journal.complete else "CURRENT OBJECTIVE", journal.objective)
+	var objective := _card("FOR LATER" if journal.complete else "NEXT", journal.objective)
 	var bookmark := _style(SURFACE, RULE)
 	bookmark.border_width_left = 4
 	bookmark.border_color = CORAL
 	(objective.get_parent() as PanelContainer).add_theme_stylebox_override("panel", bookmark)
 	if journal.draft_pending:
-		objective.add_child(_label("You have an unsent draft. Review it before pressing Send.", 14, CORAL))
+		objective.add_child(_label("I still have a reply in drafts.", 14, CORAL))
 	_button(("Read in " if journal.complete else "Continue in ") + journal.app + "  >", _open.bind(journal.app), objective)
 	if not journal.completed.is_empty():
-		body.add_child(_label("Completed", 20))
+		body.add_child(_label("Earlier", 20))
 		for entry: Dictionary in journal.completed:
 			_card("✓ CHAPTER %d" % int(entry.chapter), entry.title)
-	body.add_child(_label("Objectives update as your story progresses. Browsing Notes never advances time or makes a choice.", 13, MUTED))
+	if journal.complete:
+		body.add_child(_label("End of the playable opening", 13, MUTED))
 
 func _conversation() -> void:
 	var is_game: bool = story.state.app == "Lantern Quest"
@@ -657,15 +639,15 @@ func _conversation() -> void:
 		_art("lantern")
 		body.add_child(_label("THE RUINED GARDEN  /  Guild party", 12, CORAL))
 	else:
-		body.add_child(_label("Yukimura Mizuki, 23", 18))
-		body.add_child(_label("Sapporo, Hokkaido  •  Your conversation", 12, MUTED))
+		body.add_child(_label("Mizuki", 22))
+		body.add_child(_label("mizuki  /  Direct messages", 12, MUTED))
 	for entry: Dictionary in story.state.log:
 		# The shared history stays readable in both contexts; game messages retain speakers.
 		var speaker: String = entry.speaker
 		if speaker == "system":
 			body.add_child(_label(story.text(entry.text), 12, MUTED))
 		else:
-			var card := _card("YOU / asahi" if speaker == "asahi" else speaker, story.text(entry.text))
+			var card := _card("Me" if speaker == "asahi" else speaker, story.text(entry.text))
 			var bubble := _style(Color("ecd0b9") if speaker == "asahi" else SURFACE, RULE)
 			bubble.set_corner_radius_all(5)
 			bubble.border_width_right = 4 if speaker == "asahi" else 1
@@ -851,7 +833,7 @@ func _videos() -> void:
 	body.add_child(_label("Finite preview library. Storyboards are temporary media; no external streaming.", 13, MUTED))
 
 func _books() -> void:
-	body.add_child(_label("On your nightstand", 25))
+	body.add_child(_label("My bookshelf", 25))
 	var excerpts := [
 		["The Last Light on the Platform", "The train had gone, but the platform was still warm from everyone who had waited. She stayed another minute. There was no reason to hurry an empty evening."],
 		["Instructions for an Ordinary Day", "Buy the bread you like. Answer one letter. Open the window, even if only for a moment. The world will not become manageable all at once."],
@@ -859,7 +841,7 @@ func _books() -> void:
 	for i in excerpts.size():
 		var card := _card(excerpts[i][0], excerpts[i][1])
 		_like_button("book_" + str(i), card, "Mark passage")
-	body.add_child(_label("YOUR READING NOTE", 12, CORAL))
+	body.add_child(_label("MY READING NOTE", 12, CORAL))
 	var note := TextEdit.new()
 	note.placeholder_text = "Keep a thought for later..."
 	note.text = story.state.notes
@@ -901,7 +883,7 @@ func _gallery() -> void:
 func _calendar() -> void:
 	body.add_child(_label("Room for what matters", 25))
 	_card("OCTOBER  /  STORY TIME", "23 FRI  •  A party invitation\n24 SAT  •  The next shared activity\n27 TUE  •  A follow-up")
-	_card("YOUR PLAN", story.state.facts.get("commitment", "No new plans confirmed. Start with the Lantern Quest invitation."))
+	_card("MY PLANS", story.state.facts.get("commitment", "Nothing confirmed yet."))
 	if story.state.facts.has("work"):
 		_card("DESK", story.state.facts.work)
 	if story.state.facts.has("memory"):
@@ -916,7 +898,7 @@ func _calendar() -> void:
 
 func _settings() -> void:
 	body.add_child(_label("Make yourself comfortable", 24))
-	_card("YOUR PHONE", "Tachibana Asahi, 29\nTokyo\n\nYukimura Mizuki, 23\nSapporo, Hokkaido")
+	_card("MY ACCOUNT", "Tachibana Asahi\nasahi\nTokyo, Japan")
 	_card("DISPLAY & READING", "The phone always keeps its 414:896 proportions. Window resolution changes its scale, never its shape. Swipe or drag to navigate; buttons remain available.")
 	for scale_value: float in [1.0, 1.5, 2.0]:
 		_button("Text size  %d%%" % int(scale_value * 100), func() -> void: _remember(); text_scale = scale_value; _save_settings(); _render())

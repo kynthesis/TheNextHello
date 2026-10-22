@@ -82,6 +82,7 @@ func fitted(label: String) -> void:
 	check(phone.frame.position.x >= 0 and phone.frame.position.y >= 0 and phone.frame.position.x + visual.x <= root.size.x + 1 and phone.frame.position.y + visual.y <= root.size.y + 1, label + " complete device fits")
 	check(phone.screen.size.is_equal_approx(Vector2(394, 876)), label + " app canvas stays fixed")
 	check(phone.body.size.x <= phone.scroller.size.x + 1, label + " content fits without horizontal clipping")
+	check(phone.ui.get_child_count() == 1 and phone.ui.get_child(0) == phone.frame, label + " only the phone is presented")
 
 func _initialize() -> void:
 	await process_frame
@@ -93,6 +94,13 @@ func _initialize() -> void:
 	root.size = Vector2i(1280, 900)
 	phone.sound_volume = 0.5
 	phone._render()
+	await settle()
+	root.size = Vector2i(414, 896)
+	await settle()
+	fitted("phone-sized window")
+	check(phone.frame.position.is_zero_approx() and phone.frame.scale.is_equal_approx(Vector2.ONE), "default portrait window is filled by the phone")
+	await capture("asahi_phone")
+	root.size = Vector2i(1280, 900)
 	await settle()
 	phone.banner_id = ""
 	phone._refresh_overlay()

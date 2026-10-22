@@ -4,6 +4,8 @@ Built 22 October 2026 with Godot 4.7.2. This implements the opening validation m
 
 ## Implemented
 
+- Asahi's point of view throughout the shell: only the phone is visible, with a 414×896 default window. Wider windows add plain margins. Home shows Tokyo and the local story clock, Messages uses a contact header and "Me" for sent messages, Settings shows Asahi's account, and all 20 Notes reminders use his voice. The previous exterior title/instructions and relationship tagline are removed.
+
 - A simple Notes utility holds chapter titles, current objectives, unsent-draft reminders, completed tasks and links to the next app. Home contains app navigation rather than a mission panel. Guidance is authored for all 20 nodes and derives completion from saved transitions, preserving older saves without a schema change.
 - Numbered unread bubbles use saved per-app update IDs alongside notification history. Notes tracks the latest changed objective; Gallery tracks new images; Calendar tracks changed commitments, work availability and meeting plans. The same event is counted once per app. Opening an app clears its own updates, and Mark All as Read clears all bubbles. Older saves gain the new read-state field without losing story progress.
 
