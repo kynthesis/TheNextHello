@@ -147,7 +147,7 @@ ID: `guild_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 ### 02 / The mug has a new job
 ID: `private_photo` · SAT  24 OCT     16:42 · Messages / Mizuki
 
-**system:** Mizuki shared a private desk photo. Open Photos to inspect it or read this description: pens in a mug, a half-finished illustration on a laptop, rain against the window.
+**system:** Mizuki shared a private desk photo. Read this description or open Shared attachments in Messages: pens in a mug, a half-finished illustration on a laptop, rain against the window.
 
 **mizuki:** Window attempt seven. Application deadline Monday. Please keep this one between us.
 

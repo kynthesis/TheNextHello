@@ -1,9 +1,9 @@
 # Project workflow
 
 - Build this game with Godot, focused on 2D and pixel art.
-- Present the game through Asahi's account on an original fictional social network. Use an early social-network section grid, news feed, profiles, photos and private chat; do not render a phone shell, battery/signal bar or home gesture indicator. Use his point of view for personal notes/account information.
+- Present the game as a nostalgic mobile social app from Asahi's account, with our own identity inspired by early social-network UI and Emily is Away. Use a 414×896 portrait app canvas that scales uniformly; no desktop sidebars or copied Facebook branding.
 - Support one standard text size only; do not add text-size settings or alternate text-scale layouts.
-- Keep familiar section names: News Feed, Profile, Friends, Messages, Games, Work, Photos, Events, Notes and Settings. Calendar is labeled Events in the UI; old save keys remain compatible. Lantern Quest is the game within Games.
+- Keep exactly seven main sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. Profile is Asahi's account with statuses/comments/shares; Friends opens friends' profiles and their photos; Photos contains Asahi's own photos; Events holds story objectives; Messages contains DMs; Requests handles new friends. Settings is a header utility. Games, Work, Notes and Calendar remain internal save/story keys, not extra main sections.
 - Asahi and Mizuki meet coincidentally through random game matchmaking, with no guild or mutual-friend introduction. Daichi appears only later.
 - Keep UI minimal so players can focus on the story: no decorative wallpaper, oversized clock, duplicate dock, or texture controls. Use our own teal, warm paper and muted coral theme and custom pixel icons; do not copy Facebook branding or its blue theme.
 - Use Emily is Away as a reference for intimate chat, awkward pauses, ordinary details and relationships changing over time. Keep Asahi's account viewpoint, consequential choices and the selected reply's meaning intact.

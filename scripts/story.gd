@@ -16,6 +16,39 @@ func _init() -> void:
 func reset() -> void:
 	state = {"version": 1, "content_version": CONTENT_VERSION, "node": "invite", "log": [], "facts": {}, "consumed": [], "draft": "", "app": "Home", "likes": [], "notes": "", "scroll": {}, "track": -1, "music_playing": false, "notifications": [], "app_updates": {}, "shown_count": 0}
 	_enter("invite")
+	state.social = _new_social()
+
+func _new_social() -> Dictionary:
+	return {"friends": ["Natsumi"], "declined": [], "posts": [], "comments": {}, "shares": []}
+
+func social() -> Dictionary:
+	if not state.has("social"): state.social = _new_social()
+	return state.social
+
+func pending_requests() -> Array[String]:
+	var candidates: Array[String] = []
+	if "first_dm" in state.consumed: candidates.append("Mizuki")
+	if "guild_plan" in state.consumed: candidates.append("Daichi")
+	if "family_chat" in state.consumed or "permission_granted" in state.consumed: candidates.append("Misaki")
+	return candidates.filter(func(person: String) -> bool: return person not in social().friends and person not in social().declined)
+
+func answer_request(person: String, accept: bool) -> bool:
+	if person not in pending_requests(): return false
+	social()["friends" if accept else "declined"].append(person)
+	return true
+
+func post_status(copy: String) -> bool:
+	copy = copy.strip_edges()
+	if copy.is_empty() or copy.length() > 280: return false
+	social().posts.append({"copy": copy, "date": current().timestamp})
+	return true
+
+func add_comment(post: String, copy: String) -> bool:
+	copy = copy.strip_edges()
+	if copy.is_empty() or copy.length() > 280: return false
+	if not social().comments.has(post): social().comments[post] = []
+	social().comments[post].append(copy)
+	return true
 
 func text(id: String) -> String:
 	return str(content.strings.get(id, id))
@@ -168,6 +201,23 @@ func toggle_like(id: String) -> void:
 func valid(data: Variant) -> bool:
 	if not data is Dictionary or data.get("version") != 1 or data.get("content_version") != CONTENT_VERSION:
 		return false
+	if data.has("social"):
+		var network: Variant = data.social
+		if not network is Dictionary: return false
+		for key: String in ["friends", "declined", "shares"]:
+			if not network.get(key) is Array: return false
+			for value: Variant in network[key]:
+				if not value is String: return false
+		for key: String in ["friends", "declined"]:
+			for person: String in network[key]:
+				if person not in ["Mizuki", "Natsumi", "Daichi", "Misaki"]: return false
+		if not network.get("posts") is Array or not network.get("comments") is Dictionary: return false
+		for post: Variant in network.posts:
+			if not post is Dictionary or not post.get("copy") is String or not post.get("date") is String: return false
+		for post: Variant in network.comments:
+			if not post is String or not network.comments[post] is Array: return false
+			for copy: Variant in network.comments[post]:
+				if not copy is String: return false
 	for key: String in ["log", "consumed", "likes"]:
 		if not data.get(key) is Array:
 			return false
@@ -251,6 +301,7 @@ func load_from(path: String) -> bool:
 		var data: Variant = _read_json(candidate)
 		if valid(data):
 			state = data
+			if not state.has("social"): state.social = _new_social()
 			if not state.has("shown_count"): state.shown_count = state.log.size()
 			if not state.has("app_updates"):
 				state.app_updates = {"Notes": [state.node]}

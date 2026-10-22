@@ -94,7 +94,7 @@ node("guild_callback", "03 / The next invitation", "Messages", 3, [
     ("system", "Opening complete. Your shared game activity has opened a small-party invitation and a private after-game conversation. The collaboration and visit-preparation scenes belong to other paths.")], facts={"available_events": ["small_party", "after_game_chat"]})
 
 node("private_photo", "02 / The mug has a new job", "Messages", 2, [
-    ("system", "Mizuki shared a private desk photo. Open Photos to inspect it or read this description: pens in a mug, a half-finished illustration on a laptop, rain against the window."),
+    ("system", "Mizuki shared a private desk photo. Read this description or open Shared attachments in Messages: pens in a mug, a half-finished illustration on a laptop, rain against the window."),
     ("mizuki", "Window attempt seven. Application deadline Monday. Please keep this one between us.")], [
     ("Want quiet company while we make the postcard? We can leave it unfinished.", "private_event", {"collaboration": "quiet company"}),
     ("Let's move our postcard session until after your deadline. I'll send my photo now.", "private_rescheduled", {"collaboration": "rescheduled"})], facts={"desk_photo": True})

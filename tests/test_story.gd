@@ -14,6 +14,7 @@ func check(condition: bool, label: String) -> void:
 
 func _initialize() -> void:
 	var model := Story.new()
+	social_state()
 	full_paths()
 	check(visited.size() == model.content.nodes.size(), "all authored nodes reachable")
 	check(model.state.node == "invite", "exploration does not mutate original")
@@ -168,3 +169,30 @@ func full_paths() -> void:
 			if run.state.facts.get("first_meeting", false):
 				check(run.state.facts.meeting_plan == "completed", "later uncertainty or separation cannot erase a completed meeting")
 	check(endings.size() == 8, "all eight endings play through the Godot runtime")
+
+func social_state() -> void:
+	var run := Story.new()
+	check(run.pending_requests().is_empty(), "no request before meeting")
+	check(not run.answer_request("Mizuki", true), "cannot accept an unearned request")
+	run.draft("invite.choice.0"); run.send()
+	run.draft("bridge.choice.0"); run.send()
+	check(run.pending_requests() == ["Mizuki"], "encounter creates pending friend request")
+	var before: Dictionary = run.state.facts.duplicate(true)
+	check(run.answer_request("Mizuki", true) and not run.answer_request("Mizuki", true), "request acceptance is idempotent")
+	check(run.state.facts == before and run.state.node == "first_dm", "social acceptance preserves narrative state")
+	check(run.post_status("My first status") and not run.post_status("   ") and not run.post_status("x".repeat(281)), "status validates blank and overlong text")
+	check(run.add_comment("friend_Natsumi", "Nice print.") and not run.add_comment("friend_Natsumi", ""), "comments validate content")
+	run.social().shares.append("friend_Natsumi")
+	check(run.save_to("user://test_social.json"), "social state saves")
+	var loaded := Story.new()
+	check(loaded.load_from("user://test_social.json") and loaded.social() == run.social(), "requests, posts, comments and shares restore")
+	var malformed: Dictionary = run.state.duplicate(true)
+	malformed.social.posts = [42]
+	check(not run.valid(malformed), "malformed social posts cannot replace a valid save")
+	run.state.erase("social")
+	check(run.save_to("user://test_social.json") and loaded.load_from("user://test_social.json") and loaded.social().friends == ["Natsumi"], "older saves gain safe social defaults")
+	var declined := Story.new()
+	declined.draft("invite.choice.0"); declined.send()
+	declined.draft("bridge.choice.0"); declined.send()
+	check(declined.answer_request("Mizuki", false) and declined.pending_requests().is_empty() and "Mizuki" not in declined.social().friends, "declining a request keeps it out of Friends")
+	for suffix: String in ["", ".bak", ".tmp"]: DirAccess.remove_absolute("user://test_social.json" + suffix)

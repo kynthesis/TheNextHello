@@ -9,11 +9,18 @@ const CORAL := Color("285552")
 const SURFACE := Color("fffdf8")
 const PAPER := Color("f0eee7")
 const RULE := Color("d0d8ce")
-const SECTION_NAMES := {"Home": "News Feed", "Calendar": "Events"}
+const MOBILE_SIZE := Vector2(414, 896)
+const SECTION_NAMES := {"Home": "Home", "Calendar": "Events", "Notes": "Events", "Games": "Lantern Quest", "Work": "Work messages"}
 var profile_view := false
 var feed_view := false
 var friends_view := false
 var comments_open := ""
+var requests_view := false
+var friend_profile := ""
+var friend_photos := false
+var attachments_view := false
+var status_draft := ""
+var comment_draft := ""
 var story := Story.new()
 var ui: Control
 var frame: Control
@@ -50,7 +57,7 @@ var suspended := false
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
-	RenderingServer.set_default_clear_color(PAPER)
+	RenderingServer.set_default_clear_color(Color("1c302f"))
 	sfx = AudioStreamPlayer.new()
 	sfx.name = "InterfaceSounds"
 	sfx.max_polyphony = 4
@@ -195,6 +202,11 @@ func _open(app: String) -> void:
 	profile_view = false
 	feed_view = false
 	friends_view = false
+	requests_view = false
+	friend_profile = ""
+	friend_photos = false
+	attachments_view = false
+	comments_open = ""
 	view_thread = ""
 	inbox = false
 	_remember()
@@ -204,6 +216,7 @@ func _open(app: String) -> void:
 	banner_id = ""
 	banner_timer.stop()
 	story.mark_app_read(app)
+	if app == "Calendar": story.mark_app_read("Notes")
 	confirm_later = false
 	confirm_restart = false
 	status = ""
@@ -214,13 +227,10 @@ func _open(app: String) -> void:
 
 func _layout() -> void:
 	if not is_instance_valid(frame): return
-	frame.scale = Vector2.ONE
-	frame.position = Vector2.ZERO
-	# Rebuild only when crossing a responsive column threshold.
-	var columns := 3 if size.x >= 1060 else 2 if size.x >= 720 else 1
-	if int(frame.get_meta("columns", columns)) != columns:
-		_remember()
-		_render.call_deferred(false)
+	var factor := maxf(0.05, minf(size.x / MOBILE_SIZE.x, size.y / MOBILE_SIZE.y))
+	frame.size = MOBILE_SIZE
+	frame.scale = Vector2.ONE * factor
+	frame.position = (size - MOBILE_SIZE * factor) / 2
 
 func _render(refocus := true) -> void:
 	if transition and transition.is_valid(): transition.kill()
@@ -233,12 +243,9 @@ func _render(refocus := true) -> void:
 	ui.theme = _theme()
 	frame = Control.new()
 	frame.name = "SocialNetwork"
-	frame.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var columns := 3 if size.x >= 1060 else 2 if size.x >= 720 else 1
-	frame.set_meta("columns", columns)
 	ui.add_child(frame)
 	screen = PanelContainer.new()
-	screen.name = "Website"
+	screen.name = "MobileApp"
 	screen.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var surface := _style(PAPER)
 	surface.set_content_margin_all(0)
@@ -248,29 +255,25 @@ func _render(refocus := true) -> void:
 	column.add_theme_constant_override("separation", 0)
 	screen.add_child(column)
 	_status_bar(column)
-	if columns == 1:
-		var tabs_scroll := ScrollContainer.new()
-		tabs_scroll.custom_minimum_size.y = 44
-		tabs_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-		column.add_child(tabs_scroll)
-		var tabs := HBoxContainer.new()
-		tabs_scroll.add_child(tabs)
-		for app: String in ["Home", "Messages", "Games", "Work", "Photos", "Calendar", "Notes", "Settings"]:
-			_section_link(app, tabs)
 	var margin := MarginContainer.new()
 	margin.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	for edge: String in ["left", "right", "top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + edge, 20 if columns > 1 else 8)
+		margin.add_theme_constant_override("margin_" + edge, 10)
 	column.add_child(margin)
 	var layout := HBoxContainer.new()
 	layout.add_theme_constant_override("separation", 20)
 	margin.add_child(layout)
-	if columns > 1: _sidebar(layout)
 	var center := VBoxContainer.new()
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	layout.add_child(center)
-	if story.state.app != "Home" or profile_view or feed_view or friends_view:
-		center.add_child(_label("My Profile" if profile_view else "Friends" if friends_view else "News Feed" if feed_view else _section_name(story.state.app), 20, CORAL))
+	var title := "Profile" if profile_view else "Requests" if requests_view else friend_profile if friend_profile != "" else "Friends" if friends_view else "News Feed" if feed_view else _section_name(story.state.app)
+	if title != "Home":
+		var crumb := HBoxContainer.new()
+		center.add_child(crumb)
+		var back := _button("‹ Home", _open.bind("Home"), crumb)
+		back.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		back.autowrap_mode = TextServer.AUTOWRAP_OFF
+		crumb.add_child(_label(title, 20, CORAL))
 	if status != "": center.add_child(_label(status, 13, CORAL))
 	scroller = ScrollContainer.new()
 	scroller.name = "ContentScroll"
@@ -282,7 +285,11 @@ func _render(refocus := true) -> void:
 	body.name = "Content"
 	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroller.add_child(body)
-	if profile_view:
+	if requests_view:
+		_requests()
+	elif friend_profile != "":
+		_friend_profile()
+	elif profile_view:
 		_profile()
 	elif feed_view:
 		_feed()
@@ -294,12 +301,11 @@ func _render(refocus := true) -> void:
 			"Messages", "Games": _conversation()
 			"Work": _desk()
 			"Photos": _gallery()
-			"Calendar": _calendar()
+			"Calendar": _events()
 			"Settings": _settings()
-			"Notes": _notes()
-	if columns == 3: _contacts(layout)
+			"Notes": _events()
+	_layout()
 	_refresh_overlay()
-	_layout.call_deferred()
 	saved_app = story.state.app
 	_restore_scroll.call_deferred(story.state.app, int(story.state.scroll.get(story.state.app, 0)))
 	if refocus: _focus_first.call_deferred()
@@ -307,37 +313,6 @@ func _render(refocus := true) -> void:
 
 func _section_name(app: String) -> String:
 	return "Home" if app == "Home" else SECTION_NAMES.get(app, app)
-
-func _section_link(app: String, parent: Node) -> Button:
-	var count: int = story.unread_count(app)
-	var button := _button(_section_name(app) + ("  (%d)" % count if count > 0 else ""), _open.bind(app), parent)
-	button.name = app + "Link"
-	button.autowrap_mode = TextServer.AUTOWRAP_OFF
-	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-	button.set_meta("section", app)
-	if story.state.app == app and not profile_view:
-		button.add_theme_stylebox_override("normal", _style(Color("dce9df"), RULE))
-	return button
-
-func _sidebar(parent: Node) -> void:
-	var side := VBoxContainer.new()
-	side.name = "Navigation"
-	side.custom_minimum_size.x = 176
-	parent.add_child(side)
-	var me := HBoxContainer.new()
-	side.add_child(me)
-	_avatar("asahi", me)
-	var account := VBoxContainer.new()
-	account.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	me.add_child(account)
-	account.add_child(_label("Asahi", 16, CORAL))
-	var profile := _button("My Profile", _open_profile, account)
-	profile.name = "ProfileLink"
-	profile.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-	for app: String in ["Home", "Messages", "Games", "Work", "Photos", "Calendar", "Notes", "Settings"]:
-		_section_link(app, side)
-	side.add_child(_label("THE NEXT HELLO", 12, MUTED))
-	side.add_child(_label(_story_date(), 12, MUTED))
 
 func _open_profile() -> void:
 	_open("Home")
@@ -356,21 +331,6 @@ func _avatar(who: String, parent: Node) -> void:
 	var initial := _label(who.left(1).to_upper(), 16, Color.WHITE)
 	initial.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	avatar.add_child(initial)
-
-func _contacts(parent: Node) -> void:
-	var side := VBoxContainer.new()
-	side.name = "ChatSidebar"
-	side.custom_minimum_size.x = 190
-	parent.add_child(side)
-	side.add_child(_label("Chat", 16, CORAL))
-	for contact: String in _known_contacts():
-		var row := HBoxContainer.new()
-		side.add_child(row)
-		_avatar(contact, row)
-		_button(contact, _open_contact.bind(contact), row)
-	if _known_contacts().is_empty(): side.add_child(_label("No conversations yet.", 13, MUTED))
-	side.add_child(_label("Private conversations", 12, MUTED))
-	side.add_child(_label("Read receipts show a message was opened. Replies can wait.", 13, MUTED))
 
 func _known_contacts() -> Array[String]:
 	var contacts: Array[String] = []
@@ -396,35 +356,22 @@ func _restore_scroll(app: String, value: int) -> void:
 func _status_bar(column: VBoxContainer) -> void:
 	var bar := PanelContainer.new()
 	bar.name = "SiteHeader"
-	var header_style := _style(CORAL, Color("193b39"))
-	header_style.set_content_margin_all(8)
+	var header_style := _style(CORAL, Color("b77b67"))
 	header_style.border_width_bottom = 3
-	header_style.border_color = Color("b77b67")
 	bar.add_theme_stylebox_override("panel", header_style)
 	column.add_child(bar)
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 16)
 	bar.add_child(row)
 	var logo := _button("hello", _open.bind("Home"), row)
 	logo.name = "SiteLogo"
-	logo.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	logo.custom_minimum_size.x = 100
+	logo.add_theme_font_size_override("font_size", 24)
 	logo.autowrap_mode = TextServer.AUTOWRAP_OFF
-	logo.add_theme_font_size_override("font_size", 26)
-	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]:
-		logo.add_theme_color_override(state, Color("fff8e9"))
+	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: logo.add_theme_color_override(state, Color("fff8e9"))
 	logo.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-	var spacer := Control.new()
-	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(spacer)
-	var notices := _button("Notifications", _show_notifications, row)
+	var notices := _button("Updates", _show_notifications, row)
 	notices.name = "Notifications"
-	notices.size_flags_horizontal = Control.SIZE_SHRINK_END
-	notices.autowrap_mode = TextServer.AUTOWRAP_OFF
-	var me := _button("Asahi" if size.x >= 720 else "Me", _open_profile, row)
-	me.size_flags_horizontal = Control.SIZE_SHRINK_END
-	me.autowrap_mode = TextServer.AUTOWRAP_OFF
-	me.custom_minimum_size.x = 60
+	var settings := _button("Settings", _open.bind("Settings"), row)
+	settings.name = "SettingsLink"
 
 func _animate_open() -> void:
 	if reduce_motion: return
@@ -600,31 +547,26 @@ func _gesture_scroller() -> ScrollContainer:
 	return scroller
 
 func _home() -> void:
-	body.add_child(_label("Welcome back, Asahi", 22, CORAL))
-	_button("Continue in " + _section_name(story.current().app) + "  /  " + story.text(story.current().title), _open.bind(story.current().app))
+	body.add_child(_label("Asahi / " + _story_date().substr(0, 11), 14, MUTED))
 	var menu := _card("", "")
 	var grid := GridContainer.new()
 	grid.name = "SectionGrid"
 	grid.columns = 3
-	grid.add_theme_constant_override("h_separation", 10)
-	grid.add_theme_constant_override("v_separation", 14)
+	grid.add_theme_constant_override("h_separation", 8)
+	grid.add_theme_constant_override("v_separation", 12)
 	menu.add_child(grid)
 	_menu_tile("News Feed", "Home", _show_feed, grid)
 	_menu_tile("Profile", "Profile", _open_profile, grid)
 	_menu_tile("Friends", "Friends", _show_friends, grid)
-	for section: String in ["Photos", "Calendar", "Messages", "Games", "Work", "Notes"]:
-		_menu_tile(_section_name(section), section, _open.bind(section), grid)
-	var shelf := _card("MY PHOTO SHELF / PRIVATE", "")
-	var thumbnails := HBoxContainer.new()
-	shelf.add_child(thumbnails)
-	_art("city", thumbnails, 110)
-	if story.state.facts.get("screenshot", false): _art("lantern", thumbnails, 110)
-	if story.state.facts.get("first_meeting", false): _art("city", thumbnails, 110)
-	_button("Open Photos", _open.bind("Photos"), shelf)
-	var footer := HBoxContainer.new()
-	body.add_child(footer)
-	_button("Notifications", _show_notifications, footer)
-	_button("Settings", _open.bind("Settings"), footer)
+	_menu_tile("Photos", "Photos", _open.bind("Photos"), grid)
+	_menu_tile("Events", "Calendar", _open.bind("Calendar"), grid)
+	_menu_tile("Messages", "Messages", _open.bind("Messages"), grid)
+	_menu_tile("Requests", "Requests", _show_requests, grid)
+	var shelf := _card("MY PHOTOS", "")
+	_art("city", shelf, 100)
+	_button("View my photos", _open.bind("Photos"), shelf)
+	_button("Events / " + story.text(story.current().title), _open.bind("Calendar"))
+	_button("Notifications", _show_notifications)
 
 func _menu_tile(label: String, icon_key: String, action: Callable, parent: Node) -> void:
 	var tile := VBoxContainer.new()
@@ -633,7 +575,7 @@ func _menu_tile(label: String, icon_key: String, action: Callable, parent: Node)
 	var icon := Button.new()
 	icon.set_script(AppIcon)
 	icon.app = icon_key
-	icon.badge_count = story.unread_count(icon_key) if icon_key in Story.APPS else 0
+	icon.badge_count = maxi(story.unread_count("Calendar"), story.unread_count("Notes")) if icon_key == "Calendar" else story.pending_requests().size() if icon_key == "Requests" else story.unread_count(icon_key) if icon_key in Story.APPS else 0
 	icon.name = icon_key + "Tile"
 	icon.custom_minimum_size = Vector2(72, 72)
 	icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -659,13 +601,47 @@ func _show_friends() -> void:
 	_render()
 
 func _friends() -> void:
-	body.add_child(_label("People I've met", 20, CORAL))
-	if _known_contacts().is_empty():
-		body.add_child(_label("New conversations will appear here after we meet."))
-	for contact: String in _known_contacts():
-		var card := _card(contact, "Private conversation")
-		_button("Message " + contact, _open_contact.bind(contact), card)
-	body.add_child(_label("Lantern Quest matches players at random. My contacts don't introduce me to Mizuki.", 13, MUTED))
+	for person: String in story.social().friends:
+		var card := _card(person, "Friends")
+		_button("View " + person + "'s profile", _view_friend.bind(person), card)
+	_button("Friend requests (%d)" % story.pending_requests().size(), _show_requests)
+
+func _show_requests() -> void:
+	_open("Home")
+	requests_view = true
+	_render()
+
+func _requests() -> void:
+	if story.pending_requests().is_empty(): body.add_child(_label("No new friend requests."))
+	for person: String in story.pending_requests():
+		var card := _card(person, "Sent you a friend request after your conversation.")
+		_button("Accept " + person, _answer_request.bind(person, true), card)
+		_button("Decline " + person, _answer_request.bind(person, false), card)
+	body.add_child(_label("Messages don't require a friend request. You can reply when you're ready.", 13, MUTED))
+
+func _answer_request(person: String, accept: bool) -> void:
+	if story.answer_request(person, accept):
+		_autosave()
+		_render()
+
+func _view_friend(person: String) -> void:
+	if person not in story.social().friends: return
+	_open("Home")
+	friend_profile = person
+	_render()
+
+func _friend_profile() -> void:
+	var info := {"Mizuki": ["Sapporo, Hokkaido", "drawing windows. looking out of them occasionally.", "city"], "Natsumi": ["Tokyo, Japan", "Prints, ink, and trying to hang things straight.", "desk"], "Daichi": ["Lantern Quest", "Small parties. Nobody left at the bridge.", "lantern"], "Misaki": ["Japan", "Still finding somewhere to put all these books.", "desk"]}
+	var entry: Array = info[friend_profile]
+	var card := _card(friend_profile, entry[0])
+	_button("Profile" if friend_photos else "View photos", func() -> void: friend_photos = not friend_photos; _render(), card)
+	if friend_photos:
+		_card("PHOTOS / " + friend_profile.to_upper(), "Shared with friends. Private work attachments stay in Messages.")
+		_art(entry[2])
+		body.add_child(_label("A small view of my day.", 14, MUTED))
+	else:
+		_feed_post("friend_" + friend_profile, friend_profile, entry[1], entry[2], "Friends", "")
+	if friend_profile in _known_contacts(): _button("Message " + friend_profile, _open_contact.bind(friend_profile))
 
 func _feed() -> void:
 	var heading := HBoxContainer.new()
@@ -676,14 +652,30 @@ func _feed() -> void:
 	heading.add_child(date)
 	var current := _card("PICK UP WHERE I LEFT OFF", story.text(story.current().title))
 	_button("Continue in " + _section_name(story.current().app) + "  >", _open.bind(story.current().app), current)
-	var composer := _card("ASAHI", "A little space for the things worth keeping.")
-	_button("Write a private note", _open.bind("Notes"), composer)
+	_button("Post a status", _open_profile)
+	_render_own_posts()
 	_feed_post("feed_window", "Asahi", "Tokyo. Rain again. At least the view is doing something with it.", "city", "Only me", "Still haven't bought a plant for this window.")
-	if "natsumi_invite" in story.state.consumed:
-		_feed_post("feed_prints", "Natsumi", "Finally getting these prints onto a wall. Still taking suggestions for how to hang anything straight.", "desk", "Friends", "Asahi: I can offer a book and very little expertise.")
-	if "guild_plan" in story.state.consumed:
-		_feed_post("feed_garden", "Daichi", "Small garden party. New players welcome. We wait at the bridge.", "lantern", "Lantern Quest community", "Route notes are in Games. No one needs to rush.")
+	for id: String in _public_posts():
+		var item: Array = _public_posts()[id]
+		_feed_post(id, item[0], item[1], item[2], "Friends", "")
 	body.add_child(_label("You're caught up. Private conversations stay in Messages.", 13, MUTED))
+
+func _public_posts() -> Dictionary:
+	var posts := {}
+	var captions := {"Mizuki": ["Mizuki", "drawing windows. looking out of them occasionally.", "city"], "Natsumi": ["Natsumi", "Prints, ink, and trying to hang things straight.", "desk"], "Daichi": ["Daichi", "Small parties. Nobody left at the bridge.", "lantern"], "Misaki": ["Misaki", "Still finding somewhere to put all these books.", "desk"]}
+	for person: String in story.social().friends: posts["friend_" + person] = captions[person]
+	return posts
+
+func _render_own_posts() -> void:
+	for i in range(story.social().posts.size() - 1, -1, -1):
+		var post: Dictionary = story.social().posts[i]
+		_feed_post("status_%d" % i, "Asahi", post.copy, "", "Friends / " + post.date, "")
+	for id: String in story.social().shares:
+		if _public_posts().has(id):
+			var post: Array = _public_posts()[id]
+			var card := _card("ASAHI SHARED / FRIENDS", post[0] + ": " + post[1])
+			_art(post[2], card, 120)
+
 
 func _feed_post(id: String, author: String, copy: String, art: String, audience: String, comment: String) -> void:
 	var post := _card("", "")
@@ -696,43 +688,73 @@ func _feed_post(id: String, author: String, copy: String, art: String, audience:
 	byline.add_child(_label(author, 16, CORAL))
 	byline.add_child(_label(audience + " / Saved update", 12, MUTED))
 	post.add_child(_label(copy))
-	_art(art, post, 160)
+	if art != "": _art(art, post, 140)
 	var actions := HBoxContainer.new()
 	post.add_child(actions)
 	_like_button(id, actions)
-	_button("Hide comment" if comments_open == id else "Comment", func() -> void: _remember(); comments_open = "" if comments_open == id else id; _render(), actions)
-	if comments_open == id: post.add_child(_label(comment, 14, MUTED))
+	_button("Hide comment" if comments_open == id else "Comment", func() -> void: _remember(); comment_draft = ""; comments_open = "" if comments_open == id else id; _render(), actions)
+	if _public_posts().has(id): _button("Shared" if id in story.social().shares else "Share", _share_post.bind(id), actions)
+	if comments_open == id:
+		if comment != "": post.add_child(_label(comment, 14, MUTED))
+		for message: String in story.social().comments.get(id, []): post.add_child(_label("Asahi: " + message, 16))
+		var input := TextEdit.new()
+		input.name = "CommentInput"
+		input.placeholder_text = "Write a comment..."
+		input.custom_minimum_size.y = 80
+		input.text = comment_draft
+		input.text_changed.connect(func() -> void: comment_draft = input.text)
+		post.add_child(input)
+		_button("Post comment", _post_comment.bind(id), post)
+
+func _share_post(id: String) -> void:
+	if not _public_posts().has(id) or id in story.social().shares: return
+	story.social().shares.append(id)
+	_autosave()
+	_render()
+
+func _post_comment(id: String) -> void:
+	if story.add_comment(id, comment_draft):
+		comment_draft = ""
+		_autosave()
+		_render()
 
 func _profile() -> void:
 	var profile := _card("MY PROFILE", "Tachibana Asahi\nasahi / Tokyo, Japan")
-	_art("city", profile, 150)
+	_art("city", profile, 110)
 	profile.add_child(_label("Usually here after work. Occasionally lost in Lantern Quest.", 16))
 	_button("My photos", _open.bind("Photos"), profile)
-	_button("My notes", _open.bind("Notes"), profile)
-	_card("PRIVATE / MY NEXT PLAN", story.state.facts.get("commitment", "Nothing confirmed yet."))
-	body.add_child(_label("My conversations", 18, CORAL))
-	for contact: String in _known_contacts(): _button(contact, _open_contact.bind(contact))
+	var composer := _card("POST STATUS / FRIENDS", "")
+	var input := TextEdit.new()
+	input.name = "StatusInput"
+	input.placeholder_text = "What's on your mind?"
+	input.custom_minimum_size.y = 110
+	input.text = status_draft
+	input.text_changed.connect(func() -> void: status_draft = input.text)
+	composer.add_child(input)
+	composer.add_child(_label("Up to 280 characters", 12, MUTED))
+	_button("Post status", _post_status, composer)
+	_render_own_posts()
 
-func _notes() -> void:
+func _post_status() -> void:
+	if story.post_status(status_draft):
+		status_draft = ""
+		status = "Status posted to my profile and News Feed."
+		_autosave()
+	else:
+		status = "Write a status between 1 and 280 characters."
+	_render()
+
+func _events() -> void:
 	var journal: Dictionary = story.journal()
-	body.add_child(_label("MY NOTES", 11, CORAL))
-	body.add_child(_label("Small things to remember", 26))
-	body.add_child(_label("Things I don't want to forget.", 14, MUTED))
-	_card("CHAPTER %d" % int(journal.chapter), journal.title)
-	var objective := _card("FOR LATER" if journal.complete else "NEXT", journal.objective)
-	var bookmark := _style(SURFACE, RULE)
-	bookmark.border_width_left = 4
-	bookmark.border_color = CORAL
-	(objective.get_parent() as PanelContainer).add_theme_stylebox_override("panel", bookmark)
-	if journal.draft_pending:
-		objective.add_child(_label("I still have a reply in drafts.", 14, CORAL))
-	_button(("Read in " if journal.complete else "Continue in ") + journal.app + "  >", _open.bind(journal.app), objective)
-	if not journal.completed.is_empty():
-		body.add_child(_label("Earlier", 20))
-		for entry: Dictionary in journal.completed:
-			_card("✓ CHAPTER %d" % int(entry.chapter), entry.title)
-	if journal.complete:
-		body.add_child(_label("Story complete", 13, MUTED))
+	var next := _card("STORY COMPLETE" if journal.complete else "CURRENT OBJECTIVE", journal.objective)
+	next.add_child(_label("Chapter %d / " % int(journal.chapter) + journal.title, 14, MUTED))
+	_button(("Read in " if journal.complete else "Continue in ") + _section_name(journal.app) + "  >", _open.bind(journal.app), next)
+	if journal.draft_pending: next.add_child(_label("I have an unsent reply.", 14, CORAL))
+	_card("MY PLANS", story.state.facts.get("commitment", "Nothing confirmed yet."))
+	if story.state.facts.has("work"): _card("WORK", story.state.facts.work)
+	if story.current().app == "Calendar": _render_thread()
+	var earlier := _card("COMPLETED", "")
+	for entry: Dictionary in journal.completed: earlier.add_child(_label("✓ " + entry.title, 14, MUTED))
 
 func _thread() -> String:
 	if story.state.app == "Games": return "Lantern Quest"
@@ -752,12 +774,34 @@ func _conversation() -> void:
 		body.add_child(_label("Conversations", 22))
 		for thread: String in story.threads():
 			_button(thread, func() -> void: view_thread = thread; inbox = false; _render())
+		_button("Lantern Quest", _open.bind("Games"))
+		_button("Work conversations", _open.bind("Work"))
 		if story.threads().is_empty(): body.add_child(_label("No conversations yet.", 14, MUTED))
 		return
 	else:
 		body.add_child(_label(_thread(), 22))
 		_button("Conversations", func() -> void: inbox = true; delivery_timer.stop(); _render())
+	if story.state.app == "Messages" and _thread() == "Mizuki" and (story.state.facts.get("desk_photo", false) or story.state.facts.get("postcard", false)):
+		_button("Back to conversation" if attachments_view else "Shared attachments", func() -> void: attachments_view = not attachments_view; delivery_timer.stop(); _render())
+		if attachments_view:
+			_shared_attachments()
+			return
 	_render_thread()
+
+func _shared_attachments() -> void:
+	body.add_child(_label("PRIVATE / MIZUKI & ASAHI", 13, CORAL))
+	if story.state.facts.get("desk_photo", false) and not story.state.facts.get("draft_withdrawn", false):
+		var photo := _card("MIZUKI'S DESK", "Private work draft. Mizuki asked me not to publish it.")
+		_art("desk", photo, 160)
+	if story.state.facts.get("postcard", false):
+		var photo := _card("TWO WINDOWS", "Our private postcard.")
+		_art("city", photo, 140)
+	for id: String in story.state.facts.get("photo_ids", []):
+		var item: Dictionary = story.content.photos.get(id, {})
+		if not item.is_empty():
+			var photo := _card(item.title, item.copy)
+			_art(item.kind, photo, 140)
+	if story.state.facts.get("draft_withdrawn", false): _card("WORK DRAFT WITHDRAWN", "Mizuki removed her unfinished work from this conversation.")
 
 func _render_thread() -> void:
 	for entry: Dictionary in story.visible_log(story.state.app, _thread()):
@@ -790,7 +834,7 @@ func _render_thread() -> void:
 		_story_controls()
 
 func _can_present() -> bool:
-	return not suspended and not inbox and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app in ["Messages", "Games", "Work", "Calendar"]
+	return not suspended and not inbox and not attachments_view and friend_profile == "" and not profile_view and not requests_view and not feed_view and not friends_view and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app in ["Messages", "Games", "Work", "Calendar"]
 
 func _sync_presentation() -> void:
 	if not _can_present() or not story.delivery_pending(): return
@@ -903,7 +947,7 @@ func _story_controls() -> void:
 		var ending: Dictionary = story.current().get("ending", {})
 		_card("STORY COMPLETE", story.text(story.current().title))
 		if not ending.is_empty(): body.add_child(_label(ending.category + " ending", 13, MUTED))
-		_button("Review your Calendar", _open.bind("Calendar"))
+		_button("Review Events", _open.bind("Calendar"))
 
 func _draft(id: String) -> void:
 	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
@@ -973,47 +1017,22 @@ func _desk() -> void:
 		_button("See commitments in Calendar", _open.bind("Calendar"))
 
 func _gallery() -> void:
-	var photo := _card("TOKYO WINDOW  /  Your photo", "Rain against your apartment window; warm squares of light in the building across the street.")
-	_art("city", photo)
+	var photo := _card("TOKYO WINDOW / MY PHOTO", "Rain against my apartment window.")
+	_art("city", photo, 160)
 	_like_button("tokyo_window", photo, "Favorite photo")
 	if story.state.facts.get("screenshot", false):
-		photo = _card("THE FIRST PARTY  /  Shared memory", "Two small lanterns in a ruined garden. Saved after your first session with mizuki.")
-		_art("lantern", photo)
-	if story.state.facts.get("desk_photo", false) and not story.state.facts.get("draft_withdrawn", false):
-		photo = _card("MIZUKI'S DESK  /  Private. Do not publish.", "A mug full of pens, an unfinished illustration on a laptop, and rain against the window. Mizuki asked to keep this between you.")
-		_art("desk", photo)
-		_button("Return to Mizuki's message", _open.bind("Messages"), photo)
-	if story.state.facts.get("postcard", false):
-		photo = _card("TWO WINDOWS  /  Private shared collection", "Your Tokyo skyline beside Mizuki's line drawing. Made in quiet company. Sharing permission stays private.")
-		_art("city", photo)
-		_art("desk", photo)
-	if story.state.facts.get("draft_withdrawn", false):
-		_card("WITHDRAWN WORK DRAFT", "Mizuki removed this image from the shared collection. The private postcard remains available.")
-	for photo_id: String in story.state.facts.get("photo_ids", []):
-		var item: Dictionary = story.content.photos.get(photo_id, {})
-		if not item.is_empty():
-			photo = _card(item.title, item.copy)
-			_art(item.kind, photo)
-	body.add_child(_label("Descriptions are part of every image. No detail hunt is required.", 12, MUTED))
-
-func _calendar() -> void:
-	body.add_child(_label("Room for what matters", 25))
-	_card("TODAY", _story_date())
-	_card("MY PLANS", story.state.facts.get("commitment", "Nothing confirmed yet."))
-	if story.state.facts.has("work"):
-		_card("WORK", story.state.facts.work)
-	if story.state.facts.has("memory"):
-		_card("A MEMORY TO KEEP", story.state.facts.memory)
-	if story.current().app == "Calendar":
-		_render_thread()
-	else:
-		_button("Continue your story  >", _open.bind(story.current().app))
-	body.add_child(_label("Only a labeled story transition advances time. Reading slowly never breaks a promise.", 13, MUTED))
+		photo = _card("MY LANTERN QUEST SCREENSHOT", "The first garden run with Mizuki.")
+		_art("lantern", photo, 160)
+	if story.state.facts.get("first_meeting", false):
+		photo = _card("MY SAPPORO AFTERNOON", "Two cups, no landmark. I wanted to remember the afternoon.")
+		_art("city", photo, 160)
+	body.add_child(_label("Friends' photos are on their profiles. Private attachments stay in their conversations.", 13, MUTED))
+	_button("Friends' photos", _show_friends)
 
 func _settings() -> void:
 	body.add_child(_label("Make yourself comfortable", 24))
 	_card("MY ACCOUNT", "Tachibana Asahi\nasahi\nTokyo, Japan")
-	_card("DISPLAY & READING", "The site adapts to your window. Use the section links to browse and the chat list for private conversations. Your story waits while you read.")
+	_card("DISPLAY & READING", "A portrait social app with seven sections. Events holds my next objective; Messages holds private conversations. The story waits while I read.")
 	_button("Instant messages: " + ("On" if instant_messages else "Off"), func() -> void: instant_messages = not instant_messages; _save_settings(); _render())
 	_button("Reduce motion: " + ("On" if reduce_motion else "Off"), func() -> void: reduce_motion = not reduce_motion; _save_settings(); _render())
 	body.add_child(_label("WINDOW RESOLUTION", 12, CORAL))

@@ -3,7 +3,7 @@
 **Game Design Document · v0.3 · 22 October 2026**  
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
 **Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
-**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account on an original fictional social network, with compact section-grid navigation, a feed and private chat. The 22 October social-network direction supersedes the earlier phone-only design.
+**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account on an original fictional social network, presented as a nostalgic mobile social app with exactly seven sections. The latest mobile direction supersedes the earlier desktop site layout.
 **Engine:** Godot 4.7.2, selected by the creator's project instructions. A complete playable six-act first draft is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
@@ -52,7 +52,7 @@ The player uses a fictional social network. All contacts and online-game players
 
 ### Included in the proposed release
 
-- Familiar sections: News Feed, Profile, Friends, Messages, Games, Work, Photos, Events, Notes and Settings. See [Social UI](SOCIAL-UI.md).
+- Seven main sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. See [Social UI](SOCIAL-UI.md).
 - One central relationship with three distinct story paths and a complete friendship alternative.
 - Major choices that open and close authored events before the ending, with lasting consequences.
 - Three supporting characters with individual needs and resolutions.
@@ -108,17 +108,19 @@ No currency, grind, affection farming, or mandatory collectible hunt. Optional i
 
 ## 6. The social network and connected sections
 
-Home uses a compact section grid and private photo shelf, inspired by the supplied early social-network references. News Feed, Profile and Friends complement Messages, Games, Work, Photos, Events, Notes and Settings. The identity and teal/paper/coral palette are original. Lantern Quest stays inside Games. See [Social UI](SOCIAL-UI.md).
+Home uses a compact three-column grid with exactly seven sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. Profile supports Asahi's statuses/comments/shares; Friends exposes accepted friends' profiles/photos; Photos contains his own photos; Events holds objectives; Messages holds DMs; Requests accepts or declines new friends after encounters. Settings is a header utility. Lantern Quest, work and private notes remain story contexts rather than additional menu sections. See [Social UI](SOCIAL-UI.md).
 
-| Section | Player actions | Purpose | Example connection |
-|---|---|---|---|
-| **Messages** | Direct/group conversations, call transcripts, drafts and explicit replies. | Main narrative and relationship expression. | A game-night mistake becomes an inside joke in a direct message. |
-| **Games** | Open Lantern Quest, read party chat, choose cooperative actions. | Establish closeness through doing something together. | A screenshot becomes a memory in Photos. |
-| **Work** | Team messages, handoffs, leave and availability choices. | Asahi's independent responsibilities. | A work agreement changes feasible visit dates. |
-| **Photos** | Inspect images and descriptions, revisit shared memories. | Make observing and remembering personal. | A private photo provides context for a reply. |
-| **Events** | Review commitments, availability and travel plans. | Make practical agreements tangible. | A changed commitment is reflected in Messages. |
-| **Notes** | Read first-person reminders, chapters, next-action links and completed entries. | Keep guidance inside Asahi's private account. | An unsent reply stays on his reminder list. |
-| **Settings** | Account, display, sound, reduced motion and saves. | Access essential preferences and recovery. | Restore an unsent draft without advancing time. |
+| Section | Player actions | Purpose |
+|---|---|---|
+| **News Feed** | Read updates, Like, comment and share friend posts. | See ordinary lives beyond the DM. |
+| **Profile** | Read Asahi's account and publish local statuses. | Express his public-facing everyday life. |
+| **Friends** | Open accepted friends' profiles and photos. | Learn about people through what they choose to share. |
+| **Photos** | Revisit Asahi's own photos and screenshots. | Keep personal memories; private attachments stay in DMs. |
+| **Events** | Current objective, chapter, commitments, completed events and next-action link. | Story guidance and concrete plans. |
+| **Messages** | Direct/group conversations, private attachments, drafts and explicit replies. | Main narrative and meaningful decisions. |
+| **Requests** | Accept or decline requests earned after encounters. | New friendships without changing the chance-meeting origin. |
+
+Settings is a header utility. Lantern Quest and work conversations are nested story contexts reached through Events and Messages. Internal Games/Work/Notes/Calendar save keys are retained for migration.
 
 **Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Photos shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
 
@@ -281,7 +283,7 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
-**Composition and viewpoint:** The entire game is Asahi's logged-in fictional social network. No device shell, OS battery/signal indicators or home gesture bar. Default window is 1120×800. The site fills the viewport; at 1060 pixels it shows navigation, content and a chat sidebar; at 720 pixels it shows navigation and content; narrow windows use a top section strip and one content column. Wrapping and scrolling preserve one standard reading size. Profile and Notes use Asahi's viewpoint. Private content never automatically appears in the public feed.
+**Composition and viewpoint:** Asahi's logged-in fictional mobile social app fills a 414×896 portrait canvas. Uniformly scale it to fit larger windows with plain dark teal margins. No desktop sidebars. Preserve one standard reading size, wrapping and scrolling. Exactly seven main menu sections, own-profile and friend-photo separation, Requests, and Events as the objective list follow the latest creator direction. Private content never automatically appears in News Feed.
 
 **Character presence:** Avatars, evolving profile photos, typing habits, personal photo compositions, and selected meeting illustrations carry personality. No constant full-screen talking portraits.
 
@@ -401,7 +403,7 @@ These are release acceptance targets. The complete first draft has automated nar
 | Branches exceed writing capacity | Limit the cast and three central paths; reuse assets and cap optional content before cutting event divergence. | Choice ledger and revised scene/word budget remain feasible after the branching slice. |
 | Characters become reward machines | Preserve refusals, independent obligations, and meaningful friendship. | Readers recognize Mizuki's needs and feel able to disagree. |
 | Simulated delay becomes tedious | Make typing and waiting skippable; use explicit time jumps. | Replays retain emotional pacing without forced pauses. |
-| Dense UI makes text too small | Separate text rendering from pixel art; reflow into responsive columns and scroll. | Layout checks pass at the standard reading size from narrow to ultrawide windows. |
+| Dense UI makes text too small | Separate text rendering from pixel art; wrap and scroll within the portrait app canvas. | Layout checks pass at the standard reading size from narrow to ultrawide windows. |
 | Meeting feels like a teaser | Budget its illustrations and final conversation from the start. | Each ending resolves the central question on screen. |
 
 ## 19. Decisions to revisit with the creator
