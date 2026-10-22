@@ -1,0 +1,698 @@
+{
+  "strings": {
+    "invite.title": "01 / Party invite",
+    "invite.line.0": "One spot left for the garden run. asahi, meet mizuki. She knows the way. Mostly.",
+    "invite.line.1": "That was ONE bridge.",
+    "invite.line.2": "Hey, asahi. I'll carry the lantern if you keep an eye on the path?",
+    "invite.reply.0": "Deal. Slow and steady. I'd like to see the garden.",
+    "invite.reply.1": "I'll take the lantern. You can stop me walking into things.",
+    "bridge.title": "The crooked bridge",
+    "bridge.line.0": "A stone bridge crosses the dark water. A second lantern flickers on the far bank.",
+    "bridge.line.1": "The shortcut is probably safe. Which is what I said last time.",
+    "bridge.line.2": "Can confirm. Very damp evening.",
+    "bridge.reply.0": "Let's light the stepping stones. I'll wait for you.",
+    "bridge.reply.1": "Want to try the bridge together? We can be damp legends.",
+    "splash.title": "A small detour",
+    "splash.line.0": "The bridge folds into the water. Two tiny characters respawn under the same leaf.",
+    "splash.line.1": "Well. The leaf is nice.",
+    "splash.line.2": "Screenshot saved. For historical purposes.",
+    "splash.reply.0": "Next time, we take the stones. Keeping the screenshot though.",
+    "first_dm.title": "A new conversation",
+    "first_dm.line.0": "Lantern garden screenshot added to Gallery. A private message arrives from mizuki.",
+    "first_dm.line.1": "Thanks for waiting back there. Most people just run to the reward.",
+    "first_dm.line.2": "I'm Mizuki, by the way. In Sapporo. Currently losing a fight with a cup noodle lid.",
+    "first_dm.reply.0": "Asahi. Tokyo. Put a book on it. Finally, a use for my unread pile.",
+    "first_dm.reply.1": "Asahi. Tokyo. Glad I'm not the only one having a heroic evening.",
+    "night.title": "A little after eleven",
+    "night.line.0": "The lid has surrendered. Nice to meet you, Asahi.",
+    "night.line.1": "I draw for work. Today I drew the same window six times. The garden was a good change.",
+    "night.line.2": "I'd like to do something again, if you would. Doesn't have to be the game.",
+    "night.reply.0": "Let's help with Daichi's guild garden this weekend. Together?",
+    "night.reply.1": "Want to swap window photos? Maybe make something small together.",
+    "night.reply.2": "I'd like to know your everyday life. A call, when we're both free?",
+    "guild_agreed.title": "One more party",
+    "guild_agreed.line.0": "Yes. But if Daichi asks us to lead all twelve people, we're negotiating.",
+    "guild_agreed.line.1": "Saturday's guild garden is in Calendar. Daichi will open a planning thread tomorrow.",
+    "private_agreed.title": "Two windows",
+    "private_agreed.line.0": "I'd like that. Two cities, two windows. Maybe a little illustrated postcard?",
+    "private_agreed.line.1": "Just between us for now. Rough work makes me shy.",
+    "private_agreed.line.2": "A private photo exchange is in Calendar. Mizuki will send her desk photo tomorrow.",
+    "lives_agreed.title": "Beyond the username",
+    "lives_agreed.line.0": "A call sounds good. Sunday afternoon? My sister's helping me move a shelf Saturday.",
+    "lives_agreed.line.1": "Fair warning: my everyday life contains a lot of arguing with furniture.",
+    "lives_agreed.line.2": "Sunday's call is in Calendar. Tomorrow, check your work schedule before confirming.",
+    "guild_plan.title": "02 / A garden for everyone",
+    "guild_plan.line.0": "Slight complication. New players signed up. Could you two lead separate groups?",
+    "guild_plan.line.1": "I was looking forward to playing together. Could we guide one small group instead?",
+    "guild_plan.reply.0": "One small group. We'll show them the safe route together.",
+    "guild_plan.reply.1": "Let's make a route guide tonight, then let someone else lead.",
+    "guild_event.title": "Lanterns in the rain",
+    "guild_event.line.0": "You and Mizuki bring three new players through the garden. At the bridge, everyone waits.",
+    "guild_event.line.1": "Look at that. A whole party that doesn't leave anyone behind.",
+    "guild_event.line.2": "I'm keeping the group small next week too. Thanks for saying something.",
+    "guild_guide.title": "A map with a warning",
+    "guild_guide.line.0": "You mark safe stones while Mizuki draws a tiny skull on the crooked bridge. A newcomer volunteers to guide.",
+    "guild_guide.line.1": "Our first joint publication. Please credit the skull artist.",
+    "guild_guide.line.2": "Pinned the guide. You two can just play tonight.",
+    "guild_callback.title": "03 / The next invitation",
+    "guild_callback.line.0": "Daichi asked before adding people this time. I think we started something.",
+    "guild_callback.line.1": "Next Saturday, same garden? I'd like a little time with just you after.",
+    "guild_callback.line.2": "Opening complete. Your shared guild activity has opened a small-party invitation and a private after-game conversation. The collaboration and visit-preparation scenes belong to other paths.",
+    "private_photo.title": "02 / The mug has a new job",
+    "private_photo.line.0": "Mizuki shared a private desk photo. Open Gallery to inspect it or read this description: pens in a mug, a half-finished illustration on a laptop, rain against the window.",
+    "private_photo.line.1": "Window attempt seven. Application deadline Monday. Please keep this one between us.",
+    "private_photo.reply.0": "Want quiet company while we make the postcard? We can leave it unfinished.",
+    "private_photo.reply.1": "Let's move our postcard session until after your deadline. I'll send my photo now.",
+    "private_event.title": "A room in two cities",
+    "private_event.line.0": "Resonance plays softly. You send your rainy Tokyo window; Mizuki sends a small line drawing in return. Neither of you posts it.",
+    "private_event.line.1": "I finished the corner I was stuck on. Quiet company works, apparently.",
+    "private_event.line.2": "A private postcard joins Gallery. Mizuki keeps working on her application.",
+    "private_rescheduled.title": "Room to finish",
+    "private_rescheduled.line.0": "Thank you. Tuesday evening? I want to do this when I'm not watching a deadline.",
+    "private_rescheduled.line.1": "You share the Tokyo window privately. The postcard session moves to Tuesday; tonight Mizuki works on her application.",
+    "private_rescheduled.line.2": "Your window has good rain. Keeping that photo.",
+    "private_callback.title": "03 / After the deadline",
+    "private_callback.line.0": "Submitted. I checked the attachment three times. Four if we're being honest.",
+    "private_callback.line.1": "Can I show you the finished illustration? And I found a short story we could read together.",
+    "private_callback.line.2": "Opening complete. Your private activity has opened an illustration follow-up and a buddy-read invitation. The guild leadership and visit-preparation scenes belong to other paths.",
+    "lives_work.title": "02 / Making room",
+    "lives_work.line.0": "Monday's handoff needs a check. You can finish Friday afternoon or take the Sunday review. Both are fine; tell me which.",
+    "lives_work.line.1": "Mizuki's proposed call is Sunday afternoon. Friday work is available; taking Sunday means explicitly rescheduling the call.",
+    "lives_work.reply.0": "I'll do the Friday check so Sunday stays free.",
+    "lives_work.reply.1": "I'll take Sunday. I'll ask Mizuki about another call time before confirming.",
+    "lives_call.title": "A shelf, assembled",
+    "lives_call.line.0": "Sunday afternoon. A call transcript opens after your completed Friday handoff.",
+    "lives_call.line.1": "Can you hear me? Sorry. My sister says hello. And that I put the shelf upside down.",
+    "lives_call.line.2": "I'd like the shelf's side of the story.",
+    "lives_call.line.3": "It's staying silent. Clever shelf.",
+    "lives_call.line.4": "You talk about ordinary weekends, and what a visit might look like. No travel is booked.",
+    "lives_reschedule.title": "A different evening",
+    "lives_reschedule.line.0": "I chose the Sunday review. Could we call Monday evening instead? I'd like to give it proper time.",
+    "lives_reschedule.line.1": "Monday works. My sister will have gone home, so you'll miss the shelf assembly commentary.",
+    "lives_reschedule.line.2": "Monday evening. After the work review, you and Mizuki talk over dinner on a call. No introduction to Misaki happened this time.",
+    "lives_reschedule.line.3": "Tell me about Tokyo on a normal day. Not the postcard version.",
+    "lives_callback.title": "03 / A possible journey",
+    "lives_callback.line.0": "If we ever meet, I'd rather have an ordinary afternoon than a perfect itinerary.",
+    "lives_callback.line.1": "You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise.",
+    "lives_callback.line.2": "Opening complete. Your call has opened a leave discussion and an everyday-friends introduction. The guild project and private postcard scenes belong to other paths."
+  },
+  "nodes": {
+    "invite": {
+      "title": "invite.title",
+      "app": "Lantern Quest",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mossbyte",
+          "text": "invite.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "invite.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "invite.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "invite.choice.0",
+          "text": "invite.reply.0",
+          "to": "bridge",
+          "set": {
+            "role": "lookout"
+          }
+        },
+        {
+          "id": "invite.choice.1",
+          "text": "invite.reply.1",
+          "to": "bridge",
+          "set": {
+            "role": "lantern"
+          }
+        }
+      ]
+    },
+    "bridge": {
+      "title": "bridge.title",
+      "app": "Lantern Quest",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "bridge.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "bridge.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "bridge.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "bridge.choice.0",
+          "text": "bridge.reply.0",
+          "to": "first_dm",
+          "set": {
+            "garden_memory": "stones"
+          }
+        },
+        {
+          "id": "bridge.choice.1",
+          "text": "bridge.reply.1",
+          "to": "splash",
+          "set": {
+            "garden_memory": "splash"
+          }
+        }
+      ]
+    },
+    "splash": {
+      "title": "splash.title",
+      "app": "Lantern Quest",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "splash.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "splash.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "splash.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "splash.choice.0",
+          "text": "splash.reply.0",
+          "to": "first_dm",
+          "set": {}
+        }
+      ]
+    },
+    "first_dm": {
+      "title": "first_dm.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "first_dm.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "first_dm.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "first_dm.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "first_dm.choice.0",
+          "text": "first_dm.reply.0",
+          "to": "night",
+          "set": {
+            "intro": "books"
+          }
+        },
+        {
+          "id": "first_dm.choice.1",
+          "text": "first_dm.reply.1",
+          "to": "night",
+          "set": {
+            "intro": "heroic"
+          }
+        }
+      ],
+      "set": {
+        "screenshot": true
+      }
+    },
+    "night": {
+      "title": "night.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "night.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "night.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "night.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "night.choice.0",
+          "text": "night.reply.0",
+          "to": "guild_agreed",
+          "set": {
+            "path": "guild"
+          }
+        },
+        {
+          "id": "night.choice.1",
+          "text": "night.reply.1",
+          "to": "private_agreed",
+          "set": {
+            "path": "private"
+          }
+        },
+        {
+          "id": "night.choice.2",
+          "text": "night.reply.2",
+          "to": "lives_agreed",
+          "set": {
+            "path": "lives"
+          }
+        }
+      ]
+    },
+    "guild_agreed": {
+      "title": "guild_agreed.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "guild_agreed.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "guild_agreed.line.1"
+        }
+      ],
+      "choices": [],
+      "later": "guild_plan",
+      "set": {
+        "commitment": "Saturday / Guild garden with Mizuki",
+        "memory": "A second party invite"
+      }
+    },
+    "private_agreed": {
+      "title": "private_agreed.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_agreed.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_agreed.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "private_agreed.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "private_photo",
+      "set": {
+        "commitment": "Saturday / Private postcard session",
+        "memory": "Two cities, two windows",
+        "photo_permission": "private"
+      }
+    },
+    "lives_agreed": {
+      "title": "lives_agreed.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "lives_agreed.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_agreed.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_agreed.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "lives_work",
+      "set": {
+        "commitment": "Sunday / Call with Mizuki (proposed)",
+        "memory": "A voice beyond the game"
+      }
+    },
+    "guild_plan": {
+      "title": "guild_plan.title",
+      "app": "Lantern Quest",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mossbyte",
+          "text": "guild_plan.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_plan.line.1"
+        }
+      ],
+      "choices": [
+        {
+          "id": "guild_plan.choice.0",
+          "text": "guild_plan.reply.0",
+          "to": "guild_event",
+          "set": {
+            "guild_plan": "small group"
+          }
+        },
+        {
+          "id": "guild_plan.choice.1",
+          "text": "guild_plan.reply.1",
+          "to": "guild_guide",
+          "set": {
+            "guild_plan": "route guide"
+          }
+        }
+      ]
+    },
+    "guild_event": {
+      "title": "guild_event.title",
+      "app": "Lantern Quest",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "guild_event.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_event.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "guild_event.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "guild_callback",
+      "set": {
+        "guild_event": "guided newcomers"
+      }
+    },
+    "guild_guide": {
+      "title": "guild_guide.title",
+      "app": "Lantern Quest",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "guild_guide.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_guide.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "guild_guide.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "guild_callback",
+      "set": {
+        "guild_event": "published route guide"
+      }
+    },
+    "guild_callback": {
+      "title": "guild_callback.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "guild_callback.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_callback.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "guild_callback.line.2"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "available_events": [
+          "small_party",
+          "after_game_chat"
+        ]
+      }
+    },
+    "private_photo": {
+      "title": "private_photo.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "private_photo.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_photo.line.1"
+        }
+      ],
+      "choices": [
+        {
+          "id": "private_photo.choice.0",
+          "text": "private_photo.reply.0",
+          "to": "private_event",
+          "set": {
+            "collaboration": "quiet company"
+          }
+        },
+        {
+          "id": "private_photo.choice.1",
+          "text": "private_photo.reply.1",
+          "to": "private_rescheduled",
+          "set": {
+            "collaboration": "rescheduled"
+          }
+        }
+      ],
+      "set": {
+        "desk_photo": true
+      }
+    },
+    "private_event": {
+      "title": "private_event.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "private_event.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_event.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "private_event.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "private_callback",
+      "set": {
+        "postcard": true
+      }
+    },
+    "private_rescheduled": {
+      "title": "private_rescheduled.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_rescheduled.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "private_rescheduled.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_rescheduled.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "private_callback",
+      "set": {
+        "commitment": "Tuesday / Private postcard session"
+      }
+    },
+    "private_callback": {
+      "title": "private_callback.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_callback.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_callback.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "private_callback.line.2"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "available_events": [
+          "illustration_followup",
+          "buddy_read"
+        ]
+      }
+    },
+    "lives_work": {
+      "title": "lives_work.title",
+      "app": "Desk",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "lives_work.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_work.line.1"
+        }
+      ],
+      "choices": [
+        {
+          "id": "lives_work.choice.0",
+          "text": "lives_work.reply.0",
+          "to": "lives_call",
+          "set": {
+            "work": "Friday handoff",
+            "commitment": "Sunday / Call with Mizuki (confirmed)"
+          }
+        },
+        {
+          "id": "lives_work.choice.1",
+          "text": "lives_work.reply.1",
+          "to": "lives_reschedule",
+          "set": {
+            "work": "Sunday review",
+            "commitment": "Monday / Call with Mizuki (confirmed)"
+          }
+        }
+      ]
+    },
+    "lives_call": {
+      "title": "lives_call.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "lives_call.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_call.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "lives_call.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_call.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_call.line.4"
+        }
+      ],
+      "choices": [],
+      "later": "lives_callback",
+      "set": {
+        "call": "Sunday with sister introduction"
+      }
+    },
+    "lives_reschedule": {
+      "title": "lives_reschedule.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "asahi",
+          "text": "lives_reschedule.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_reschedule.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_reschedule.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_reschedule.line.3"
+        }
+      ],
+      "choices": [],
+      "later": "lives_callback",
+      "set": {
+        "call": "Monday dinner call"
+      }
+    },
+    "lives_callback": {
+      "title": "lives_callback.title",
+      "app": "Calendar",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "lives_callback.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_callback.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_callback.line.2"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "available_events": [
+          "leave_discussion",
+          "friends_introduction"
+        ],
+        "meeting_plan": "discussing"
+      }
+    }
+  }
+}

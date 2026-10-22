@@ -2,9 +2,9 @@
 
 **Game Design Document · v0.3 · 22 October 2026**  
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
-**Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Specific names, cities within each region, ages, and biographies remain proposals.  
+**Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
 **Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; an immersive phone with music, social stories/reels/posts/friends, long video, short video, books, and work apps.
-**Engine:** Undecided. This document defines player experience and rules without selecting an engine.
+**Engine:** Godot 4.7.2, selected by the creator's project instructions. The opening prototype is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
 
@@ -58,23 +58,23 @@ Multiple romance routes, real multiplayer, freeform AI chat, user photo uploads,
 
 ## 4. Player identity and cast
 
-The protagonist is male and the love interest is female, as directed by the creator. All principal characters are adults. Names, ages, cities, and biographies below remain proposed.
+The protagonist is male and the love interest is female, as directed by the creator. All principal characters are adults. The central names and ages are creator-confirmed: Tachibana Asahi, 29, and Yukimura Mizuki, 23. Other cast details and city proposals remain editable.
 
-**Setting proposal:** Contemporary Japan. Haruto lives in Tokyo and Yui in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through the phone. Keep cultural details specific to each character rather than relying on stereotypes.
+**Setting proposal:** Contemporary Japan. Asahi lives in Tokyo and Mizuki in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through the phone. Keep cultural details specific to each character rather than relying on stereotypes.
 
-**Central couple:** Haruto Akiyama and Yui Tachibana, who first know each other through their game usernames.
+**Central couple:** Tachibana Asahi and Yukimura Mizuki, who first know each other through their game usernames.
 
 | Character | Proposed identity | Desire and contradiction | Narrative function |
 |---|---|---|---|
-| Haruto Akiyama / `haru` (player) | Japanese man, 24, he/him; junior office worker in Tokyo; editable given/display name and one of three avatars | Wants connection while settling into a demanding new routine; defines how much to disclose. | Expressive protagonist with enough fixed circumstances to support authored drama. |
-| Yui Tachibana / `yuzu` | Japanese woman, 25, she/her; illustrator living in Sapporo, Hokkaido | Wants to be known, but uses humor and helpfulness to avoid asking for support. Considering a local work opportunity. | Central romance and possible lasting friend. |
+| Tachibana Asahi / `asahi` (player) | Japanese man, 29, he/him; junior office worker in Tokyo; editable given/display name and one of three avatars | Wants connection while settling into a demanding new routine; defines how much to disclose. | Expressive protagonist with enough fixed circumstances to support authored drama. |
+| Yukimura Mizuki / `mizuki` | Japanese woman, 23, she/her; illustrator living in Sapporo, Hokkaido | Wants to be known, but uses humor and helpfulness to avoid asking for support. Considering a local work opportunity. | Central romance and possible lasting friend. |
 | Natsumi | 24, she/her; player's longtime local friend | Wants reliable friendship while preparing a small creative showcase; fears becoming an afterthought. | A relationship worth maintaining in its own right. |
 | Daichi / `mossbyte` | 27, he/him; guild organizer | Wants the group to stay welcoming, but avoids conflict until plans become messy. | Bridge between game acquaintance and shared social circle. |
-| Misaki | 29, she/her; Yui's older sister | Wants Yui to build a sustainable life; has her own move to arrange. | Gives Yui a life beyond the player's attention; enters a shared chat with consent. |
+| Misaki | 29, she/her; Mizuki's older sister | Wants Mizuki to build a sustainable life; has her own move to arrange. | Gives Mizuki a life beyond the player's attention; enters a shared chat with consent. |
 
-**Protagonist customization:** Editable given/display name, avatar, and recurring preference choices such as favorite weather or comfort food. Haruto is a male protagonist with he/him pronouns; Yui is the female love interest. Preferences create callbacks, never compatibility locks.
+**Protagonist customization:** Editable given/display name, avatar, and recurring preference choices such as favorite weather or comfort food. Asahi is a male protagonist with he/him pronouns; Mizuki is the female love interest. Preferences create callbacks, never compatibility locks.
 
-**Character agency:** Yui can decline a call, keep a commitment, ask for space, or disagree. The player cannot unlock intimacy by repeating gifts or flattering every answer. A friendship choice is respected immediately and changes subsequent writing.
+**Character agency:** Mizuki can decline a call, keep a commitment, ask for space, or disagree. The player cannot unlock intimacy by repeating gifts or flattering every answer. A friendship choice is respected immediately and changes subsequent writing.
 
 ## 5. Core loop
 
@@ -109,8 +109,8 @@ Working app names are fictional placeholders. The requested YouTube-style and Ti
 | **Vista** | Watch authored videos, save links, browse creators and relevant comments. | Deliberate watching and project ideas. | A shared tutorial can lead to a creative collaboration. |
 | **Loop** | Browse a finite short-video feed, follow creators, save/share clips. | Discover interests beyond the existing friend group. | A shared clip can lead to an explicit invitation or expectations discussion. |
 | **Bookmark** | Read original excerpts, mark passages, keep notes, share quotes. | Interior life and optional shared interests. | An agreed buddy-read opens a dedicated conversation. |
-| **Desk** | Team chat, assignments, task board, leave requests, work choices. | Haruto's independent responsibilities and goals. | Assignment and leave outcomes change feasible visit dates and later work scenes. |
-| **Gallery** | Inspect authored images, read descriptions, select an attachment, revisit shared memories. | Make observation and remembering playable. | Share a rainy-window photo because Yui previously described missing that sound. |
+| **Desk** | Team chat, assignments, task board, leave requests, work choices. | Asahi's independent responsibilities and goals. | Assignment and leave outcomes change feasible visit dates and later work scenes. |
+| **Gallery** | Inspect authored images, read descriptions, select an attachment, revisit shared memories. | Make observation and remembering playable. | Share a rainy-window photo because Mizuki previously described missing that sound. |
 | **Calendar** | Compare availability, review commitments, propose a date or travel window, confirm or revise plans. | Make distance and practical agreements tangible. | Move a game night around Natsumi's showcase; a confirmed plan appears in Messages. |
 
 **Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Gallery shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
@@ -119,7 +119,7 @@ Working app names are fictional placeholders. The requested YouTube-style and Ti
 
 ### Example connected interaction
 
-Yui posts a blurred sketch labeled “third try.” The player can ask about it privately, react publicly, or move on. Asking reveals a deadline and unlocks an offer to reschedule tonight's game. The revised Calendar plan changes Daichi's guild chat. Later, Yui remembers that the player made room without demanding an explanation.
+Mizuki posts a blurred sketch labeled “third try.” The player can ask about it privately, react publicly, or move on. Asking reveals a deadline and unlocks an offer to reschedule tonight's game. The revised Calendar plan changes Daichi's guild chat. Later, Mizuki remembers that the player made room without demanding an explanation.
 
 Ignoring the post does not cause an invisible penalty. The core conversation still surfaces the deadline. The optional interaction changes how that conversation begins.
 
@@ -142,22 +142,22 @@ Ignoring the post does not cause an invisible penalty. The core conversation sti
 | Flavor | Pick a favorite game pet. | Immediate acknowledgment or a later personalized line. |
 | Memory | Share a vulnerable photo caption. | A named memory revisited in another scene. |
 | Commitment | Agree to attend Natsumi's showcase. | Visible Calendar entry and authored follow-through or renegotiation. |
-| Boundary | Ask Yui not to joke during a serious conversation. | Changed behavior or an explicit repair scene if that boundary is crossed. |
+| Boundary | Ask Mizuki not to joke during a serious conversation. | Changed behavior or an explicit repair scene if that boundary is crossed. |
 | Relationship | Say you want friendship or discuss a meeting. | New scene framing, available actions, or ending eligibility. |
 
 Every authored choice is labeled internally by class and has a documented consequence. Flavor choices can share an outcome; the writing must not imply a major divergence when none exists.
 
 ### Sample exchange: an image with two meanings
 
-Context: Yui sends a photo of her desk. A mug holds pens; the laptop displays an unfinished application. The image has an equivalent text description.
+Context: Mizuki sends a photo of her desk. A mug holds pens; the laptop displays an unfinished application. The image has an equivalent text description.
 
-**Yui:** “proof i did, technically, leave the raid to do work”
+**Mizuki:** “proof i did, technically, leave the raid to do work”
 
 | Outgoing reply | Immediate response | Later effect |
 |---|---|---|
-| “The mug has a new job. How's the application going?” | Yui talks about uncertainty if she is ready; otherwise asks to discuss it later. | Records that the player asked about work; enables a relevant check-in. |
-| “Want company while you work? No need to talk.” | Yui chooses whether company would help. | If accepted, creates a quiet shared session memory. |
-| “I should sleep, but I'm rooting for you. Tell me tomorrow?” | Yui acknowledges the boundary. | Adds a follow-up thread; sleeping is not scored as neglect. |
+| “The mug has a new job. How's the application going?” | Mizuki talks about uncertainty if she is ready; otherwise asks to discuss it later. | Records that the player asked about work; enables a relevant check-in. |
+| “Want company while you work? No need to talk.” | Mizuki chooses whether company would help. | If accepted, creates a quiet shared session memory. |
+| “I should sleep, but I'm rooting for you. Tell me tomorrow?” | Mizuki acknowledges the boundary. | Adds a follow-up thread; sleeping is not scored as neglect. |
 
 The player's role is to express care and needs, not to diagnose the one correct interpretation of an image.
 
@@ -180,7 +180,7 @@ Use explicit narrative facts and small, hidden state categories. There is no vis
 
 **Boundary rule:** Saying no, staying friends, or protecting rest never applies a generic affection penalty. If two needs conflict, the story acknowledges incompatibility rather than treating a boundary as wrongdoing.
 
-**Friendship rule:** Natsumi has a tracked commitment and chapter callbacks, not a competing affection bar. Her resolution changes independently of the romance ending. Yui never requires the player to abandon friends.
+**Friendship rule:** Natsumi has a tracked commitment and chapter callbacks, not a competing affection bar. Her resolution changes independently of the romance ending. Mizuki never requires the player to abandon friends.
 
 **Branching structure:** Six acts describe emotional phases, not mandatory scenes. After the shared introduction, the player develops one of three central paths: Game-first, Private connection, or Shared lives. Acts three and four contain different events and conflicts on each path. Meeting can happen in act four, act six, or be postponed. No mandatory misunderstanding or final-chapter choice resets the history.
 
@@ -202,7 +202,7 @@ Time advances only when the player chooses **Later**, **Go to sleep**, or a clea
 
 **Overlapping plans:** A conflict only occurs when the script presents two events as overlapping and the player explicitly accepts incompatible plans or chooses one. Merely reading one conversation before another cannot break a promise. The Calendar offers attend, decline, or renegotiate where authored; the consequence is shown in dialogue.
 
-**Shared clock, different routines:** Both characters use the same local-time display. Calendar slots compare Haruto's office commitments with Yui's illustration deadlines and available travel days. Availability is pre-authored; scheduling is a conversation, not an optimization puzzle. Physical distance remains important even without a time-zone difference.
+**Shared clock, different routines:** Both characters use the same local-time display. Calendar slots compare Asahi's office commitments with Mizuki's illustration deadlines and available travel days. Availability is pre-authored; scheduling is a conversation, not an optimization puzzle. Physical distance remains important even without a time-zone difference.
 
 **Silence:** Waiting can be emotionally meaningful through authored time jumps. The player always knows when an action will move the story forward. No critical choice expires while the player is thinking.
 
@@ -218,17 +218,17 @@ Time advances only when the player chooses **Later**, **Go to sleep**, or a clea
 
 **Accessibility:** “Story outcome” mode summarizes the encounter and preserves its social choices. Both modes offer the same romance and friendship outcomes.
 
-The opening session teaches the complete loop: coordinate with `yuzu`, recover from a harmless mistake, save a screenshot, and receive the first direct message.
+The opening session teaches the complete loop: coordinate with `mizuki`, recover from a harmless mistake, save a screenshot, and receive the first direct message.
 
 ## 11. Narrative arc and chapters
 
 | Act | Shared dramatic purpose | What can differ through choices |
 |---|---|---|
-| 1. **Party Invite** | Establish Haruto, Yui, and their first game session. | The next invitation can be a guild activity, private photo exchange, or personal call. |
-| 2. **How We Spend Our Time** | Establish the relationship's habits through actions. | The player chooses an activity with Yui's agreement; this selects Game-first, Private connection, or Shared lives. Commitments determine which people take part. |
+| 1. **Party Invite** | Establish Asahi, Mizuki, and their first game session. | The next invitation can be a guild activity, private photo exchange, or personal call. |
+| 2. **How We Spend Our Time** | Establish the relationship's habits through actions. | The player chooses an activity with Mizuki's agreement; this selects Game-first, Private connection, or Shared lives. Commitments determine which people take part. |
 | 3. **Beyond the Username** | Decide what to reveal and who to include. | Guild disagreement, a private creative collaboration, or preparation for a visit. A friend can become a confidant, stay uninvolved, or become someone owed a repair. |
 | 4. **The Distance Between Us** | Experience the consequences of prior commitments. | An early meeting, a privacy conflict, a canceled collaboration, or an honest scheduling negotiation. A conflict does not occur if its trigger never happened. |
-| 5. **What Comes Next** | Choose practical and emotional next steps. | Post-meeting adjustment, an unrepaired issue, a friendship transition, or a first-meeting proposal. Yui makes her own work decision; support affects the shared plan, not ownership of her career. |
+| 5. **What Comes Next** | Choose practical and emotional next steps. | Post-meeting adjustment, an unrepaired issue, a friendship transition, or a first-meeting proposal. Mizuki makes her own work decision; support affects the shared plan, not ownership of her career. |
 | 6. **The Next Hello** | Resolve the relationship's future. | First meeting, second meeting, continued distance with a concrete plan, friendship, or separation. Earlier choices determine which proposals remain credible and available. |
 
 ### Different paths, different events
@@ -237,7 +237,7 @@ The opening session teaches the complete loop: coordinate with `yuzu`, recover f
 - **Private connection:** Photos, calls, and an optional creative collaboration deepen the relationship away from the guild. Choices about permission and promises determine whether the collaboration is completed, canceled, or becomes a privacy conflict. A private visit is proposed later.
 - **Shared lives:** The couple introduces friends and explores an earlier Hokkaido visit. Accepting a mutually feasible visit leads to an act-four meeting and new scenes about returning to distance afterward. Declining it leads to an alternate planning sequence, not the same trip with different dialogue.
 
-No route is the correct way to love Yui. Good communication can avoid a preventable argument but does not remove practical tradeoffs. Every route supports romance, friendship, and separation, with different histories.
+No route is the correct way to love Mizuki. Good communication can avoid a preventable argument but does not remove practical tradeoffs. Every route supports romance, friendship, and separation, with different histories.
 
 ### The in-person meeting
 
@@ -266,11 +266,11 @@ Within an ending, shared memories choose callbacks, Natsumi's commitment chooses
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** A cozy but lived-in pixel phone: soft dark blue backgrounds, warm cream text surfaces, muted coral emphasis, and small cool highlights. Provisional palette; verify legibility before fixing colors.
+**Visual identity:** An iOS-style personal phone with liquid-glass dock, widgets, navigation, and notification surfaces, as directed by the creator. Glass blurs and refracts its backdrop with rounded highlights; conversation surfaces use readable dark text on light backgrounds and blue outgoing bubbles. Authored photos and the game-within-the-game retain pixel art. Reduce Transparency provides opaque alternatives.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
-**Composition:** On PC, a portrait phone centered in a landscape window. On iOS and Android, a portrait app fills the usable screen, with safe-area insets for system bars and cutouts. Use quiet desk textures or flat color in the surrounding area. The phone may widen in large-text mode; the frame must never prevent readable text or accessible controls.
+**Composition:** The device has a fixed 414:896 reference aspect ratio. Window resolution may change, but the phone scales uniformly to fit and never widens, stretches, or crops. This includes large-text mode: content reflows and scrolls inside the same device proportions. Center the phone in unused window space; mobile safe-area handling must preserve that invariant.
 
 **Character presence:** Avatars, evolving profile photos, typing habits, personal photo compositions, and selected meeting illustrations carry personality. No constant full-screen talking portraits.
 
@@ -356,7 +356,7 @@ Build a branching prototype of the introduction and one major choice with three 
 
 **Question to answer:** Do players recognize that their actions changed the events of the relationship, and do the apps make those consequences understandable?
 
-**Proposed test gate:** With five first-time readers, at least four can navigate without intervention, identify one event that their choice caused and an alternate event that did not happen after comparing runs, and name one specific reason they want another conversation with Yui. Record qualitative feedback as well as the count; this is a small usability sample, not market validation.
+**Proposed test gate:** With five first-time readers, at least four can navigate without intervention, identify one event that their choice caused and an alternate event that did not happen after comparing runs, and name one specific reason they want another conversation with Mizuki. Record qualitative feedback as well as the count; this is a small usability sample, not market validation.
 
 ### Narrative slice: prove conflict and agency
 
@@ -374,7 +374,7 @@ No schedule or staffing estimate is assumed. Actual production planning follows 
 
 ## 18. Acceptance criteria and principal risks
 
-These are planned checks. No gameplay implementation or playtesting has occurred with this GDD.
+These are release acceptance targets. The opening prototype has automated narrative and UI coverage; human playtesting and the full release checks remain pending. See [implementation notes](IMPLEMENTATION.md).
 
 | Area | Acceptance criterion |
 |---|---|
@@ -392,9 +392,9 @@ These are planned checks. No gameplay implementation or playtesting has occurred
 |---|---|---|
 | Reading feels passive | Give photos, plans, and cooperative actions consequences in conversation. | Readers describe actions they chose, not only messages they read. |
 | Branches exceed writing capacity | Limit the cast and three central paths; reuse assets and cap optional content before cutting event divergence. | Choice ledger and revised scene/word budget remain feasible after the branching slice. |
-| Characters become reward machines | Preserve refusals, independent obligations, and meaningful friendship. | Readers recognize Yui's needs and feel able to disagree. |
+| Characters become reward machines | Preserve refusals, independent obligations, and meaningful friendship. | Readers recognize Mizuki's needs and feel able to disagree. |
 | Simulated delay becomes tedious | Make typing and waiting skippable; use explicit time jumps. | Replays retain emotional pacing without forced pauses. |
-| Phone art makes text too small | Separate text rendering from pixel art and allow the frame to widen. | Layout checks pass at 200% text size. |
+| Phone art makes text too small | Separate text rendering from pixel art; reflow and scroll within the fixed phone aspect ratio. | Layout checks pass at 200% text size without stretching the device. |
 | Meeting feels like a teaser | Budget its illustrations and final conversation from the start. | Each ending resolves the central question on screen. |
 
 ## 19. Decisions to revisit with the creator
@@ -404,11 +404,11 @@ Creator direction establishes a Japanese game, a male protagonist, a female love
 | Decision | Current proposal | When it needs to be settled |
 |---|---|---|
 | Romance structure | One central love interest with friendship as a complete alternative. | Before committing to the full narrative outline. |
-| Identities and setting | Male protagonist Haruto Akiyama and female love interest Yui Tachibana; Tokyo–Hokkaido setting, with Sapporo as the proposed city and Japanese supporting cast. | Confirm names, cities, and biographies before final dialogue and character art. |
+| Identities and setting | Male protagonist Tachibana Asahi and female love interest Yukimura Mizuki; Tokyo–Hokkaido setting, with Sapporo as the proposed city and Japanese supporting cast. | Names and ages confirmed; review cities and biographies before final character art. |
 | Tone and content | Hopeful adult romance, emotional friction, non-explicit intimacy. | Before detailed script and content-rating planning. |
 | Length and scale | Six acts, three central paths, 3–4 hours per run, four ending families; revised 42-scene budget. | Reassess after first playable reading times. |
 | Meeting presentation | Phone-led arrival followed by illustrated dialogue vignettes. | Prototype before commissioning final illustrations. |
-| Platform and technology | PC/Steam, iOS, and Android confirmed as targets; engine, OS minimums, and release order undecided. | Validate save lifecycle, touch UI, and builds during prototype before production implementation. |
+| Platform and technology | PC/Steam, iOS, and Android confirmed as targets; Godot 4.7.2 selected. OS minimums and release order undecided. | Validate save lifecycle, touch UI, and builds during prototype before production implementation. |
 | Input and access | Mouse/keyboard on PC and touch on mobile; investigate screen-reader feasibility. | During the first playable. |
 | Commercial details | Premium release; price, launch date, languages, mobile purchase model, and platform release order unset. | Separate production and release planning. |
 

@@ -4,7 +4,7 @@
 
 ## Ten connected apps
 
-The phone is Haruto's personal device: it contains his routines, interests, friends, and obligations as well as Yui's messages. Existing history and a small authored library make it feel lived in. New content follows fictional story time and player actions. Everything is an authored simulation; no external account is required.
+The phone is Asahi's personal device: it contains his routines, interests, friends, and obligations as well as Mizuki's messages. Existing history and a small authored library make it feel lived in. New content follows fictional story time and player actions. Everything is an authored simulation; no external account is required.
 
 | App | What the player can actually do | How it can change events |
 |---|---|---|
@@ -15,20 +15,20 @@ The phone is Haruto's personal device: it contains his routines, interests, frie
 | **Vista — long video** | Browse authored creator pages, watch short in-universe videos representing longer uploads, read relevant comments, save videos, share links. | Choose a tutorial for a collaborative project or discuss a Hokkaido travel video; accepting a resulting activity opens a creation or planning scene. Watching alone does not silently book anything. |
 | **Loop — short video** | Swipe a finite set of authored clips, like/save/share, follow fictional creators, open linked profiles. | Sharing a relevant clip can invite a new activity or start a discussion about expectations. A public reference to the relationship requires an explicit audience/permission choice. No infinite algorithmic feed. |
 | **Bookmark — books** | Read short original excerpts, mark a passage, keep a reading note, share a quote, join an offered buddy-read. | An agreed buddy-read opens a dedicated discussion or replaces another optional activity; a conversation about an excerpt can reveal a new personal topic. Book tastes never determine compatibility scores. |
-| **Desk — work** | Team messages, assignments, a small task board, leave requests, deadline/availability decisions, and authored work interactions. | Accepting an assignment or requesting leave affects available visit dates and work follow-through scenes. Haruto can develop a professional goal independent of Yui. Decisions are bounded narrative tasks, not an office-management economy. |
+| **Desk — work** | Team messages, assignments, a small task board, leave requests, deadline/availability decisions, and authored work interactions. | Accepting an assignment or requesting leave affects available visit dates and work follow-through scenes. Asahi can develop a professional goal independent of Mizuki. Decisions are bounded narrative tasks, not an office-management economy. |
 | **Gallery** | Browse original photos and screenshots, inspect image descriptions, choose attachments, revisit shared collections. | Provides the actual image and audience context for private/public sharing; an early visit creates a collection that later-meeting paths do not yet have. |
 | **Calendar** | Review work and personal commitments, compare availability, propose/reschedule events, review travel plans. | Choosing between explicit overlapping plans selects different events; approved leave and mutually agreed dates determine early, late, or postponed meeting. |
 
 ## Why both social reels and a short-video app?
 
-Moments centers on people Haruto knows: their posts, stories, friendships, and small social consequences. Loop centers on discovering clips outside that circle. Vista supports deliberate watching, creator series, and projects. Reuse media controls and canonical content IDs so a cross-post does not become two contradictory versions of the same event.
+Moments centers on people Asahi knows: their posts, stories, friendships, and small social consequences. Loop centers on discovering clips outside that circle. Vista supports deliberate watching, creator series, and projects. Reuse media controls and canonical content IDs so a cross-post does not become two contradictory versions of the same event.
 
-Friends have privacy and independent interests. A friend request does not grant private messages, private photos, or Yui's secrets automatically. Profiles show what is public and what becomes accessible through an authored acceptance.
+Friends have privacy and independent interests. A friend request does not grant private messages, private photos, or Mizuki's secrets automatically. Profiles show what is public and what becomes accessible through an authored acceptance.
 
 ## Make it feel like a real personal phone
 
 - Begin with a little history: an old playlist, unfinished book, work thread, friends' posts, and harmless game screenshots. Avoid an empty device waiting for the romance to begin.
-- Each contact has consistent interests and posting habits. Not every post is about Haruto, and not every recommendation is a hidden romance clue.
+- Each contact has consistent interests and posting habits. Not every post is about Asahi, and not every recommendation is a hidden romance clue.
 - Let the player listen to music while reading or working. Pause or duck playback during another audio source; expose a visible playback control.
 - Deliver notifications in authored batches; preserve them in a notification tray. They never steal focus or auto-send a draft.
 - Use shared objects across apps: an assignment creates a Calendar commitment; a saved clip can be attached in Messages; a permitted photo can become a Moments post; the response can create a group scene.

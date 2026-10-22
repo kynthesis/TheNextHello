@@ -1,3 +1,4 @@
 # Godot generated state and local integration credentials.
 .godot/
 *.tmp
+.local/

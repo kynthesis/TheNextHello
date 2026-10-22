@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <linearGradient id="sky" x2="0.85" y2="1"><stop stop-color="#354a8c"/><stop offset=".48" stop-color="#8975a2"/><stop offset="1" stop-color="#deb0af"/></linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b7c7eb"/><stop offset="1" stop-color="#637fae"/></linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#dba5b6"/><stop offset="1" stop-color="#8e739d"/></linearGradient>
+  </defs>
+  <rect width="414" height="896" fill="url(#sky)"/>
+  <ellipse cx="57" cy="255" rx="270" ry="420" fill="url(#rose)" transform="rotate(-24 57 255)"/>
+  <ellipse cx="396" cy="664" rx="280" ry="470" fill="url(#wave)" transform="rotate(33 396 664)"/>
+  <path d="M-30 690 Q180 520 450 785 L450 930H-30Z" fill="#d9b6bf" opacity=".65"/>
+</svg>
