@@ -1,199 +1,252 @@
-# The Next Hello: Mureka soundtrack briefs
+# The Next Hello: soundtrack generation pack
 
-A first batch of 12 tracks for the game's 2009–2010 setting: ten instrumentals for reading and two vocal songs for the player's music library. The titles, prompts and lyrics below are original briefs. Audio has not been generated.
+Revised briefs for the 2009–2010 story. These replace the previous prompts. Keep the twelve titles and filenames so downloads remain easy to identify. Generate A and B from each brief: two candidates for the same song, sharing one unlock condition. A/B does not mean happy/sad or vocal/instrumental.
 
-Aim for the sound of a personal MP3 collection from 2008–2010. Let the genres differ. Keep the recordings warm and readable, with modest compression and clear instruments. Avoid modern festival drops, trap hi-hat rolls, hyperpop processing and constant vinyl crackle. For dialogue use, favor the instrumental tracks and keep the melody behind the text.
+These are original generation prompts, lyrics and a proposed unlock specification. This revision does not generate audio or implement playback or unlock logic.
 
-The BPMs and lengths are generation targets. For instrumentals, select instrumental mode as well as including the vocal restriction in the prompt. Mureka's Custom workflow supports supplied lyrics, style and vocal direction: https://www.mureka.ai/blog_en/mureka-features.html
+## Availability and progression
+
+Asahi starts with three songs already in his library. Later songs appear after he experiences the relevant scene. Chapter names and scene IDs match `content/story.json`. Complete a scene and commit its reply before unlocking; opening a screen or previewing a choice does not count. Any listed scene is sufficient. Internal `guild_*` IDs refer to a game party, not a guild in the fiction.
+
+| Song | Available after | Why it fits |
+|---|---|---|
+| October 23 | New game | Asahi's familiar music for getting home and logging in. |
+| Lunch Break | New game | His existing workday listening. |
+| The Last Bus | New game | A commute favorite; he has a life and music collection before meeting Mizuki. |
+| A Green Light | Chapter 1: complete `first_dm` | A stranger from a game becomes someone he might hear from again. |
+| Four Players | Chapter 2: complete `guild_event`, `guild_guide`, `private_event`, `private_rescheduled`, `lives_call`, or `lives_reschedule` | Their first agreed activity actually happens. Every activity path qualifies. |
+| Two Windows | Chapter 2: complete `after_game`, `party_rest`, `reading_evening`, `reading_once`, `small_call`, or `call_once` | A quieter conversation after spending time together. Every activity path has an equivalent scene. |
+| Ink on the Table | Chapter 3: complete `showcase` or `showcase_setup`; later fallback: `studio_lunch` or `studio_preview` | Asahi attends Natsumi's creative work. Missing the event leaves it locked unless he later attends an actual studio scene. |
+| Away for Dinner | Chapter 3: complete `natsumi_invite` | Familiar routines start competing for the same hours. Any chosen answer qualifies. |
+| Missed the Last Train | Chapter 4: complete `work_adjusted`, `work_kept`, or `work_broken` | Work and the proposed visit become practical concerns. All work outcomes qualify. |
+| The Long Way Back | Chapter 5: complete `privacy_repair`, `promise_repair`, or `expectations_talk` | They have spoken about the difficulty. Repair, space and refusal all qualify. |
+| Your Coat | Chapter 5: complete `romantic_date` | They mutually choose romance. Friendship and separation do not unlock it in that run. |
+| Same Time Next Week | Complete any of the eight ending scenes | A final library addition after the outcome is known. Its harmony leaves room for hope, uncertainty or loss. |
+
+Unlocked tracks stay available in the current save even if the relationship changes. Availability and mood selection are separate: a previously unlocked happy song stays in the library during a difficult chapter. Hide locked titles, lyrics and unlock explanations during a first playthrough. A new game starts with the original three; a future optional collection mode may expose discoveries from completed runs.
+
+Unlocking does not interrupt messages, start playback or invent a recommendation from a character. Show a small “New song added” notice after the scene. If both A and B ship, show one song row with a version selector. A second version is not another story reward.
+
+For an optional automatic playlist, suggest October 23 for the opening, A Green Light for anticipation, Two Windows for private evenings, Away for Dinner for busy routines and The Long Way Back for strain. Respect manual track selection until the player resumes automatic selection. Use instrumentals under reading; vocal tracks require deliberate selection. Silence remains an option.
+
+At the ending, suggest Same Time Next Week for `end_together`, `end_distance`, `end_friendship`, `end_goodbye`, `end_open` and `end_secret`. Keep The Long Way Back for `end_unsaid` and `end_burnout`; Same Time Next Week still unlocks after completion. Never automatically select the romantic vocal song for friendship or separation. Follow the actual outcome, not an affection total.
+
+## Generation and file setup
+
+Use each prompt independently. BPM and duration are targets. Choose instrumental generation for the ten instrumental songs and leave the lyrics field empty. The final two songs include original English lyrics and vocal direction. Keep their phrasing conversational.
+
+The collection belongs on a personal MP3 player in 2009–2010. Let the genres differ, with guitars, small-band performances, drum machines and early home recording. Avoid contemporary festival drops, trap rolls and extreme vocal processing. Reading tracks need restrained dynamics and room between melodic phrases. Generate A and B with the same brief and lyrics, then compare them.
+
+Download WAV masters. Example: `assets/audio/music/october_23/october_23_a.wav` and `october_23_b.wav`. Keep original license files in `licenses/music/october_23/`, with `a/` and `b/` subfolders if each version has a separate license. Prepare OGG playback copies after choosing versions and checking levels. Generated endings still need editing and listening checks before they can loop cleanly.
 
 ## 01. October 23
 
-Genre: indietronica / soft synth-pop. Instrumental. Target: 84 BPM, about three minutes. Use: opening, Home, returning to the game.
+Available from the start. Indietronica / soft synth-pop. Instrumental. Target: 84 BPM, 3 minutes.
+
+Files: `october_23_a.wav`, `october_23_b.wav`.
 
 Prompt:
-> Instrumental indietronica that could have been released in 2009. Warm electric piano, a small repeating analog-synth melody, rounded bass and a gently programmed drum-machine beat. The feeling is getting home late and finding someone you wanted to talk to still online. Slightly shy, quietly hopeful. Establish a memorable melody within the first eight bars, then leave space between phrases. Even dynamics, a short intro and an instrumental outro suitable for a crossfade. No vocals, spoken words or humming.
+> A warm instrumental from a small independent electronic release in 2009. Rounded electric piano, a modest analog synth hook, soft drum-machine kicks and a gently moving bass line. Someone gets home from work, heats dinner and logs in out of habit. Familiar and slightly lonely, with a little curiosity in the chord changes. Introduce a four-bar melody early, then let it disappear while the rhythm continues. Keep the synth soft enough for reading. Short intro, even dynamics, eight-bar closing groove. No vocals, humming, speech or notification sounds. Target 84 BPM, three minutes.
 
 ## 02. A Green Light
 
-Genre: indie pop / jangle pop. Instrumental. Target: 104 BPM, about three minutes. Use: early friendship, an anticipated message.
+Chapter 1, after the first DM. Jangle pop. Instrumental. Target: 104 BPM, 3 minutes.
+
+Files: `a_green_light_a.wav`, `a_green_light_b.wav`.
 
 Prompt:
-> Instrumental late-2000s indie pop with clean jangly electric guitars, melodic bass, a small live drum kit and a little glockenspiel. Bright major-key harmony with a bittersweet chord change in the refrain. Think of checking a friend's online status and finding them there. Keep the guitar melody brief and conversational, with pauses for the bass to answer. A homemade band recording with clear instruments and gentle energy. No vocals or crowd sounds. Finish with a few bars of the main groove.
+> Instrumental jangle pop with a believable 2009 bedroom-band recording. Two clean electric guitars, melodic bass, a compact live drum kit and occasional tambourine. The mood is a good conversation with someone you barely know, followed by checking whether they are still online. A bright little guitar phrase returns with a slightly hesitant final chord. Leave the verses sparse and let the refrain pick up naturally. Light amplifier texture, comfortable cymbals and no dramatic build. No singing or vocal samples. Target 104 BPM, three minutes, with a short instrumental outro.
 
 ## 03. Four Players
 
-Genre: chiptune / indie electronic. Instrumental. Target: 112 BPM, about two and a half minutes. Use: Lantern Quest, party chat, a successful shared run.
+Chapter 2, after the first shared activity. Chiptune / indie electronic. Instrumental. Target: 112 BPM, 2:45.
+
+Files: `four_players_a.wav`, `four_players_b.wav`.
 
 Prompt:
-> Playful 2009 chiptune with a simple square-wave lead, soft triangle-wave bass, light electronic percussion and warm electric-piano chords. A friendly online co-op game played after dinner. Write a catchy small melody that feels welcoming rather than frantic. Let the second half add one answering melody and then return to the original arrangement. Moderate volume and soft high frequencies, suitable behind text. No vocals, arcade sound effects or victory fanfare. A steady closing groove for looping or crossfading.
+> Friendly late-2000s chiptune mixed with a small indie-electronic arrangement. Soft square-wave melody, triangle bass, dry drum-machine percussion and electric-piano chords. A little tune you might keep playing after a casual online game has ended. Use two short melodies that take turns, with a quiet middle section before they play together. Cheerful, a little clumsy and easy on headphones. Keep high notes rounded and percussion modest. No arcade effects, combat sounds, victory fanfare, vocals or spoken samples. Target 112 BPM, two minutes forty-five seconds, ending on the opening groove.
 
 ## 04. Two Windows
 
-Genre: acoustic folk. Instrumental. Target: 74 BPM, about three minutes. Use: private photo exchanges, reading together.
+Chapter 2, after a quiet follow-up conversation. Acoustic folk. Instrumental. Target: 74 BPM, 3:15.
+
+Files: `two_windows_a.wav`, `two_windows_b.wav`.
 
 Prompt:
-> Intimate acoustic instrumental with the feel of a small 2008–2010 home recording. Fingerpicked steel-string guitar, a soft second guitar answering it, occasional upright-piano notes and a little room sound. Two people in different cities spending an ordinary quiet evening together. Gentle changes between major and minor chords. Keep the performance slightly human and the arrangement sparse. The guitar should carry a complete melody without showing off. No vocals, humming or rain samples. End on a sustained guitar chord with room to crossfade.
+> Fingerpicked acoustic folk instrumental recorded in a small room around 2009. Steel-string guitar carries a modest melody; a second guitar answers occasionally, with a few upright-piano notes later. Two people leave their conversation open while each does something else at home. Comfortable pauses, audible fingers on strings and a performance that breathes slightly around the beat. Keep the harmony warm with occasional unfinished phrases. No percussion is needed. No singing, humming, rain samples or cinematic strings. Target 74 BPM, three minutes fifteen seconds. Let the last guitar chord ring out.
 
 ## 05. Ink on the Table
 
-Genre: Japanese indie rock. Instrumental. Target: 116 BPM, about three minutes. Use: Natsumi's creative work, lively browsing, Mizuki's drawing sessions.
+Chapter 3 or a later studio visit; conditional on attending. Japanese indie rock. Instrumental. Target: 116 BPM, 3 minutes.
+
+Files: `ink_on_the_table_a.wav`, `ink_on_the_table_b.wav`.
 
 Prompt:
-> Instrumental Japanese indie rock with a late-2000s small-venue sound. Interlocking clean guitars, a slightly crunchy chorus guitar, melodic bass and an energetic but compact live drum performance. Busy making something with friends: ink on the table, an unfinished print, cheap coffee going cold. Use a strong guitar hook and a relaxed groove. Let the chorus open up without becoming a loud wall of sound. No vocals, electronic drops or audience noise. Keep the final eight bars instrumental and rhythmically steady.
+> Instrumental Japanese indie rock from a small venue in 2009. Interlocking clean guitars, a melodic picked bass and a live drummer playing a loose, lively groove. Friends are putting up prints before a modest exhibition opens; there is work to do and someone keeps moving the tape. Give the main guitar a memorable uneven phrase. A lightly overdriven refrain adds energy without swallowing the bass. Keep room sound and a few small performance imperfections. No vocals, applause or electronic drops. Target 116 BPM, three minutes, with an eight-bar band outro.
 
 ## 06. Lunch Break
 
-Genre: jazzy instrumental hip-hop. Instrumental. Target: 86 BPM, about three minutes. Use: everyday feed browsing, work breaks.
+Available from the start. Jazzy instrumental hip-hop. Target: 86 BPM, 3 minutes.
+
+Files: `lunch_break_a.wav`, `lunch_break_b.wav`.
 
 Prompt:
-> Jazzy instrumental hip-hop with a mellow 2005–2010 beat-tape feel. Warm electric-piano chords, rounded bass, lightly swung drum breaks and short clean-guitar phrases. A small lunch break on an otherwise busy weekday. Let the drums have a loose human pocket and keep the piano melody understated. Clear, warm production with little background noise. Develop the harmony gently rather than repeating one sample unchanged for the whole track. No rapping, vocal samples, producer tags or heavy vinyl crackle. End on the main groove.
+> Instrumental hip-hop with the feel of a 2008–2009 beat tape. Warm Rhodes chords, loose swung drum breaks, rounded bass and brief jazz-guitar phrases. A familiar album playing through cheap earbuds during a short weekday lunch. Let the drum pocket carry the track, with a small piano idea that develops over changing chords. Relaxed, mildly distracted and pleasant enough to replay. Clear production with light saturation and very little background noise. No rapping, singing, vocal chops, producer tags or heavy vinyl crackle. Target 86 BPM, three minutes. End with the main beat thinning out.
 
 ## 07. Away for Dinner
 
-Genre: downtempo / trip-hop. Instrumental. Target: 90 BPM, about three minutes. Use: evening calls, doing chores while chatting.
+Chapter 3, as schedules begin to overlap. Downtempo / trip-hop. Instrumental. Target: 90 BPM, 3:15.
+
+Files: `away_for_dinner_a.wav`, `away_for_dinner_b.wav`.
 
 Prompt:
-> Soft downtempo instrumental that belongs on a 2009 personal MP3 player. Dusty but clear drum-machine rhythm, deep rounded bass, muted electric piano, a few plucked synth notes and restrained guitar delay. An unhurried evening at home while someone keeps you company from another city. Warm and slightly sleepy, with small rhythmic details and plenty of empty space. Avoid a dark thriller atmosphere or a dramatic build. No singing, speech or humming. Keep a stable volume and a gently repeating outro.
+> A restrained downtempo instrumental that fits a personal music collection in 2009. Dry drum machine, deep rounded bass, muted electric piano and a few delayed guitar notes. Dinner is getting cold while two conversations wait for replies. Keep an ordinary domestic warmth, with a slightly restless syncopation underneath. Introduce small changes in the bass and leave the upper register mostly empty. The middle section loses the drums briefly before the groove returns. No suspense effects, grand crescendo, singing or speech. Target 90 BPM, three minutes fifteen seconds, with a steady closing phrase.
 
 ## 08. The Last Bus
 
-Genre: liquid drum and bass. Instrumental. Target: 166 BPM, about three minutes. Use: optional playlist listening, travel and city photos.
+Available from the start. Liquid drum and bass. Instrumental. Target: 166 BPM, 3:30.
+
+Files: `the_last_bus_a.wav`, `the_last_bus_b.wav`.
 
 Prompt:
-> Melodic liquid drum and bass with a 2008–2010 sound: rolling breakbeats, smooth sub-bass, warm Rhodes chords and a small atmospheric guitar motif. Looking through a bus window on the way home after a long day. The rhythm moves quickly while the harmony feels calm and spacious. Soft cymbals, smooth transitions and a melodic middle section. Keep the mix comfortable for headphones. No aggressive wobble bass, festival drop, vocals or spoken samples. Close with the opening groove returning naturally.
+> Melodic liquid drum and bass with a 2008–2010 independent-label sound. Rolling breakbeats, smooth sub-bass, warm Rhodes harmony and a small washed-out guitar motif. A tired commuter watches the city pass through a bus window; the fast drums make the ride feel easier. Give the chords enough space to feel calm above the rhythm. Gentle cymbals, a short atmospheric middle passage and a return to the first bass line. No aggressive wobble bass, festival drop, singing or spoken samples. Target 166 BPM, three minutes thirty seconds. Keep the ending smooth.
 
 ## 09. The Long Way Back
 
-Genre: instrumental emo / restrained post-rock. Instrumental. Target: 78 BPM, about three and a half minutes. Use: after an argument, returning from a visit, missed plans.
+Chapter 5, after a difficult conversation. Instrumental emo / post-rock. Target: 78 BPM, 3:30.
+
+Files: `the_long_way_back_a.wav`, `the_long_way_back_b.wav`.
 
 Prompt:
-> Late-2000s instrumental emo and restrained post-rock. Clean arpeggiated electric guitars, warm bass, sparse live drums and a little amplifier room sound. Someone walks home after a conversation that ended badly and keeps thinking of a better thing to say. Uneven guitar phrases, unresolved chords and one modest swell in the middle. Let the last section become simpler and leave the final harmony slightly open. No huge crescendo, cinematic strings, vocals or speech. Emotion should come from the performance and harmony.
+> Late-2000s instrumental emo with a restrained post-rock arrangement. Clean arpeggiated electric guitars, warm bass and sparse live drums in a small rehearsal room. After a difficult conversation, someone takes a longer walk home and keeps putting their phone away. Let one guitar phrase trail off before the other finishes it. Unresolved chords, a modest swell halfway through and a quieter final passage. Leave the outcome uncertain; the music should also fit a careful attempt to repair things. No huge crescendo, orchestral strings, vocals or speech. Target 78 BPM, three minutes thirty seconds.
 
 ## 10. Same Time Next Week
 
-Genre: ambient piano / chamber pop. Instrumental. Target: 68 BPM, about three minutes. Use: quiet resolutions, an open ending, the final ordinary conversation.
+After any ending. Ambient piano / chamber folk. Instrumental. Target: 68 BPM, 3:15.
+
+Files: `same_time_next_week_a.wav`, `same_time_next_week_b.wav`.
 
 Prompt:
-> Intimate ambient-piano instrumental with the feel of a 2009 independent film soundtrack. Close upright piano, faint acoustic-guitar harmonics and a small sustained string part entering halfway through. A familiar conversation after a difficult week. Warm, tired and gently hopeful. Use a simple melody that can return with a different final chord. Leave pauses and allow the piano's room sound to be heard. No grand orchestral ending, percussion, singing or humming. Finish gently with the last piano chord allowed to decay.
+> A quiet instrumental from a modest 2009 independent-film soundtrack. Close upright piano, occasional acoustic-guitar harmonics and a faint cello entering in the second half. The room is quiet after a long conversation. Use a small recurring melody whose last note hangs over a different chord each time. There is warmth in the recording and uncertainty in the harmony. Leave generous pauses and keep the performance intimate. No triumphant resolution, funeral march, percussion, singing or humming. Target 68 BPM, three minutes fifteen seconds. Let the final piano chord decay fully.
 
 ## 11. Your Coat
 
-Genre: indie pop / acoustic pop. Vocal: female, intimate mid-range. Language: English. Target: 106 BPM, about three minutes. Use: a song in the music library; warm romance or credits. Generate an instrumental companion for reading scenes.
+Chapter 5, after a mutually chosen romantic date. Indie pop / acoustic pop. Female voice, intimate midrange. English. Target: 102 BPM, about 3 minutes. Optional player selection; keep vocals out of automatic reading playback.
+
+Files: `your_coat_a.wav`, `your_coat_b.wav`.
 
 Style prompt:
-> A 2009 indie-pop song with a close, unforced female vocal, clean electric guitar, acoustic rhythm guitar, melodic bass and a small live drum kit. Warm and a little bashful. The singer likes someone enough to find excuses for another visit but cannot quite say that directly. Make the chorus easy to remember without belting it. Natural English phrasing, clear words, light production and a short instrumental outro. Sing the supplied lyrics. Keep the verses intimate and give the chorus a little more movement.
+> A 2009 acoustic indie-pop song with an intimate female midrange voice. Fingerpicked acoustic guitar in the verse, clean electric guitar and a small live rhythm section joining the chorus. Someone keeps finding ordinary excuses for the person she likes to visit again. Sing the supplied English lyrics with a little embarrassment and a smile in a few words. Natural phrasing, restrained harmonies on the final chorus and no belting. Keep the band warm and the vocal lightly produced. Target 102 BPM, about three minutes, ending with a short guitar outro.
 
 Lyrics:
+
 ```text
 [Verse 1]
-Your coat is on the kitchen chair
-You said you'd get it Sunday
-I keep meaning to hang it up
-It looks alright there anyway
-
-[Chorus]
-Call me when your train gets in
-I should still be up
-Tell me what you had for tea
-I'll tell you about the cup
-I dropped beside the kitchen sink
-The handle came away
-Your coat is on the kitchen chair
-You can get it another day
+Your coat is hanging by the door
+You left a ticket in the sleeve
+I was going to call on Sunday
+Then I thought I'd let you sleep
 
 [Verse 2]
-You left a disc without a name
-It skips before the chorus
-I played it twice while washing up
-Could hardly hear the water
+I bought the coffee that you like
+It's taking up the cupboard space
+I tried a cup on Monday morning
+I still don't like the taste
 
 [Chorus]
-Call me when your train gets in
-I should still be up
-Tell me what you had for tea
-I'll tell you about the cup
-I dropped beside the kitchen sink
-The handle came away
-Your coat is on the kitchen chair
-You can get it another day
+Come and get your coat
+You can stay for dinner too
+I can make enough for two
+If you tell me when you're coming
+I could send it on the train
+You could meet it at your stop
+But I'd rather see you wearing it
+Than put it in a box
+
+[Verse 3]
+You called me from a crowded platform
+I could barely hear a thing
+I said the place was much too quiet
+You said you'd visit in the spring
 
 [Bridge]
-I had a better thing to say
-Before the phone started ringing
-You said hello, I said hey
-Now I've forgotten
+The weather says it's getting colder
+I hope you've got another one
+I know I'm taking ages
+To ask you when you're free
 
 [Final Chorus]
-Call me when your train gets in
-I should still be up
-Tell me what you had for tea
-I'll find a different cup
-Your coat is on the kitchen chair
-I think I'll let it stay
-You said you'd get it Sunday
-You can get it another day
+Come and get your coat
+You can stay for dinner too
+I can make enough for two
+If you tell me when you're coming
+I'll be waiting at the station
+You can call me when you're close
+We can work out all the other things
+When you come and get your coat
 ```
+
+This is a song by an artist in Asahi's library. The coat and visit belong to the singer's story. Unlocking it does not claim Asahi and Mizuki have met or booked travel.
 
 ## 12. Missed the Last Train
 
-Genre: pop-punk / emo-pop. Vocal: male, youthful tenor with a little roughness. Language: English. Target: 148 BPM, about three minutes. Use: an optional playlist track, travel montage or energetic credits; keep it out of serious text scenes.
+Chapter 4, after the work decision. Pop-punk / emo-pop. Male voice, youthful tenor with some roughness. English. Target: 148 BPM, about 3 minutes. Optional player selection.
+
+Files: `missed_the_last_train_a.wav`, `missed_the_last_train_b.wav`.
 
 Style prompt:
-> A melodic 2009 pop-punk and emo-pop song with a youthful male tenor, a little roughness in the voice, palm-muted verse guitars, open ringing chorus chords, melodic bass and live drums. Tired after work, walking past a closed arcade, wanting to hear from someone. A catchy full-band chorus with some ache under the energy. Clear English words and a believable small-band performance. Sing the supplied lyrics. Keep the guitars warm, the drums natural and the vocal lightly produced. End with a short guitar outro.
+> A melodic 2009 pop-punk song with a slightly rough male tenor. Palm-muted verse guitars, open chorus chords, melodic bass and a natural live drum kit. A man stays late at work, misses his train and tries to admit he has promised more time than he has. Sing the supplied English lyrics clearly, with tired humor in the verses and frustration in the chorus. Catchy band hook, restrained backing vocals and a half-time bridge. Keep guitars warm and vocal processing light. Target 148 BPM, about three minutes, with a brief ringing guitar ending.
 
 Lyrics:
+
 ```text
 [Verse 1]
-Shutters down at the arcade
-Rain gets through my left shoe
-I've been walking for an hour
-Still thinking what to tell you
-
-[Chorus]
-I missed the last train
-I'm taking the long way
-If the light's on when I get home
-Could you stay a little late?
-I don't need an answer
-To everything tonight
-Tell me something stupid
-Till the birds start making noise
+The cleaner asked if I was leaving
+I said, yeah, another minute
+The screen went black at half past ten
+I saw my own face in it
 
 [Verse 2]
-Paid for coffee with loose change
-Let the first two buses go
-Wrote a message, lost my nerve
-Put the phone back in my coat
+You sent a picture of your dinner
+I said I'd call you after mine
+I've got a sandwich from the station
+And a pretty bad idea of time
 
 [Chorus]
 I missed the last train
-I'm taking the long way
-If the light's on when I get home
-Could you stay a little late?
-I don't need an answer
-To everything tonight
-Tell me something stupid
-Till the birds start making noise
+I'm walking home again
+Saying twenty minutes
+When I know it's forty-five
+If you're tired, go to bed
+I'll call tomorrow like I said
+I keep telling you I'm on my way
+I should tell you where I am
+
+[Verse 3]
+The arcade shutters rattle
+There's a light on down the street
+I stop to buy a can of coffee
+That I probably don't need
 
 [Bridge]
-Monday comes
-I'll set two alarms
-Leave the coat beside the door
-I'll try again
+I put my keys beside my lunch
+Set the alarm before I sleep
+I write down what I've promised
+There's a lot to fit next week
 
 [Final Chorus]
 I missed the last train
-I'm taking the long way
-If the light's on when I get home
-Could you stay a little late?
-You can tell me nothing happened
-That your dinner turned out fine
-I'll be home in twenty minutes
-If you've got a little time
+I'm walking home again
+It's another forty minutes
+You don't have to stay awake
+Leave a message when you're up
+Tell me if your day was rough
+I keep telling you I'm on my way
+I'm still learning when to stop
 ```
 
-## Generation order
+## First generation batch
 
-Start with October 23, Two Windows, The Long Way Back and Your Coat. Those four establish the everyday, intimate, strained and hopeful parts of the soundtrack. Once their sound is right, use the remaining briefs to fill out the library. Ask for an instrumental companion to each vocal song so its melody can return under dialogue.
+Generate the opening three first: October 23, Lunch Break and The Last Bus. Then make A Green Light and The Long Way Back to check the range from anticipation to strain. Generate the others once those feel like they could belong to the same person's music collection. Both versions must fit the same scene; use different song titles for different moods.
 
-Keep each title consistent across versions, for example `Your Coat` and `Your Coat (Instrumental)`. A prompt can ask for a loop-friendly arrangement; the exported audio still needs its loop points and volume checked before game integration. Retain a full-quality download for the project and a smaller listening copy for review.
+For each export, check for accidental voices in instrumentals, a comfortable opening under text and a usable ending. Listen to both vocal songs against their supplied lyrics. Label any instrumental companion separately, for example `your_coat_instrumental_a.wav`. A/B alone always refers to generation candidates.
