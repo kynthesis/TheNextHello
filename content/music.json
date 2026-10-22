@@ -1,0 +1,284 @@
+[
+  {
+    "id": "october_23",
+    "title": "October 23",
+    "vocals": false,
+    "after": [],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/october_23_a.ogg",
+        "seconds": 173.39,
+        "source_sha256": "19c9d15e48d842abe6baa0be4962efbb2ba98652e819e6a57929250450c1c46f",
+        "license": "licenses/music/october_23/october_23_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/october_23_b.ogg",
+        "seconds": 152.91,
+        "source_sha256": "559ab9c086d88724017b30f9e2cfe75d48d86609a8373be033974a98daeac3f7",
+        "license": "licenses/music/october_23/october_23_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "lunch_break",
+    "title": "Lunch Break",
+    "vocals": false,
+    "after": [],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/lunch_break_a.ogg",
+        "seconds": 228.11,
+        "source_sha256": "252ddb21561856dff612c737e9a8a61325c7395826ef3a37107ca513f6455c7a",
+        "license": "licenses/music/lunch_break/lunch_break_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/lunch_break_b.ogg",
+        "seconds": 222.27,
+        "source_sha256": "ed12f621ae480d66f4f5be2c7e817d25efd4ee77c56af6a89a967593ab9100d7",
+        "license": "licenses/music/lunch_break/lunch_break_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "the_last_bus",
+    "title": "The Last Bus",
+    "vocals": false,
+    "after": [],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/the_last_bus_a.ogg",
+        "seconds": 190.11,
+        "source_sha256": "01a63ab2293f369ced5dd396fbd4784a4268f0c153cef7357bf73a57728aa207",
+        "license": "licenses/music/the_last_bus/the_last_bus_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/the_last_bus_b.ogg",
+        "seconds": 207.15,
+        "source_sha256": "18bb5865be04258c1796d346ac53f96dee45056e0cd4162f2067faca83025cca",
+        "license": "licenses/music/the_last_bus/the_last_bus_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "a_green_light",
+    "title": "A Green Light",
+    "vocals": false,
+    "after": [
+      "first_dm"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/a_green_light_a.ogg",
+        "seconds": 182.39,
+        "source_sha256": "70098db3b6204b10112ea5d2ebb4b80b1d9c2fc07971d56c531d81cfb97c6e8a",
+        "license": "licenses/music/a_green_light/a_green_light_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/a_green_light_b.ogg",
+        "seconds": 177.75,
+        "source_sha256": "744b41e964ca5a3e797f4159160b3f614c6e362f1b85cd5decbe0b5996fa94a4",
+        "license": "licenses/music/a_green_light/a_green_light_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "four_players",
+    "title": "Four Players",
+    "vocals": false,
+    "after": [
+      "guild_event",
+      "guild_guide",
+      "private_event",
+      "private_rescheduled",
+      "lives_call",
+      "lives_reschedule"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/four_players_a.ogg",
+        "seconds": 179.91,
+        "source_sha256": "921703893648cabf6309a3d4fc8394484aa8983a3870de8e76f4b1c9a43aec1d",
+        "license": "licenses/music/four_players/four_players_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/four_players_b.ogg",
+        "seconds": 195.03,
+        "source_sha256": "5c978c68a52ef5299eb7cb2f96f50a4168e95be3f0f679adbbf6e0ae05ab1e8f",
+        "license": "licenses/music/four_players/four_players_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "two_windows",
+    "title": "Two Windows",
+    "vocals": false,
+    "after": [
+      "after_game",
+      "party_rest",
+      "reading_evening",
+      "reading_once",
+      "small_call",
+      "call_once"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/two_windows_a.ogg",
+        "seconds": 179.87,
+        "source_sha256": "bece2461bad3418cc51ff93814ef07480c8836054e64c70a6058aea17d616fd2",
+        "license": "licenses/music/two_windows/two_windows_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/two_windows_b.ogg",
+        "seconds": 193.39,
+        "source_sha256": "a856724bff21cdec6ec2a97df9410f30fad410f39a5af2743c87fb4db67fd2ed",
+        "license": "licenses/music/two_windows/two_windows_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "ink_on_the_table",
+    "title": "Ink on the Table",
+    "vocals": false,
+    "after": [
+      "showcase",
+      "showcase_setup",
+      "studio_lunch",
+      "studio_preview"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/ink_on_the_table_a.ogg",
+        "seconds": 194.35,
+        "source_sha256": "6915726243fac87417ab7a609885401e8c5f2d667183cd68f9655d2ea36cca3d",
+        "license": "licenses/music/ink_on_the_table/ink_on_the_table_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/ink_on_the_table_b.ogg",
+        "seconds": 170.75,
+        "source_sha256": "bcceb53f150129caa635bccb318b78631f27c76eb7eb7e4054cbe6340dfdcd0c",
+        "license": "licenses/music/ink_on_the_table/ink_on_the_table_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "away_for_dinner",
+    "title": "Away for Dinner",
+    "vocals": false,
+    "after": [
+      "natsumi_invite"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/away_for_dinner_a.ogg",
+        "seconds": 186.31,
+        "source_sha256": "9199c4bcf0e5d8ecb296adf576bb0b8ac464cccda2092a2255b01e4626d3b9eb",
+        "license": "licenses/music/away_for_dinner/away_for_dinner_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/away_for_dinner_b.ogg",
+        "seconds": 154.23,
+        "source_sha256": "0e73369f0046353d799db6eaa4ccda6008f151eb73132443856d9aec2804c1d3",
+        "license": "licenses/music/away_for_dinner/away_for_dinner_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "missed_the_last_train",
+    "title": "Missed the Last Train",
+    "vocals": true,
+    "after": [
+      "work_adjusted",
+      "work_kept",
+      "work_broken"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/missed_the_last_train_a.ogg",
+        "seconds": 166.63,
+        "source_sha256": "59c2b35094a6d6af1449a65df86853d9ccfe2401286ceaf7cd97e91f38d92252",
+        "license": "licenses/music/missed_the_last_train/missed_the_last_train_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/missed_the_last_train_b.ogg",
+        "seconds": 163.87,
+        "source_sha256": "266e965f420e68c7b8d953748051c9bb7d7fea1ca1f1019a0a63a950a9c3ab48",
+        "license": "licenses/music/missed_the_last_train/missed_the_last_train_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "the_long_way_back",
+    "title": "The Long Way Back",
+    "vocals": false,
+    "after": [
+      "privacy_repair",
+      "promise_repair",
+      "expectations_talk"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/the_long_way_back_a.ogg",
+        "seconds": 197.75,
+        "source_sha256": "e55594f3fa3b3c73a1fa8bb4ee52e036b2efb9f7f67dcfcba1c4698f0cecc016",
+        "license": "licenses/music/the_long_way_back/the_long_way_back_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/the_long_way_back_b.ogg",
+        "seconds": 184.83,
+        "source_sha256": "dc5f3abde192dcaa180521bb75d985852c5c11f7a088253a6aa9361fb99d3b78",
+        "license": "licenses/music/the_long_way_back/the_long_way_back_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "your_coat",
+    "title": "Your Coat",
+    "vocals": true,
+    "after": [
+      "romantic_date"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/your_coat_a.ogg",
+        "seconds": 209.75,
+        "source_sha256": "272b37d2dc9a38833caa07f10971f8276fe81c8a81d1c8083958fb3e6568afe3",
+        "license": "licenses/music/your_coat/your_coat_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/your_coat_b.ogg",
+        "seconds": 188.55,
+        "source_sha256": "bed91e78f0285342721a20ccec700e9da25182340623cdf943073104b7e3d217",
+        "license": "licenses/music/your_coat/your_coat_b.pdf"
+      }
+    }
+  },
+  {
+    "id": "same_time_next_week",
+    "title": "Same Time Next Week",
+    "vocals": true,
+    "after": [
+      "end_together",
+      "end_distance",
+      "end_friendship",
+      "end_goodbye",
+      "end_unsaid",
+      "end_burnout",
+      "end_open",
+      "end_secret"
+    ],
+    "variants": {
+      "a": {
+        "path": "res://assets/audio/playback/same_time_next_week_a.ogg",
+        "seconds": 186.79,
+        "source_sha256": "90f02879ab5d2cef1996a5aef1ba7286abe48b49dc5876a27efd89f0cd2ef5c8",
+        "license": "licenses/music/same_time_next_week/same_time_next_week_a.pdf"
+      },
+      "b": {
+        "path": "res://assets/audio/playback/same_time_next_week_b.ogg",
+        "seconds": 159.87,
+        "source_sha256": "45cc207c03b104a0c34fbe4622715154d8654bc5d4c5610e54fdbc54b98a71b6",
+        "license": "licenses/music/same_time_next_week/same_time_next_week_b.pdf"
+      }
+    }
+  }
+]

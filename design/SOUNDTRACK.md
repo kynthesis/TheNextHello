@@ -2,7 +2,7 @@
 
 Revised briefs for the 2009–2010 story. These replace the previous prompts. Keep the twelve titles and filenames so downloads remain easy to identify. Generate A and B from each brief: two candidates for the same song, sharing one unlock condition. A/B does not mean happy/sad or vocal/instrumental.
 
-These are original generation prompts, lyrics and a proposed unlock specification. This revision does not generate audio or implement playback or unlock logic.
+These are original generation prompts, lyrics and the soundtrack unlock specification. The supplied A/B WAVs and licenses are now cataloged in `content/music.json`, with normalized OGG playback copies prepared by `tools/prepare_music.py`. The Music header utility implements playback and scene-based availability.
 
 ## Availability and progression
 
@@ -29,7 +29,7 @@ Unlocking does not interrupt messages, start playback or invent a recommendation
 
 For an optional automatic playlist, suggest October 23 for the opening, A Green Light for anticipation, Two Windows for private evenings, Away for Dinner for busy routines and The Long Way Back for strain. Respect manual track selection until the player resumes automatic selection. Use instrumentals under reading; vocal tracks require deliberate selection. Silence remains an option.
 
-At the ending, suggest Same Time Next Week for `end_together`, `end_distance`, `end_friendship`, `end_goodbye`, `end_open` and `end_secret`. Keep The Long Way Back for `end_unsaid` and `end_burnout`; Same Time Next Week still unlocks after completion. Never automatically select the romantic vocal song for friendship or separation. Follow the actual outcome, not an affection total.
+At the ending, use Two Windows, if earned, for `end_together`, `end_distance`, `end_friendship`, `end_goodbye`, `end_open` and `end_secret`. Keep The Long Way Back for `end_unsaid` and `end_burnout`. Same Time Next Week unlocks after every ending and is available for deliberate selection. The supplied A/B files are conservatively marked as vocal candidates following the lyrics-generation request; the automatic playlist excludes them until a separate instrumental arrangement is supplied. Never automatically select the romantic vocal song for friendship or separation. Follow the actual outcome, not an affection total.
 
 ## Generation and file setup
 

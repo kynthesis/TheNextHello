@@ -20,6 +20,10 @@ Select a complete reply to watch Asahi compose it. **Finish typing** skips compo
 
 Existing phone-era story saves retain position, choices, drafts, private histories, read states, reactions and commitments. The internal `Calendar` save key is displayed as Events. Only stable narrative keys are stored; opening a section never sends a draft or changes story facts. Save writes retain a recoverable previous version. No external social services or accounts are used.
 
+Open **Music** in the header for play/pause, Next, A/B versions, independent music volume and Follow story. The library begins with October 23, Lunch Break and The Last Bus; completed scenes unlock the remaining songs. Locked titles stay hidden. Manual selection stays in control until Follow story is enabled again; automatic selection uses instrumental tracks. Playback starts paused in a new game. Track, version, pause state and position are saved with the run.
+
+The 12 supplied songs have 24 WAV masters and matching license PDFs. Godot plays normalized OGG copies. Run `python tools/prepare_music.py` after replacing masters, then import in Godot. FFmpeg/FFprobe are required for conversion. See [soundtrack and unlocks](design/SOUNDTRACK.md) and [audio storage](assets/audio/music/README.md).
+
 ## Validate
 
 ```powershell

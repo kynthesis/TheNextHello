@@ -13,6 +13,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Native dialogue compilation or graph audit failed.' }
     & godot --headless --path $projectRoot --script res://tests/test_story.gd
     if ($LASTEXITCODE -ne 0) { throw 'Story tests failed.' }
+    # Exercise the audio mixer with no display. Dummy audio in Godot 4.7.2 can
+    # retain OGG playback objects at shutdown after rapid pause/seek operations.
+    & godot --headless --audio-driver WASAPI --path $projectRoot --script res://tests/test_music.gd
+    if ($LASTEXITCODE -ne 0) { throw 'Music tests failed.' }
     & godot --path $projectRoot --script res://tests/test_social.gd
     if ($LASTEXITCODE -ne 0) { throw 'Social UI tests failed.' }
 } finally {

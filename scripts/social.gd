@@ -3,6 +3,7 @@ extends Control
 const Story := preload("res://scripts/story.gd")
 const AppIcon := preload("res://scripts/app_icon.gd")
 const PixelArt := preload("res://scripts/pixel_art.gd")
+const MusicLibrary := preload("res://scripts/music.gd")
 const INK := Color("293f40")
 const MUTED := Color("77817c")
 const CORAL := Color("285552")
@@ -54,6 +55,9 @@ var instant_messages := false
 var draft_tween: Tween
 var draft_typing := false
 var suspended := false
+var music: Node
+var music_view := false
+var known_songs: Array = []
 
 func _ready() -> void:
 	story = await Story.create()
@@ -63,6 +67,10 @@ func _ready() -> void:
 	sfx.name = "InterfaceSounds"
 	sfx.max_polyphony = 4
 	add_child(sfx)
+	music = MusicLibrary.new()
+	music.name = "MusicLibrary"
+	add_child(music)
+	music.changed.connect(_music_changed)
 	for cue: String in ["tap", "sent", "received"]:
 		sounds[cue] = _sound(cue)
 	banner_timer = Timer.new()
@@ -82,6 +90,8 @@ func _ready() -> void:
 	dots_timer.start()
 	_load_settings()
 	(await story.load_from("user://autosave.json"))
+	music.sync(story, true)
+	known_songs = music.available().map(func(entry: Dictionary) -> String: return entry.id)
 	status = ""
 	ui = Control.new()
 	ui.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
@@ -97,11 +107,13 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_RESUMED and is_instance_valid(delivery_timer):
 		suspended = false
+		music.suspend(false)
 		dots_timer.start()
 		if draft_tween and draft_tween.is_valid(): draft_tween.play()
 		_sync_presentation.call_deferred()
 	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST] and is_instance_valid(ui):
 		suspended = true
+		music.suspend(true)
 		delivery_timer.stop()
 		dots_timer.stop()
 		if draft_tween and draft_tween.is_valid(): draft_tween.pause()
@@ -112,7 +124,9 @@ func _notification(what: int) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		if notification_center:
+		if music_view:
+			_close_music()
+		elif notification_center:
 			_close_notifications()
 		else:
 			_open("Home")
@@ -191,7 +205,8 @@ func _art(kind: String, parent: Node = null, height := 156.0) -> void:
 	(parent if parent != null else body).add_child(artwork)
 
 func _remember() -> void:
-	if is_instance_valid(scroller) and saved_app != "":
+	if is_instance_valid(music): music.remember()
+	if not music_view and is_instance_valid(scroller) and saved_app != "":
 		story.state.scroll[saved_app] = scroller.scroll_vertical
 
 func _open(app: String) -> void:
@@ -211,6 +226,7 @@ func _open(app: String) -> void:
 	view_thread = ""
 	inbox = false
 	_remember()
+	music_view = false
 	var previous: String = story.state.app
 	story.state.app = app
 	notification_center = false
@@ -234,6 +250,7 @@ func _layout() -> void:
 	frame.position = (size - MOBILE_SIZE * factor) / 2
 
 func _render(refocus := true) -> void:
+	_sync_music()
 	if transition and transition.is_valid(): transition.kill()
 	if draft_tween and draft_tween.is_valid():
 		draft_tween.kill()
@@ -268,7 +285,7 @@ func _render(refocus := true) -> void:
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	layout.add_child(center)
 	var title := "Profile" if profile_view else "Requests" if requests_view else friend_profile if friend_profile != "" else "Friends" if friends_view else "News Feed" if feed_view else _section_name(story.state.app)
-	if title != "Home":
+	if title != "Home" and not music_view:
 		var crumb := HBoxContainer.new()
 		center.add_child(crumb)
 		var back := _button("‹ Home", _open.bind("Home"), crumb)
@@ -286,7 +303,9 @@ func _render(refocus := true) -> void:
 	body.name = "Content"
 	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroller.add_child(body)
-	if requests_view:
+	if music_view:
+		_music_page()
+	elif requests_view:
 		_requests()
 	elif friend_profile != "":
 		_friend_profile()
@@ -308,7 +327,7 @@ func _render(refocus := true) -> void:
 	_layout()
 	_refresh_overlay()
 	saved_app = story.state.app
-	_restore_scroll.call_deferred(story.state.app, int(story.state.scroll.get(story.state.app, 0)))
+	_restore_scroll.call_deferred(story.state.app, 0 if music_view else int(story.state.scroll.get(story.state.app, 0)))
 	if refocus: _focus_first.call_deferred()
 	_sync_presentation.call_deferred()
 
@@ -373,6 +392,8 @@ func _status_bar(column: VBoxContainer) -> void:
 	notices.name = "Notifications"
 	var settings := _button("Settings", _open.bind("Settings"), row)
 	settings.name = "SettingsLink"
+	var music_link := _button("Music", _show_music, row)
+	music_link.name = "MusicLink"
 
 func _animate_open() -> void:
 	if reduce_motion: return
@@ -844,7 +865,7 @@ func _render_thread() -> void:
 		_story_controls()
 
 func _can_present() -> bool:
-	return not suspended and not inbox and not attachments_view and friend_profile == "" and not profile_view and not requests_view and not feed_view and not friends_view and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app in ["Messages", "Games", "Work", "Calendar"]
+	return not music_view and not suspended and not inbox and not attachments_view and friend_profile == "" and not profile_view and not requests_view and not feed_view and not friends_view and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app in ["Messages", "Games", "Work", "Calendar"]
 
 func _sync_presentation() -> void:
 	if not _can_present() or not story.delivery_pending(): return
@@ -1002,6 +1023,8 @@ func _scroll_bottom() -> void:
 	scroller.scroll_vertical = int(scroller.get_v_scroll_bar().max_value)
 
 func _autosave() -> void:
+	_sync_music()
+	music.remember()
 	if not story.save_to("user://autosave.json"):
 		status = story.last_error
 
@@ -1075,6 +1098,8 @@ func _restart() -> void:
 	view_thread = ""
 	inbox = false
 	(await story.reset())
+	music.sync(story, true)
+	known_songs = music.available().map(func(entry: Dictionary) -> String: return entry.id)
 	confirm_restart = false
 	saved_app = ""
 	status = "A new evening."
@@ -1083,6 +1108,8 @@ func _restart() -> void:
 
 func _load_game(path: String) -> void:
 	if (await story.load_from(path)):
+		music.sync(story, true)
+		known_songs = music.available().map(func(entry: Dictionary) -> String: return entry.id)
 		status = story.last_error if story.last_error != "" else "Save restored."
 		saved_app = ""
 	else:
@@ -1092,6 +1119,7 @@ func _load_game(path: String) -> void:
 func _save_settings() -> void:
 	var settings := ConfigFile.new()
 	settings.set_value("audio", "interface_volume", sound_volume)
+	settings.set_value("audio", "music_volume", music.volume)
 	settings.set_value("display", "reduce_motion", reduce_motion)
 	settings.set_value("reading", "instant_messages", instant_messages)
 	settings.save("user://settings.cfg")
@@ -1100,6 +1128,7 @@ func _load_settings() -> void:
 	var settings := ConfigFile.new()
 	if settings.load("user://settings.cfg") == OK:
 		sound_volume = clampf(float(settings.get_value("audio", "interface_volume", 0.55)), 0.0, 1.0)
+		music.set_volume(float(settings.get_value("audio", "music_volume", 0.65)))
 		reduce_motion = bool(settings.get_value("display", "reduce_motion", false))
 		instant_messages = bool(settings.get_value("reading", "instant_messages", false))
 
@@ -1107,6 +1136,62 @@ func _set_resolution(resolution: Vector2i) -> void:
 	get_window().size = resolution
 	_layout()
 	_save_settings()
+
+func _sync_music() -> void:
+	if not is_instance_valid(music): return
+	music.sync(story)
+	var songs: Array = music.available().map(func(entry: Dictionary) -> String: return entry.id)
+	if songs.any(func(id: String) -> bool: return id not in known_songs):
+		status = "New song added to Music."
+	known_songs = songs
+
+func _music_changed() -> void:
+	_autosave()
+	_render(false)
+
+func _show_music() -> void:
+	_remember()
+	delivery_timer.stop()
+	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
+	draft_typing = false
+	notification_center = false
+	banner_id = ""
+	music_view = true
+	_render()
+
+func _close_music() -> void:
+	music_view = false
+	_render()
+
+func _music_page() -> void:
+	_button("Back to story", _close_music)
+	var selected: Dictionary = music.track(music.options().song)
+	_card("MY MUSIC", selected.title + " / " + str(music.options().variant).to_upper())
+	var controls := HBoxContainer.new()
+	body.add_child(controls)
+	_button("Pause" if music.options().playing else "Play", music.toggle, controls).name = "MusicPlayPause"
+	_button("Next", music.next, controls).name = "MusicNext"
+	_button("Follow story: " + ("On" if music.options().automatic else "Off"), music.automatic).name = "MusicAutomatic"
+	body.add_child(_label("Music volume", 13, MUTED))
+	var slider := HSlider.new()
+	slider.name = "MusicVolume"
+	slider.min_value = 0
+	slider.max_value = 1
+	slider.step = 0.05
+	slider.value = music.volume
+	slider.custom_minimum_size.y = 48
+	slider.value_changed.connect(func(value: float) -> void: music.set_volume(value); _save_settings())
+	body.add_child(slider)
+	var versions := HBoxContainer.new()
+	body.add_child(versions)
+	for version: String in ["a", "b"]:
+		_button("Version " + version.to_upper(), music.select.bind(selected.id, version), versions).name = "MusicVersion" + version.to_upper()
+	if music.error != "": body.add_child(_label(music.error, 16, MUTED))
+	body.add_child(_label("IN MY LIBRARY", 13, CORAL))
+	for entry: Dictionary in music.available():
+		var label: String = entry.title + (" / vocals" if entry.vocals else "")
+		_button(label, music.select.bind(entry.id, music.options().variant)).name = "Track_" + entry.id
+	body.add_child(_label("More songs arrive as the story unfolds. Choose a song to listen manually; Follow story selects instrumentals. Both versions unlock together.", 13, MUTED))
 
 func _panel_surface(panel: PanelContainer, margin: int) -> void:
 	var style := _style(SURFACE, RULE)

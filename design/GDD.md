@@ -293,7 +293,7 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 **Audio:** Small electronic and acoustic motifs; environmental room tone; distinct but soft message sounds. Reuse the shared-ritual motif at the meeting with a warmer arrangement. Silence supports difficult conversations. Separate music, ambience, and interface volume controls. All audio-only information also appears in text.
 
-**Provisional asset budget:** Seven app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, six music cues, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos.
+**Provisional asset budget:** Seven app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, twelve music titles with A/B candidates, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos. The supplied soundtrack has 24 WAV masters and matching license PDFs; [SOUNDTRACK.md](SOUNDTRACK.md) defines its scene-based availability. Music is a header utility alongside Settings, keeping the seven main sections.
 
 The earlier standalone social/music/video/book app expansion is deferred. Keep content focused on the existing relationship scenes and revise provisional illustration/audio counts after the branching prototype; see SOCIAL-UI.md for the essential app scope.
 

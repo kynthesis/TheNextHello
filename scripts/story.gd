@@ -247,6 +247,8 @@ func toggle_like(id: String) -> void:
 func valid(data: Variant) -> bool:
 	if not data is Dictionary or data.get("version") != 1 or data.get("content_version") != CONTENT_VERSION:
 		return false
+	if data.has("music") and not preload("res://scripts/music.gd").valid_options(data.music):
+		return false
 	if data.has("social"):
 		var network: Variant = data.social
 		if not network is Dictionary: return false
