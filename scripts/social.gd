@@ -7,6 +7,7 @@ const MusicLibrary := preload("res://scripts/music.gd")
 const ChatBubble := preload("res://scripts/chat_bubble.gd")
 const Avatar := preload("res://scripts/avatar.gd")
 const InterfaceAudio := preload("res://scripts/interface_audio.gd")
+const HeaderIcon := preload("res://scripts/header_icon.gd")
 const INK := Color("252525")
 const MUTED := Color("777c85")
 const BLUE := Color("3b5998")
@@ -36,6 +37,9 @@ var confirm_restart := false
 var confirm_later := false
 var saved_app := ""
 var notification_center := false
+var menu_view := false
+var search_view := false
+var search_query := ""
 var sfx: AudioStreamPlayer
 var sound_volume := 0.55
 var reduce_motion := false
@@ -116,10 +120,12 @@ func _notification(what: int) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		if music_view:
-			_close_music()
-		elif notification_center:
+		if notification_center:
 			_close_notifications()
+		elif menu_view or search_view:
+			_close_header_utility()
+		elif music_view:
+			_close_music()
 		else:
 			_open("Home")
 		get_viewport().set_input_as_handled()
@@ -216,7 +222,7 @@ func _art(kind: String, parent: Node = null, height := 156.0) -> void:
 
 func _remember() -> void:
 	if is_instance_valid(music): music.remember()
-	if not music_view and is_instance_valid(scroller) and saved_app != "":
+	if not (music_view or menu_view or search_view) and is_instance_valid(scroller) and saved_app != "":
 		story.state.scroll[saved_app] = scroller.scroll_vertical
 
 func _open(app: String) -> void:
@@ -238,6 +244,8 @@ func _open(app: String) -> void:
 	inbox = false
 	_remember()
 	music_view = false
+	menu_view = false
+	search_view = false
 	var previous: String = story.state.app
 	story.state.app = app
 	notification_center = false
@@ -294,7 +302,7 @@ func _render(refocus := true) -> void:
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	layout.add_child(center)
 	var title := "Profile" if profile_view else "Requests" if requests_view else friend_profile if friend_profile != "" else "Friends" if friends_view else "News Feed" if feed_view else _section_name(story.state.app)
-	if title != "Home" and not music_view:
+	if title != "Home" and not (music_view or menu_view or search_view):
 		var crumb := HBoxContainer.new()
 		center.add_child(crumb)
 		var back := _button("‹ Home", _open.bind("Home"), crumb)
@@ -312,7 +320,11 @@ func _render(refocus := true) -> void:
 	body.name = "Content"
 	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroller.add_child(body)
-	if music_view:
+	if menu_view:
+		_header_menu_page()
+	elif search_view:
+		_search_page()
+	elif music_view:
 		_music_page()
 	elif requests_view:
 		_requests()
@@ -332,13 +344,13 @@ func _render(refocus := true) -> void:
 			"Calendar": _events()
 			"Settings": _settings()
 			"Notes": _events()
-	if story.state.app == "Home" and not (profile_view or feed_view or friends_view or requests_view or music_view or friend_profile != ""):
-		_home_footer(column)
 	_layout()
 	_refresh_overlay()
 	saved_app = story.state.app
-	_restore_scroll.call_deferred(story.state.app, 0 if music_view else int(story.state.scroll.get(story.state.app, 0)))
-	if refocus: _focus_first.call_deferred()
+	_restore_scroll.call_deferred(story.state.app, 0 if music_view or menu_view or search_view else int(story.state.scroll.get(story.state.app, 0)))
+	if refocus:
+		if search_view: _focus_search.call_deferred()
+		else: _focus_first.call_deferred()
 	_sync_presentation.call_deferred()
 
 func _section_name(app: String) -> String:
@@ -381,52 +393,138 @@ func _restore_scroll(app: String, value: int) -> void:
 func _status_bar(column: VBoxContainer) -> void:
 	var bar := PanelContainer.new()
 	bar.name = "SiteHeader"
-	var header_style := _style(BLUE, BLUE)
-	header_style.content_margin_left = 12
-	header_style.content_margin_right = 8
-	header_style.content_margin_top = 3
-	header_style.content_margin_bottom = 3
-	bar.add_theme_stylebox_override("panel", header_style)
+	var style := _style(BLUE)
+	style.set_content_margin_all(0)
+	style.content_margin_left = 6
+	style.content_margin_right = 4
+	bar.add_theme_stylebox_override("panel", style)
 	column.add_child(bar)
 	var row := HBoxContainer.new()
-	bar.add_child(row)
 	row.add_theme_constant_override("separation", 0)
+	bar.add_child(row)
 	var logo := _button("Noir", _open.bind("Home"), row)
 	logo.name = "SiteLogo"
-	logo.add_theme_font_size_override("font_size", 31)
-	logo.alignment = HORIZONTAL_ALIGNMENT_LEFT
-	logo.custom_minimum_size.y = 52
-	var wordmark_font := SystemFont.new()
-	wordmark_font.font_names = PackedStringArray(["Arial", "Helvetica", "Liberation Sans"])
-	wordmark_font.font_weight = 700
-	logo.add_theme_font_override("font", wordmark_font)
+	logo.custom_minimum_size = Vector2(72, 48)
+	logo.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	logo.add_theme_font_size_override("font_size", 23)
 	logo.autowrap_mode = TextServer.AUTOWRAP_OFF
+	var font := SystemFont.new()
+	font.font_names = PackedStringArray(["Arial", "Helvetica", "Liberation Sans"])
+	font.font_weight = 700
+	logo.add_theme_font_override("font", font)
 	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: logo.add_theme_color_override(state, Color.WHITE)
 	for state: String in ["normal", "hover", "pressed"]: logo.add_theme_stylebox_override(state, StyleBoxEmpty.new())
-	logo.add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("98afd3")))
-	var settings := _button("Settings", _open.bind("Settings"), row)
-	settings.name = "SettingsLink"
-	var music_link := _button("Music", _show_music, row)
-	music_link.name = "MusicLink"
-	for link: Button in [settings, music_link]:
-		link.size_flags_horizontal = Control.SIZE_SHRINK_END
-		link.custom_minimum_size = Vector2(80, 44)
-		link.autowrap_mode = TextServer.AUTOWRAP_OFF
-		for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: link.add_theme_color_override(state, Color.WHITE)
-		link.add_theme_stylebox_override("normal", _style(BLUE, Color("304d86")))
-		link.add_theme_stylebox_override("hover", _style(Color("4969aa"), Color("304d86")))
-		link.add_theme_stylebox_override("pressed", _style(Color("304d86"), Color("304d86")))
+	logo.add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("a6bbdc")))
+	_header_button("HeaderFriends", "friends", "Friends and requests", _header_friends, row)
+	_header_button("HeaderMessages", "messages", "Messages", _header_messages, row)
+	_header_button("HeaderNotifications", "notifications", "Notifications", _show_notifications, row)
+	_header_button("HeaderSearch", "search", "Search friends", _show_search, row)
+	_header_button("HeaderMenu", "menu", "Menu: Settings and Music", _show_header_menu, row)
 
-func _home_footer(column: VBoxContainer) -> void:
-	var footer := _button("Notifications", _show_notifications, column)
-	footer.name = "Notifications"
-	footer.custom_minimum_size.y = 48
-	footer.icon = load("res://assets/ui/notification_globe.svg")
-	footer.add_theme_font_size_override("font_size", 19)
-	for state: String in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color"]: footer.add_theme_color_override(state, Color.WHITE)
-	footer.add_theme_stylebox_override("normal", _style(BLUE, BLUE))
-	footer.add_theme_stylebox_override("hover", _style(Color("4969aa"), BLUE))
-	footer.add_theme_stylebox_override("pressed", _style(Color("304d86"), BLUE))
+func _header_button(id: String, symbol: String, title: String, action: Callable, parent: Node) -> void:
+	var button := Button.new()
+	button.set_script(HeaderIcon)
+	button.name = id
+	button.symbol = symbol
+	button.tooltip_text = title
+	button.accessibility_name = title
+	button.custom_minimum_size = Vector2(44, 48)
+	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	button.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+	button.add_theme_stylebox_override("hover", _style(Color("4666a2")))
+	button.add_theme_stylebox_override("pressed", _style(Color("304d86")))
+	button.add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("a6bbdc")))
+	button.pressed.connect(_play_sound.bind("tap"))
+	button.pressed.connect(action)
+	parent.add_child(button)
+
+func _refresh_header() -> void:
+	var utility := music_view or menu_view or search_view or notification_center
+	var unread := 0
+	for notice: Dictionary in story.state.notifications:
+		if notice.get("kind") == "message" and not notice.read: unread += 1
+	var states := {
+		"HeaderFriends": [story.pending_requests().size(), not utility and (friends_view or requests_view or friend_profile != "")],
+		"HeaderMessages": [story.unread_count("Messages"), not utility and story.state.app == "Messages"],
+		"HeaderNotifications": [unread, notification_center],
+		"HeaderSearch": [0, search_view and not notification_center],
+		"HeaderMenu": [0, (menu_view or music_view or story.state.app == "Settings") and not notification_center and not search_view]
+	}
+	for id: String in states:
+		var button: Button = frame.find_child(id, true, false)
+		if button == null: continue
+		button.badge_count = states[id][0]
+		button.active = states[id][1]
+		button.accessibility_description = str(button.badge_count) + (" pending requests" if id == "HeaderFriends" else " unread") if button.badge_count > 0 else ""
+		button.queue_redraw()
+
+func _header_friends() -> void:
+	if story.pending_requests().is_empty(): _show_friends()
+	else: _show_requests()
+
+func _header_messages() -> void:
+	_open("Messages")
+	inbox = true
+	delivery_timer.stop()
+	_render()
+
+func _prepare_header_utility() -> void:
+	_remember()
+	delivery_timer.stop()
+	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
+	draft_typing = false
+	notification_center = false
+	music_view = false
+	menu_view = false
+	search_view = false
+	status = ""
+
+func _show_header_menu() -> void:
+	if menu_view:
+		_close_header_utility()
+		return
+	_prepare_header_utility()
+	menu_view = true
+	_render()
+
+func _show_search() -> void:
+	if search_view:
+		_close_header_utility()
+		return
+	_prepare_header_utility()
+	search_query = ""
+	search_view = true
+	_render()
+
+func _close_header_utility() -> void:
+	menu_view = false
+	search_view = false
+	_render()
+
+func _header_menu_page() -> void:
+	_button("Back", _close_header_utility)
+	body.add_child(_label("Noir", 22, BLUE))
+	_button("Settings", _open.bind("Settings")).name = "SettingsLink"
+	_button("Music", _show_music).name = "MusicLink"
+
+func _search_page() -> void:
+	_button("Back", _close_header_utility)
+	body.add_child(_label("Search", 22, BLUE))
+	var search := LineEdit.new()
+	search.name = "FriendSearch"
+	search.placeholder_text = "Search friends"
+	search.text = search_query
+	search.custom_minimum_size.y = 44
+	search.text_changed.connect(func(value: String) -> void: search_query = value)
+	search.text_submitted.connect(_search_friends)
+	body.add_child(search)
+	body.add_child(_label("Search people in your friends list.", 13, MUTED))
+
+func _focus_search() -> void:
+	var search: LineEdit = body.find_child("FriendSearch", true, false)
+	if search != null:
+		search.grab_focus()
+		search.caret_column = search.text.length()
 
 func _animate_open() -> void:
 	if reduce_motion: return
@@ -448,6 +546,7 @@ func _close_notifications() -> void:
 func _refresh_overlay() -> void:
 	if not is_instance_valid(frame): return
 	_refresh_app_badges()
+	_refresh_header()
 	var old := frame.get_node_or_null("NotificationOverlay")
 	if old:
 		frame.remove_child(old)
@@ -566,12 +665,6 @@ func _gesture_scroller() -> ScrollContainer:
 	return scroller
 
 func _home() -> void:
-	var search := LineEdit.new()
-	search.name = "FriendSearch"
-	search.placeholder_text = "Search friends"
-	search.custom_minimum_size.y = 36
-	search.text_submitted.connect(_search_friends)
-	body.add_child(search)
 	body.add_child(_label("Asahi  ·  Tokyo, Japan", 13, MUTED))
 	var grid := GridContainer.new()
 	grid.name = "SectionGrid"
@@ -900,7 +993,7 @@ func _render_thread() -> void:
 		_story_controls()
 
 func _can_present() -> bool:
-	return not notification_center and not music_view and not suspended and not inbox and not attachments_view and friend_profile == "" and not profile_view and not requests_view and not feed_view and not friends_view and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app == "Messages"
+	return not (notification_center or music_view or menu_view or search_view) and not suspended and not inbox and not attachments_view and friend_profile == "" and not profile_view and not requests_view and not feed_view and not friends_view and story.state.app == story.current().app and _thread() == story.current().thread and story.state.app == "Messages"
 
 func _sync_presentation() -> void:
 	if not _can_present() or not story.delivery_pending(): return
@@ -1193,6 +1286,8 @@ func _music_changed() -> void:
 
 func _show_music() -> void:
 	_remember()
+	menu_view = false
+	search_view = false
 	delivery_timer.stop()
 	if draft_tween and draft_tween.is_valid(): draft_tween.kill()
 	draft_typing = false

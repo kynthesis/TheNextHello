@@ -108,7 +108,7 @@ No currency, grind, affection farming, or mandatory collectible hunt. Optional i
 
 ## 6. The social network and connected sections
 
-Home uses a compact three-column grid with exactly seven sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. Profile supports Asahi's statuses/comments/shares; Friends exposes accepted friends' profiles/photos; Photos contains his own photos; Events holds objectives; Messages holds DMs; Requests accepts or declines new friends after encounters. Settings is a header utility. Lantern Quest, work and private notes remain story contexts rather than additional menu sections. See [Social UI](SOCIAL-UI.md).
+Home uses a compact three-column grid with exactly seven sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. Profile supports Asahi's statuses/comments/shares; Friends exposes accepted friends' profiles/photos; Photos contains his own photos; Events holds objectives; Messages holds DMs; Requests accepts or declines new friends after encounters. Settings is available through the header Menu. Lantern Quest, work and private notes remain story contexts rather than additional menu sections. See [Social UI](SOCIAL-UI.md).
 
 | Section | Player actions | Purpose |
 |---|---|---|
@@ -120,7 +120,7 @@ Home uses a compact three-column grid with exactly seven sections: News Feed, Pr
 | **Messages** | Direct/group conversations, private attachments, drafts and explicit replies. | Main narrative and meaningful decisions. |
 | **Requests** | Accept or decline requests earned after encounters. | New friendships without changing the chance-meeting origin. |
 
-Settings and Music are header utilities. All characters communicate through Messages DMs or group chats. Work and Lantern Quest remain story topics; their separate screens are removed. Legacy Games/Work keys migrate into Messages. Events alone holds objectives, progress and next-action links, without mission banners or progress badges.
+Settings and Music are available through the header Menu. All characters communicate through Messages DMs or group chats. Work and Lantern Quest remain story topics; their separate screens are removed. Legacy Games/Work keys migrate into Messages. Events alone holds objectives, progress and next-action links, without mission banners or progress badges.
 
 **Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Photos shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
 
@@ -279,7 +279,7 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** Noir uses flat blue navigation, its own white wordmark, a pale gray-lilac background, multicolor icons, red message badges and readable labels. Use solid fills and thin borders, with no bevels, gradients or button shadows. Home has a three-column section grid, accepted-friend search, an own-photo shelf and a fixed blue Notifications footer. News Feed and private Messages are separate. White incoming bubbles align left; Asahi's pale-blue replies align right, with small speech tails. Pixel illustrations remain where they carry story context.
+**Visual identity:** Noir uses flat blue navigation, its own white wordmark, a pale gray-lilac background, multicolor icons, red message badges and readable labels. Use solid fills and thin borders, with no bevels, gradients or button shadows. Home has a three-column section grid and an own-photo shelf. Global header icons open Friends/Requests, Messages, Notifications, Search and Menu, with red counters and white active icons. News Feed and private Messages are separate. White incoming bubbles align left; Asahi's pale-blue replies align right, with small speech tails. Pixel illustrations remain where they carry story context.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
@@ -293,7 +293,7 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 **Audio:** Small electronic and acoustic motifs; environmental room tone; distinct but soft message sounds. Reuse the shared-ritual motif at the meeting with a warmer arrangement. Silence supports difficult conversations. Separate music, ambience, and interface volume controls. All audio-only information also appears in text.
 
-**Provisional asset budget:** Seven app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, twelve music titles with A/B candidates, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos. The supplied soundtrack has 24 WAV masters and matching license PDFs; [SOUNDTRACK.md](SOUNDTRACK.md) defines its scene-based availability. Music is a header utility alongside Settings, keeping the seven main sections.
+**Provisional asset budget:** Seven app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, twelve music titles with A/B candidates, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos. The supplied soundtrack has 24 WAV masters and matching license PDFs; [SOUNDTRACK.md](SOUNDTRACK.md) defines its scene-based availability. Music and Settings live under the header Menu, keeping the seven main sections.
 
 The earlier standalone social/music/video/book app expansion is deferred. Keep content focused on the existing relationship scenes and revise provisional illustration/audio counts after the branching prototype; see SOCIAL-UI.md for the essential app scope.
 
