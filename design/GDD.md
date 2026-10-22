@@ -8,6 +8,14 @@
 
 ## 1. The promise
 
+**Primary objective — creator direction:** Convey a story about long-distance love. Let players experience how Asahi and Mizuki build closeness while living apart: looking forward to a message, sharing ordinary moments, missing each other's presence, negotiating needs, and deciding how to sustain the relationship. The phone and its apps serve that story. App completeness and browsing volume are not the measure of success.
+
+**Experience priorities:** Build shared routines before testing them. Make absence meaningful through authored situations rather than mandatory real-time waiting. Give both people independent lives and understandable needs. Let choices change how they support each other, handle conflict, meet, and return to distance afterward. A meeting is a relationship milestone, not an automatic solution to distance.
+
+**Feature filter:** Each substantial feature must help express connection, absence, trust, independent responsibilities, or a shared future. Ordinary browsing can provide breathing room, but must not crowd out relationship scenes or become required busywork. Music can establish a shared ritual; social posts can reveal a day the other person could not share; work can create an honest availability conflict; photos can make an unfamiliar place feel familiar.
+
+**Presentation boundary:** Convey the story entirely through Asahi's personal phone, consistent with project direction. Photos, messages, call transcripts, shared media, travel updates, and later recollections can show life beyond the device. External room exploration, voiced messages, and new utility apps mentioned during brainstorming are not approved additions.
+
 > Fall in love one message at a time in a pixel art phone simulator. Meet through an online game, share photos, and navigate love, friendship, and distance through connected apps. Your choices shape the relationship and what happens when it's time to meet in person.
 
 **Player fantasy:** Someone who was once a username becomes the person you want to tell about your day. Build that connection through small acts, discover who each of you is beyond the screen, and choose what place the relationship can have in your life.
@@ -270,7 +278,7 @@ Within an ending, shared memories choose callbacks, Natsumi's commitment chooses
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
-**Composition and viewpoint:** The entire game is presented through Asahi's personal phone. No title, tagline, instructions or other UI sits beside the device. Home shows his local clock and Tokyo location, not a promotional view of the relationship. Notes uses first-person reminders; Settings identifies only his account; Messages identifies a contact rather than presenting a character biography. The default window is 414×896 and the phone fills it. The device has a fixed 414:896 reference aspect ratio. Larger or wider windows center it in plain dark margins; it scales uniformly to fit and never widens, stretches, or crops. This includes large-text mode: content reflows and scrolls inside the same device proportions. Mobile safe-area handling must preserve that invariant.
+**Composition and viewpoint:** The entire game is presented through Asahi's personal phone. No title, tagline, instructions or other UI sits beside the device. Home shows his local clock and Tokyo location, not a promotional view of the relationship. Notes uses first-person reminders; Settings identifies only his account; Messages identifies a contact rather than presenting a character biography. The default window is 414×896 and the phone fills it. The device has a fixed 414:896 reference aspect ratio. Larger or wider windows center it in plain dark margins; it scales uniformly to fit and never widens, stretches, or crops. One standard text size is supported; content wraps and scrolls inside the same device proportions. Mobile safe-area handling must preserve that invariant.
 
 **Character presence:** Avatars, evolving profile photos, typing habits, personal photo compositions, and selected meeting illustrations carry personality. No constant full-screen talking portraits.
 
@@ -297,7 +305,7 @@ Title → New Game / Continue / Load / Settings → Phone home → App → Threa
 ### Required reading conveniences
 
 - Full conversation history and a chapter/date index; image descriptions accessible from history.
-- Adjustable text size from 100–200%, instant reveal, adjustable simulated reply delay, and a reduce-motion toggle.
+- One standard text size, instant reveal, adjustable simulated reply delay, and a reduce-motion toggle.
 - Auto-advance pauses on choices, unread attachments, and required context; notifications do not steal focus.
 - Skip-read mode stops at unseen variants and decisions, including changed image captions. It never makes a choice automatically.
 - Clear focus indicators; state communicated through labels and symbols as well as color.
@@ -305,7 +313,7 @@ Title → New Game / Continue / Load / Settings → Phone home → App → Threa
 - No information available only through audio. Text scaling and keyboard access are launch requirements; screen-reader support requires an early feasibility investigation before any compatibility claim.
 - Optional content notes describing themes and a menu path to revisit them. Proposed themes include loneliness, interpersonal conflict, and relationship separation.
 
-**Layout acceptance targets:** At 1280×720, 1920×1080, and 2560×1440, plus a 21:9 window, required controls remain reachable and messages do not overlap. At 200% text size, use reflow and scrolling rather than clipping. Also verify narrow and tall mobile portrait layouts, safe-area cutouts, touch-only navigation, and largest text without clipped Send/Back controls. Supported OS versions and minimum devices remain to be selected. These are future test conditions, not completed verification.
+**Layout acceptance targets:** At 1280×720, 1920×1080, and 2560×1440, plus a 21:9 window, required controls remain reachable and messages do not overlap. At the standard text size, use wrapping and scrolling rather than clipping. Also verify narrow and tall mobile portrait layouts, safe-area cutouts, touch-only navigation, and standard text without clipped Send/Back controls. Supported OS versions and minimum devices remain to be selected. These are future test conditions, not completed verification.
 
 ## 15. Progress, replay, and saving
 
@@ -394,7 +402,7 @@ These are release acceptance targets. The opening prototype has automated narrat
 | Branches exceed writing capacity | Limit the cast and three central paths; reuse assets and cap optional content before cutting event divergence. | Choice ledger and revised scene/word budget remain feasible after the branching slice. |
 | Characters become reward machines | Preserve refusals, independent obligations, and meaningful friendship. | Readers recognize Mizuki's needs and feel able to disagree. |
 | Simulated delay becomes tedious | Make typing and waiting skippable; use explicit time jumps. | Replays retain emotional pacing without forced pauses. |
-| Phone art makes text too small | Separate text rendering from pixel art; reflow and scroll within the fixed phone aspect ratio. | Layout checks pass at 200% text size without stretching the device. |
+| Phone art makes text too small | Separate text rendering from pixel art; reflow and scroll within the fixed phone aspect ratio. | Layout checks pass at the standard text size without stretching the device. |
 | Meeting feels like a teaser | Budget its illustrations and final conversation from the start. | Each ending resolves the central question on screen. |
 
 ## 19. Decisions to revisit with the creator

@@ -4,6 +4,8 @@
 
 ## Ten connected apps
 
+**Narrative purpose — creator direction:** The central experience is long-distance love. These apps provide ways for Asahi and Mizuki to share life while apart; they are supporting systems, not ten equally important simulations. Prioritize relationship scenes, meaningful choices, and shared routines over feed volume. Independent interests make the characters believable, but optional browsing must not become a chore required to keep the relationship alive.
+
 **Notes utility (creator direction):** Chapters, current objectives, next-action links and completed tasks live inside a dedicated Notes app. The home screen stays a phone launcher. The checklist derives from committed story progress, shows only this run's completed events, and never exposes unchosen paths. Opening Notes or following a link cannot complete an objective or advance time. At the prototype's end, Notes states that the opening is complete instead of offering an unimplemented mission. This utility sits alongside the ten story apps below; it does not replace Bookmark's reading notes.
 
 The phone is Asahi's personal device: it contains his routines, interests, friends, and obligations as well as Mizuki's messages. Existing history and a small authored library make it feel lived in. New content follows fictional story time and player actions. Everything is an authored simulation; no external account is required.
@@ -50,7 +52,7 @@ Use fictional branding and original or properly licensed media for the proposed 
 
 ## PC and mobile behavior
 
-On PC, mouse wheel and buttons navigate feeds. On iOS/Android, swipe scrolling and tapping are supported; visible controls provide alternatives to gesture-only actions. No hover-only metadata. Show keyboard focus, media captions, mute controls, image descriptions, adjustable text, and safe-area-aware navigation. Backgrounding suspends presentation and never expires a story, misses a call, or breaks a promise.
+On PC, mouse wheel and buttons navigate feeds. On iOS/Android, swipe scrolling and tapping are supported; visible controls provide alternatives to gesture-only actions. No hover-only metadata. Show keyboard focus, media captions, mute controls, image descriptions, readable standard-size text, and safe-area-aware navigation. Backgrounding suspends presentation and never expires a story, misses a call, or breaks a promise.
 
 ## App acceptance criteria
 

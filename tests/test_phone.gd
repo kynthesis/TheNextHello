@@ -88,8 +88,17 @@ func _initialize() -> void:
 	await process_frame
 	phone = load("res://scenes/phone.tscn").instantiate()
 	root.add_child(phone)
+	var legacy_settings := ConfigFile.new()
+	legacy_settings.load("user://settings.cfg")
+	legacy_settings.set_value("reading", "scale", 2.0)
+	legacy_settings.save("user://settings.cfg")
+	phone._load_settings()
+	check(phone._theme().default_font_size == 16, "old large-text preference cannot change standard text size")
+	phone._save_settings()
+	legacy_settings.clear()
+	legacy_settings.load("user://settings.cfg")
+	check(not legacy_settings.has_section_key("reading", "scale"), "saving settings removes obsolete text-scale preference")
 	phone.story.reset()
-	phone.text_scale = 1.0
 	phone.reduce_motion = false
 	root.size = Vector2i(1280, 900)
 	phone.sound_volume = 0.5
@@ -186,20 +195,13 @@ func _initialize() -> void:
 		await settle()
 		fitted(str(resolution))
 	await capture("portrait")
-	phone.text_scale = 2.0
-	phone._open("Messages")
-	await settle()
-	fitted("200 percent text")
-	await capture("large_text")
-	for app: String in ["Home", "Notes"]:
+	for app: String in ["Messages", "Home", "Notes"]:
 		phone._open(app)
 		await settle()
-		fitted(app + " 200 percent text")
-		await capture(app.to_lower() + "_large_text")
+		fitted(app + " standard text")
 	phone._set_resolution(Vector2i(1280, 900))
 	await settle()
 	check(root.size == Vector2i(1280, 900), "resolution setting resizes window")
-	phone.text_scale = 1.0
 	phone.story.reset()
 	phone._open("Home")
 	phone.reduce_transparency = true

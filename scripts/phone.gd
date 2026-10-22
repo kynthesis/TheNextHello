@@ -20,7 +20,6 @@ var screen: PanelContainer
 var body: VBoxContainer
 var scroller: ScrollContainer
 var player: AudioStreamPlayer
-var text_scale := 1.0
 var volume := 0.35
 var status := ""
 var confirm_restart := false
@@ -109,7 +108,7 @@ func _style(color: Color, border := Color.TRANSPARENT) -> StyleBoxFlat:
 
 func _theme() -> Theme:
 	var result := Theme.new()
-	result.default_font_size = int(16 * text_scale)
+	result.default_font_size = 16
 	result.set_color("font_color", "Label", INK)
 	result.set_color("font_color", "Button", CORAL)
 	result.set_color("font_hover_color", "Button", INK)
@@ -130,7 +129,7 @@ func _label(text: String, font_size := 16, color := INK) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_size_override("font_size", int(font_size * text_scale))
+	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return label
@@ -248,7 +247,7 @@ func _render() -> void:
 	margins.add_child(column)
 	_status_bar(column)
 	if story.state.app != "Home":
-		var header: BoxContainer = VBoxContainer.new() if text_scale > 1.5 else HBoxContainer.new()
+		var header := HBoxContainer.new()
 		var navigation := PanelContainer.new()
 		column.add_child(navigation)
 		_paper_surface(navigation, 4)
@@ -594,7 +593,7 @@ func _home() -> void:
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(caption)
 	var grid := GridContainer.new()
-	grid.columns = 2 if text_scale > 1.0 else 4
+	grid.columns = 4
 	grid.add_theme_constant_override("h_separation", 8)
 	grid.add_theme_constant_override("v_separation", 18)
 	body.add_child(grid)
@@ -900,8 +899,6 @@ func _settings() -> void:
 	body.add_child(_label("Make yourself comfortable", 24))
 	_card("MY ACCOUNT", "Tachibana Asahi\nasahi\nTokyo, Japan")
 	_card("DISPLAY & READING", "The phone always keeps its 414:896 proportions. Window resolution changes its scale, never its shape. Swipe or drag to navigate; buttons remain available.")
-	for scale_value: float in [1.0, 1.5, 2.0]:
-		_button("Text size  %d%%" % int(scale_value * 100), func() -> void: _remember(); text_scale = scale_value; _save_settings(); _render())
 	_button("Reduce motion: " + ("On" if reduce_motion else "Off"), func() -> void: reduce_motion = not reduce_motion; _save_settings(); _render())
 	_button("Simplify paper texture: " + ("On" if reduce_transparency else "Off"), func() -> void: reduce_transparency = not reduce_transparency; _save_settings(); _render())
 	body.add_child(_label("WINDOW RESOLUTION", 12, CORAL))
@@ -958,7 +955,6 @@ func _load_game(path: String) -> void:
 
 func _save_settings() -> void:
 	var settings := ConfigFile.new()
-	settings.set_value("reading", "scale", text_scale)
 	settings.set_value("audio", "volume", volume)
 	settings.set_value("audio", "interface_volume", sound_volume)
 	settings.set_value("display", "reduce_motion", reduce_motion)
@@ -968,7 +964,6 @@ func _save_settings() -> void:
 func _load_settings() -> void:
 	var settings := ConfigFile.new()
 	if settings.load("user://settings.cfg") == OK:
-		text_scale = clampf(float(settings.get_value("reading", "scale", 1.0)), 1.0, 2.0)
 		volume = clampf(float(settings.get_value("audio", "volume", 0.35)), 0.0, 1.0)
 		sound_volume = clampf(float(settings.get_value("audio", "interface_volume", 0.55)), 0.0, 1.0)
 		reduce_motion = bool(settings.get_value("display", "reduce_motion", false))
