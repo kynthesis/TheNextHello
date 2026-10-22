@@ -1,3 +1,4 @@
+class_name HelloStory
 extends RefCounted
 ## Plain-data story state. Presentation never applies narrative effects.
 
@@ -5,17 +6,61 @@ const CONTENT_VERSION := "opening-1"
 const APPS := ["Home", "Messages", "Games", "Work", "Photos", "Calendar", "Settings", "Notes"]
 const APP_ALIASES := {"Lantern Quest": "Games", "Desk": "Work", "Gallery": "Photos"}
 const RETIRED_APPS := ["Moments", "Resonance", "Vista", "Loop", "Bookmark"]
+var characters: Dictionary
 var content: Dictionary
 var state: Dictionary
 var last_error := ""
+var _choices: Array = []
+var _dialogues: Dictionary = {}
 
 func _init() -> void:
-	content = JSON.parse_string(FileAccess.get_file_as_string("res://content/opening.json"))
-	reset()
+	characters = JSON.parse_string(FileAccess.get_file_as_string("res://content/characters.json"))
+	content = JSON.parse_string(FileAccess.get_file_as_string("res://content/story.json"))
+	for chapter in range(1, 7):
+		var path := "res://content/dialogue/act_%02d.dialogue" % chapter
+		var resource: DialogueResource = load(path)
+		_dialogues[path] = resource
+		for line: Dictionary in resource.lines.values():
+			if line.has("static_id"): content.strings[line.static_id] = line.text
+
+static func create() -> HelloStory:
+	var model := HelloStory.new()
+	await model.reset()
+	return model
+
+func choice_allowed(id: String) -> bool:
+	for choice: Dictionary in current().choices:
+		if choice.id == id: return matches(choice.get("if", {}))
+	return false
+
+func line_allowed(id: String) -> bool:
+	for line: Dictionary in current().lines:
+		if line.text == id: return matches(line.get("if", {}))
+	return false
+
+func _read_scene(id: String) -> Dictionary:
+	var resource: DialogueResource = _dialogues[content.nodes[id].dialogue]
+	var lines: Array = []
+	var options: Array = []
+	var line: DialogueLine = await resource.get_next_dialogue_line(id, [self])
+	while line != null:
+		content.strings[line.static_id] = line.text
+		lines.append({"speaker": line.character, "text": line.static_id})
+		for response: DialogueResponse in line.responses:
+			if not response.is_allowed: continue
+			content.strings[response.static_id] = response.text
+			for choice: Dictionary in content.nodes[id].choices:
+				if choice.text == response.static_id: options.append(choice.duplicate(true))
+		if not line.responses.is_empty(): break
+		line = await resource.get_next_dialogue_line(line.next_id, [self])
+	# Upstream adds an owning resource link to its compiled dictionaries while
+	# reading. We retain only stable IDs, so release these temporary self-links.
+	for source: Dictionary in resource.lines.values(): source.erase("resource")
+	return {"lines": lines, "choices": options}
 
 func reset() -> void:
 	state = {"version": 1, "content_version": CONTENT_VERSION, "node": "invite", "log": [], "facts": {}, "consumed": [], "draft": "", "app": "Home", "likes": [], "notes": "", "scroll": {}, "track": -1, "music_playing": false, "notifications": [], "app_updates": {}, "shown_count": 0}
-	_enter("invite")
+	await _enter("invite")
 	state.social = _new_social()
 
 func _new_social() -> Dictionary:
@@ -57,7 +102,7 @@ func current() -> Dictionary:
 	return content.nodes[state.node]
 
 func choices() -> Array:
-	return current().get("choices", []).filter(func(choice: Dictionary) -> bool: return matches(choice.get("if", {})))
+	return _choices
 
 func matches(conditions: Dictionary) -> bool:
 	for key: String in conditions:
@@ -99,14 +144,14 @@ func send() -> bool:
 			state.consumed.append(choice.id)
 			state.facts.merge(choice.get("set", {}), true)
 			state.draft = ""
-			_enter(destination(choice), before)
+			await _enter(destination(choice), before)
 			return true
 	return false
 
 func later() -> bool:
 	if not current().has("later"):
 		return false
-	_enter(destination(current(), "later"))
+	await _enter(destination(current(), "later"))
 	return true
 
 func _enter(id: String, before: Variant = null) -> void:
@@ -114,13 +159,12 @@ func _enter(id: String, before: Variant = null) -> void:
 	if id not in state.consumed:
 		var previous_facts: Dictionary = state.facts.duplicate(true) if before == null else before
 		var context: Dictionary = content.nodes[id]
-		state.log.append({"speaker": "system", "text": context.title, "app": context.app, "thread": context.thread})
-		for authored: Dictionary in context.get("lines", []):
-			if matches(authored.get("if", {})):
-				var entry: Dictionary = authored.duplicate(true)
-				entry.app = context.app
-				entry.thread = context.thread
-				state.log.append(entry)
+		var resolved: Dictionary = await _read_scene(id)
+		for authored: Dictionary in resolved.lines:
+			var entry: Dictionary = authored.duplicate(true)
+			entry.app = context.app
+			entry.thread = context.thread
+			state.log.append(entry)
 		state.facts.merge(content.nodes[id].get("set", {}), true)
 		for rule: Dictionary in context.get("fact_rules", []):
 			if matches(rule.get("if", {})):
@@ -139,6 +183,8 @@ func _enter(id: String, before: Variant = null) -> void:
 		for key: String in ["commitment", "work", "meeting_plan", "future_travel"]:
 			if state.facts.get(key) != previous_facts.get(key):
 				_queue_update("Calendar", id)
+
+	_choices = (await _read_scene(id)).choices
 
 func delivery_pending() -> bool:
 	if int(state.shown_count) < state.log.size():
@@ -322,6 +368,7 @@ func load_from(path: String) -> bool:
 					state.facts[key] = state.facts[key].replace("Yui", "Mizuki")
 			if candidate.ends_with(".bak"):
 				last_error = "Recovered the previous valid save."
+			_choices = (await _read_scene(state.node)).choices
 			return true
 	last_error = "No compatible save found. Existing files have been kept."
 	return false

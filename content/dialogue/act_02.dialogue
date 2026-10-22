@@ -1,0 +1,242 @@
+# The Next Hello / act 2
+# Stable IDs belong to saves. Change the wording, keep the IDs.
+# Story predicates are read-only; Send applies consequences in HelloStory.
+
+~ guild_plan
+system: 02 / A garden for everyone [ID:guild_plan.title]
+mossbyte: hey, Daichi here. mossbyte in game :) got a few ppl asking to join. could you two take separate groups? [ID:guild_plan.line.0]
+mizuki: aw i wanted to play with you. could we do one small group? [ID:guild_plan.line.1]
+- One small group. We'll show them the safe route together. [ID:guild_plan.reply.0]
+	=> END
+- Let's make a route guide tonight, then let someone else lead. [ID:guild_plan.reply.1]
+	=> END
+=> END
+
+~ guild_event
+system: Lanterns in the rain [ID:guild_event.title]
+system: You and Mizuki bring three new players through the garden. At the bridge, everyone waits. [ID:guild_event.line.0]
+mizuki: look at that. a whole party that doesn't leave anyone behind. [ID:guild_event.line.1]
+mossbyte: I'm keeping the group small next week too. Thanks for saying something. [ID:guild_event.line.2]
+=> END
+
+~ guild_guide
+system: A map with a warning [ID:guild_guide.title]
+system: You mark safe stones while Mizuki draws a tiny skull on the crooked bridge. A newcomer volunteers to guide. [ID:guild_guide.line.0]
+mizuki: our first joint publication. please credit the skull artist. [ID:guild_guide.line.1]
+mossbyte: guide's up. skull credited lol. you two go play [ID:guild_guide.line.2]
+=> END
+
+~ guild_callback
+system: 03 / The next invitation [ID:guild_callback.title]
+mizuki: daichi asked before adding people this time. i think we started something. [ID:guild_callback.line.0]
+mizuki: next saturday, same garden? i'd like a little time with just you after. [ID:guild_callback.line.1]
+system: The conversation stays in your message history. There is another evening ahead, when you choose to continue. [ID:guild_callback.line.2]
+=> END
+
+~ private_photo
+system: 02 / The mug has a new job [ID:private_photo.title]
+system: Mizuki shared a private desk photo. Read this description or open Shared attachments in Messages: pens in a mug, a half-finished illustration on a laptop, rain against the window. [ID:private_photo.line.0]
+mizuki: window attempt seven. application deadline monday. please keep this one between us. [ID:private_photo.line.1]
+- Want quiet company while we make the postcard? We can leave it unfinished. [ID:private_photo.reply.0]
+	=> END
+- Let's move our postcard session until after your deadline. I'll send my photo now. [ID:private_photo.reply.1]
+	=> END
+=> END
+
+~ private_event
+system: A room in two cities [ID:private_event.title]
+system: A song plays softly in the background. You send your rainy Tokyo window; Mizuki sends a small line drawing in return. Neither of you posts it. [ID:private_event.line.0]
+mizuki: i finished the corner i was stuck on. quiet company works, apparently. [ID:private_event.line.1]
+system: A private postcard joins Shared attachments. Mizuki keeps working on her application. [ID:private_event.line.2]
+=> END
+
+~ private_rescheduled
+system: Room to finish [ID:private_rescheduled.title]
+mizuki: thanks. tuesday evening? i want to do this when i'm not watching a deadline. [ID:private_rescheduled.line.0]
+system: You share the Tokyo window privately. The postcard session moves to Tuesday; tonight Mizuki works on her application. [ID:private_rescheduled.line.1]
+mizuki: your window has good rain. keeping that photo. [ID:private_rescheduled.line.2]
+=> END
+
+~ private_callback
+system: 03 / After the deadline [ID:private_callback.title]
+mizuki: submitted. i checked the attachment three times. four if we're being honest. [ID:private_callback.line.0]
+mizuki: can i show you the finished illustration? and i found a short story we could read together. [ID:private_callback.line.1]
+system: The conversation stays in your message history. There is another evening ahead, when you choose to continue. [ID:private_callback.line.2]
+=> END
+
+~ lives_work
+system: 02 / Making room [ID:lives_work.title]
+team: Monday's handoff needs a check. You can finish Saturday afternoon or take the Sunday review. Both are fine; tell me which. [ID:lives_work.line.0]
+system: Mizuki's proposed call is Sunday afternoon. Friday work is available; taking Sunday means explicitly rescheduling the call. [ID:lives_work.line.1]
+- I'll do the Saturday check so Sunday stays free. [ID:lives_work.reply.0]
+	=> END
+- I'll take Sunday. I'll ask Mizuki about another call time before confirming. [ID:lives_work.reply.1]
+	=> END
+=> END
+
+~ lives_call
+system: A shelf, assembled [ID:lives_call.title]
+system: Sunday afternoon. A call transcript opens after your completed Saturday handoff. [ID:lives_call.line.0]
+mizuki: can you hear me? sorry. my sister says hello. and that i put the shelf upside down. [ID:lives_call.line.1]
+asahi: I'd like the shelf's side of the story. [ID:lives_call.line.2]
+mizuki: it's staying silent. clever shelf. [ID:lives_call.line.3]
+system: You talk about ordinary weekends, and what a visit might look like. No travel is booked. [ID:lives_call.line.4]
+=> END
+
+~ lives_reschedule
+system: A different evening [ID:lives_reschedule.title]
+asahi: I chose the Sunday review. Could we call Monday evening instead? I'd like to give it proper time. [ID:lives_reschedule.line.0]
+mizuki: monday works. my sister will have gone home, so you'll miss the shelf assembly commentary. [ID:lives_reschedule.line.1]
+system: Monday evening. After the work review, you and Mizuki talk over dinner on a call. No introduction to Misaki happened this time. [ID:lives_reschedule.line.2]
+mizuki: tell me about tokyo on a normal day. not the postcard version. [ID:lives_reschedule.line.3]
+=> END
+
+~ lives_callback
+system: 03 / A possible journey [ID:lives_callback.title]
+mizuki: if we ever meet, i'd rather have an ordinary afternoon than a perfect itinerary. [ID:lives_callback.line.0]
+system: You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise. [ID:lives_callback.line.1]
+system: The conversation stays in your message history. There is another evening ahead, when you choose to continue. [ID:lives_callback.line.2]
+=> END
+
+~ party_evening
+system: The smallest party [ID:party_evening.title]
+mossbyte: party says FOUR. guy just asked if six was close enough lol [ID:party_evening.line.0]
+mizuki: it does not. i've spoken to mathematics. [ID:party_evening.line.1]
+asahi: Our guide says the bridge is safe if you don't stand on it. A difficult instruction for a bridge. [ID:party_evening.line.2]
+mossbyte: two new ppl are stuck with the lanterns. can you show them? [ID:party_evening.line.3]
+mizuki: only if we actually play together afterward. last week i spent more time explaining the game than playing it. [ID:party_evening.line.4]
+mossbyte: fair enough. closing it after this run. that's everyone [ID:party_evening.line.5]
+system: You light the first stepping stone. A new player waits for your second lantern instead of running ahead. [ID:party_evening.line.6]
+mizuki: hey he waited for us :) [ID:party_evening.line.7]
+- One for them, then one just us? [ID:party_evening.reply.0]
+	=> END
+- Can we just play tonight? Guide another day. [ID:party_evening.reply.1]
+	=> END
+=> END
+
+~ after_game
+system: After everyone leaves [ID:after_game.title]
+mizuki: he actually closed the party lol [ID:after_game.line.0]
+asahi: Someone give him a badge. [ID:after_game.line.1]
+mizuki: don't. he'll organize a ceremony [ID:after_game.line.2]
+mizuki: liked that last run. just us [ID:after_game.line.3]
+asahi: Me too. [ID:after_game.line.4]
+mizuki: next saturday? just a short one if we're around [ID:after_game.line.5]
+system: Calendar: an optional Saturday check-in. Either person can cancel by saying so. [ID:after_game.line.6]
+mizuki: and if we're not around that's fine. don't want to make it homework [ID:after_game.line.7]
+=> END
+
+~ party_rest
+system: An evening that belongs to us [ID:party_rest.title]
+mizuki: i didn't know i was tired until we said no to the extra run. [ID:party_rest.line.0]
+asahi: Daichi sent a picture of four empty party slots. I think he is learning restraint. [ID:party_rest.line.1]
+mizuki: good for him. better for us. [ID:party_rest.line.2]
+mizuki: can we just leave next saturday open? liked tonight. don't want to promise every week yet [ID:party_rest.line.3]
+asahi: We can let it be one nice evening. [ID:party_rest.line.4]
+mizuki: thanks. i'll ask when i'm around :) [ID:party_rest.line.5]
+system: You leave Saturday open. The next invitation will require a new agreement. [ID:party_rest.line.6]
+=> END
+
+~ illustration_evening
+system: The corner she kept [ID:illustration_evening.title]
+mizuki: finished it! window still crooked. calling that a style choice [ID:illustration_evening.line.0]
+asahi: That is also how I describe my laundry pile. [ID:illustration_evening.line.1]
+mizuki: they accepted the sample. keep opening the email to check lol [ID:illustration_evening.line.2]
+system: In the attached drawing, one small rectangle of warm light sits beneath a gray sky. Your rainy-window photo is beside it in Photos. [ID:illustration_evening.line.3]
+mizuki: found that train story in a used bookshop. want to read a page with me? [ID:illustration_evening.line.4]
+asahi: Out loud? My dramatic voice is mostly my normal voice with worse posture. [ID:illustration_evening.line.5]
+mizuki: lol you don't have to perform it. just thought it'd be nice to read together [ID:illustration_evening.line.6]
+- A page and a window photo on Saturdays, when we can? No catching up required. [ID:illustration_evening.reply.0]
+	=> END
+- Let us just read this page tonight. We can decide next time when it comes. [ID:illustration_evening.reply.1]
+	=> END
+=> END
+
+~ reading_evening
+system: Two bookmarks [ID:reading_evening.title]
+mizuki: the line i kept: the platform wasn't where she was going, but it was somewhere she could breathe. [ID:reading_evening.line.0]
+asahi: I keep thinking she could also just go home. Then I remember the first apartment I rented in Tokyo. [ID:reading_evening.line.1]
+mizuki: bad apartment? [ID:reading_evening.line.2]
+asahi: Fine apartment. Very good walls. Nothing on either side I recognized yet. [ID:reading_evening.line.3]
+mizuki: mine had a kettle that clicked so loudly i thought someone had come in. i liked the sound anyway. [ID:reading_evening.line.4]
+asahi: A page and a window, then. Small enough for a bad week. [ID:reading_evening.line.5]
+mizuki: yeah. can skip if we're tired though? don't want book homework [ID:reading_evening.line.6]
+system: Saturday's optional reading check-in appears in Calendar. The finished drawing remains private. [ID:reading_evening.line.7]
+=> END
+
+~ reading_once
+system: One page is enough [ID:reading_once.title]
+mizuki: i reached the bottom. the character finally took her own train. character development through public transport. [ID:reading_once.line.0]
+asahi: I have eaten dinner while we read. That may also count as development. [ID:reading_once.line.1]
+mizuki: what did you have? [ID:reading_once.line.2]
+asahi: Leftover curry. Put too much rice on. Still ate it. [ID:reading_once.line.3]
+mizuki: lol. it's nice knowing what you had for dinner. makes you seem closer [ID:reading_once.line.4]
+system: You close the attachment without making a standing appointment. Tonight's conversation stays in history. [ID:reading_once.line.5]
+=> END
+
+~ sister_intro
+system: A shelf with witnesses [ID:sister_intro.title]
+mizuki: misaki asked if you are the person who recommended putting a book on the noodle lid. [ID:sister_intro.line.0]
+asahi: The book gets all the credit. I just own it. [ID:sister_intro.line.1]
+mizuki: she says thanks. shelf instructions weren't heavy enough. okay if i add her to a chat? [ID:sister_intro.line.2]
+mizuki: or later's fine. promise this isn't an interview lol [ID:sister_intro.line.3]
+- Sure. Tell her I take no responsibility for load-bearing books. [ID:sister_intro.reply.0]
+	=> END
+- Another time? I would like to know you a little better first. [ID:sister_intro.reply.1]
+	=> END
+=> END
+
+~ family_chat
+system: Three people and a shelf [ID:family_chat.title]
+misaki: Hi Asahi. You're the book-on-noodles person? [ID:family_chat.line.0]
+asahi: The book did most of the work. [ID:family_chat.line.1]
+misaki: OK. I'll thank the book. [ID:family_chat.line.2]
+mizuki: the team is a paperback with soup on it. [ID:family_chat.line.3]
+misaki: I'm moving next month. She's been helping every weekend. If she falls asleep mid-game, that's why. [ID:family_chat.line.4]
+mizuki: i can explain my own schedule, you know. [ID:family_chat.line.5]
+misaki: Fair. I'll stop. Please keep the shelf photo here. Mum will never let me hear the end of it. [ID:family_chat.line.6]
+asahi: Understood. Private archive, questionable carpentry. [ID:family_chat.line.7]
+=> END
+
+~ ordinary_call
+system: What happens between calls [ID:ordinary_call.title]
+mizuki: i was trying to think of something to tell you. bought detergent. that's about it [ID:ordinary_call.line.0]
+asahi: Renamed a file six times. Big day here too. [ID:ordinary_call.line.1]
+mizuki: could call anyway? don't have to do anything [ID:ordinary_call.line.2]
+asahi: I'd like that. Need to wash up though. If I go quiet it's the dishes. [ID:ordinary_call.line.3]
+mizuki: lol good. otherwise i would sit here wondering what i said [ID:ordinary_call.line.4]
+- Saturdays, if we can? "Dishes" means back in a bit. [ID:ordinary_call.reply.0]
+	=> END
+- Tonight, yes. Can we ask each time though? Saturdays get messy. [ID:ordinary_call.reply.1]
+	=> END
+=> END
+
+~ small_call
+system: Dishes [ID:small_call.title]
+system: Call transcript. A tap runs in Tokyo; a cupboard closes in Sapporo. [ID:small_call.line.0]
+mizuki: brb dishes [ID:small_call.line.1]
+asahi: I'll be here. Trying to find the lid that fits this pan. [ID:small_call.line.2]
+system: Three minutes later, Mizuki returns to describe a mug whose handle gets hot. Asahi admits he owns a pan lid with no matching pan. [ID:small_call.line.3]
+mizuki: i don't know why this is nice. [ID:small_call.line.4]
+asahi: Don't mind it. Nice just hearing you there. [ID:small_call.line.5]
+mizuki: same. saturday again if we're both around? just say if you're busy [ID:small_call.line.6]
+=> END
+
+~ call_once
+system: A plan for tonight [ID:call_once.title]
+mizuki: tonight works :) let's sort next time out later [ID:call_once.line.0]
+asahi: My calendar is mostly guesses. I'm trying to label them. [ID:call_once.line.1]
+mizuki: mine includes a box called "probably tired." it is the most accurate one. [ID:call_once.line.2]
+system: You eat dinner with the call open. Neither person fills every silence. When Mizuki says she wants to draw alone, the call ends without an argument. [ID:call_once.line.3]
+mizuki: liked this :) gtg draw for a bit. talk later? [ID:call_once.line.4]
+=> END
+
+~ wait__lives_work__0
+system: A reply, then a little time [ID:wait__lives_work__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__lives_work__0.line.0]
+=> END
+
+~ wait__lives_work__1
+system: A reply, then a little time [ID:wait__lives_work__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__lives_work__1.line.0]
+=> END

@@ -1,8 +1,8 @@
 # The Next Hello
 
-A branching story about long-distance love, told through Asahi's account on an original fictional social network. Meet by chance in Lantern Quest, share ordinary days, and make choices that change friendships, trust, travel and the future.
+A branching story about long-distance love beginning in Japan in October 2009, told through Asahi's account on an original fictional social network. Meet by chance in Lantern Quest, share ordinary days, and make choices that change friendships, trust, travel and the future.
 
-Godot 4.7.2. The complete playable first draft has six acts, three activity paths, 94 authored scenes and eight endings. Read the [story script](design/STORY-SCRIPT.md) or [implemented consequence map](design/STORY-CHOICES.md). About 12,800 words including replies and guidance; reader-tested pacing and final art remain pending.
+Godot 4.7.2. The complete playable first draft has six acts, three activity paths, 94 authored scenes and eight endings. Read the [story script](design/STORY-SCRIPT.md) or [implemented consequence map](design/STORY-CHOICES.md). About 11,400 words including replies and guidance; reader-tested pacing and final art remain pending.
 
 ## Play
 
@@ -29,3 +29,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/check.ps1
 Checks cover all 131 flow nodes and eight endings on every activity path, conditional choices, save recovery, migration, typing, receipts, section navigation, feed privacy, notifications social requests/posts/comments/shares, and portrait fitting from narrow windows through ultrawide. The UI suite opens a Godot window and saves screenshots to ignored `.local/`. QA saves are isolated from play sessions.
 
 See the [GDD](design/GDD.md), [social UI spec](design/SOCIAL-UI.md), and [implementation notes](design/IMPLEMENTATION.md). The principal characters are Tachibana Asahi, 29, in Tokyo and Yukimura Mizuki, 23, in Sapporo. Final illustrations, localization, expanded save slots/replay, screen-reader support, human playtesting and platform exports remain future work. PC/Steam, iOS and Android are target platforms; exports have not been certified.
+
+## Dialogue and characters
+
+Edit conversations in Godot's Dialogue tab: `content/dialogue/act_01.dialogue` through `act_06.dialogue`. Dialogue Manager 4.1.0 is bundled and pinned; the game uses its runtime with our own chat UI. Keep the `[ID:...]` keys stable because saves refer to them. `content/story.json` holds scene dates, requirements, destinations and consequences. The text in `content/opening.json` is generated for review and audit; it is not the game's dialogue source.
+
+Run `python tools/build_content.py` after editing, or run the complete validation command above. The builder uses Dialogue Manager's compiler and regenerates the manuscript and branch fixtures. Conversation reads are side-effect free. Choosing a draft, typing, Read receipts and loading a save never apply a consequence; Send and Later do.
+
+[Character profiles](design/CHARACTERS.md) cover all five people, birthdays/signs, habits, favorite things, private worries and texting voices. Public profile details come from `content/characters.json`. The English chats borrow American 2009 instant-message habits while keeping the Japanese setting. Short, specific replies replace repeated relationship speeches; all decision meanings and ending routes remain explicit.

@@ -1,0 +1,5543 @@
+{
+  "strings": {
+    "invite.objective": "Random matchmaking put me with mizuki. I need to pick a role for our garden run.",
+    "chapter.1.title": "A Chance Encounter",
+    "bridge.objective": "I should check with Mizuki before we cross that bridge.",
+    "splash.objective": "That bridge didn't go to plan. I still owe everyone a reply.",
+    "first_dm.objective": "Mizuki sent me a private message. I should introduce myself properly.",
+    "night.objective": "I'd like to spend more time with Mizuki. What should I suggest?",
+    "guild_agreed.objective": "Another game session with Mizuki. The plan is in Calendar; I'll pick this up later.",
+    "private_agreed.objective": "A postcard, just between us. I've kept the plan in Calendar for later.",
+    "lives_agreed.objective": "We might have a call. I need to check my work schedule first.",
+    "guild_plan.objective": "Our public party is making plans. Mizuki and I need to decide how to help.",
+    "chapter.2.title": "A Place in the Day",
+    "guild_event.objective": "I've kept the messages from our small party. I'll check back later.",
+    "guild_guide.objective": "Our route guide is in the party thread. I'll check back later.",
+    "guild_callback.objective": "Mizuki suggested another game session. I've kept her message for later.",
+    "chapter.3.title": "What We Carry",
+    "private_photo.objective": "Mizuki sent a photo and asked about working together. I should reply; I've kept her photo in Photos.",
+    "private_event.objective": "I've saved our postcard session. I'll check in after her deadline.",
+    "private_rescheduled.objective": "The new postcard date is in Calendar. I'll check in later.",
+    "private_callback.objective": "Mizuki got back to me after her deadline. I've kept her message for later.",
+    "lives_work.objective": "I need to arrange my handoff before confirming the call.",
+    "lives_call.objective": "Our first call. I want to remember this. We can talk about next time later.",
+    "lives_reschedule.objective": "We found time for that call after all. I'll check in later.",
+    "lives_callback.objective": "A possible trip. I should look over the dates in Calendar; nothing is booked yet.",
+    "party_evening.objective": "I should read Lantern Quest's messages and decide what I want to say.",
+    "after_game.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "party_rest.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "illustration_evening.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "reading_evening.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "reading_once.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "sister_intro.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "family_chat.objective": "I should read Mizuki & Misaki's messages and decide what I want to say.",
+    "ordinary_call.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "small_call.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "call_once.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "natsumi_invite.objective": "Two people need an honest answer about the same afternoon.",
+    "showcase.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "showcase_setup.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "showcase_missed.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "friend_repair.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "friend_distance.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "privacy_request.objective": "Mizuki gave me a clear boundary. I need to decide what I will do with her picture.",
+    "permission_granted.objective": "I should read Mizuki & Misaki's messages and decide what I want to say.",
+    "approved_workshop.objective": "I should read Lantern Quest's messages and decide what I want to say.",
+    "private_collection.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "private_second_page.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "privacy_breach.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "canceled_workshop.objective": "I should read Daichi's messages and decide what I want to say.",
+    "chapter.4.title": "The Distance Between Us",
+    "work_decision.objective": "I need to choose an actual handoff, not promise the same time twice.",
+    "work_adjusted.objective": "I should read Hoshino Studio's messages and decide what I want to say.",
+    "work_kept.objective": "I should read Hoshino Studio's messages and decide what I want to say.",
+    "work_broken.objective": "I should read Hoshino Studio's messages and decide what I want to say.",
+    "visit_plan.objective": "Mizuki and I need a plan that both of us can actually choose.",
+    "early_arrival.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "early_afternoon.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "chapter.5.title": "What We Ask of Each Other",
+    "return_tokyo.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "late_anticipation.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "january_preparation.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "online_weekend.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "distance_agreement.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "conflict_check.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "privacy_repair.objective": "I need to answer the harm I caused, not ask Mizuki to admire my intentions.",
+    "promise_repair.objective": "I need to make a smaller agreement I can keep.",
+    "expectations_talk.objective": "We can agree how to stay close without demanding constant availability.",
+    "agreed_space.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "repair_action.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "last_repair_offer.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "kept_agreement.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "natsumi_return.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "friend_confidant.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "friend_update.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "relationship.objective": "I should name the relationship I actually want, and hear Mizuki's answer.",
+    "romantic_date.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "friend_activity.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "chapter.6.title": "The Next Hello",
+    "career_followup.objective": "I should read Hoshino Studio's messages and decide what I want to say.",
+    "project_meeting.objective": "I should read Hoshino Studio's messages and decide what I want to say.",
+    "supervised_review.objective": "I should read Hoshino Studio's messages and decide what I want to say.",
+    "mizuki_offer.objective": "Mizuki chose her work. I need to decide what I can offer, not decide her life.",
+    "future_agreed.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "late_arrival.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "late_afternoon.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "open_conversation.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "burnout_warning.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "amicable_goodbye.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "end_together.objective": "Our next visit is a plan we both chose. I want to keep living the life that can hold it.",
+    "end_distance.objective": "We chose a concrete way to continue at a distance, with a real date to revisit travel.",
+    "end_friendship.objective": "We chose friendship. There is still a next invitation, without a hidden romantic promise.",
+    "end_goodbye.objective": "We said goodbye honestly. What mattered does not need a different ending to have mattered.",
+    "end_unsaid.objective": "I refused the repair she offered. Her decision to end contact is final in this story.",
+    "end_burnout.objective": "I refused the smaller plan we could sustain. I need to learn from what that cost us.",
+    "end_open.objective": "We chose an uncertain future honestly. Neither of us owes the other an unwritten promise.",
+    "end_secret.objective": "We kept a small shared ritual without turning it into a test. I want to hear about another ordinary day.",
+    "local_dinner.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "studio_lunch.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "studio_preview.objective": "I should read Natsumi's messages and decide what I want to say.",
+    "licensed_update.objective": "I should read Mizuki & Misaki's messages and decide what I want to say.",
+    "private_update.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "boundary_followthrough.objective": "I should read Mizuki's messages and decide what I want to say.",
+    "wait__lives_work__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__lives_work__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__natsumi_invite__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__natsumi_invite__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__natsumi_invite__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__showcase_missed__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__showcase_missed__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__privacy_request__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__privacy_request__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__privacy_request__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__work_decision__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__work_decision__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__work_decision__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__visit_plan__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__visit_plan__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__visit_plan__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__privacy_repair__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__privacy_repair__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__privacy_repair__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__promise_repair__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__promise_repair__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__promise_repair__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__expectations_talk__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__expectations_talk__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__expectations_talk__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__last_repair_offer__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__kept_agreement__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__kept_agreement__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__relationship__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__relationship__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__relationship__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__mizuki_offer__0.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__mizuki_offer__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__mizuki_offer__2.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__mizuki_offer__3.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__mizuki_offer__4.objective": "I sent my reply. I can keep browsing before continuing to the next scene.",
+    "wait__burnout_warning__1.objective": "I sent my reply. I can keep browsing before continuing to the next scene."
+  },
+  "nodes": {
+    "invite": {
+      "title": "invite.title",
+      "app": "Games",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "invite.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "invite.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "invite.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "invite.choice.0",
+          "text": "invite.reply.0",
+          "to": "bridge",
+          "set": {
+            "role": "lookout"
+          }
+        },
+        {
+          "id": "invite.choice.1",
+          "text": "invite.reply.1",
+          "to": "bridge",
+          "set": {
+            "role": "lantern"
+          }
+        }
+      ],
+      "objective": "invite.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Lantern Quest",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "bridge": {
+      "title": "bridge.title",
+      "app": "Games",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "bridge.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "bridge.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "bridge.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "bridge.choice.0",
+          "text": "bridge.reply.0",
+          "to": "first_dm",
+          "set": {
+            "garden_memory": "stones"
+          }
+        },
+        {
+          "id": "bridge.choice.1",
+          "text": "bridge.reply.1",
+          "to": "splash",
+          "set": {
+            "garden_memory": "splash"
+          }
+        }
+      ],
+      "objective": "bridge.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Lantern Quest",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "splash": {
+      "title": "splash.title",
+      "app": "Games",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "splash.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "splash.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "splash.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "splash.choice.0",
+          "text": "splash.reply.0",
+          "to": "first_dm",
+          "set": {}
+        }
+      ],
+      "objective": "splash.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Lantern Quest",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "first_dm": {
+      "title": "first_dm.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "first_dm.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "first_dm.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "first_dm.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "first_dm.choice.0",
+          "text": "first_dm.reply.0",
+          "to": "night",
+          "set": {
+            "intro": "books"
+          }
+        },
+        {
+          "id": "first_dm.choice.1",
+          "text": "first_dm.reply.1",
+          "to": "night",
+          "set": {
+            "intro": "heroic"
+          }
+        }
+      ],
+      "set": {
+        "screenshot": true
+      },
+      "objective": "first_dm.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "night": {
+      "title": "night.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "night.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "night.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "night.line.2"
+        }
+      ],
+      "choices": [
+        {
+          "id": "night.choice.0",
+          "text": "night.reply.0",
+          "to": "guild_agreed",
+          "set": {
+            "path": "guild"
+          }
+        },
+        {
+          "id": "night.choice.1",
+          "text": "night.reply.1",
+          "to": "private_agreed",
+          "set": {
+            "path": "private"
+          }
+        },
+        {
+          "id": "night.choice.2",
+          "text": "night.reply.2",
+          "to": "lives_agreed",
+          "set": {
+            "path": "lives"
+          }
+        }
+      ],
+      "objective": "night.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Mizuki",
+      "decision": "D01",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "guild_agreed": {
+      "title": "guild_agreed.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "guild_agreed.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "guild_agreed.line.1"
+        }
+      ],
+      "choices": [],
+      "later": "guild_plan",
+      "set": {
+        "commitment": "Saturday / Garden run with Mizuki",
+        "memory": "A second party invite"
+      },
+      "objective": "guild_agreed.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "private_agreed": {
+      "title": "private_agreed.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_agreed.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_agreed.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "private_agreed.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "private_photo",
+      "set": {
+        "commitment": "Saturday / Private postcard session",
+        "memory": "Two cities, two windows",
+        "photo_permission": "private"
+      },
+      "objective": "private_agreed.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "lives_agreed": {
+      "title": "lives_agreed.title",
+      "app": "Messages",
+      "day": 1,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "lives_agreed.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_agreed.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_agreed.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "lives_work",
+      "set": {
+        "commitment": "Sunday / Call with Mizuki (proposed)",
+        "memory": "A voice beyond the game"
+      },
+      "objective": "lives_agreed.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  23 OCT     23:08",
+      "dialogue": "res://content/dialogue/act_01.dialogue",
+      "year": 2009
+    },
+    "guild_plan": {
+      "title": "guild_plan.title",
+      "app": "Games",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mossbyte",
+          "text": "guild_plan.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_plan.line.1"
+        }
+      ],
+      "choices": [
+        {
+          "id": "guild_plan.choice.0",
+          "text": "guild_plan.reply.0",
+          "to": "guild_event",
+          "set": {
+            "guild_plan": "small group"
+          }
+        },
+        {
+          "id": "guild_plan.choice.1",
+          "text": "guild_plan.reply.1",
+          "to": "guild_guide",
+          "set": {
+            "guild_plan": "route guide"
+          }
+        }
+      ],
+      "objective": "guild_plan.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Lantern Quest",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "guild_event": {
+      "title": "guild_event.title",
+      "app": "Games",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "guild_event.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_event.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "guild_event.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "guild_callback",
+      "set": {
+        "guild_event": "guided newcomers"
+      },
+      "objective": "guild_event.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Lantern Quest",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "guild_guide": {
+      "title": "guild_guide.title",
+      "app": "Games",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "guild_guide.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_guide.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "guild_guide.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "guild_callback",
+      "set": {
+        "guild_event": "published route guide"
+      },
+      "objective": "guild_guide.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Lantern Quest",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "guild_callback": {
+      "title": "guild_callback.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "guild_callback.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "guild_callback.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "guild_callback.line.2"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "available_events": [
+          "small_party",
+          "after_game_chat"
+        ]
+      },
+      "objective": "guild_callback.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "later": "party_evening",
+      "timestamp": "TUE  27 OCT     20:16",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "private_photo": {
+      "title": "private_photo.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "private_photo.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_photo.line.1"
+        }
+      ],
+      "choices": [
+        {
+          "id": "private_photo.choice.0",
+          "text": "private_photo.reply.0",
+          "to": "private_event",
+          "set": {
+            "collaboration": "quiet company"
+          }
+        },
+        {
+          "id": "private_photo.choice.1",
+          "text": "private_photo.reply.1",
+          "to": "private_rescheduled",
+          "set": {
+            "collaboration": "rescheduled"
+          }
+        }
+      ],
+      "set": {
+        "desk_photo": true
+      },
+      "objective": "private_photo.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "private_event": {
+      "title": "private_event.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "private_event.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_event.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "private_event.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "private_callback",
+      "set": {
+        "postcard": true
+      },
+      "objective": "private_event.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "private_rescheduled": {
+      "title": "private_rescheduled.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_rescheduled.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "private_rescheduled.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_rescheduled.line.2"
+        }
+      ],
+      "choices": [],
+      "later": "private_callback",
+      "set": {
+        "commitment": "Tuesday / Private postcard session"
+      },
+      "objective": "private_rescheduled.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "private_callback": {
+      "title": "private_callback.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_callback.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_callback.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "private_callback.line.2"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "available_events": [
+          "illustration_followup",
+          "buddy_read"
+        ]
+      },
+      "objective": "private_callback.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "later": "illustration_evening",
+      "timestamp": "TUE  27 OCT     20:16",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "lives_work": {
+      "title": "lives_work.title",
+      "app": "Work",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "lives_work.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_work.line.1"
+        }
+      ],
+      "choices": [
+        {
+          "id": "lives_work.choice.0",
+          "text": "lives_work.reply.0",
+          "to": "wait__lives_work__0",
+          "set": {
+            "work": "Saturday handoff",
+            "commitment": "Sunday / Call with Mizuki (confirmed)"
+          }
+        },
+        {
+          "id": "lives_work.choice.1",
+          "text": "lives_work.reply.1",
+          "to": "wait__lives_work__1",
+          "set": {
+            "work": "Sunday review",
+            "commitment": "Monday / Call with Mizuki (confirmed)"
+          }
+        }
+      ],
+      "objective": "lives_work.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "SAT  24 OCT     16:42",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "lives_call": {
+      "title": "lives_call.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "lives_call.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_call.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "lives_call.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_call.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_call.line.4"
+        }
+      ],
+      "choices": [],
+      "later": "lives_callback",
+      "set": {
+        "call": "Sunday with sister introduction"
+      },
+      "objective": "lives_call.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  25 OCT     15:00",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "lives_reschedule": {
+      "title": "lives_reschedule.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "asahi",
+          "text": "lives_reschedule.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_reschedule.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_reschedule.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "lives_reschedule.line.3"
+        }
+      ],
+      "choices": [],
+      "later": "lives_callback",
+      "set": {
+        "call": "Monday dinner call"
+      },
+      "objective": "lives_reschedule.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "MON  26 OCT     19:30",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "lives_callback": {
+      "title": "lives_callback.title",
+      "app": "Calendar",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "lives_callback.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_callback.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "lives_callback.line.2"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "available_events": [
+          "leave_discussion",
+          "friends_introduction"
+        ],
+        "meeting_plan": "discussing"
+      },
+      "objective": "lives_callback.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "later": "sister_intro",
+      "timestamp": "TUE  27 OCT     20:16",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "party_evening": {
+      "title": "party_evening.title",
+      "app": "Games",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mossbyte",
+          "text": "party_evening.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "party_evening.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "party_evening.line.2"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "party_evening.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "party_evening.line.4"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "party_evening.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "party_evening.line.6"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "party_evening.line.7"
+        }
+      ],
+      "choices": [
+        {
+          "id": "party_evening.choice.0",
+          "text": "party_evening.reply.0",
+          "to": "after_game",
+          "set": {
+            "ritual": true
+          }
+        },
+        {
+          "id": "party_evening.choice.1",
+          "text": "party_evening.reply.1",
+          "to": "party_rest",
+          "set": {
+            "ritual": false
+          }
+        }
+      ],
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Lantern Quest",
+      "timestamp": "SAT  31 OCT     19:40",
+      "objective": "party_evening.objective",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "after_game": {
+      "title": "after_game.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "after_game.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "after_game.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "after_game.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "after_game.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "after_game.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "after_game.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "after_game.line.6"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "after_game.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ritual": true,
+        "commitment": "Optional Saturday lantern check-in"
+      },
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     21:15",
+      "objective": "after_game.objective",
+      "later": "natsumi_invite",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "party_rest": {
+      "title": "party_rest.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "party_rest.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "party_rest.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "party_rest.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "party_rest.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "party_rest.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "party_rest.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "party_rest.line.6"
+        }
+      ],
+      "choices": [],
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     21:15",
+      "objective": "party_rest.objective",
+      "later": "natsumi_invite",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "illustration_evening": {
+      "title": "illustration_evening.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "illustration_evening.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "illustration_evening.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "illustration_evening.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "illustration_evening.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "illustration_evening.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "illustration_evening.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "illustration_evening.line.6"
+        }
+      ],
+      "choices": [
+        {
+          "id": "illustration_evening.choice.0",
+          "text": "illustration_evening.reply.0",
+          "to": "reading_evening",
+          "set": {
+            "ritual": true
+          }
+        },
+        {
+          "id": "illustration_evening.choice.1",
+          "text": "illustration_evening.reply.1",
+          "to": "reading_once",
+          "set": {
+            "ritual": false
+          }
+        }
+      ],
+      "set": {
+        "illustration_followup": true,
+        "photo": "finished_window"
+      },
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     20:10",
+      "objective": "illustration_evening.objective",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "reading_evening": {
+      "title": "reading_evening.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "reading_evening.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "reading_evening.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "reading_evening.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "reading_evening.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "reading_evening.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "reading_evening.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "reading_evening.line.6"
+        },
+        {
+          "speaker": "system",
+          "text": "reading_evening.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ritual": true,
+        "commitment": "Optional Saturday page and window"
+      },
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     21:00",
+      "objective": "reading_evening.objective",
+      "later": "natsumi_invite",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "reading_once": {
+      "title": "reading_once.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "reading_once.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "reading_once.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "reading_once.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "reading_once.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "reading_once.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "reading_once.line.5"
+        }
+      ],
+      "choices": [],
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     21:00",
+      "objective": "reading_once.objective",
+      "later": "natsumi_invite",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "sister_intro": {
+      "title": "sister_intro.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "sister_intro.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "sister_intro.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "sister_intro.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "sister_intro.line.3"
+        }
+      ],
+      "choices": [
+        {
+          "id": "sister_intro.choice.0",
+          "text": "sister_intro.reply.0",
+          "to": "family_chat",
+          "set": {
+            "sister_contact": true
+          }
+        },
+        {
+          "id": "sister_intro.choice.1",
+          "text": "sister_intro.reply.1",
+          "to": "ordinary_call",
+          "set": {
+            "sister_contact": false
+          }
+        }
+      ],
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     15:20",
+      "objective": "sister_intro.objective",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "family_chat": {
+      "title": "family_chat.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "misaki",
+          "text": "family_chat.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "family_chat.line.1"
+        },
+        {
+          "speaker": "misaki",
+          "text": "family_chat.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "family_chat.line.3"
+        },
+        {
+          "speaker": "misaki",
+          "text": "family_chat.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "family_chat.line.5"
+        },
+        {
+          "speaker": "misaki",
+          "text": "family_chat.line.6"
+        },
+        {
+          "speaker": "asahi",
+          "text": "family_chat.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "sister_contact": true
+      },
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki & Misaki",
+      "timestamp": "SAT  31 OCT     15:30",
+      "objective": "family_chat.objective",
+      "later": "ordinary_call",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "ordinary_call": {
+      "title": "ordinary_call.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "ordinary_call.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "ordinary_call.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "ordinary_call.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "ordinary_call.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "ordinary_call.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "ordinary_call.choice.0",
+          "text": "ordinary_call.reply.0",
+          "to": "small_call",
+          "set": {
+            "ritual": true
+          }
+        },
+        {
+          "id": "ordinary_call.choice.1",
+          "text": "ordinary_call.reply.1",
+          "to": "call_once",
+          "set": {
+            "ritual": false
+          }
+        }
+      ],
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     20:00",
+      "objective": "ordinary_call.objective",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "small_call": {
+      "title": "small_call.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "small_call.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "small_call.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "small_call.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "small_call.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "small_call.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "small_call.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "small_call.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ritual": true,
+        "commitment": "Optional Saturday ordinary-life call"
+      },
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     21:00",
+      "objective": "small_call.objective",
+      "later": "natsumi_invite",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "call_once": {
+      "title": "call_once.title",
+      "app": "Messages",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "call_once.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "call_once.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "call_once.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "call_once.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "call_once.line.4"
+        }
+      ],
+      "choices": [],
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  31 OCT     21:00",
+      "objective": "call_once.objective",
+      "later": "natsumi_invite",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "natsumi_invite": {
+      "title": "natsumi_invite.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_invite.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "natsumi_invite.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_invite.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "natsumi_invite.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_invite.line.4"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_invite.line.5"
+        }
+      ],
+      "choices": [
+        {
+          "id": "natsumi_invite.choice.0",
+          "text": "natsumi_invite.reply.0",
+          "to": "wait__natsumi_invite__0",
+          "set": {
+            "friend_plan": "kept",
+            "commitment": "Sunday / Natsumi showcase; Mizuki rescheduled"
+          }
+        },
+        {
+          "id": "natsumi_invite.choice.1",
+          "text": "natsumi_invite.reply.1",
+          "to": "wait__natsumi_invite__1",
+          "set": {
+            "friend_plan": "renegotiated",
+            "commitment": "Saturday setup / Sunday brief showcase"
+          }
+        },
+        {
+          "id": "natsumi_invite.choice.2",
+          "text": "natsumi_invite.reply.2",
+          "to": "wait__natsumi_invite__2",
+          "set": {
+            "friend_plan": "missed",
+            "overpromise": true,
+            "commitment": "Two knowingly overlapping Sunday promises"
+          }
+        }
+      ],
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  04 NOV     18:15",
+      "objective": "natsumi_invite.objective",
+      "decision": "D02",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "showcase": {
+      "title": "showcase.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "showcase.line.0"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "showcase.line.2"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "showcase.line.5"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "friend_support": true,
+        "photo": "showcase"
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "SUN  08 NOV     16:40",
+      "objective": "showcase.objective",
+      "later": "privacy_request",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "showcase_setup": {
+      "title": "showcase_setup.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "showcase_setup.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "showcase_setup.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase_setup.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "showcase_setup.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase_setup.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "showcase_setup.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "friend_support": true,
+        "photo": "showcase"
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "SUN  08 NOV     12:20",
+      "objective": "showcase_setup.objective",
+      "later": "privacy_request",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "showcase_missed": {
+      "title": "showcase_missed.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "showcase_missed.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "showcase_missed.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase_missed.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "showcase_missed.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "showcase_missed.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "showcase_missed.choice.0",
+          "text": "showcase_missed.reply.0",
+          "to": "wait__showcase_missed__0",
+          "set": {
+            "friend_repair": true
+          }
+        },
+        {
+          "id": "showcase_missed.choice.1",
+          "text": "showcase_missed.reply.1",
+          "to": "wait__showcase_missed__1",
+          "set": {
+            "friend_repair": false
+          }
+        }
+      ],
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "SUN  08 NOV     18:30",
+      "objective": "showcase_missed.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "friend_repair": {
+      "title": "friend_repair.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "friend_repair.line.0"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_repair.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_repair.line.2"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_repair.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_repair.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "friend_repair.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "friend_support": true
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "MON  09 NOV     19:10",
+      "objective": "friend_repair.objective",
+      "later": "privacy_request",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "friend_distance": {
+      "title": "friend_distance.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "friend_distance.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_distance.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_distance.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "friend_distance.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_distance.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "friend_support": false
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "MON  09 NOV     19:10",
+      "objective": "friend_distance.objective",
+      "later": "privacy_request",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "privacy_request": {
+      "title": "privacy_request.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "privacy_request.line.0"
+        },
+        {
+          "speaker": "system",
+          "text": "privacy_request.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_request.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_request.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "privacy_request.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "privacy_request.choice.0",
+          "text": "privacy_request.reply.0",
+          "to": "wait__privacy_request__0",
+          "set": {
+            "privacy": "permission",
+            "rupture": false
+          }
+        },
+        {
+          "id": "privacy_request.choice.1",
+          "text": "privacy_request.reply.1",
+          "to": "wait__privacy_request__1",
+          "set": {
+            "privacy": "private",
+            "rupture": false
+          }
+        },
+        {
+          "id": "privacy_request.choice.2",
+          "text": "privacy_request.reply.2",
+          "to": "wait__privacy_request__2",
+          "set": {
+            "privacy": "breach",
+            "rupture": true
+          }
+        }
+      ],
+      "set": {
+        "desk_photo": true
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  14 NOV     20:15",
+      "objective": "privacy_request.objective",
+      "decision": "D03",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "permission_granted": {
+      "title": "permission_granted.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "permission_granted.line.0"
+        },
+        {
+          "speaker": "misaki",
+          "text": "permission_granted.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "permission_granted.line.2"
+        },
+        {
+          "speaker": "misaki",
+          "text": "permission_granted.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "permission_granted.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "permission_granted.line.5"
+        },
+        {
+          "speaker": "misaki",
+          "text": "permission_granted.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "sister_contact": true,
+        "public_collaboration": true,
+        "photo": "approved_guide"
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki & Misaki",
+      "timestamp": "SUN  15 NOV     16:00",
+      "objective": "permission_granted.objective",
+      "later": "approved_workshop",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "approved_workshop": {
+      "title": "approved_workshop.title",
+      "app": "Games",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mossbyte",
+          "text": "approved_workshop.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "approved_workshop.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "approved_workshop.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "approved_workshop.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "approved_workshop.line.4"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "approved_workshop.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "workshop_played": true
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Lantern Quest",
+      "timestamp": "WED  18 NOV     20:00",
+      "objective": "approved_workshop.objective",
+      "later": "work_decision",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "private_collection": {
+      "title": "private_collection.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_collection.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "private_collection.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_collection.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "private_collection.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_collection.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "private_collection.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_collection.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "public_collaboration": false,
+        "photo": "private_pages"
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  15 NOV     16:00",
+      "objective": "private_collection.objective",
+      "later": "private_second_page",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "private_second_page": {
+      "title": "private_second_page.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "private_second_page.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_second_page.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "private_second_page.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_second_page.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "private_second_page.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_second_page.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "private_session_played": true
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "WED  18 NOV     20:00",
+      "objective": "private_second_page.objective",
+      "later": "work_decision",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "privacy_breach": {
+      "title": "privacy_breach.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "privacy_breach.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "privacy_breach.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_breach.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "privacy_breach.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_breach.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_breach.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "public_collaboration": false,
+        "workshop_canceled": true
+      },
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  15 NOV     16:00",
+      "objective": "privacy_breach.objective",
+      "later": "canceled_workshop",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "canceled_workshop": {
+      "title": "canceled_workshop.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "mossbyte",
+          "text": "canceled_workshop.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "canceled_workshop.line.1"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "canceled_workshop.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "canceled_workshop.line.3"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "canceled_workshop.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "canceled_workshop.line.5"
+        },
+        {
+          "speaker": "mossbyte",
+          "text": "canceled_workshop.line.6"
+        }
+      ],
+      "choices": [],
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Daichi",
+      "timestamp": "WED  18 NOV     20:00",
+      "objective": "canceled_workshop.objective",
+      "later": "work_decision",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "work_decision": {
+      "title": "work_decision.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "work_decision.line.0"
+        },
+        {
+          "speaker": "team",
+          "text": "work_decision.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_decision.line.2"
+        },
+        {
+          "speaker": "team",
+          "text": "work_decision.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "work_decision.line.4"
+        },
+        {
+          "speaker": "team",
+          "text": "work_decision.line.5"
+        }
+      ],
+      "choices": [
+        {
+          "id": "work_decision.choice.0",
+          "text": "work_decision.reply.0",
+          "to": "wait__work_decision__0",
+          "set": {
+            "leave": "approved",
+            "work_broken": false,
+            "work": "Friday handoff; early December leave approved"
+          }
+        },
+        {
+          "id": "work_decision.choice.1",
+          "text": "work_decision.reply.1",
+          "to": "wait__work_decision__1",
+          "set": {
+            "leave": "deferred",
+            "work_broken": false,
+            "work": "Weekend check kept; January leave available"
+          }
+        },
+        {
+          "id": "work_decision.choice.2",
+          "text": "work_decision.reply.2",
+          "to": "wait__work_decision__2",
+          "set": {
+            "leave": "deferred",
+            "work_broken": true,
+            "work": "Overlapping work and travel promises; leave not approved"
+          }
+        }
+      ],
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "MON  23 NOV     18:05",
+      "objective": "work_decision.objective",
+      "decision": "D04",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "work_adjusted": {
+      "title": "work_adjusted.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "work_adjusted.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_adjusted.line.1"
+        },
+        {
+          "speaker": "team",
+          "text": "work_adjusted.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "work_adjusted.line.3"
+        },
+        {
+          "speaker": "team",
+          "text": "work_adjusted.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_adjusted.line.5"
+        },
+        {
+          "speaker": "team",
+          "text": "work_adjusted.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "career_offer": true
+      },
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "FRI  27 NOV     18:00",
+      "objective": "work_adjusted.objective",
+      "later": "visit_plan",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "work_kept": {
+      "title": "work_kept.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "work_kept.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_kept.line.1"
+        },
+        {
+          "speaker": "team",
+          "text": "work_kept.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "work_kept.line.3"
+        },
+        {
+          "speaker": "team",
+          "text": "work_kept.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_kept.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "career_offer": true
+      },
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "SAT  28 NOV     18:00",
+      "objective": "work_kept.objective",
+      "later": "visit_plan",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "work_broken": {
+      "title": "work_broken.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "work_broken.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_broken.line.1"
+        },
+        {
+          "speaker": "team",
+          "text": "work_broken.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "work_broken.line.3"
+        },
+        {
+          "speaker": "team",
+          "text": "work_broken.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "work_broken.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "career_offer": false
+      },
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "SAT  28 NOV     19:30",
+      "objective": "work_broken.objective",
+      "later": "visit_plan",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "visit_plan": {
+      "title": "visit_plan.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "visit_plan.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "visit_plan.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "visit_plan.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "visit_plan.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "visit_plan.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "visit_plan.line.5"
+        }
+      ],
+      "choices": [
+        {
+          "id": "visit_plan.choice.0",
+          "text": "visit_plan.reply.0",
+          "to": "wait__visit_plan__0",
+          "set": {
+            "visit": "early",
+            "meeting_plan": "confirmed",
+            "commitment": "5 December / First Sapporo afternoon"
+          },
+          "if": {
+            "leave": "approved",
+            "rupture": false
+          }
+        },
+        {
+          "id": "visit_plan.choice.1",
+          "text": "visit_plan.reply.1",
+          "to": "wait__visit_plan__1",
+          "set": {
+            "visit": "late",
+            "meeting_plan": "confirmed",
+            "commitment": "16 January / First Sapporo afternoon"
+          }
+        },
+        {
+          "id": "visit_plan.choice.2",
+          "text": "visit_plan.reply.2",
+          "to": "wait__visit_plan__2",
+          "set": {
+            "visit": "online",
+            "meeting_plan": "postponed",
+            "commitment": "Online for now; travel discussion in February"
+          }
+        }
+      ],
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  29 NOV     20:10",
+      "objective": "visit_plan.objective",
+      "decision": "D05",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "early_arrival": {
+      "title": "early_arrival.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "early_arrival.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "early_arrival.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "early_arrival.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "early_arrival.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "early_arrival.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "early_arrival.line.5"
+        }
+      ],
+      "choices": [
+        {
+          "id": "early_arrival.choice.0",
+          "text": "early_arrival.reply.0",
+          "to": "early_afternoon",
+          "set": {
+            "greeting": "offered hug"
+          }
+        },
+        {
+          "id": "early_arrival.choice.1",
+          "text": "early_arrival.reply.1",
+          "to": "early_afternoon",
+          "set": {
+            "greeting": "quiet hello"
+          }
+        }
+      ],
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  05 DEC     13:57",
+      "objective": "early_arrival.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "early_afternoon": {
+      "title": "early_afternoon.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "early_afternoon.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "early_afternoon.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "early_afternoon.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "early_afternoon.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "early_afternoon.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "early_afternoon.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "early_afternoon.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "meeting_plan": "completed",
+        "photo": "first_afternoon",
+        "first_meeting": true
+      },
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  05 DEC     19:45",
+      "objective": "early_afternoon.objective",
+      "later": "return_tokyo",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "return_tokyo": {
+      "title": "return_tokyo.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "return_tokyo.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "return_tokyo.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "return_tokyo.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "return_tokyo.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "return_tokyo.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "return_tokyo.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "return_tokyo.line.6"
+        }
+      ],
+      "choices": [],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  06 DEC     21:10",
+      "objective": "return_tokyo.objective",
+      "later": "conflict_check",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "late_anticipation": {
+      "title": "late_anticipation.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "late_anticipation.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "late_anticipation.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_anticipation.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "late_anticipation.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_anticipation.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "late_anticipation.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_anticipation.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "anticipation_played": true
+      },
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  05 DEC     19:45",
+      "objective": "late_anticipation.objective",
+      "later": "january_preparation",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "january_preparation": {
+      "title": "january_preparation.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "january_preparation.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "january_preparation.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "january_preparation.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "january_preparation.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "january_preparation.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "january_preparation.line.5"
+        }
+      ],
+      "choices": [],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  12 DEC     20:30",
+      "objective": "january_preparation.objective",
+      "later": "conflict_check",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "online_weekend": {
+      "title": "online_weekend.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "online_weekend.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "online_weekend.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "online_weekend.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "online_weekend.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "online_weekend.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "online_weekend.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "online_activity_played": true
+      },
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  05 DEC     19:45",
+      "objective": "online_weekend.objective",
+      "later": "distance_agreement",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "distance_agreement": {
+      "title": "distance_agreement.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "distance_agreement.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "distance_agreement.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "distance_agreement.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "distance_agreement.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "distance_agreement.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "distance_agreement.line.5"
+        }
+      ],
+      "choices": [],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  12 DEC     20:30",
+      "objective": "distance_agreement.objective",
+      "later": "conflict_check",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "conflict_check": {
+      "title": "conflict_check.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "conflict_check.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "conflict_check.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "conflict_check.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "conflict_check.line.3"
+        }
+      ],
+      "choices": [],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:00",
+      "objective": "conflict_check.objective",
+      "later": "expectations_talk",
+      "later_routes": [
+        {
+          "to": "privacy_repair",
+          "if": {
+            "privacy": "breach"
+          }
+        },
+        {
+          "to": "promise_repair",
+          "if": {
+            "work_broken": true
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "privacy_repair": {
+      "title": "privacy_repair.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "privacy_repair.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "privacy_repair.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_repair.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "privacy_repair.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "privacy_repair.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "privacy_repair.choice.0",
+          "text": "privacy_repair.reply.0",
+          "to": "wait__privacy_repair__0",
+          "set": {
+            "repair": "action"
+          }
+        },
+        {
+          "id": "privacy_repair.choice.1",
+          "text": "privacy_repair.reply.1",
+          "to": "wait__privacy_repair__1",
+          "set": {
+            "repair": "space"
+          }
+        },
+        {
+          "id": "privacy_repair.choice.2",
+          "text": "privacy_repair.reply.2",
+          "to": "wait__privacy_repair__2",
+          "set": {
+            "repair": "refused"
+          }
+        }
+      ],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "objective": "privacy_repair.objective",
+      "decision": "D06",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "promise_repair": {
+      "title": "promise_repair.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "promise_repair.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "promise_repair.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "promise_repair.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "promise_repair.line.3"
+        }
+      ],
+      "choices": [
+        {
+          "id": "promise_repair.choice.0",
+          "text": "promise_repair.reply.0",
+          "to": "wait__promise_repair__0",
+          "set": {
+            "repair": "action"
+          }
+        },
+        {
+          "id": "promise_repair.choice.1",
+          "text": "promise_repair.reply.1",
+          "to": "wait__promise_repair__1",
+          "set": {
+            "repair": "space"
+          }
+        },
+        {
+          "id": "promise_repair.choice.2",
+          "text": "promise_repair.reply.2",
+          "to": "wait__promise_repair__2",
+          "set": {
+            "repair": "refused"
+          }
+        }
+      ],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "objective": "promise_repair.objective",
+      "decision": "D06",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "expectations_talk": {
+      "title": "expectations_talk.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "expectations_talk.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "expectations_talk.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "expectations_talk.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "expectations_talk.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "expectations_talk.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "expectations_talk.choice.0",
+          "text": "expectations_talk.reply.0",
+          "to": "wait__expectations_talk__0",
+          "set": {
+            "repair": "action"
+          }
+        },
+        {
+          "id": "expectations_talk.choice.1",
+          "text": "expectations_talk.reply.1",
+          "to": "wait__expectations_talk__1",
+          "set": {
+            "repair": "space"
+          }
+        },
+        {
+          "id": "expectations_talk.choice.2",
+          "text": "expectations_talk.reply.2",
+          "to": "wait__expectations_talk__2",
+          "set": {
+            "repair": "refused"
+          }
+        }
+      ],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "objective": "expectations_talk.objective",
+      "decision": "D06",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "agreed_space": {
+      "title": "agreed_space.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "agreed_space.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "agreed_space.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "agreed_space.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "agreed_space.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "agreed_space.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "agreed_space.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "space_kept": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  17 DEC     19:30",
+      "objective": "agreed_space.objective",
+      "later": "repair_action",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "repair_action": {
+      "title": "repair_action.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "repair_action.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "repair_action.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "repair_action.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "repair_action.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "repair_action.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "repair_action.line.5"
+        },
+        {
+          "speaker": "asahi",
+          "text": "repair_action.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "rupture": false,
+        "repair_kept": true,
+        "communication_agreement": "agreed",
+        "photo": "repair_cup"
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  18 DEC     20:00",
+      "objective": "repair_action.objective",
+      "later": "kept_agreement",
+      "later_routes": [
+        {
+          "to": "licensed_update",
+          "if": {
+            "privacy": "permission"
+          }
+        },
+        {
+          "to": "private_update",
+          "if": {
+            "privacy": "private"
+          }
+        },
+        {
+          "to": "boundary_followthrough",
+          "if": {
+            "privacy": "breach"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "last_repair_offer": {
+      "title": "last_repair_offer.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "last_repair_offer.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "last_repair_offer.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "last_repair_offer.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "last_repair_offer.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "last_repair_offer.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "last_repair_offer.choice.0",
+          "text": "last_repair_offer.reply.0",
+          "to": "wait__last_repair_offer__0",
+          "set": {
+            "repair": "action"
+          }
+        },
+        {
+          "id": "last_repair_offer.choice.1",
+          "text": "last_repair_offer.reply.1",
+          "to": "end_unsaid",
+          "set": {
+            "relationship_mode": "separated",
+            "resolution": "refused_repair"
+          }
+        }
+      ],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  17 DEC     19:30",
+      "objective": "last_repair_offer.objective",
+      "set": {
+        "rupture": true
+      },
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "kept_agreement": {
+      "title": "kept_agreement.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "kept_agreement.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "kept_agreement.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "kept_agreement.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "kept_agreement.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "kept_agreement.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "kept_agreement.line.5"
+        }
+      ],
+      "choices": [
+        {
+          "id": "kept_agreement.choice.0",
+          "text": "kept_agreement.reply.0",
+          "to": "wait__kept_agreement__0",
+          "set": {
+            "ritual_kept": true
+          },
+          "if": {
+            "ritual": true
+          }
+        },
+        {
+          "id": "kept_agreement.choice.1",
+          "text": "kept_agreement.reply.1",
+          "to": "wait__kept_agreement__1",
+          "set": {
+            "ritual_kept": false
+          }
+        }
+      ],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  20 DEC     21:00",
+      "objective": "kept_agreement.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "natsumi_return": {
+      "title": "natsumi_return.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_return.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "natsumi_return.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_return.line.2"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_return.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "natsumi_return.line.4"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "natsumi_return.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "natsumi_return.line.6"
+        }
+      ],
+      "choices": [],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Natsumi",
+      "timestamp": "TUE  22 DEC     18:30",
+      "objective": "natsumi_return.objective",
+      "later": "friend_update",
+      "later_routes": [
+        {
+          "to": "studio_lunch",
+          "if": {
+            "friend_plan": "renegotiated"
+          }
+        },
+        {
+          "to": "friend_confidant",
+          "if": {
+            "friend_support": true
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "friend_confidant": {
+      "title": "friend_confidant.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "friend_confidant.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_confidant.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_confidant.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_confidant.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_confidant.line.4"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_confidant.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "confidant_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  23 DEC     19:00",
+      "objective": "friend_confidant.objective",
+      "later": "local_dinner",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "friend_update": {
+      "title": "friend_update.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "friend_update.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_update.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_update.line.2"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "friend_update.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "friend_update.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "confidant_played": false
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  23 DEC     19:00",
+      "objective": "friend_update.objective",
+      "later": "relationship",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "relationship": {
+      "title": "relationship.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "relationship.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "relationship.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "relationship.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "relationship.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "relationship.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "relationship.choice.0",
+          "text": "relationship.reply.0",
+          "to": "wait__relationship__0",
+          "set": {
+            "relationship_mode": "romantic"
+          }
+        },
+        {
+          "id": "relationship.choice.1",
+          "text": "relationship.reply.1",
+          "to": "wait__relationship__1",
+          "set": {
+            "relationship_mode": "friends"
+          }
+        },
+        {
+          "id": "relationship.choice.2",
+          "text": "relationship.reply.2",
+          "to": "wait__relationship__2",
+          "set": {
+            "relationship_mode": "separated",
+            "resolution": "amicable"
+          }
+        }
+      ],
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  24 DEC     20:00",
+      "objective": "relationship.objective",
+      "decision": "D07",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "romantic_date": {
+      "title": "romantic_date.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "romantic_date.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "romantic_date.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "romantic_date.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "romantic_date.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "romantic_date.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "romantic_date.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "romantic_date.line.6"
+        },
+        {
+          "speaker": "system",
+          "text": "romantic_date.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "date_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  26 DEC     19:00",
+      "objective": "romantic_date.objective",
+      "later": "career_followup",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "friend_activity": {
+      "title": "friend_activity.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "friend_activity.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_activity.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "friend_activity.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "friend_activity.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "friend_activity.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "friend_activity.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "friend_activity.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "friend_activity_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  26 DEC     19:00",
+      "objective": "friend_activity.objective",
+      "later": "career_followup",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "career_followup": {
+      "title": "career_followup.title",
+      "app": "Work",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "career_followup.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "career_followup.line.1"
+        },
+        {
+          "speaker": "team",
+          "text": "career_followup.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "career_followup.line.3"
+        },
+        {
+          "speaker": "team",
+          "text": "career_followup.line.4"
+        }
+      ],
+      "choices": [],
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "TUE  05 JAN     18:30",
+      "objective": "career_followup.objective",
+      "later": "supervised_review",
+      "later_routes": [
+        {
+          "to": "project_meeting",
+          "if": {
+            "career_offer": true
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "project_meeting": {
+      "title": "project_meeting.title",
+      "app": "Work",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "project_meeting.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "project_meeting.line.1"
+        },
+        {
+          "speaker": "team",
+          "text": "project_meeting.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "project_meeting.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "project_meeting.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "career_result": "project planned"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "WED  06 JAN     18:30",
+      "objective": "project_meeting.objective",
+      "later": "mizuki_offer",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "supervised_review": {
+      "title": "supervised_review.title",
+      "app": "Work",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "team",
+          "text": "supervised_review.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "supervised_review.line.1"
+        },
+        {
+          "speaker": "team",
+          "text": "supervised_review.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "supervised_review.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "supervised_review.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "career_result": "review completed"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "WED  06 JAN     18:30",
+      "objective": "supervised_review.objective",
+      "later": "mizuki_offer",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "mizuki_offer": {
+      "title": "mizuki_offer.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "mizuki_offer.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "mizuki_offer.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "mizuki_offer.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "mizuki_offer.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "mizuki_offer.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "mizuki_offer.line.5"
+        }
+      ],
+      "choices": [
+        {
+          "id": "mizuki_offer.choice.0",
+          "text": "mizuki_offer.reply.0",
+          "to": "wait__mizuki_offer__0",
+          "set": {
+            "future_plan": "workable",
+            "ritual_renewed": false
+          }
+        },
+        {
+          "id": "mizuki_offer.choice.1",
+          "text": "mizuki_offer.reply.1",
+          "to": "wait__mizuki_offer__1",
+          "set": {
+            "future_plan": "workable",
+            "ritual_renewed": true
+          },
+          "if": {
+            "ritual": true,
+            "ritual_kept": true
+          }
+        },
+        {
+          "id": "mizuki_offer.choice.2",
+          "text": "mizuki_offer.reply.2",
+          "to": "wait__mizuki_offer__2",
+          "set": {
+            "future_plan": "explicitly_undecided"
+          }
+        },
+        {
+          "id": "mizuki_offer.choice.3",
+          "text": "mizuki_offer.reply.3",
+          "to": "wait__mizuki_offer__3",
+          "set": {
+            "relationship_mode": "separated",
+            "resolution": "amicable"
+          }
+        },
+        {
+          "id": "mizuki_offer.choice.4",
+          "text": "mizuki_offer.reply.4",
+          "to": "wait__mizuki_offer__4",
+          "set": {
+            "future_plan": "incompatible"
+          },
+          "if": {
+            "work_broken": true
+          }
+        }
+      ],
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  08 JAN     20:15",
+      "objective": "mizuki_offer.objective",
+      "decision": "D08",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "future_agreed": {
+      "title": "future_agreed.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "future_agreed.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "future_agreed.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "future_agreed.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "future_agreed.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "future_agreed.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "future_agreed.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "future_plan": "workable",
+        "communication_agreement": "agreed",
+        "commitment": "Agreed / two planned evenings a month; travel dates by mutual confirmation"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  09 JAN     19:30",
+      "objective": "future_agreed.objective",
+      "later": "end_distance",
+      "later_routes": [
+        {
+          "to": "late_arrival",
+          "if": {
+            "visit": "late"
+          }
+        },
+        {
+          "to": "end_friendship",
+          "if": {
+            "relationship_mode": "friends"
+          }
+        },
+        {
+          "to": "end_secret",
+          "if": {
+            "relationship_mode": "romantic",
+            "ritual_renewed": true
+          }
+        },
+        {
+          "to": "end_together",
+          "if": {
+            "meeting_plan": "completed"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "late_arrival": {
+      "title": "late_arrival.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "late_arrival.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "late_arrival.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_arrival.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "late_arrival.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_arrival.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "late_arrival.choice.0",
+          "text": "late_arrival.reply.0",
+          "to": "late_afternoon",
+          "set": {
+            "greeting": "offered hug"
+          }
+        },
+        {
+          "id": "late_arrival.choice.1",
+          "text": "late_arrival.reply.1",
+          "to": "late_afternoon",
+          "set": {
+            "greeting": "quiet hello"
+          }
+        }
+      ],
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  16 JAN     13:55",
+      "objective": "late_arrival.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "late_afternoon": {
+      "title": "late_afternoon.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "late_afternoon.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "late_afternoon.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_afternoon.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "late_afternoon.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "late_afternoon.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "late_afternoon.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "meeting_plan": "completed",
+        "first_meeting": true,
+        "photo": "first_afternoon"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  16 JAN     19:30",
+      "objective": "late_afternoon.objective",
+      "later": "end_distance",
+      "later_routes": [
+        {
+          "to": "end_friendship",
+          "if": {
+            "relationship_mode": "friends"
+          }
+        },
+        {
+          "to": "end_secret",
+          "if": {
+            "relationship_mode": "romantic",
+            "ritual_renewed": true
+          }
+        },
+        {
+          "to": "end_together",
+          "if": {
+            "meeting_plan": "completed"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "open_conversation": {
+      "title": "open_conversation.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "open_conversation.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "open_conversation.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "open_conversation.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "open_conversation.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "open_conversation.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "future_plan": "explicitly_undecided"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  09 JAN     19:30",
+      "objective": "open_conversation.objective",
+      "later": "end_open",
+      "fact_rules": [
+        {
+          "if": {
+            "meeting_plan": "completed"
+          },
+          "set": {
+            "future_travel": "postponed"
+          }
+        },
+        {
+          "if": {},
+          "set": {
+            "meeting_plan": "postponed",
+            "future_travel": "postponed"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "burnout_warning": {
+      "title": "burnout_warning.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "burnout_warning.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "burnout_warning.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "burnout_warning.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "burnout_warning.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "burnout_warning.line.4"
+        }
+      ],
+      "choices": [
+        {
+          "id": "burnout_warning.choice.0",
+          "text": "burnout_warning.reply.0",
+          "to": "future_agreed",
+          "set": {
+            "future_plan": "workable",
+            "ritual_renewed": false
+          }
+        },
+        {
+          "id": "burnout_warning.choice.1",
+          "text": "burnout_warning.reply.1",
+          "to": "wait__burnout_warning__1",
+          "set": {
+            "relationship_mode": "separated",
+            "resolution": "burnout"
+          }
+        }
+      ],
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  09 JAN     19:30",
+      "objective": "burnout_warning.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "amicable_goodbye": {
+      "title": "amicable_goodbye.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "amicable_goodbye.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "amicable_goodbye.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "amicable_goodbye.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "amicable_goodbye.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "amicable_goodbye.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "amicable_goodbye.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "relationship_mode": "separated",
+        "future_plan": "incompatible",
+        "resolution": "amicable"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  09 JAN     19:30",
+      "objective": "amicable_goodbye.objective",
+      "later": "end_goodbye",
+      "fact_rules": [
+        {
+          "if": {
+            "meeting_plan": "completed"
+          },
+          "set": {
+            "future_travel": "canceled"
+          }
+        },
+        {
+          "if": {},
+          "set": {
+            "meeting_plan": "postponed",
+            "future_travel": "canceled"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_together": {
+      "title": "end_together.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "end_together.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_together.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_together.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_together.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_together.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_together.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "end_together.line.6"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_together.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "together"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_together.objective",
+      "ending": {
+        "id": "together",
+        "category": "Good"
+      },
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_distance": {
+      "title": "end_distance.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "end_distance.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_distance.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_distance.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_distance.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_distance.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_distance.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "end_distance.line.6"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_distance.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "distance"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_distance.objective",
+      "ending": {
+        "id": "distance",
+        "category": "Good"
+      },
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_friendship": {
+      "title": "end_friendship.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "end_friendship.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_friendship.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_friendship.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "end_friendship.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_friendship.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_friendship.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "end_friendship.line.6"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_friendship.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "friendship"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_friendship.objective",
+      "ending": {
+        "id": "friendship",
+        "category": "Neutral"
+      },
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_goodbye": {
+      "title": "end_goodbye.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "end_goodbye.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_goodbye.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_goodbye.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_goodbye.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_goodbye.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_goodbye.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "end_goodbye.line.6"
+        },
+        {
+          "speaker": "system",
+          "text": "end_goodbye.line.7"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "goodbye"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_goodbye.objective",
+      "ending": {
+        "id": "goodbye",
+        "category": "Neutral"
+      },
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_unsaid": {
+      "title": "end_unsaid.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "end_unsaid.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_unsaid.line.1"
+        },
+        {
+          "speaker": "system",
+          "text": "end_unsaid.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "end_unsaid.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "end_unsaid.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "end_unsaid.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "end_unsaid.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "unsaid"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  17 DEC     19:45",
+      "objective": "end_unsaid.objective",
+      "ending": {
+        "id": "unsaid",
+        "category": "Bad"
+      },
+      "fact_rules": [
+        {
+          "if": {
+            "meeting_plan": "completed"
+          },
+          "set": {
+            "future_travel": "canceled"
+          }
+        },
+        {
+          "if": {},
+          "set": {
+            "meeting_plan": "postponed",
+            "future_travel": "canceled"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2009
+    },
+    "end_burnout": {
+      "title": "end_burnout.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "end_burnout.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_burnout.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_burnout.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_burnout.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "end_burnout.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "end_burnout.line.5"
+        },
+        {
+          "speaker": "system",
+          "text": "end_burnout.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "burnout"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_burnout.objective",
+      "ending": {
+        "id": "burnout",
+        "category": "Bad"
+      },
+      "fact_rules": [
+        {
+          "if": {
+            "meeting_plan": "completed"
+          },
+          "set": {
+            "future_travel": "canceled"
+          }
+        },
+        {
+          "if": {},
+          "set": {
+            "meeting_plan": "postponed",
+            "future_travel": "canceled"
+          }
+        }
+      ],
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_open": {
+      "title": "end_open.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "end_open.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_open.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_open.line.2"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_open.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "end_open.line.4"
+        },
+        {
+          "speaker": "system",
+          "text": "end_open.line.5"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_open.line.6"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "open"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_open.objective",
+      "ending": {
+        "id": "open",
+        "category": "Open"
+      },
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "end_secret": {
+      "title": "end_secret.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "end_secret.line.0"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_secret.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_secret.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_secret.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "end_secret.ritual.guild",
+          "if": {
+            "path": "guild"
+          }
+        },
+        {
+          "speaker": "system",
+          "text": "end_secret.ritual.private",
+          "if": {
+            "path": "private"
+          }
+        },
+        {
+          "speaker": "system",
+          "text": "end_secret.ritual.lives",
+          "if": {
+            "path": "lives"
+          }
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_secret.line.5"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_secret.line.6"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_secret.line.7"
+        },
+        {
+          "speaker": "asahi",
+          "text": "end_secret.line.8"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "end_secret.line.9"
+        },
+        {
+          "speaker": "system",
+          "text": "end_secret.line.10"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "ending": "everyday"
+      },
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  20 FEB     19:30",
+      "objective": "end_secret.objective",
+      "ending": {
+        "id": "everyday",
+        "category": "Secret"
+      },
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "local_dinner": {
+      "title": "local_dinner.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "local_dinner.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "local_dinner.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "local_dinner.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "local_dinner.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "local_dinner.line.4"
+        },
+        {
+          "speaker": "asahi",
+          "text": "local_dinner.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "local_dinner_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  23 DEC     20:15",
+      "objective": "local_dinner.objective",
+      "later": "relationship",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "studio_lunch": {
+      "title": "studio_lunch.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "natsumi",
+          "text": "studio_lunch.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "studio_lunch.line.1"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "studio_lunch.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "studio_lunch.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "studio_lunch.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "studio_selection_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  23 DEC     12:30",
+      "objective": "studio_lunch.objective",
+      "later": "studio_preview",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "studio_preview": {
+      "title": "studio_preview.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "studio_preview.line.0"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "studio_preview.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "studio_preview.line.2"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "studio_preview.line.3"
+        },
+        {
+          "speaker": "natsumi",
+          "text": "studio_preview.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "studio_preview_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Natsumi",
+      "timestamp": "THU  24 DEC     12:10",
+      "objective": "studio_preview.objective",
+      "later": "relationship",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "licensed_update": {
+      "title": "licensed_update.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "licensed_update.line.0"
+        },
+        {
+          "speaker": "misaki",
+          "text": "licensed_update.line.1"
+        },
+        {
+          "speaker": "asahi",
+          "text": "licensed_update.line.2"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "licensed_update.line.3"
+        },
+        {
+          "speaker": "system",
+          "text": "licensed_update.line.4"
+        },
+        {
+          "speaker": "misaki",
+          "text": "licensed_update.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "licensed_event_played": true,
+        "photo": "credited_print"
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki & Misaki",
+      "timestamp": "SAT  19 DEC     18:00",
+      "objective": "licensed_update.objective",
+      "later": "kept_agreement",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "private_update": {
+      "title": "private_update.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "private_update.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "private_update.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_update.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "private_update.line.3"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "private_update.line.4"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "collection_review_played": true,
+        "draft_withdrawn": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  19 DEC     18:00",
+      "objective": "private_update.objective",
+      "later": "kept_agreement",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "boundary_followthrough": {
+      "title": "boundary_followthrough.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "mizuki",
+          "text": "boundary_followthrough.line.0"
+        },
+        {
+          "speaker": "asahi",
+          "text": "boundary_followthrough.line.1"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "boundary_followthrough.line.2"
+        },
+        {
+          "speaker": "system",
+          "text": "boundary_followthrough.line.3"
+        },
+        {
+          "speaker": "asahi",
+          "text": "boundary_followthrough.line.4"
+        },
+        {
+          "speaker": "mizuki",
+          "text": "boundary_followthrough.line.5"
+        }
+      ],
+      "choices": [],
+      "set": {
+        "limited_exchange_played": true
+      },
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  19 DEC     18:00",
+      "objective": "boundary_followthrough.objective",
+      "later": "kept_agreement",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__lives_work__0": {
+      "title": "wait__lives_work__0.title",
+      "app": "Work",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__lives_work__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "lives_call",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "SAT  24 OCT     16:42",
+      "interlude": true,
+      "objective": "wait__lives_work__0.objective",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "wait__lives_work__1": {
+      "title": "wait__lives_work__1.title",
+      "app": "Work",
+      "day": 2,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__lives_work__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "lives_reschedule",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "SAT  24 OCT     16:42",
+      "interlude": true,
+      "objective": "wait__lives_work__1.objective",
+      "dialogue": "res://content/dialogue/act_02.dialogue",
+      "year": 2009
+    },
+    "wait__natsumi_invite__0": {
+      "title": "wait__natsumi_invite__0.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__natsumi_invite__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "showcase",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  04 NOV     18:15",
+      "interlude": true,
+      "objective": "wait__natsumi_invite__0.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__natsumi_invite__1": {
+      "title": "wait__natsumi_invite__1.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__natsumi_invite__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "showcase_setup",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  04 NOV     18:15",
+      "interlude": true,
+      "objective": "wait__natsumi_invite__1.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__natsumi_invite__2": {
+      "title": "wait__natsumi_invite__2.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__natsumi_invite__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "showcase_missed",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "WED  04 NOV     18:15",
+      "interlude": true,
+      "objective": "wait__natsumi_invite__2.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__showcase_missed__0": {
+      "title": "wait__showcase_missed__0.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__showcase_missed__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "friend_repair",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "SUN  08 NOV     18:30",
+      "interlude": true,
+      "objective": "wait__showcase_missed__0.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__showcase_missed__1": {
+      "title": "wait__showcase_missed__1.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__showcase_missed__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "friend_distance",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Natsumi",
+      "timestamp": "SUN  08 NOV     18:30",
+      "interlude": true,
+      "objective": "wait__showcase_missed__1.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__privacy_request__0": {
+      "title": "wait__privacy_request__0.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__privacy_request__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "permission_granted",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  14 NOV     20:15",
+      "interlude": true,
+      "objective": "wait__privacy_request__0.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__privacy_request__1": {
+      "title": "wait__privacy_request__1.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__privacy_request__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "private_collection",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  14 NOV     20:15",
+      "interlude": true,
+      "objective": "wait__privacy_request__1.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__privacy_request__2": {
+      "title": "wait__privacy_request__2.title",
+      "app": "Messages",
+      "day": 3,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__privacy_request__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "privacy_breach",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  14 NOV     20:15",
+      "interlude": true,
+      "objective": "wait__privacy_request__2.objective",
+      "dialogue": "res://content/dialogue/act_03.dialogue",
+      "year": 2009
+    },
+    "wait__work_decision__0": {
+      "title": "wait__work_decision__0.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__work_decision__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "work_adjusted",
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "MON  23 NOV     18:05",
+      "interlude": true,
+      "objective": "wait__work_decision__0.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "wait__work_decision__1": {
+      "title": "wait__work_decision__1.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__work_decision__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "work_kept",
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "MON  23 NOV     18:05",
+      "interlude": true,
+      "objective": "wait__work_decision__1.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "wait__work_decision__2": {
+      "title": "wait__work_decision__2.title",
+      "app": "Work",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__work_decision__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "work_broken",
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Hoshino Studio",
+      "timestamp": "MON  23 NOV     18:05",
+      "interlude": true,
+      "objective": "wait__work_decision__2.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "wait__visit_plan__0": {
+      "title": "wait__visit_plan__0.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__visit_plan__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "early_arrival",
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  29 NOV     20:10",
+      "interlude": true,
+      "objective": "wait__visit_plan__0.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "wait__visit_plan__1": {
+      "title": "wait__visit_plan__1.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__visit_plan__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "late_anticipation",
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  29 NOV     20:10",
+      "interlude": true,
+      "objective": "wait__visit_plan__1.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "wait__visit_plan__2": {
+      "title": "wait__visit_plan__2.title",
+      "app": "Messages",
+      "day": 4,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__visit_plan__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "online_weekend",
+      "chapter": 4,
+      "chapter_title": "chapter.4.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  29 NOV     20:10",
+      "interlude": true,
+      "objective": "wait__visit_plan__2.objective",
+      "dialogue": "res://content/dialogue/act_04.dialogue",
+      "year": 2009
+    },
+    "wait__privacy_repair__0": {
+      "title": "wait__privacy_repair__0.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__privacy_repair__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "repair_action",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__privacy_repair__0.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__privacy_repair__1": {
+      "title": "wait__privacy_repair__1.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__privacy_repair__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "agreed_space",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__privacy_repair__1.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__privacy_repair__2": {
+      "title": "wait__privacy_repair__2.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__privacy_repair__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "last_repair_offer",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__privacy_repair__2.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__promise_repair__0": {
+      "title": "wait__promise_repair__0.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__promise_repair__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "repair_action",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__promise_repair__0.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__promise_repair__1": {
+      "title": "wait__promise_repair__1.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__promise_repair__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "agreed_space",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__promise_repair__1.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__promise_repair__2": {
+      "title": "wait__promise_repair__2.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__promise_repair__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "last_repair_offer",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__promise_repair__2.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__expectations_talk__0": {
+      "title": "wait__expectations_talk__0.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__expectations_talk__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "repair_action",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__expectations_talk__0.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__expectations_talk__1": {
+      "title": "wait__expectations_talk__1.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__expectations_talk__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "agreed_space",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__expectations_talk__1.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__expectations_talk__2": {
+      "title": "wait__expectations_talk__2.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__expectations_talk__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "last_repair_offer",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  13 DEC     19:15",
+      "interlude": true,
+      "objective": "wait__expectations_talk__2.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__last_repair_offer__0": {
+      "title": "wait__last_repair_offer__0.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__last_repair_offer__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "repair_action",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  17 DEC     19:30",
+      "interlude": true,
+      "objective": "wait__last_repair_offer__0.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__kept_agreement__0": {
+      "title": "wait__kept_agreement__0.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__kept_agreement__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "natsumi_return",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  20 DEC     21:00",
+      "interlude": true,
+      "objective": "wait__kept_agreement__0.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__kept_agreement__1": {
+      "title": "wait__kept_agreement__1.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__kept_agreement__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "natsumi_return",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "SUN  20 DEC     21:00",
+      "interlude": true,
+      "objective": "wait__kept_agreement__1.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__relationship__0": {
+      "title": "wait__relationship__0.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__relationship__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "romantic_date",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  24 DEC     20:00",
+      "interlude": true,
+      "objective": "wait__relationship__0.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__relationship__1": {
+      "title": "wait__relationship__1.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__relationship__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "friend_activity",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  24 DEC     20:00",
+      "interlude": true,
+      "objective": "wait__relationship__1.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__relationship__2": {
+      "title": "wait__relationship__2.title",
+      "app": "Messages",
+      "day": 5,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__relationship__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "amicable_goodbye",
+      "chapter": 5,
+      "chapter_title": "chapter.5.title",
+      "thread": "Mizuki",
+      "timestamp": "THU  24 DEC     20:00",
+      "interlude": true,
+      "objective": "wait__relationship__2.objective",
+      "dialogue": "res://content/dialogue/act_05.dialogue",
+      "year": 2009
+    },
+    "wait__mizuki_offer__0": {
+      "title": "wait__mizuki_offer__0.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__mizuki_offer__0.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "future_agreed",
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  08 JAN     20:15",
+      "interlude": true,
+      "objective": "wait__mizuki_offer__0.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "wait__mizuki_offer__1": {
+      "title": "wait__mizuki_offer__1.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__mizuki_offer__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "future_agreed",
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  08 JAN     20:15",
+      "interlude": true,
+      "objective": "wait__mizuki_offer__1.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "wait__mizuki_offer__2": {
+      "title": "wait__mizuki_offer__2.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__mizuki_offer__2.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "open_conversation",
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  08 JAN     20:15",
+      "interlude": true,
+      "objective": "wait__mizuki_offer__2.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "wait__mizuki_offer__3": {
+      "title": "wait__mizuki_offer__3.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__mizuki_offer__3.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "amicable_goodbye",
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  08 JAN     20:15",
+      "interlude": true,
+      "objective": "wait__mizuki_offer__3.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "wait__mizuki_offer__4": {
+      "title": "wait__mizuki_offer__4.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__mizuki_offer__4.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "burnout_warning",
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "FRI  08 JAN     20:15",
+      "interlude": true,
+      "objective": "wait__mizuki_offer__4.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    },
+    "wait__burnout_warning__1": {
+      "title": "wait__burnout_warning__1.title",
+      "app": "Messages",
+      "day": 6,
+      "lines": [
+        {
+          "speaker": "system",
+          "text": "wait__burnout_warning__1.line.0"
+        }
+      ],
+      "choices": [],
+      "later": "end_burnout",
+      "chapter": 6,
+      "chapter_title": "chapter.6.title",
+      "thread": "Mizuki",
+      "timestamp": "SAT  09 JAN     19:30",
+      "interlude": true,
+      "objective": "wait__burnout_warning__1.objective",
+      "dialogue": "res://content/dialogue/act_06.dialogue",
+      "year": 2010
+    }
+  },
+  "photos": {
+    "finished_window": {
+      "title": "The corner she kept",
+      "copy": "Mizuki's finished crooked-window illustration, kept privately beside Asahi's rainy Tokyo photograph.",
+      "kind": "desk"
+    },
+    "showcase": {
+      "title": "Natsumi's showcase",
+      "copy": "Prints on a shop wall, a step stool and a packet of hooks. The day and Asahi's actual participation remain in the message history.",
+      "kind": "desk"
+    },
+    "approved_guide": {
+      "title": "The approved guide image",
+      "copy": "A separate illustration, cleared of client details, credited to Mizuki. She explicitly approved this version for the route guide.",
+      "kind": "lantern"
+    },
+    "private_pages": {
+      "title": "Two unfinished pages",
+      "copy": "An imperfect drawing and a page with a rice stain. The collection is private; neither person approved publication.",
+      "kind": "desk"
+    },
+    "first_afternoon": {
+      "title": "An afternoon in Sapporo",
+      "copy": "Two tea cups on a scratched table, a scarf on an empty chair. Saved only after the first physical meeting actually happened.",
+      "kind": "city"
+    },
+    "repair_cup": {
+      "title": "A smaller invitation",
+      "copy": "A photograph of an ordinary cup. This limited private exchange does not reopen permission to share work drafts.",
+      "kind": "desk"
+    },
+    "credited_print": {
+      "title": "The use she approved",
+      "copy": "A printed route guide bearing Mizuki's credit, using only the image and layout she chose to approve.",
+      "kind": "lantern"
+    }
+  },
+  "era": {
+    "start": "2009-10-23",
+    "epilogue_year": 2010
+  }
+}

@@ -21,7 +21,7 @@ var friend_photos := false
 var attachments_view := false
 var status_draft := ""
 var comment_draft := ""
-var story := Story.new()
+var story: HelloStory
 var ui: Control
 var frame: Control
 var screen: PanelContainer
@@ -56,6 +56,7 @@ var draft_typing := false
 var suspended := false
 
 func _ready() -> void:
+	story = await Story.create()
 	get_tree().auto_accept_quit = false
 	RenderingServer.set_default_clear_color(Color("1c302f"))
 	sfx = AudioStreamPlayer.new()
@@ -80,7 +81,7 @@ func _ready() -> void:
 	add_child(dots_timer)
 	dots_timer.start()
 	_load_settings()
-	story.load_from("user://autosave.json")
+	(await story.load_from("user://autosave.json"))
 	status = ""
 	ui = Control.new()
 	ui.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
@@ -547,7 +548,7 @@ func _gesture_scroller() -> ScrollContainer:
 	return scroller
 
 func _home() -> void:
-	body.add_child(_label("Asahi / " + _story_date().substr(0, 11), 14, MUTED))
+	body.add_child(_label("Asahi / " + _story_date(), 14, MUTED))
 	var menu := _card("", "")
 	var grid := GridContainer.new()
 	grid.name = "SectionGrid"
@@ -631,14 +632,15 @@ func _view_friend(person: String) -> void:
 	_render()
 
 func _friend_profile() -> void:
-	var info := {"Mizuki": ["Sapporo, Hokkaido", "drawing windows. looking out of them occasionally.", "city"], "Natsumi": ["Tokyo, Japan", "Prints, ink, and trying to hang things straight.", "desk"], "Daichi": ["Lantern Quest", "Small parties. Nobody left at the bridge.", "lantern"], "Misaki": ["Japan", "Still finding somewhere to put all these books.", "desk"]}
-	var entry: Array = info[friend_profile]
+	var person: Dictionary = story.characters[friend_profile]
+	var entry: Array = [person.city, person.bio, person.public_photo]
 	var card := _card(friend_profile, entry[0])
+	_profile_details(person, card)
 	_button("Profile" if friend_photos else "View photos", func() -> void: friend_photos = not friend_photos; _render(), card)
 	if friend_photos:
 		_card("PHOTOS / " + friend_profile.to_upper(), "Shared with friends. Private work attachments stay in Messages.")
 		_art(entry[2])
-		body.add_child(_label("A small view of my day.", 14, MUTED))
+		body.add_child(_label(person.photo_caption, 14, MUTED))
 	else:
 		_feed_post("friend_" + friend_profile, friend_profile, entry[1], entry[2], "Friends", "")
 	if friend_profile in _known_contacts(): _button("Message " + friend_profile, _open_contact.bind(friend_profile))
@@ -662,8 +664,9 @@ func _feed() -> void:
 
 func _public_posts() -> Dictionary:
 	var posts := {}
-	var captions := {"Mizuki": ["Mizuki", "drawing windows. looking out of them occasionally.", "city"], "Natsumi": ["Natsumi", "Prints, ink, and trying to hang things straight.", "desk"], "Daichi": ["Daichi", "Small parties. Nobody left at the bridge.", "lantern"], "Misaki": ["Misaki", "Still finding somewhere to put all these books.", "desk"]}
-	for person: String in story.social().friends: posts["friend_" + person] = captions[person]
+	for name: String in story.social().friends:
+		var person: Dictionary = story.characters[name]
+		posts["friend_" + name] = [name, person.bio, person.public_photo]
 	return posts
 
 func _render_own_posts() -> void:
@@ -721,7 +724,8 @@ func _post_comment(id: String) -> void:
 func _profile() -> void:
 	var profile := _card("MY PROFILE", "Tachibana Asahi\nasahi / Tokyo, Japan")
 	_art("city", profile, 110)
-	profile.add_child(_label("Usually here after work. Occasionally lost in Lantern Quest.", 16))
+	profile.add_child(_label(story.characters.Asahi.bio, 16))
+	_profile_details(story.characters.Asahi, profile)
 	_button("My photos", _open.bind("Photos"), profile)
 	var composer := _card("POST STATUS / FRIENDS", "")
 	var input := TextEdit.new()
@@ -734,6 +738,12 @@ func _profile() -> void:
 	composer.add_child(_label("Up to 280 characters", 12, MUTED))
 	_button("Post status", _post_status, composer)
 	_render_own_posts()
+
+func _profile_details(person: Dictionary, parent: Node) -> void:
+	parent.add_child(_label("Birthday: " + person.birthday + " / " + person.zodiac, 14, MUTED))
+	parent.add_child(_label("Interests: " + ", ".join(person.interests), 14, INK))
+	parent.add_child(_label("Favorite food: " + person.favorites.food, 14, INK))
+	parent.add_child(_label("Listening to: " + person.favorites.music, 14, INK))
 
 func _post_status() -> void:
 	if story.post_status(status_draft):
@@ -965,7 +975,7 @@ func _draft(id: String) -> void:
 
 func _send() -> void:
 	if draft_typing: return
-	if story.send():
+	if (await story.send()):
 		view_thread = ""
 		inbox = false
 		_play_sound("sent")
@@ -977,7 +987,7 @@ func _send() -> void:
 		get_tree().create_timer(0.22).timeout.connect(_announce)
 
 func _later() -> void:
-	if story.later():
+	if (await story.later()):
 		view_thread = ""
 		inbox = false
 		story.state.app = story.current().app
@@ -1005,7 +1015,7 @@ func _like_button(id: String, parent: Node, verb := "Like") -> void:
 	_button(("Saved / " if id in story.state.likes else "") + verb, _like.bind(id), parent)
 
 func _story_date() -> String:
-	return story.current().timestamp
+	return story.current().timestamp + " / " + str(int(story.current().year))
 
 func _desk() -> void:
 	_card("HOSHINO STUDIO / TEAM", "Handoff checklist\n• Check the exported layouts\n• Leave clear notes for Monday\n• Close the laptop at a sensible hour")
@@ -1064,7 +1074,7 @@ func _restart() -> void:
 	delivery_timer.stop()
 	view_thread = ""
 	inbox = false
-	story.reset()
+	(await story.reset())
 	confirm_restart = false
 	saved_app = ""
 	status = "A new evening."
@@ -1072,7 +1082,7 @@ func _restart() -> void:
 	_render()
 
 func _load_game(path: String) -> void:
-	if story.load_from(path):
+	if (await story.load_from(path)):
 		status = story.last_error if story.last_error != "" else "Save restored."
 		saved_app = ""
 	else:

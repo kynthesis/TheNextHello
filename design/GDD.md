@@ -44,7 +44,7 @@
 
 **Tone:** Tender, funny, sometimes awkward, occasionally painful. People can make mistakes and repair them. Avoid constant poetic dialogue: a character's jokes, abbreviations, interruptions, and mundane observations make the vulnerable messages land.
 
-**Conversation reference — creator direction:** Use [Emily is Away](https://store.steampowered.com/app/417860/Emily_is_Away/) as a reference for intimate chat, uncertainty and relationships changing between conversations. Keep Asahi's account as the viewpoint. Let short replies, uneven typing, ordinary details and callbacks carry emotion. Mizuki tends to type casually in lowercase; Asahi uses punctuation and dry jokes. Friends and work retain their own voices. Vulnerable messages should sound harder to send than everyday banter. Avoid giving every character a polished explanation of the scene's lesson. The player sees the complete reply before choosing; hesitation never changes its meaning or forces a different outcome. All eight endings remain consequential authored outcomes.
+**Conversation reference — creator direction:** Use [Emily is Away](https://store.steampowered.com/app/417860/Emily_is_Away/) as a reference for intimate chat, uncertainty and relationships changing between conversations. Keep Asahi's account as the viewpoint. Let short replies, uneven typing, ordinary details and callbacks carry emotion. The English chats borrow American 2009 instant-message habits. Mizuki tends to type casually in lowercase, using brb/btw/lol and text smileys; Asahi uses punctuation and dry jokes. Friends and work retain their own voices. Vulnerable messages should sound harder to send than everyday banter. Avoid giving every character a polished explanation of the scene's lesson. The player sees the complete reply before choosing; hesitation never changes its meaning or forces a different outcome. All eight endings remain consequential authored outcomes.
 
 ## 3. Scope and boundaries
 
@@ -68,9 +68,9 @@ Multiple romance routes, real multiplayer, freeform AI chat, user photo uploads,
 
 ## 4. Player identity and cast
 
-The protagonist is male and the love interest is female, as directed by the creator. All principal characters are adults. The central names and ages are creator-confirmed: Tachibana Asahi, 29, and Yukimura Mizuki, 23. Other cast details and city proposals remain editable.
+The protagonist is male and the love interest is female, as directed by the creator. All principal characters are adults. The central names and ages are creator-confirmed: Tachibana Asahi, 29, and Yukimura Mizuki, 23. Supporting ages remain 24 for Natsumi, 27 for Daichi and 29 for Misaki at the October 2009 opening. See [character profiles](CHARACTERS.md) for birthdays, zodiac signs, interests, favorites and voice rules.
 
-**Setting proposal:** Contemporary Japan. Asahi lives in Tokyo and Mizuki in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through messages and photos. Keep cultural details specific to each character rather than relying on stereotypes.
+**Setting proposal:** Japan, beginning on 23 October 2009 and continuing into spring 2010. Asahi lives in Tokyo and Mizuki in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through messages and photos. Keep cultural details specific to each character rather than relying on stereotypes.
 
 **Central couple:** Tachibana Asahi and Yukimura Mizuki, who first know each other through their game usernames. Their first meeting is purely coincidental: random matchmaking places them in the same Lantern Quest session. No guild or mutual friend introduces them. Daichi only appears later as a player joining an open party.
 
@@ -128,7 +128,7 @@ Settings is a header utility. Lantern Quest and work conversations are nested st
 
 ### Example connected interaction
 
-Mizuki sends a work-in-progress sketch in Messages. Asahi can ask about it or offer to reschedule tonight's game. The image appears in Photos; an agreed schedule change appears in Calendar and changes the party conversation in Games. Optional context never becomes a hidden progression requirement.
+Mizuki sends a work-in-progress sketch in Messages. Asahi can ask about it or offer to reschedule tonight's game. The private image appears in Shared attachments; an agreed schedule change appears in Events and changes the party conversation in Games. Optional context never becomes a hidden progression requirement.
 
 ## 7. Messaging and meaningful choices
 
@@ -342,7 +342,7 @@ Settings and globally seen text live separately from playthrough state. Seen-tex
 | Explicit time gates | 37 generated presentation/flow nodes, separate from authored scenes |
 | Ending sequences | 8: 2 good, 2 bad, 2 neutral, 1 open, 1 secret |
 | Major decisions | 8, with expressive replies, repair opportunities and smaller commitments |
-| Draft words | Approximately 12,800 including replies and guidance across all paths |
+| Draft words | Approximately 11,400 including replies and guidance across all paths |
 | Earlier release-length target | 45,000–60,000 words and 3–4 hours per run; not delivered or verified by this compact first draft |
 
 The previous 44-scene proposal is superseded by a finer-grained 94-scene draft with the complete plot and all endings. Generated waiting nodes are explicit story-time boundaries, not additional authored scenes. See [the complete script](STORY-SCRIPT.md) and [implemented consequence map](STORY-CHOICES.md). Measure reading time and assess editorial expansion before treating the first draft as the release baseline. Reassess art/audio counts against the reviewed script.
@@ -351,7 +351,7 @@ The previous 44-scene proposal is superseded by a finer-grained 94-scene draft w
 
 **Each scene record must include:** Stable ID; chapter/day; participating characters; allowed app surfaces; entry condition; required context; line and choice IDs; state effects; attachment IDs; exit event; fallback for missing optional context; later callback references, path eligibility, excluded events, and a record of the major choice causing this scene.
 
-**Narrative runtime contract:** Content yields a message, a choice set, an app command, a wait-for-player interaction, a jump, or an end. Conditions read typed narrative state. Commands update it once through recorded event IDs. Presentation handles bubbles and transitions separately from story logic. The implemented JSON graph has stable IDs, conditional choices/lines, ordered destinations, conditional fact updates and once-only event effects. Source authoring lives in tools/build_content.py and tools/story_chapters.py.
+**Narrative runtime contract:** Content yields a message, a choice set, an app command, a wait-for-player interaction, a jump, or an end. Conditions read typed narrative state. Commands update it once through recorded event IDs. Presentation handles bubbles and transitions separately from story logic. The implemented JSON graph has stable IDs, conditional choices/lines, ordered destinations, conditional fact updates and once-only event effects. Native dialogue lives in content/dialogue/*.dialogue; scene requirements and consequences live in content/story.json. The build uses the upstream Dialogue Manager compiler.
 
 **Localization:** Stable string IDs from the first draft, separate speaker identities and display names, localized captions and image descriptions, no sentence assembly from fragments, flexible bubble height, and no player text embedded in art. Initial writing language is English; release languages are undecided.
 
@@ -426,3 +426,9 @@ Creator direction establishes a Japanese game, a male protagonist, a female love
 This master design uses the game-development router to select engine-neutral guidance from **visual-novel**, **dialogue-systems**, **game-ui-ux**, and **save-systems**: controlled branching, explicit consequences, a shared state model across screens, reading conveniences, and recoverable exact-position saving.
 
 This is a whole-game proposal rather than an approved per-system specification. Future system GDDs and the art bible should derive from reviewed decisions here. If a system changes a chapter, state rule, content budget, or ending condition, update this document and its choice ledger together.
+
+## Dialogue authoring
+
+Dialogue Manager v4.1.0 is pinned and bundled under its MIT license. Conversations are six native `.dialogue` files in `content/dialogue/`, editable in Godot's Dialogue tab. The custom mobile interface reads them through the addon's runtime. Stable `[ID:...]` keys preserve saved histories and outgoing drafts. Plot facts, response destinations and once-only consequences remain in `content/story.json`; cast details live in `content/characters.json`. Native predicates read state without changing it. Send and Later apply consequences. The build uses the upstream compiler, regenerates the review script/audit cache and replays all eight endings.
+
+The story opens on 23 October 2009 and continues into spring 2010. The fictional network retains the requested Sent/Read presentation. This is an original social app, not a claim about the exact features of Facebook in 2009. Public profiles show birthdays and selected interests; private motives stay in writer notes and character behavior. Zodiac signs are flavor details with no compatibility score.

@@ -1,0 +1,172 @@
+{
+  "Asahi": {
+    "name": "Tachibana Asahi",
+    "handle": "asahi",
+    "birthday": "1980-05-09",
+    "zodiac": "Taurus",
+    "age_at_opening": 29,
+    "city": "Tokyo, Japan",
+    "bio": "Usually online after work. Slowly losing a fight with my unread books.",
+    "interests": [
+      "used bookshops",
+      "rainy-window photography",
+      "co-op games"
+    ],
+    "favorites": {
+      "food": "curry rice with the onions cooked soft",
+      "drink": "canned black coffee",
+      "color": "faded navy",
+      "weather": "rain after the last train home",
+      "music": "quiet guitar records, usually the same CD twice"
+    },
+    "hobbies": [
+      "takes the long walk home to photograph windows",
+      "buys cheap paperbacks and forgets to finish them",
+      "cooks one reliable curry and experiments badly with everything else"
+    ],
+    "personality": "Patient with small problems. Quick to say yes when someone needs him. Worries that people will stop asking if he admits he is busy.",
+    "flaw": "Promises time he has already given away, then goes quiet while trying to fix both plans.",
+    "private_want": "To tell someone about an ordinary day without needing to have been useful first.",
+    "habit": "Types a joke, rereads it, then adds the thing he was avoiding. Keeps receipts as bookmarks.",
+    "voice": "Uses capitals and punctuation more than the others. Dry jokes, occasional lol. With Natsumi he can be blunt; with Mizuki he edits himself too much. Serious replies get shorter.",
+    "sample": "Home. Forgot to buy rice. My one reliable dinner has found a weakness.",
+    "public_photo": "city",
+    "photo_caption": "The building across from mine. Keep meaning to take this in daylight."
+  },
+  "Mizuki": {
+    "name": "Yukimura Mizuki",
+    "handle": "mizuki",
+    "birthday": "1986-03-08",
+    "zodiac": "Pisces",
+    "age_at_opening": 23,
+    "city": "Sapporo, Hokkaido",
+    "bio": "drawing windows. probably should look out of one.",
+    "interests": [
+      "illustration",
+      "old station buildings",
+      "short stories"
+    ],
+    "favorites": {
+      "food": "butter toast with too much honey",
+      "drink": "milk tea that has gone a little cold",
+      "color": "dusty pink",
+      "weather": "first snow before the pavements get slippery",
+      "music": "J-rock on headphones while drawing"
+    },
+    "hobbies": [
+      "sketches shop windows in a pocket notebook",
+      "looks for secondhand short-story collections",
+      "takes blurry photos of whatever she is making for lunch"
+    ],
+    "personality": "Curious and funny once she is comfortable. Notices small changes in people and drawings. Gets embarrassed when someone praises unfinished work.",
+    "flaw": "Says she is fine to keep a conversation easy, then gets irritated that nobody noticed she was tired.",
+    "private_want": "For someone to enjoy her company when she has no finished drawing or entertaining story to offer.",
+    "habit": "Sends the silly message first and the honest one a moment later. Keeps a kettle beside her desk and lets the tea go cold.",
+    "voice": "Mostly lowercase. btw, brb, lol, occasional u and :). Short follow-up messages. Drops the smileys when upset. She can say no without turning it into a speech.",
+    "sample": "brb tea. if i forget it's there again you have permission to laugh",
+    "public_photo": "city",
+    "photo_caption": "walked home the long way. fingers still cold."
+  },
+  "Natsumi": {
+    "name": "Natsumi",
+    "handle": "natsu",
+    "birthday": "1985-09-14",
+    "zodiac": "Virgo",
+    "age_at_opening": 24,
+    "city": "Tokyo, Japan",
+    "bio": "ink on the carpet again. taking cleaning advice.",
+    "interests": [
+      "printmaking",
+      "small exhibitions",
+      "cheap secondhand frames"
+    ],
+    "favorites": {
+      "food": "salty rice crackers during setup",
+      "drink": "hot coffee with more sugar than she admits",
+      "color": "mustard yellow",
+      "weather": "bright dry days for carrying prints",
+      "music": "fast pop songs while cleaning the studio"
+    },
+    "hobbies": [
+      "cuts little stamps from leftover printing material",
+      "keeps tickets from local exhibitions",
+      "hunts for frames nobody else wants"
+    ],
+    "personality": "Loud with old friends, shy when a stranger asks to buy her work. Knows what she likes and still underprices it.",
+    "flaw": "Asks for practical help when she really wants company. Lets annoyance build, then gets sharp.",
+    "private_want": "To have her work and her time taken seriously by people who knew her before she called herself an artist.",
+    "habit": "Sends three practical messages before admitting she is nervous. Calls Asahi out using a joke only they understand.",
+    "voice": "Capitals, clipped questions, occasional ALL CAPS and lol. Fast and specific. When hurt, stops joking and says exactly how long she waited.",
+    "sample": "Sunday. Two oclock. Wear something you can get ink on. Yes, that includes your nice shirt.",
+    "public_photo": "desk",
+    "photo_caption": "Test prints. The one on the left is meant to be crooked. Mostly."
+  },
+  "Daichi": {
+    "name": "Daichi",
+    "handle": "mossbyte",
+    "birthday": "1982-07-27",
+    "zodiac": "Leo",
+    "age_at_opening": 27,
+    "city": "Japan",
+    "bio": "mossbyte in Lantern Quest. wait at the bridge pls :)",
+    "interests": [
+      "co-op games",
+      "route maps",
+      "tiny model kits"
+    ],
+    "favorites": {
+      "food": "curry bread after a long shift",
+      "drink": "barley tea from a big bottle",
+      "color": "moss green",
+      "weather": "overcast weekends with no errands",
+      "music": "game soundtracks while assembling models"
+    },
+    "hobbies": [
+      "draws unnecessary maps for games he knows by heart",
+      "builds model kits slowly and loses the smallest parts",
+      "helps new players through early levels"
+    ],
+    "personality": "Friendly and eager to include people. Can explain a game mechanic six ways without getting annoyed. Hates telling a stranger that the party is full.",
+    "flaw": "Volunteers other people before asking them. Uses jokes when he should give someone a straight answer.",
+    "private_want": "A regular group that still shows up when he is too tired to organize it.",
+    "habit": "Types a cheerful greeting before every practical request. Has a handwritten route beside his keyboard.",
+    "voice": "hey, ppl, gtg, lol, :D. Longer instructions in party chat, shorter DMs. Goes plain and direct after he has made a mistake.",
+    "sample": "hey ppl, one run then gtg. do NOT trust the bridge. learned that twice :D",
+    "public_photo": "lantern",
+    "photo_caption": "Route notes. Big arrow means stop running into the water."
+  },
+  "Misaki": {
+    "name": "Misaki",
+    "handle": "misaki",
+    "birthday": "1980-01-12",
+    "zodiac": "Capricorn",
+    "age_at_opening": 29,
+    "city": "Japan",
+    "bio": "Moving boxes. If it is not labelled, it is probably books.",
+    "interests": [
+      "used furniture",
+      "paperback mysteries",
+      "cooking for visitors"
+    ],
+    "favorites": {
+      "food": "grilled rice balls with slightly burnt edges",
+      "drink": "strong green tea",
+      "color": "deep plum",
+      "weather": "cold clear mornings",
+      "music": "older pop records she knows every word to"
+    },
+    "hobbies": [
+      "repairs secondhand furniture until the repair costs too much",
+      "swaps mystery novels with her sister",
+      "makes extra food and sends people home with it"
+    ],
+    "personality": "Practical, observant and usually hard to fluster. Loves her sister and sometimes forgets that help can feel like supervision.",
+    "flaw": "Answers on Mizuki's behalf, then has to stop herself and ask. Disguises worry as advice about trains and meals.",
+    "private_want": "To finish her own move and be seen as someone with a life beyond being the sensible older sister.",
+    "habit": "Writes the time and address first. Tries to keep packing lists, then writes jokes in the margins.",
+    "voice": "Full words, proper capitals, short sentences. OK. Rare smileys. Dry humor comes out when she feels welcome. More casual with Mizuki than with a new acquaintance.",
+    "sample": "OK. Bring the book. Leave the soup. I have enough things to clean.",
+    "public_photo": "desk",
+    "photo_caption": "The shelf before I filled it. Briefly, I had space."
+  }
+}

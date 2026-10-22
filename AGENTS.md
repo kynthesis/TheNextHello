@@ -2,6 +2,9 @@
 
 - Build this game with Godot, focused on 2D and pixel art.
 - Present the game as a nostalgic mobile social app from Asahi's account, with our own identity inspired by early social-network UI and Emily is Away. Use a 414×896 portrait app canvas that scales uniformly; no desktop sidebars or copied Facebook branding.
+- Set the story in Japan from October 2009 into spring 2010. Use distinct, natural 2009-style English chats; character birthdays must preserve the established opening ages. Read design/CHARACTERS.md and content/characters.json for voices and preferences.
+- Author dialogue in content/dialogue/*.dialogue using the bundled Dialogue Manager. Keep stable IDs and read-only predicates; plot effects belong in content/story.json. Regenerate through tools/build_content.py and run tools/check.ps1.
+- Use the humanizer skill when writing or revising story prose and character profiles.
 - Support one standard text size only; do not add text-size settings or alternate text-scale layouts.
 - Keep exactly seven main sections: News Feed, Profile, Friends, Photos, Events, Messages and Requests. Profile is Asahi's account with statuses/comments/shares; Friends opens friends' profiles and their photos; Photos contains Asahi's own photos; Events holds story objectives; Messages contains DMs; Requests handles new friends. Settings is a header utility. Games, Work, Notes and Calendar remain internal save/story keys, not extra main sections.
 - Asahi and Mizuki meet coincidentally through random game matchmaking, with no guild or mutual-friend introduction. Daichi appears only later.

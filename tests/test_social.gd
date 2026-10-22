@@ -92,11 +92,11 @@ func load_scene_path(node: String) -> void:
 	var paths: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tests/story_paths.json"))
 	for fixture: Dictionary in paths:
 		if fixture.name != "node:" + node: continue
-		var run: RefCounted = phone.Story.new()
+		var run: RefCounted = await phone.Story.create()
 		for step: String in fixture.steps:
-			if step == "later": run.later()
-			else: run.draft(step); run.send()
-		phone.story.state = run.state
+			if step == "later": (await run.later())
+			else: run.draft(step); (await run.send())
+		phone.story = run
 		phone.story.reveal_all()
 		phone._open(phone.story.current().app)
 		await settle()
@@ -117,7 +117,7 @@ func _initialize() -> void:
 	legacy_settings.clear()
 	legacy_settings.load("user://settings.cfg")
 	check(not legacy_settings.has_section_key("reading", "scale"), "saving settings removes obsolete text-scale preference")
-	phone.story.reset()
+	(await phone.story.reset())
 	phone.reduce_motion = false
 	phone.instant_messages = true
 	root.size = Vector2i(414, 896)
@@ -146,6 +146,8 @@ func _initialize() -> void:
 	phone._open("Home")
 	await settle()
 	await tap_icon("ProfileTile")
+	check(has_label("Birthday: 1980-05-09 / Taurus"), "Asahi profile shows the authored birthday and sign")
+	check(not has_label(phone.story.characters.Asahi.private_want), "profile never exposes private writer notes")
 	check(phone.profile_view and has_label("Tachibana Asahi\nasahi / Tokyo, Japan"), "profile belongs to Asahi")
 	phone._open("Home")
 	await settle()
@@ -191,7 +193,7 @@ func _initialize() -> void:
 	press("Accept Mizuki")
 	await settle()
 	check("Mizuki" in phone.story.social().friends and phone.story.state.node == "first_dm", "accepting a request adds a friend without advancing story")
-	phone.story.reset()
+	(await phone.story.reset())
 	phone._open("Calendar")
 	await settle()
 	press("Continue in Lantern Quest  >")
@@ -247,7 +249,7 @@ func _initialize() -> void:
 		if resolution.x == 360: await capture("social_narrow")
 	phone._set_resolution(Vector2i(1120, 800))
 	await settle()
-	phone.story.reset()
+	(await phone.story.reset())
 	phone._open("Home")
 	# Four contacts are distinct threads; choosing history never progresses the story.
 	await load_scene_path("natsumi_invite")

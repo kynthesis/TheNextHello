@@ -1,0 +1,142 @@
+# The Next Hello / act 4
+# Stable IDs belong to saves. Change the wording, keep the IDs.
+# Story predicates are read-only; Send applies consequences in HelloStory.
+
+~ work_decision
+system: The days have edges [ID:work_decision.title]
+team: Need final layout checks on the 28th. You're asking for leave, so let's work this out now. [ID:work_decision.line.0]
+team: You can take the check and use January leave. You can ask for a Friday handoff if you finish the draft by Thursday. Or you can tell me you are still deciding. [ID:work_decision.line.1]
+asahi: If I promise Friday and miss Thursday, who has to pick it up? [ID:work_decision.line.2]
+team: Whoever is still here. They have weekend plans too. [ID:work_decision.line.3]
+system: Mizuki has offered the following weekend for an early visit. A completed Friday handoff would make it feasible; accepting the weekend check means proposing a later visit. [ID:work_decision.line.4]
+team: Check your dates and tell me which option. I need to put a name on the sheet. [ID:work_decision.line.5]
+- I'll finish the draft Thursday and do the handoff Friday. Please confirm the leave before I book. [ID:work_decision.reply.0]
+	=> END
+- I'll take the weekend check. I'll ask Mizuki about January. [ID:work_decision.reply.1]
+	=> END
+- Put me on the weekend check. I'll make the early visit work too. [ID:work_decision.reply.2]
+	=> END
+=> END
+
+~ work_adjusted
+system: The handoff [ID:work_adjusted.title]
+team: Draft received Thursday. Friday checks are done. Your leave is approved. [ID:work_adjusted.line.0]
+asahi: I am still finding errors in files I already checked. [ID:work_adjusted.line.1]
+team: Put the remaining errors in the handoff notes. We'll check them Monday. [ID:work_adjusted.line.2]
+system: Calendar records the approved dates. Nothing has been booked for either person yet. [ID:work_adjusted.line.3]
+team: The January project needs someone to plan the layouts. Interested? Your handoff notes were useful. [ID:work_adjusted.line.4]
+asahi: Let us talk about the actual workload before I say yes. [ID:work_adjusted.line.5]
+team: Fine. We'll go through the hours on Monday. [ID:work_adjusted.line.6]
+=> END
+
+~ work_kept
+system: The weekend he stayed [ID:work_kept.title]
+team: Thanks for the check. You found the missing export before it went out. [ID:work_kept.line.0]
+asahi: I wanted to be somewhere else today. I also agreed to do this. [ID:work_kept.line.1]
+team: Get the January leave request in today. Nothing else is booked yet. [ID:work_kept.line.2]
+system: You send Mizuki the available dates rather than a photograph of a booked ticket. She sends back three evenings she can actually keep. [ID:work_kept.line.3]
+team: Want to run the next review? We can go over the hours first. [ID:work_kept.line.4]
+asahi: Yeah. Let's look at the dates. [ID:work_kept.line.5]
+=> END
+
+~ work_broken
+system: Someone else stayed late [ID:work_broken.title]
+team: You said the check would be done before leaving. It wasn't. Someone else missed their train to finish it. [ID:work_broken.line.0]
+asahi: I thought I could do it on the way. The connection dropped and the export was wrong. [ID:work_broken.line.1]
+team: I am not arguing about the connection. You accepted two plans that needed the same hours. [ID:work_broken.line.2]
+system: Leave is deferred. The early visit is not booked. You complete a supervised handoff on Monday; the optional January project goes to someone else. [ID:work_broken.line.3]
+team: Tell me earlier next time. I could have found cover. [ID:work_broken.line.4]
+asahi: I'll apologize to them. I'll have the corrected handoff ready Monday. [ID:work_broken.line.5]
+=> END
+
+~ visit_plan
+system: A date is not a feeling [ID:visit_plan.title]
+mizuki: so. about coming here [ID:visit_plan.line.0]
+asahi: I'd get a hotel. We could just meet for an afternoon? [ID:visit_plan.line.1]
+mizuki: yes. want to see you. just a bit scared of planning a whole weekend [ID:visit_plan.line.2]
+system: Calendar shows Asahi's confirmed work commitments. A ticket will be booked only after both people have agreed to the visit. [ID:visit_plan.line.3]
+mizuki: january works too. or we can wait. please don't buy a ticket just because i brought it up [ID:visit_plan.line.4]
+mizuki: what do you want to do? [ID:visit_plan.line.5]
+- Leave's approved. December 5? An afternoon in Sapporo, and I'll get a hotel. [if choice_allowed("visit_plan.choice.0") /] [ID:visit_plan.reply.0]
+	=> END
+- January 16? Gives us time to sort things out before I come. [ID:visit_plan.reply.1]
+	=> END
+- Could we keep this online for now? I still want to know you. Just not ready to book a trip. [ID:visit_plan.reply.2]
+	=> END
+=> END
+
+~ early_arrival
+system: The last three minutes [ID:early_arrival.title]
+system: Travel folder: hotel confirmation, return ticket, and the station exit Mizuki suggested. [ID:early_arrival.line.0]
+mizuki: by the exit. gray coat. enormous scarf. tea [ID:early_arrival.line.1]
+asahi: There are three gray coats. Think I just waved at a vending machine. [ID:early_arrival.line.2]
+mizuki: good choice. very dependable [ID:early_arrival.line.3]
+asahi: Wait. Think I see you. [ID:early_arrival.line.4]
+mizuki: yeah. hi. sorry i'm still texting. come over? [ID:early_arrival.line.5]
+- Me too. Can I hug you when I get there, if you still want that? [ID:early_arrival.reply.0]
+	=> END
+- Hello first? We can walk a bit. I'm nervous too. [ID:early_arrival.reply.1]
+	=> END
+=> END
+
+~ early_afternoon
+system: A photograph with no landmark [ID:early_afternoon.title]
+mizuki: home. your receipt's in my pocket lol. why did i keep that [ID:early_afternoon.line.0]
+asahi: Evidence that I can buy a drink in person, after weeks of describing drinks by text. [ID:early_afternoon.line.1]
+system: Saved note: We asked before moving closer. Then we walked, took a wrong turn, and found a shop where neither of us knew what to order. I liked hearing her decide out loud. [ID:early_afternoon.line.2]
+mizuki: sorry i went quiet so much. easier to type than talk sometimes [ID:early_afternoon.line.3]
+asahi: I was trying not to explain every silence. I liked walking with you. [ID:early_afternoon.line.4]
+system: A shared photo is added to Photos: two cups on a scratched table, a scarf on the empty chair, no famous landmark. [ID:early_afternoon.line.5]
+mizuki: could do that again. just an afternoon. maybe longer next time? [ID:early_afternoon.line.6]
+=> END
+
+~ late_anticipation
+system: A weekend with a future date [ID:late_anticipation.title]
+mizuki: the station was full today. i caught myself looking for someone i know is not arriving until january. [ID:late_anticipation.line.0]
+asahi: Is that nice or awful? [ID:late_anticipation.line.1]
+mizuki: a little of both. i didn't want to send only the nice half. [ID:late_anticipation.line.2]
+system: Calendar: January 16. In Photos, our pictures still come from separate cities. I keep wondering what we will choose to photograph together. [ID:late_anticipation.line.3]
+mizuki: i asked for the afternoon off work. approved. have you checked your leave before we buy anything? [ID:late_anticipation.line.4]
+asahi: Yes. We can compare confirmations instead of treating the tickets like a surprise gift. [ID:late_anticipation.line.5]
+mizuki: okay good. send me yours and i'll send mine [ID:late_anticipation.line.6]
+=> END
+
+~ online_weekend
+system: An afternoon without a ticket [ID:online_weekend.title]
+mizuki: no station today. i wondered if i would be disappointed all afternoon. then i bought bread and thought i could tell you about that instead. [ID:online_weekend.line.0]
+asahi: I would like the bread report. [ID:online_weekend.line.1]
+mizuki: extremely detailed. potentially several paragraphs. [ID:online_weekend.line.2]
+system: Call transcript: we compare photographs from our kitchens, argue amiably about bread, then play one short garden encounter before dinner. [ID:online_weekend.line.3]
+mizuki: i still want to know if we will meet. i can live with not deciding today. i can't live with never being allowed to ask. [ID:online_weekend.line.4]
+asahi: We put the discussion in February. I won't pretend the reminder is a ticket. [ID:online_weekend.line.5]
+=> END
+
+~ wait__work_decision__0
+system: A reply, then a little time [ID:wait__work_decision__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__work_decision__0.line.0]
+=> END
+
+~ wait__work_decision__1
+system: A reply, then a little time [ID:wait__work_decision__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__work_decision__1.line.0]
+=> END
+
+~ wait__work_decision__2
+system: A reply, then a little time [ID:wait__work_decision__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__work_decision__2.line.0]
+=> END
+
+~ wait__visit_plan__0
+system: A reply, then a little time [ID:wait__visit_plan__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__visit_plan__0.line.0]
+=> END
+
+~ wait__visit_plan__1
+system: A reply, then a little time [ID:wait__visit_plan__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__visit_plan__1.line.0]
+=> END
+
+~ wait__visit_plan__2
+system: A reply, then a little time [ID:wait__visit_plan__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__visit_plan__2.line.0]
+=> END

@@ -1,0 +1,190 @@
+# The Next Hello / act 3
+# Stable IDs belong to saves. Change the wording, keep the IDs.
+# Story predicates are read-only; Send applies consequences in HelloStory.
+
+~ natsumi_invite
+system: The invitation that was already there [ID:natsumi_invite.title]
+natsumi: Sunday. Prints. You. Still coming? I FINALLY found hooks that fit. [ID:natsumi_invite.line.0]
+asahi: The famous hooks. I was starting to think they were a metaphor. [ID:natsumi_invite.line.1]
+natsumi: They were a week of my life. Please respect the medium. [ID:natsumi_invite.line.2]
+system: Calendar: the showcase overlaps with the Sunday afternoon Mizuki offered for a longer session. Both people are waiting for an answer. [ID:natsumi_invite.line.3]
+natsumi: Tell me now if you can't. I can find someone. Five minutes after we open is too late. [ID:natsumi_invite.line.4]
+natsumi: And stay for a bit, yeah? I want my friend there. You can put the ladder down. [ID:natsumi_invite.line.5]
+- I said I would be there. I will keep Sunday and ask Mizuki for another time. [ID:natsumi_invite.reply.0]
+	=> END
+- Can I hang the prints Saturday and stop by briefly Sunday? Would that help? [ID:natsumi_invite.reply.1]
+	=> END
+- I can do both. Keep me on the full Sunday shift; I will make the other plan fit. [ID:natsumi_invite.reply.2]
+	=> END
+=> END
+
+~ showcase
+system: The person on this side of the screen [ID:showcase.title]
+system: In Photos: Natsumi on a step stool, one print held sideways. Caption: "Do not let the artist measure things." [ID:showcase.line.0]
+natsumi: We sold two. Two whole people walked in and wanted something I made in their houses. [ID:showcase.line.1]
+asahi: Three, if your mother is allowed to buy the same print twice. [ID:showcase.line.2]
+natsumi: She is. I run a generous institution. [ID:showcase.line.3]
+natsumi: Glad you stayed. You looked about a mile away when you came in. Then you were here. [ID:showcase.line.4]
+system: Mizuki's message arrives after the showcase: "Thanks for moving our plan instead of disappearing from one. How did it go?" [ID:showcase.line.5]
+natsumi: Tell her hi. Now help me get these stupid hooks back out. [ID:showcase.line.6]
+=> END
+
+~ showcase_setup
+system: The alternative that happened [ID:showcase_setup.title]
+natsumi: Saturday setup was the right call. I could sleep last night instead of arguing with the hanging wire. [ID:showcase_setup.line.0]
+asahi: That is the first positive review of my knot work. [ID:showcase_setup.line.1]
+natsumi: Thanks for coming back today too. Half an hour worked. I just needed to know. [ID:showcase_setup.line.2]
+system: In the photo Natsumi sends, your jacket is visible behind the first visitor. Later, you join Mizuki at the time you agreed together. [ID:showcase_setup.line.3]
+natsumi: Kept a print for you. Your walls are depressing me. [ID:showcase_setup.line.4]
+asahi: My walls are frightened and grateful. [ID:showcase_setup.line.5]
+=> END
+
+~ showcase_missed
+system: An empty square on the floor [ID:showcase_missed.title]
+natsumi: I waited for forty minutes before asking the shop owner to help. I couldn't leave the table. [ID:showcase_missed.line.0]
+asahi: I lost track of the other session. I thought I could get across town faster. [ID:showcase_missed.line.1]
+natsumi: You knew the times clashed. You could've said no. I thought you were coming. [ID:showcase_missed.line.2]
+system: The showcase goes ahead without you. Its photograph arrives after closing; someone else stands where your ladder was meant to be. [ID:showcase_missed.line.3]
+natsumi: Can you pick up the boxes tomorrow? Please check first. I can't do this twice. [ID:showcase_missed.line.4]
+- Yes. Send me the collection time. I will decline the other plan before agreeing to this one. [ID:showcase_missed.reply.0]
+	=> END
+- I am not going to be available. I will pay the delivery fee and stop promising to turn up. [ID:showcase_missed.reply.1]
+	=> END
+=> END
+
+~ friend_repair
+system: The boxes [ID:friend_repair.title]
+system: You collect the boxes at the agreed time. Natsumi sends a photo of the empty storage corner. [ID:friend_repair.line.0]
+natsumi: Thanks. Boxes are in. Still annoyed about yesterday, but that helped. [ID:friend_repair.line.1]
+asahi: I was trying to be available to everyone without telling anyone what I could actually do. [ID:friend_repair.line.2]
+natsumi: Well, it was a crap plan. You know that now. [ID:friend_repair.line.3]
+natsumi: We're okay. Next time just tell me you can't come. I'll survive. [ID:friend_repair.line.4]
+system: She sends a photo of one print leaning against my door. I still need to buy a hook. [ID:friend_repair.line.5]
+=> END
+
+~ friend_distance
+system: A smaller circle [ID:friend_distance.title]
+natsumi: Delivery is arranged. Thank you for paying the fee. [ID:friend_distance.line.0]
+asahi: I don't want this to be the end of us talking. [ID:friend_distance.line.1]
+natsumi: It doesn't have to be. But I'm not asking you to help with the next event. I need to know I can run it without waiting. [ID:friend_distance.line.2]
+system: Natsumi keeps sending occasional ordinary messages. She stops asking you to share responsibility for her work. That change remains true later. [ID:friend_distance.line.3]
+natsumi: Go talk to her. Ring me sometime too, okay? I miss the idiot I used to get lunch with. [ID:friend_distance.line.4]
+=> END
+
+~ privacy_request
+system: The picture without permission [ID:privacy_request.title]
+mizuki: here's the draft. finally got it far enough to show someone [ID:privacy_request.line.0]
+system: Image description: a tram window reflected over a drawing of a small print shop. A client's draft name appears in one corner. [ID:privacy_request.line.1]
+mizuki: please don't post this anywhere. client's name is still on it. they haven't announced it yet [ID:privacy_request.line.2]
+mizuki: and that includes game chat, okay? i know daichi asked. this file's just for you [ID:privacy_request.line.3]
+system: Daichi has asked whether Mizuki might contribute an illustration to a public route guide. Sharing with a group would be publication, not a private compliment. [ID:privacy_request.line.4]
+- Could you make a separate version for the guide? This one stays private. Happy to check the caption with you and Misaki. [ID:privacy_request.reply.0]
+	=> END
+- I will keep it private. We can make the postcard just for ourselves. [ID:privacy_request.reply.1]
+	=> END
+- I will post this draft in the public game chat anyway. People should see how good it is. [ID:privacy_request.reply.2]
+	=> END
+=> END
+
+~ permission_granted
+system: The version she chose [ID:permission_granted.title]
+mizuki: use this one for the guide. client stuff's gone, different window. put my name on it pls :) [ID:permission_granted.line.0]
+misaki: Hi Asahi. She asked me to check the caption. Which file are you posting? [ID:permission_granted.line.1]
+asahi: Hello properly. I have also been checking that I understand which file is which. [ID:permission_granted.line.2]
+misaki: Good. Easy to mix them up. [ID:permission_granted.line.3]
+system: You publish only the approved image. The game guide credits Mizuki; the private draft remains in the private message attachments. [ID:permission_granted.line.4]
+mizuki: someone wants another drawing. told them maybe after my paid stuff. thanks for letting me answer [ID:permission_granted.line.5]
+misaki: She's got a deadline. Another drawing can wait. [ID:permission_granted.line.6]
+=> END
+
+~ approved_workshop
+system: A room she agreed to enter [ID:approved_workshop.title]
+mossbyte: right version's up. checked the credit too. we did it ppl :) [ID:approved_workshop.line.0]
+mizuki: an historic day for file management. [ID:approved_workshop.line.1]
+asahi: I will try not to let our success change me. [ID:approved_workshop.line.2]
+system: You and Mizuki run a small drawing-and-route workshop. New players add their own warning symbols to dangerous stones. [ID:approved_workshop.line.3]
+mizuki: lol the skulls are getting worse. glad i came [ID:approved_workshop.line.4]
+mossbyte: next one's up to you. won't put you down for it unless you say yes [ID:approved_workshop.line.5]
+=> END
+
+~ private_collection
+system: An audience of one [ID:private_collection.title]
+mizuki: thank you for not making me justify it twice. [ID:private_collection.line.0]
+asahi: Daichi can make the guide without this picture. It is still a good picture if no one else sees it. [ID:private_collection.line.1]
+mizuki: sometimes i forget that. work makes everything feel like a thing that should be posted when it is finished. [ID:private_collection.line.2]
+system: In Messages, the draft remains marked Private. No public workshop is scheduled. Instead, you exchange one unfinished page each. [ID:private_collection.line.3]
+mizuki: your page has a rice stain. [ID:private_collection.line.4]
+asahi: That is a separate collaboration with dinner. [ID:private_collection.line.5]
+mizuki: i like the part you drew before you tried to make it presentable. can we keep that too? [ID:private_collection.line.6]
+=> END
+
+~ private_second_page
+system: The things that do not get posted [ID:private_second_page.title]
+system: You open a shared call while Mizuki finishes the paid file. The unfinished pages stay in a two-person collection. [ID:private_second_page.line.0]
+mizuki: thought i'd feel bad about not posting it. kinda like having a drawing that's just ours [ID:private_second_page.line.1]
+asahi: We can open it when we want. Or not. [ID:private_second_page.line.2]
+mizuki: exactly. tell me one thing you made today that no one is going to applaud. [ID:private_second_page.line.3]
+asahi: A mostly successful lunch. A folder I can actually find things in. This time. [ID:private_second_page.line.4]
+mizuki: lol. told someone no today. then burnt the tea. one out of two [ID:private_second_page.line.5]
+=> END
+
+~ privacy_breach
+system: Where the file went [ID:privacy_breach.title]
+mizuki: daichi sent me the link. i asked you not to post that file. [ID:privacy_breach.line.0]
+asahi: I wanted people to see your work. I wasn't trying to hurt you. [ID:privacy_breach.line.1]
+mizuki: someone downloaded it. the client's name is on it, asahi. i have to email them now [ID:privacy_breach.line.2]
+system: The public workshop is canceled. Misaki does not join the planning chat. Deleting your message does not remove the copy someone saved. [ID:privacy_breach.line.3]
+mizuki: please don't contact the client. let me deal with this [ID:privacy_breach.line.4]
+mizuki: we'll talk later. i can't do both right now [ID:privacy_breach.line.5]
+=> END
+
+~ canceled_workshop
+system: The evening that did not happen [ID:canceled_workshop.title]
+mossbyte: took it down. asked the guy to delete his copy. can't tell if he did [ID:canceled_workshop.line.0]
+asahi: Can I join the workshop to explain? [ID:canceled_workshop.line.1]
+mossbyte: there isn't a workshop. she canceled. don't put her in front of everyone to explain this [ID:canceled_workshop.line.2]
+system: The game stays available, but the collaborative event does not. You run the garden alone; the route guide uses plain arrows instead of her drawing. [ID:canceled_workshop.line.3]
+mossbyte: she said keep it private. i should've checked with her before pinning it too [ID:canceled_workshop.line.4]
+asahi: I understand that more clearly now. [ID:canceled_workshop.line.5]
+mossbyte: tell her what you've taken down. then give her some room [ID:canceled_workshop.line.6]
+=> END
+
+~ wait__natsumi_invite__0
+system: A reply, then a little time [ID:wait__natsumi_invite__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__natsumi_invite__0.line.0]
+=> END
+
+~ wait__natsumi_invite__1
+system: A reply, then a little time [ID:wait__natsumi_invite__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__natsumi_invite__1.line.0]
+=> END
+
+~ wait__natsumi_invite__2
+system: A reply, then a little time [ID:wait__natsumi_invite__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__natsumi_invite__2.line.0]
+=> END
+
+~ wait__showcase_missed__0
+system: A reply, then a little time [ID:wait__showcase_missed__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__showcase_missed__0.line.0]
+=> END
+
+~ wait__showcase_missed__1
+system: A reply, then a little time [ID:wait__showcase_missed__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__showcase_missed__1.line.0]
+=> END
+
+~ wait__privacy_request__0
+system: A reply, then a little time [ID:wait__privacy_request__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__privacy_request__0.line.0]
+=> END
+
+~ wait__privacy_request__1
+system: A reply, then a little time [ID:wait__privacy_request__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__privacy_request__1.line.0]
+=> END
+
+~ wait__privacy_request__2
+system: A reply, then a little time [ID:wait__privacy_request__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__privacy_request__2.line.0]
+=> END

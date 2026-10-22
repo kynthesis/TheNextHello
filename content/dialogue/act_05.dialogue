@@ -1,0 +1,334 @@
+# The Next Hello / act 5
+# Stable IDs belong to saves. Change the wording, keep the IDs.
+# Story predicates are read-only; Send applies consequences in HelloStory.
+
+~ return_tokyo
+system: The room after the train [ID:return_tokyo.title]
+mizuki: home? [ID:return_tokyo.line.0]
+asahi: Yeah. Haven't unpacked. [ID:return_tokyo.line.1]
+mizuki: found your receipt again. was going to throw it out [ID:return_tokyo.line.2]
+asahi: Did you? [ID:return_tokyo.line.3]
+mizuki: no. stupid isn't it. yesterday i could just look up and you were there [ID:return_tokyo.line.4]
+system: Photos: our two cups. I open it again before answering. [ID:return_tokyo.line.5]
+mizuki: glad you came. just having a bit of a night. you don't have to fix it [ID:return_tokyo.line.6]
+=> END
+
+~ january_preparation
+system: What a ticket cannot say [ID:january_preparation.title]
+mizuki: i made a list of places. then crossed out half because i was designing an advertisement for my city instead of an afternoon with you. [ID:january_preparation.line.0]
+asahi: I would like a place to sit down. Strong contender for first place. [ID:january_preparation.line.1]
+mizuki: revolutionary. i can offer several chairs. [ID:january_preparation.line.2]
+system: You compare the actual travel confirmation and an agreed hotel. Neither booking changes relationship mode or implies physical intimacy. [ID:january_preparation.line.3]
+mizuki: what if we meet and it's weird? still glad we tried. just wanted to say that now [ID:january_preparation.line.4]
+asahi: Same. We can figure out what we think afterward. [ID:january_preparation.line.5]
+=> END
+
+~ distance_agreement
+system: The question that stays [ID:distance_agreement.title]
+mizuki: someone asked me if i've met you. i said not yet, then wondered if i was promising something neither of us has promised. [ID:distance_agreement.line.0]
+asahi: Would "not so far" be more honest? [ID:distance_agreement.line.1]
+mizuki: less pretty. more honest. i don't mind the distance tonight. i mind not knowing which parts i'm meant to wait for. [ID:distance_agreement.line.2]
+system: Saved note: We have a plan for February: talk honestly about travel. Until then, the screen is where we meet. I need to know what we are each expecting from it. [ID:distance_agreement.line.3]
+mizuki: in february can we actually talk about dates? even if the answer's still no. just don't want to keep guessing [ID:distance_agreement.line.4]
+asahi: Yeah. I'll make time for it. [ID:distance_agreement.line.5]
+=> END
+
+~ conflict_check
+system: The conversation we owe [ID:conflict_check.title]
+mizuki: hey. can we talk about something? keep putting this off [ID:conflict_check.line.0]
+asahi: Yeah. I'm here. [ID:conflict_check.line.1]
+mizuki: let me finish first? please [ID:conflict_check.line.2]
+system: Saved note: I scrolled back before answering. I had remembered the explanation I wanted to give more clearly than the words she actually sent. [ID:conflict_check.line.3]
+=> END
+
+~ privacy_repair
+system: Intent is the beginning of the explanation [ID:privacy_repair.title]
+mizuki: client accepted the correction. spent most of yesterday sorting it out [ID:privacy_repair.line.0]
+asahi: I wanted people to see how good it was. I know. You asked me not to. [ID:privacy_repair.line.1]
+mizuki: i did. that's what i keep coming back to. i actually said it [ID:privacy_repair.line.2]
+mizuki: i'm not doing the workshop. even if we're okay later. please don't ask again [ID:privacy_repair.line.3]
+system: The canceled workshop remains canceled. Repair can open a different private activity; it cannot rewrite the public download. [ID:privacy_repair.line.4]
+- You told me not to share it. I did anyway. I'll send you the list of what I removed, and ask first from now on. [ID:privacy_repair.reply.0]
+	=> END
+- Can we talk Thursday? I won't share anything or contact the client while we take a break. [ID:privacy_repair.reply.1]
+	=> END
+- I was trying to help. I'm done apologizing for it. [ID:privacy_repair.reply.2]
+	=> END
+=> END
+
+~ promise_repair
+system: The cost of being reassuring [ID:promise_repair.title]
+mizuki: when you said the work weekend and our weekend were both fine, i made plans around it. then someone else stayed late and i canceled an afternoon i could have used. [ID:promise_repair.line.0]
+asahi: I wanted to be the person who could make both things work. [ID:promise_repair.line.1]
+mizuki: but i cleared the afternoon. i thought you'd checked [ID:promise_repair.line.2]
+mizuki: just tell me if you can't. before i turn down something else, please [ID:promise_repair.line.3]
+- I'll check the times before saying yes. If something changes, I'll tell you before I change the plan. [ID:promise_repair.reply.0]
+	=> END
+- Can we stop planning till Thursday? I keep saying yes before I've checked anything. [ID:promise_repair.reply.1]
+	=> END
+- I was busy. I've explained it. I'm not doing this again. [ID:promise_repair.reply.2]
+	=> END
+=> END
+
+~ expectations_talk
+system: No villain in the conversation [ID:expectations_talk.title]
+mizuki: nothing bad happened. sorry, that sounded ominous [ID:expectations_talk.line.0]
+mizuki: sometimes i open a message and then go do something. been feeling like i should explain every time [ID:expectations_talk.line.1]
+asahi: I do stare at the Read thing. More than I'd like to admit. [ID:expectations_talk.line.2]
+mizuki: sometimes it's literally just the kettle. or misaki calling [ID:expectations_talk.line.3]
+mizuki: i want to talk to you. just can't always be a whole conversation right then. can that be okay? [ID:expectations_talk.line.4]
+- Let's confirm calls. Normal messages can wait till we're free. I'll stop chasing the Read thing. [ID:expectations_talk.reply.0]
+	=> END
+- Could we take a few quiet days and talk Thursday? Need to get used to this without checking every five minutes. [ID:expectations_talk.reply.1]
+	=> END
+- If you care, you can answer when I'm waiting. That's what I need. [ID:expectations_talk.reply.2]
+	=> END
+=> END
+
+~ agreed_space
+system: Thursday means Thursday [ID:agreed_space.title]
+system: Calendar reminder: Thursday, 19:30. The quiet days we agreed to are over. I want to return when I said I would. [ID:agreed_space.line.0]
+mizuki: hi. thursday [ID:agreed_space.line.1]
+asahi: Hi. Almost messaged you yesterday. Didn't know what to do with the evening. [ID:agreed_space.line.2]
+mizuki: what did you end up doing? [ID:agreed_space.line.3]
+asahi: Cooked. Called Natsumi. Did the work I'd been avoiding. Pretty ordinary. [ID:agreed_space.line.4]
+mizuki: ordinary sounds good. what did you cook? [ID:agreed_space.line.5]
+=> END
+
+~ repair_action
+system: Something smaller than a speech [ID:repair_action.title]
+system: Asahi writes the agreement in Notes: confirm shared plans, ask before sharing, and let an ordinary reply arrive without treating its timing as proof of love. [ID:repair_action.line.0]
+mizuki: read it. okay. can we change it if it doesn't work? don't want to make another thing to argue about [ID:repair_action.line.1]
+asahi: Yeah. Say so if it stops working. I will too. [ID:repair_action.line.2]
+mizuki: still a bit upset. i do want to try though [ID:repair_action.line.3]
+system: She sends a cup of tea. I put the photo in our private attachments. The canceled workshop stays off the calendar. [ID:repair_action.line.4]
+mizuki: here is today's cup. the tea was bad. you may tell absolutely no one about my sophisticated taste. [ID:repair_action.line.5]
+asahi: Private archive. Critically important evidence. [ID:repair_action.line.6]
+=> END
+
+~ last_repair_offer
+system: A second chance to hear it [ID:last_repair_offer.title]
+mizuki: waited till thursday. didn't want to leave it how we left it [ID:last_repair_offer.line.0]
+mizuki: i meant what i said. i need you to listen when i say no. and i can't be here every time you want to talk [ID:last_repair_offer.line.1]
+mizuki: if you want to talk about what you can change, i'm willing to listen. if you don't, i'm going to end this here. [ID:last_repair_offer.line.2]
+asahi: You mean that. [ID:last_repair_offer.line.3]
+mizuki: yes. i'm tired, asahi. i can't keep explaining it [ID:last_repair_offer.line.4]
+- I heard a demand when you were explaining a need. I want to talk about what I can change. [ID:last_repair_offer.reply.0]
+	=> END
+- No. I'm not changing this. You need to accept it. [ID:last_repair_offer.reply.1]
+	=> END
+=> END
+
+~ kept_agreement
+system: A quiet answer [ID:kept_agreement.title]
+mizuki: i missed the optional check-in yesterday. i sent a message beforehand and went to bed. [ID:kept_agreement.line.0]
+asahi: I saw it. I played one run and went out for groceries. The tomatoes were more expensive than my optimism. [ID:kept_agreement.line.1]
+mizuki: thanks for not making it a thing. i just needed sleep [ID:kept_agreement.line.2]
+asahi: I missed you. I also managed to have a Saturday. Both survived. [ID:kept_agreement.line.3]
+mizuki: still up for our usual thing tonight? if you're around [ID:kept_agreement.line.4]
+system: They look at the small things they have chosen to share, and decide what they want to keep doing. [ID:kept_agreement.line.5]
+- Yeah. Keep it when we can. Just say if you're tired. [if choice_allowed("kept_agreement.choice.0") /] [ID:kept_agreement.reply.0]
+	=> END
+- Tonight is enough. I would rather ask each time than keep a standing ritual. [ID:kept_agreement.reply.1]
+	=> END
+=> END
+
+~ natsumi_return
+system: A friend with her own January [ID:natsumi_return.title]
+natsumi: I got a little residency for January. Not abroad. Two train stops away. I am still telling everyone as though I have been selected to live on the moon. [ID:natsumi_return.line.0]
+asahi: The moon has less convenient lunch. [ID:natsumi_return.line.1]
+natsumi: Exactly. I chose wisely. [ID:natsumi_return.line.2]
+natsumi: Tell me about her in a minute. Let me have my big news first lol. [ID:natsumi_return.line.3]
+asahi: Tell me what you are making. [ID:natsumi_return.line.4]
+natsumi: Bigger prints. I was going to pretend it was a grand artistic decision. Mostly I want to stop apologizing for how much wall they need. [ID:natsumi_return.line.5]
+system: Natsumi's next offer depends on the showcase agreement. A repaired friendship can support a new invitation; an unrepaired absence does not earn one automatically. [ID:natsumi_return.line.6]
+=> END
+
+~ friend_confidant
+system: An invitation without a ladder [ID:friend_confidant.title]
+natsumi: Come see it when I get the key. No ladder this time. Just lunch. [ID:friend_confidant.line.0]
+asahi: I will check the date and answer properly. That sentence is becoming a personality trait. [ID:friend_confidant.line.1]
+natsumi: Better than disappearing optimistically. [ID:friend_confidant.line.2]
+asahi: Think I'm in love with her. Don't really know what to do about the distance. [ID:friend_confidant.line.3]
+natsumi: Ask her. I can listen, but I can't read her mind for you. [ID:friend_confidant.line.4]
+natsumi: And if you want something different, say it while there is still a conversation to have. [ID:friend_confidant.line.5]
+=> END
+
+~ friend_update
+system: News rather than a favor [ID:friend_update.title]
+natsumi: Got the studio key next week. Already booked help with the boxes. Wanted to tell you anyway. [ID:friend_update.line.0]
+asahi: I am glad it is happening. I know I made it harder to ask me for things. [ID:friend_update.line.1]
+natsumi: Yeah. I booked someone else because I needed it sorted. [ID:friend_update.line.2]
+natsumi: We can still get lunch. You can tell me how to hang the menu straight. [ID:friend_update.line.3]
+system: Saved note: Natsumi has arranged the move without me. We still talk. She has stopped building her plans around my answer, and I know why. [ID:friend_update.line.4]
+=> END
+
+~ relationship
+system: The name of this [ID:relationship.title]
+mizuki: misaki asked who i was smiling at. said a friend [ID:relationship.line.0]
+asahi: Natsumi's asked about you too. [ID:relationship.line.1]
+mizuki: i like you, asahi. as more than that. there. sent it [ID:relationship.line.2]
+mizuki: you don't have to say it back. would rather know if we're imagining different things. might need a day though [ID:relationship.line.3]
+mizuki: even if this is where we stop. i'm glad we met [ID:relationship.line.4]
+- I like you too. More than friends. Can we try this? [ID:relationship.reply.0]
+	=> END
+- I care about you. But for me it's friendship. Sorry. Should've said that sooner. [ID:relationship.reply.1]
+	=> END
+- I think we want different things. I should say goodbye instead of keeping you waiting. [ID:relationship.reply.2]
+	=> END
+=> END
+
+~ romantic_date
+system: A date, with a declared budget for awkwardness [ID:romantic_date.title]
+mizuki: changed my shirt twice. you can't even see it. anyway. hi [ID:romantic_date.line.0]
+asahi: Hi. Got dinner. Actual plate and everything. [ID:romantic_date.line.1]
+system: Date transcript: We compare the views from our windows, put dinner beside the call, and start the same short film. I hear her laugh before I understand the joke. [ID:romantic_date.line.2]
+mizuki: you still watching? [ID:romantic_date.line.3]
+asahi: Is it meant to be this much corridor? [ID:romantic_date.line.4]
+mizuki: oh thank god. thought it was just me [ID:romantic_date.line.5]
+mizuki: terrible film. good date though [ID:romantic_date.line.6]
+system: They agree to exclusivity and to discuss changes directly. Neither person promises constant availability or access to private accounts. [ID:romantic_date.line.7]
+=> END
+
+~ friend_activity
+system: A different invitation [ID:friend_activity.title]
+mizuki: i needed yesterday to be quiet. i wasn't trying to make you change your answer. [ID:friend_activity.line.0]
+asahi: Okay. Want to do something, or leave it another day? [ID:friend_activity.line.1]
+mizuki: a game? as friends. need you to mean that bit too [ID:friend_activity.line.2]
+system: Saved screenshot: two lanterns beside the safe bank. We played as friends, after saying that was what we both wanted. [ID:friend_activity.line.3]
+mizuki: anyway. bought a new sketchbook. same paper i always buy. exciting news here lol [ID:friend_activity.line.4]
+asahi: Very exciting. What colour this time? [ID:friend_activity.line.5]
+mizuki: pink again. obviously. cmon, new player's about to fall in [ID:friend_activity.line.6]
+=> END
+
+~ local_dinner
+system: The print on his wall [ID:local_dinner.title]
+natsumi: Photograph received. The print is nearly level. I am choosing to call that a creative decision. [ID:local_dinner.line.0]
+asahi: I checked the wall with a book because I still do not own a spirit level. [ID:local_dinner.line.1]
+natsumi: The same book that saved the noodles? Your library has an impressive practical career. [ID:local_dinner.line.2]
+system: Dinner messages. Asahi puts the phone down while Natsumi describes the studio. Afterward he sends Mizuki the promised update, instead of trying to conduct both conversations at once. [ID:local_dinner.line.3]
+natsumi: Thanks for dinner. Forgot how much you hate my sweet coffee lol. [ID:local_dinner.line.4]
+asahi: That was coffee? Thought you'd found a way to melt a biscuit. [ID:local_dinner.line.5]
+=> END
+
+~ studio_lunch
+system: The other side of an honest alternative [ID:studio_lunch.title]
+natsumi: Free for lunch? Want you to pick some prints with me. Just an hour. [ID:studio_lunch.line.0]
+asahi: Tell me what you need before I invent a heroic answer. [ID:studio_lunch.line.1]
+natsumi: Pick the first ones to go up. Building's doing the hanging. You can eat and have opinions. [ID:studio_lunch.line.2]
+system: She sends the contact sheet. I choose two prints with big empty spaces. She crosses one out and circles another. We argue about it over lunch. [ID:studio_lunch.line.3]
+natsumi: Preview's Friday. I'll send a photo. Thanks, that helped. [ID:studio_lunch.line.4]
+=> END
+
+~ studio_preview
+system: The room she chose [ID:studio_preview.title]
+system: Photos: a new studio wall, the selected large print hung over a battered table. The picture Asahi suggested and Natsumi chose is visible beside her own work. [ID:studio_preview.line.0]
+natsumi: No ladder emergency. I have become dangerously organized. [ID:studio_preview.line.1]
+asahi: I like the empty part of the wall. It looks as though you expect to make more things. [ID:studio_preview.line.2]
+natsumi: I do. It took me a long time to admit that without apologizing for the space. [ID:studio_preview.line.3]
+natsumi: Photo's crooked because I took it. Before you say anything. [ID:studio_preview.line.4]
+=> END
+
+~ licensed_update
+system: A use she approved [ID:licensed_update.title]
+mizuki: someone wants to print the guide for an event. asked if that's okay. nice to be asked first lol [ID:licensed_update.line.0]
+misaki: She asked me to check the caption again. I have apparently got a job. [ID:licensed_update.line.1]
+asahi: Do you want to approve it, decline it, or ask what they are actually printing? [ID:licensed_update.line.2]
+mizuki: i asked for the layout and a credit. they sent both. i said yes to this version. [ID:licensed_update.line.3]
+system: The approved print event happens without the private client draft. Mizuki sends a photograph of the credited guide; she chose the audience and the use. [ID:licensed_update.line.4]
+misaki: Credit's there. Picture is the right one. Looks fine to me. [ID:licensed_update.line.5]
+=> END
+
+~ private_update
+system: A collection with a door [ID:private_update.title]
+mizuki: paid version's finished. can you take the early work draft out of our folder now? [ID:private_update.line.0]
+asahi: Done. The postcard can stay if you still want it here. [ID:private_update.line.1]
+mizuki: yes, keep the postcard :) just wanted the work file out [ID:private_update.line.2]
+system: Shared attachments: work draft withdrawn from the shared collection at Mizuki's request. The postcard remains in our private folder. [ID:private_update.line.3]
+mizuki: looked at that postcard again. think the rice stain's grown on me [ID:private_update.line.4]
+=> END
+
+~ boundary_followthrough
+system: The permission that is still not there [ID:boundary_followthrough.title]
+mizuki: saw the list. thanks for checking those posts were gone [ID:boundary_followthrough.line.0]
+asahi: Okay. Won't ask for more work pictures. [ID:boundary_followthrough.line.1]
+mizuki: good. no work files for now. can send my lunch if you want [ID:boundary_followthrough.line.2]
+system: I leave the work folder closed and open her lunch photo. The workshop is still canceled. [ID:boundary_followthrough.line.3]
+asahi: Your lunch has a very confident amount of cabbage. [ID:boundary_followthrough.line.4]
+mizuki: lol. fine. review my cabbage. leave the drawings alone tonight [ID:boundary_followthrough.line.5]
+=> END
+
+~ wait__privacy_repair__0
+system: A reply, then a little time [ID:wait__privacy_repair__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__privacy_repair__0.line.0]
+=> END
+
+~ wait__privacy_repair__1
+system: A reply, then a little time [ID:wait__privacy_repair__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__privacy_repair__1.line.0]
+=> END
+
+~ wait__privacy_repair__2
+system: A reply, then a little time [ID:wait__privacy_repair__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__privacy_repair__2.line.0]
+=> END
+
+~ wait__promise_repair__0
+system: A reply, then a little time [ID:wait__promise_repair__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__promise_repair__0.line.0]
+=> END
+
+~ wait__promise_repair__1
+system: A reply, then a little time [ID:wait__promise_repair__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__promise_repair__1.line.0]
+=> END
+
+~ wait__promise_repair__2
+system: A reply, then a little time [ID:wait__promise_repair__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__promise_repair__2.line.0]
+=> END
+
+~ wait__expectations_talk__0
+system: A reply, then a little time [ID:wait__expectations_talk__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__expectations_talk__0.line.0]
+=> END
+
+~ wait__expectations_talk__1
+system: A reply, then a little time [ID:wait__expectations_talk__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__expectations_talk__1.line.0]
+=> END
+
+~ wait__expectations_talk__2
+system: A reply, then a little time [ID:wait__expectations_talk__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__expectations_talk__2.line.0]
+=> END
+
+~ wait__last_repair_offer__0
+system: A reply, then a little time [ID:wait__last_repair_offer__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__last_repair_offer__0.line.0]
+=> END
+
+~ wait__kept_agreement__0
+system: A reply, then a little time [ID:wait__kept_agreement__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__kept_agreement__0.line.0]
+=> END
+
+~ wait__kept_agreement__1
+system: A reply, then a little time [ID:wait__kept_agreement__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__kept_agreement__1.line.0]
+=> END
+
+~ wait__relationship__0
+system: A reply, then a little time [ID:wait__relationship__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__relationship__0.line.0]
+=> END
+
+~ wait__relationship__1
+system: A reply, then a little time [ID:wait__relationship__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__relationship__1.line.0]
+=> END
+
+~ wait__relationship__2
+system: A reply, then a little time [ID:wait__relationship__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__relationship__2.line.0]
+=> END

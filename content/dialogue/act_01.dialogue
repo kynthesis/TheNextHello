@@ -1,0 +1,78 @@
+# The Next Hello / act 1
+# Stable IDs belong to saves. Change the wording, keep the IDs.
+# Story predicates are read-only; Send applies consequences in HelloStory.
+
+~ invite
+system: 01 / A chance encounter [ID:invite.title]
+system: Random matchmaking pairs you with mizuki for a garden run. You have never met. [ID:invite.line.0]
+mizuki: hey :) first time in this garden? [ID:invite.line.1]
+mizuki: i can take the lantern if u watch the path? [ID:invite.line.2]
+- Deal. Slow and steady. I'd like to see the garden. [ID:invite.reply.0]
+	=> END
+- I'll take the lantern. You can stop me walking into things. [ID:invite.reply.1]
+	=> END
+=> END
+
+~ bridge
+system: The crooked bridge [ID:bridge.title]
+system: A stone bridge crosses the dark water. A second lantern flickers on the far bank. [ID:bridge.line.0]
+mizuki: shortcut should be fine lol [ID:bridge.line.1]
+mizuki: i did fall in last time. should probably mention that [ID:bridge.line.2]
+- Let's light the stepping stones. I'll wait for you. [ID:bridge.reply.0]
+	=> END
+- Want to try the bridge together? We can be damp legends. [ID:bridge.reply.1]
+	=> END
+=> END
+
+~ splash
+system: A small detour [ID:splash.title]
+system: The bridge folds into the water. Two tiny characters respawn under the same leaf. [ID:splash.line.0]
+mizuki: okay. nice leaf though [ID:splash.line.1]
+system: You save a screenshot of the two of you under the leaf. [ID:splash.line.2]
+- Next time, we take the stones. Keeping the screenshot though. [ID:splash.reply.0]
+	=> END
+=> END
+
+~ first_dm
+system: A new conversation [ID:first_dm.title]
+system: Lantern garden screenshot added to Photos. A private message arrives from mizuki. [ID:first_dm.line.0]
+mizuki: thanks for waiting btw. everyone else just runs off [ID:first_dm.line.1]
+mizuki: mizuki. sapporo. brb fighting a noodle lid [ID:first_dm.line.2]
+- Asahi. Tokyo. Put a book on it. My unread pile finally has a job. [ID:first_dm.reply.0]
+	=> END
+- Asahi. Tokyo. lol. Big evening for both of us. [ID:first_dm.reply.1]
+	=> END
+=> END
+
+~ night
+system: A little after eleven [ID:night.title]
+mizuki: back. lid defeated :) hi asahi [ID:night.line.0]
+mizuki: i draw for work. six versions of the same window today. needed to look at something else [ID:night.line.1]
+mizuki: you playing again this weekend? or we could do something else. if you want [ID:night.line.2]
+- Another garden run this weekend? We could play together again. [ID:night.reply.0]
+	=> END
+- Want to swap window photos? Maybe make something small together. [ID:night.reply.1]
+	=> END
+- Want to call sometime? When neither of us is busy. [ID:night.reply.2]
+	=> END
+=> END
+
+~ guild_agreed
+system: One more party [ID:guild_agreed.title]
+mizuki: yes. maybe open a small party? as long as we get to play together. [ID:guild_agreed.line.0]
+system: Saturday's garden run is in Calendar. You and Mizuki will open a public party together. [ID:guild_agreed.line.1]
+=> END
+
+~ private_agreed
+system: Two windows [ID:private_agreed.title]
+mizuki: i'd like that. two cities, two windows. maybe a little illustrated postcard? [ID:private_agreed.line.0]
+mizuki: just between us for now. rough work makes me shy. [ID:private_agreed.line.1]
+system: A private photo exchange is in Calendar. Mizuki will send her desk photo tomorrow. [ID:private_agreed.line.2]
+=> END
+
+~ lives_agreed
+system: Beyond the username [ID:lives_agreed.title]
+mizuki: a call sounds good. sunday afternoon? my sister's helping me move a shelf saturday. [ID:lives_agreed.line.0]
+mizuki: fair warning: my everyday life contains a lot of arguing with furniture. [ID:lives_agreed.line.1]
+system: Sunday's call is in Calendar. Tomorrow, check your work schedule before confirming. [ID:lives_agreed.line.2]
+=> END

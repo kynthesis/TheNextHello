@@ -1,0 +1,246 @@
+# The Next Hello / act 6
+# Stable IDs belong to saves. Change the wording, keep the IDs.
+# Story predicates are read-only; Send applies consequences in HelloStory.
+
+~ career_followup
+system: The work that continued [ID:career_followup.title]
+team: January schedule's ready. Have a look before I assign the next layouts. [ID:career_followup.line.0]
+asahi: I have put my existing commitments in the availability sheet. I want to say what time is real before we fill it. [ID:career_followup.line.1]
+team: Good. I'll work around those evenings. [ID:career_followup.line.2]
+system: Saved note: I opened the work thread before answering another invitation. I want to know which hours are mine to offer. [ID:career_followup.line.3]
+team: Finish your current piece first. Ask if you need another pair of eyes. [ID:career_followup.line.4]
+=> END
+
+~ project_meeting
+system: A small project of his own [ID:project_meeting.title]
+team: You're planning the print layouts. Review Wednesday, if you want it. Keep the evenings you booked off. [ID:project_meeting.line.0]
+asahi: Wednesday review, Friday delivery, two evenings unavailable. I have checked before offering the dates. [ID:project_meeting.line.1]
+team: Fine. Put it on the sheet. [ID:project_meeting.line.2]
+system: Draft after work: I have a little project of my own to plan. I want to tell you about it. I am excited in a way I had almost forgotten to be. [ID:project_meeting.line.3]
+asahi: Actually excited about this one. I'll show you when I've got something. [ID:project_meeting.line.4]
+=> END
+
+~ supervised_review
+system: The task he still has [ID:supervised_review.title]
+team: Review finished. The missing files are back where the next person can find them. [ID:supervised_review.line.0]
+asahi: Got it. I know the other project went to someone else. [ID:supervised_review.line.1]
+team: Thank you. There will be another project. This one needed a plan at the time. [ID:supervised_review.line.2]
+system: Saved note: The review is done. The project went to someone else when it needed a plan. I cannot finish a different task and call that week undone. [ID:supervised_review.line.3]
+asahi: I did something useful today. It wasn't the impressive version I imagined, but it happened. [ID:supervised_review.line.4]
+=> END
+
+~ mizuki_offer
+system: Her answer to her own question [ID:mizuki_offer.title]
+mizuki: said yes to the otaru job. two days there, rest from home. just sent the email [ID:mizuki_offer.line.0]
+asahi: How do you feel now that you have said yes? [ID:mizuki_offer.line.1]
+mizuki: happy. scared lol. hope you're not upset i decided before we talked [ID:mizuki_offer.line.2]
+mizuki: i do want the job. don't want you moving here just to make it work either. can we figure out the time? [ID:mizuki_offer.line.3]
+system: Calendar: her workdays beside mine. She has already chosen the job. The question she asked me is what I can offer alongside it. [ID:mizuki_offer.line.4]
+mizuki: what can we actually manage? please check before saying every weekend [ID:mizuki_offer.line.5]
+- Keep the job. I want to keep mine too. Let's work out some dates we can manage. [ID:mizuki_offer.reply.0]
+	=> END
+- I'd like to keep our Saturday thing in the plan. When we're both free, same as before. [if choice_allowed("mizuki_offer.choice.1") /] [ID:mizuki_offer.reply.1]
+	=> END
+- I still don't know what I can promise. Could we leave it open? You don't have to wait for me. [ID:mizuki_offer.reply.2]
+	=> END
+- Take the job. I don't think I can make this work, and I shouldn't keep you waiting. [ID:mizuki_offer.reply.3]
+	=> END
+- I'll take the extra work. And every weekend with you. I can do both this time. Trust me. [if choice_allowed("mizuki_offer.choice.4") /] [ID:mizuki_offer.reply.4]
+	=> END
+=> END
+
+~ future_agreed
+system: A plan with space around it [ID:future_agreed.title]
+mizuki: two evenings a month. message when we can. check money and leave before booking. got all that in events [ID:future_agreed.line.0]
+asahi: Same here. Left the other evenings clear for work and people here. [ID:future_agreed.line.1]
+mizuki: okay :) just say if you need to cancel. i'll do the same [ID:future_agreed.line.2]
+system: Saved note: We both confirmed the arrangement, including the evenings we need for ourselves. I read it again before putting it in Calendar. [ID:future_agreed.line.3]
+mizuki: my first workday is tuesday. i'd like to tell you about it afterward. i may also be too tired to do anything but send a picture of my shoes. [ID:future_agreed.line.4]
+asahi: I look forward to a rigorous review of the shoes, whenever it arrives. [ID:future_agreed.line.5]
+=> END
+
+~ late_arrival
+system: The date becomes today [ID:late_arrival.title]
+mizuki: i am at the exit we agreed. gray coat. very serious scarf. do not confuse me with a vending machine; it has a better pension. [ID:late_arrival.line.0]
+asahi: I am still on the platform. I have read this message three times. It has not stopped being real. [ID:late_arrival.line.1]
+mizuki: we are allowed to be different in person. we have already agreed that. [ID:late_arrival.line.2]
+system: Travel note: January 16. This is the first afternoon we will have stood in the same place. I checked the exit number again, although I know it now. [ID:late_arrival.line.3]
+mizuki: you can come over slowly. i'm not going anywhere for these next three minutes. [ID:late_arrival.line.4]
+- Can I offer a hug when I get there? A hello is enough if you prefer. [ID:late_arrival.reply.0]
+	=> END
+- Let's start with hello. Want to walk for a bit? [ID:late_arrival.reply.1]
+	=> END
+=> END
+
+~ late_afternoon
+system: A chair without a screen between it [ID:late_afternoon.title]
+mizuki: home. kept the tea receipt. apparently i do that now lol [ID:late_afternoon.line.0]
+asahi: Someone who may need to return a deeply unremarkable beverage? [ID:late_afternoon.line.1]
+mizuki: someone who liked the afternoon and wants a small, silly thing that proves it happened. [ID:late_afternoon.line.2]
+system: Saved note: We asked before touching. We got lost without making it a competition about whose map was wrong. We sat beside a wall and talked until our tea went cold. There is a photograph of our cups now. [ID:late_afternoon.line.3]
+mizuki: you take longer to answer in person. liked that too [ID:late_afternoon.line.4]
+asahi: Me too. Really glad I came. [ID:late_afternoon.line.5]
+=> END
+
+~ open_conversation
+system: A question without a hidden yes [ID:open_conversation.title]
+mizuki: okay if you really don't know. please don't say maybe just because it's easier [ID:open_conversation.line.0]
+asahi: I don't know. Sorry. Wish I had a better answer. [ID:open_conversation.line.1]
+mizuki: then no exclusivity promised by silence, no trip treated as a test, no saying "soon" when we mean "i hope." [ID:open_conversation.line.2]
+system: Saved note: We agreed to leave the future open. We changed the plans that were still ahead of us together. I am trying to hear the whole answer we gave. [ID:open_conversation.line.3]
+mizuki: we can still talk sometimes. but if it starts hurting, either of us can say stop. okay? [ID:open_conversation.line.4]
+=> END
+
+~ burnout_warning
+system: The answer he has used before [ID:burnout_warning.title]
+mizuki: you promised overlapping weekends before. work did not get smaller because you wanted it to, and neither did the distance. [ID:burnout_warning.line.0]
+asahi: I can try harder. [ID:burnout_warning.line.1]
+mizuki: you already tried harder. people stayed late, plans collapsed, and you stopped telling me when you were tired because it sounded less devoted. [ID:burnout_warning.line.2]
+mizuki: we could just do less. keep our jobs. have nights off. i'd still want to see you [ID:burnout_warning.line.3]
+system: Saved note: She offered fewer promises and enough room to keep them. I recognized the answer I had used when two plans needed the same afternoon. [ID:burnout_warning.line.4]
+- You are right. I will choose the smaller plan and tell people what I cannot do. [ID:burnout_warning.reply.0]
+	=> END
+- No. I'm not canceling either plan. We just need to keep going. [ID:burnout_warning.reply.1]
+	=> END
+=> END
+
+~ amicable_goodbye
+system: The conversation without a villain [ID:amicable_goodbye.title]
+mizuki: oh. okay. need a minute [ID:amicable_goodbye.line.0]
+asahi: I'm sorry. I care about you. I just can't keep promising this. [ID:amicable_goodbye.line.1]
+mizuki: please don't say we'll talk every day. need a bit of space first [ID:amicable_goodbye.line.2]
+asahi: I can do that. Would you like the shared collection kept private, or removed from the shared view? [ID:amicable_goodbye.line.3]
+mizuki: private for now. i'll sort them later. thanks for asking [ID:amicable_goodbye.line.4]
+system: Saved note: We canceled the plans still ahead of us. I kept the photographs we agreed I could keep. The evenings that happened do not become mistakes because this is the last one. [ID:amicable_goodbye.line.5]
+=> END
+
+~ end_together
+system: A Place for Us [ID:end_together.title]
+system: February. Our first meeting photo is in the folder. Beside it, another visit we have both booked leave for. [ID:end_together.line.0]
+mizuki: i finished my first month. i drew a window today and did not think of it as an audition for the rest of my life. [ID:end_together.line.1]
+asahi: Bought a second mug. Before you ask, yes, another ugly one. [ID:end_together.line.2]
+mizuki: lol. i'll use it. then get my train back so i still have a job [ID:end_together.line.3]
+asahi: I'll check my leave before we book the next one. [ID:end_together.line.4]
+mizuki: i know what your hello sounds like in a room now. i still look forward to the one on the screen. [ID:end_together.line.5]
+system: Saved note, April: She used the second mug. One evening I had work to finish, so she went out while I finished it. We ate dinner afterward and talked about the different afternoons we had had. I like that we are learning how to come back to each other without leaving everything else behind. [ID:end_together.line.6]
+mizuki: train ticket saved. your mug is still ugly. see you saturday. [ID:end_together.line.7]
+=> END
+
+~ end_distance
+system: Same Sky, New Plan [ID:end_distance.title]
+system: February. They have not met. Calendar contains an agreed March travel discussion and two planned evenings, with room around both. [ID:end_distance.line.0]
+mizuki: wish you were sitting here. still glad we can do this though [ID:end_distance.line.1]
+asahi: Me too. Tuesday was good. [ID:end_distance.line.2]
+mizuki: tuesday was not wasted. you talked me through saving the wrong version of a file and then admitted you had done the same thing at work. [ID:end_distance.line.3]
+asahi: A relationship founded on version control errors. Very modern. [ID:end_distance.line.4]
+mizuki: lol. events says tuesday again. don't forget dinner this time [ID:end_distance.line.5]
+system: Saved note, April: We had the March conversation. We checked leave and money before circling dates. Until then there are planned calls, ordinary messages, and pictures of lunches neither of us would show anyone else. I still wish she were nearer. I also know when we are going to talk next. [ID:end_distance.line.6]
+mizuki: a picture of my shoes, as promised. terrible commute. tell you about it after dinner? [ID:end_distance.line.7]
+=> END
+
+~ end_friendship
+system: Still in the Party [ID:end_friendship.title]
+mizuki: daichi put the bridge warning in twice lol. four players and no rushing in caps [ID:end_friendship.line.0]
+asahi: Does it mention waiting at bridges? [ID:end_friendship.line.1]
+mizuki: twice. man is serious about bridges [ID:end_friendship.line.2]
+system: The next invitation is explicitly a friend activity. The friendship plan includes room for new relationships and for evenings when either person is elsewhere. [ID:end_friendship.line.3]
+mizuki: thought this would get awkward. glad we still do this [ID:end_friendship.line.4]
+asahi: Me too. Want to tell me about the sketchbook while we wait? [ID:end_friendship.line.5]
+system: Saved note, April: We still play. She tells me about work; I send pictures of things I have cooked badly. There are new people in both of our lives. I am glad we said friendship clearly enough that neither of us has to spend these evenings waiting for a different answer. [ID:end_friendship.line.6]
+mizuki: new player at the bridge. come on. let's show them where to wait. [ID:end_friendship.line.7]
+=> END
+
+~ end_goodbye
+system: Thank You for the Time [ID:end_goodbye.title]
+system: February. The final exchange is reopened once, deliberately. Canceled plans are labeled canceled; memories are not relabeled mistakes. [ID:end_goodbye.line.0]
+mizuki: doing okay. mostly. just wanted you to know. don't think i'm ready for a long chat [ID:end_goodbye.line.1]
+asahi: Okay. Natsumi helped put some prints up. Flat looks different now. [ID:end_goodbye.line.2]
+mizuki: that sounds like something good. [ID:end_goodbye.line.3]
+asahi: I'm glad I met you, Mizuki. [ID:end_goodbye.line.4]
+mizuki: me too. take care of yourself, okay? [ID:end_goodbye.line.5]
+system: Saved note, April: I kept one photograph. Some evenings I look at it, and some I forget it is there. Work still needs doing. Natsumi still has news when we talk. I miss Mizuki without having an answer to send her. Tomorrow I have lunch with someone who is here. [ID:end_goodbye.line.6]
+system: Messages: conversation archived. The photographs we chose to keep remain private. [ID:end_goodbye.line.7]
+=> END
+
+~ end_unsaid
+system: Words Left Unsaid [ID:end_unsaid.title]
+mizuki: asked you again. you still won't listen. i can't keep doing this [ID:end_unsaid.line.0]
+mizuki: please stop contacting me. don't ask misaki or daichi to talk me round either. or the client [ID:end_unsaid.line.1]
+system: Unsent note: I want to send another explanation. [ID:end_unsaid.line.2]
+system: Unsent note: Her last message says stop. I close the draft. [ID:end_unsaid.line.3]
+system: Pending plans are canceled. Past choices remain in their history, and the last refusal stays in the thread beside the offered repair. [ID:end_unsaid.line.4]
+system: Unsent note, April: I wrote an apology. Left it here. She asked me to stop contacting her, so I haven't sent it from another account. [ID:end_unsaid.line.5]
+system: Saved note: Her last message is still clear. I closed the composer. [ID:end_unsaid.line.6]
+=> END
+
+~ end_burnout
+system: Nothing Left to Give [ID:end_burnout.title]
+system: The following weeks repeat the pattern Asahi chose to preserve: overlapping promises, rushed apologies, and smaller lives built around avoiding the next disappointment. [ID:end_burnout.line.0]
+mizuki: we talked about doing less. then you promised all of it again. i can't keep clearing my evenings and hoping [ID:end_burnout.line.1]
+asahi: I thought devotion meant finding a way to do everything. [ID:end_burnout.line.2]
+mizuki: i miss when we could just talk. now you're tired, i'm upset, and we're apologizing all the time [ID:end_burnout.line.3]
+system: Saved note: I read the smaller plan she offered again. I had turned down the one arrangement that left us enough time to live inside it. [ID:end_burnout.line.4]
+system: Saved note, April: I said no to an extra task before accepting another. Nothing dramatic happened. Someone made a different plan. The project I lost is still someone else's, and Mizuki is still gone. But one person knew which hours they could depend on me for today. I want to get better at that. [ID:end_burnout.line.5]
+system: In Calendar, he leaves a Saturday empty without filling it with an apology. [ID:end_burnout.line.6]
+=> END
+
+~ end_open
+system: Maybe, Someday [ID:end_open.title]
+mizuki: went past the station. thought about you for a bit. wasn't expecting that [ID:end_open.line.0]
+asahi: Do that too. Still don't have an answer about coming. [ID:end_open.line.1]
+mizuki: i know. still figuring things out here too [ID:end_open.line.2]
+asahi: Hope the job's going okay. Been busy here. [ID:end_open.line.3]
+system: Saved note: No ticket booked. No promise of exclusivity. We said both things aloud before agreeing to keep an occasional conversation. [ID:end_open.line.4]
+system: Saved note, April: Some weeks we talk. Some we do not. A rainy window arrived on my screen after a quiet month. I opened it after work and sat with it for a while. There are several things I could say. I want to choose the one I mean. [ID:end_open.line.5]
+mizuki: same rain here. how has your ordinary day been? [ID:end_open.line.6]
+=> END
+
+~ end_secret
+system: The Everyday Hello [ID:end_secret.title]
+system: After dinner, I open our conversation. We have kept this evening free. [ID:end_secret.line.0]
+mizuki: ready? [ID:end_secret.line.1]
+asahi: Ready. Dinner's done. Didn't burn anything. [ID:end_secret.line.2]
+mizuki: lol. ready here too. don't mind if you're still eating [ID:end_secret.line.3]
+if line_allowed("end_secret.ritual.guild")
+	system: Party transcript: they carry two lanterns to the old bridge. This time there is no newcomer to guide. Mizuki stops on the safe bank, and Asahi waits beside her until they both choose to go on. [ID:end_secret.ritual.guild]
+if line_allowed("end_secret.ritual.private")
+	system: Reading transcript: they send each other one page and a window photo. Mizuki reads the same paragraph twice while Asahi eats. The quiet has no work to do except be shared. [ID:end_secret.ritual.private]
+if line_allowed("end_secret.ritual.lives")
+	system: Call transcript: a tap runs in Tokyo and a cupboard closes in Sapporo. Mizuki says "dishes" before stepping away. Asahi finishes dinner. When she returns, they pick up the same ordinary evening. [ID:end_secret.ritual.lives]
+mizuki: so what did you do today? anything exciting? [ID:end_secret.line.5]
+asahi: I put the right lid on the right pan. On the first attempt. [ID:end_secret.line.6]
+mizuki: drew a window. came home. forgot the milk in my tea. average tuesday lol [ID:end_secret.line.7]
+asahi: Did you remember dinner? [ID:end_secret.line.8]
+mizuki: ...brb toast [ID:end_secret.line.9]
+system: Saved note, April: We still keep our small thing when we can. Last Saturday she was too tired. This Saturday I was late back from the shop. We said so, and found another evening. I remember that first random garden run and how little I knew about the person beside the other lantern. I want to hear what she did on Tuesday. [ID:end_secret.line.10]
+=> END
+
+~ wait__mizuki_offer__0
+system: A reply, then a little time [ID:wait__mizuki_offer__0.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__mizuki_offer__0.line.0]
+=> END
+
+~ wait__mizuki_offer__1
+system: A reply, then a little time [ID:wait__mizuki_offer__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__mizuki_offer__1.line.0]
+=> END
+
+~ wait__mizuki_offer__2
+system: A reply, then a little time [ID:wait__mizuki_offer__2.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__mizuki_offer__2.line.0]
+=> END
+
+~ wait__mizuki_offer__3
+system: A reply, then a little time [ID:wait__mizuki_offer__3.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__mizuki_offer__3.line.0]
+=> END
+
+~ wait__mizuki_offer__4
+system: A reply, then a little time [ID:wait__mizuki_offer__4.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__mizuki_offer__4.line.0]
+=> END
+
+~ wait__burnout_warning__1
+system: A reply, then a little time [ID:wait__burnout_warning__1.title]
+system: Reply saved. The next scene takes place later. You can browse the site before choosing Later. [ID:wait__burnout_warning__1.line.0]
+=> END

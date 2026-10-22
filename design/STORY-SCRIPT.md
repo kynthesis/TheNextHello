@@ -11,9 +11,9 @@ ID: `invite` · FRI  23 OCT     23:08 · Games / Lantern Quest
 
 **system:** Random matchmaking pairs you with mizuki for a garden run. You have never met.
 
-**mizuki:** oh hi. first time in this garden?
+**mizuki:** hey :) first time in this garden?
 
-**mizuki:** i can carry the lantern. unless you want it?
+**mizuki:** i can take the lantern if u watch the path?
 
 - **Reply:** Deal. Slow and steady. I'd like to see the garden. → `bridge`; records {'role': 'lookout'}.
 - **Reply:** I'll take the lantern. You can stop me walking into things. → `bridge`; records {'role': 'lantern'}.
@@ -23,7 +23,7 @@ ID: `bridge` · FRI  23 OCT     23:08 · Games / Lantern Quest
 
 **system:** A stone bridge crosses the dark water. A second lantern flickers on the far bank.
 
-**mizuki:** shortcut should be fine
+**mizuki:** shortcut should be fine lol
 
 **mizuki:** i did fall in last time. should probably mention that
 
@@ -46,19 +46,19 @@ ID: `first_dm` · FRI  23 OCT     23:08 · Messages / Mizuki
 
 **system:** Lantern garden screenshot added to Photos. A private message arrives from mizuki.
 
-**mizuki:** thanks for waiting btw. most people just go
+**mizuki:** thanks for waiting btw. everyone else just runs off
 
-**mizuki:** Mizuki. Sapporo. currently holding a noodle lid shut with my elbow
+**mizuki:** mizuki. sapporo. brb fighting a noodle lid
 
-- **Reply:** Asahi. Tokyo. Put a book on it. Finally, a use for my unread pile. → `night`; records {'intro': 'books'}.
-- **Reply:** Asahi. Tokyo. Glad I'm not the only one having a heroic evening. → `night`; records {'intro': 'heroic'}.
+- **Reply:** Asahi. Tokyo. Put a book on it. My unread pile finally has a job. → `night`; records {'intro': 'books'}.
+- **Reply:** Asahi. Tokyo. lol. Big evening for both of us. → `night`; records {'intro': 'heroic'}.
 
 ### A little after eleven
 ID: `night` · FRI  23 OCT     23:08 · Messages / Mizuki
 
 Major decision: **D01**
 
-**mizuki:** lid defeated. hi Asahi
+**mizuki:** back. lid defeated :) hi asahi
 
 **mizuki:** i draw for work. six versions of the same window today. needed to look at something else
 
@@ -66,12 +66,12 @@ Major decision: **D01**
 
 - **Reply:** Another garden run this weekend? We could play together again. → `guild_agreed`; records {'path': 'guild'}.
 - **Reply:** Want to swap window photos? Maybe make something small together. → `private_agreed`; records {'path': 'private'}.
-- **Reply:** I'd like to know your everyday life. A call, when we're both free? → `lives_agreed`; records {'path': 'lives'}.
+- **Reply:** Want to call sometime? When neither of us is busy. → `lives_agreed`; records {'path': 'lives'}.
 
 ### One more party
 ID: `guild_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 
-**mizuki:** Yes. Maybe open a small party? As long as we get to play together.
+**mizuki:** yes. maybe open a small party? as long as we get to play together.
 
 **system:** Saturday's garden run is in Calendar. You and Mizuki will open a public party together.
 
@@ -80,9 +80,9 @@ ID: `guild_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 ### Two windows
 ID: `private_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 
-**mizuki:** I'd like that. Two cities, two windows. Maybe a little illustrated postcard?
+**mizuki:** i'd like that. two cities, two windows. maybe a little illustrated postcard?
 
-**mizuki:** Just between us for now. Rough work makes me shy.
+**mizuki:** just between us for now. rough work makes me shy.
 
 **system:** A private photo exchange is in Calendar. Mizuki will send her desk photo tomorrow.
 
@@ -91,9 +91,9 @@ ID: `private_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 ### Beyond the username
 ID: `lives_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 
-**mizuki:** A call sounds good. Sunday afternoon? My sister's helping me move a shelf Saturday.
+**mizuki:** a call sounds good. sunday afternoon? my sister's helping me move a shelf saturday.
 
-**mizuki:** Fair warning: my everyday life contains a lot of arguing with furniture.
+**mizuki:** fair warning: my everyday life contains a lot of arguing with furniture.
 
 **system:** Sunday's call is in Calendar. Tomorrow, check your work schedule before confirming.
 
@@ -104,9 +104,9 @@ ID: `lives_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 ### 02 / A garden for everyone
 ID: `guild_plan` · SAT  24 OCT     16:42 · Games / Lantern Quest
 
-**mossbyte:** Hi, I'm Daichi. Thanks for opening the party. A few more new players want to join. Could you lead separate groups?
+**mossbyte:** hey, Daichi here. mossbyte in game :) got a few ppl asking to join. could you two take separate groups?
 
-**mizuki:** I was looking forward to playing together. Could we guide one small group instead?
+**mizuki:** aw i wanted to play with you. could we do one small group?
 
 - **Reply:** One small group. We'll show them the safe route together. → `guild_event`; records {'guild_plan': 'small group'}.
 - **Reply:** Let's make a route guide tonight, then let someone else lead. → `guild_guide`; records {'guild_plan': 'route guide'}.
@@ -116,7 +116,7 @@ ID: `guild_event` · SAT  24 OCT     16:42 · Games / Lantern Quest
 
 **system:** You and Mizuki bring three new players through the garden. At the bridge, everyone waits.
 
-**mizuki:** Look at that. A whole party that doesn't leave anyone behind.
+**mizuki:** look at that. a whole party that doesn't leave anyone behind.
 
 **mossbyte:** I'm keeping the group small next week too. Thanks for saying something.
 
@@ -127,18 +127,18 @@ ID: `guild_guide` · SAT  24 OCT     16:42 · Games / Lantern Quest
 
 **system:** You mark safe stones while Mizuki draws a tiny skull on the crooked bridge. A newcomer volunteers to guide.
 
-**mizuki:** Our first joint publication. Please credit the skull artist.
+**mizuki:** our first joint publication. please credit the skull artist.
 
-**mossbyte:** Pinned the guide. You two can just play tonight.
+**mossbyte:** guide's up. skull credited lol. you two go play
 
 **Later:** `guild_callback`.
 
 ### 03 / The next invitation
 ID: `guild_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 
-**mizuki:** Daichi asked before adding people this time. I think we started something.
+**mizuki:** daichi asked before adding people this time. i think we started something.
 
-**mizuki:** Next Saturday, same garden? I'd like a little time with just you after.
+**mizuki:** next saturday, same garden? i'd like a little time with just you after.
 
 **system:** The conversation stays in your message history. There is another evening ahead, when you choose to continue.
 
@@ -149,7 +149,7 @@ ID: `private_photo` · SAT  24 OCT     16:42 · Messages / Mizuki
 
 **system:** Mizuki shared a private desk photo. Read this description or open Shared attachments in Messages: pens in a mug, a half-finished illustration on a laptop, rain against the window.
 
-**mizuki:** Window attempt seven. Application deadline Monday. Please keep this one between us.
+**mizuki:** window attempt seven. application deadline monday. please keep this one between us.
 
 - **Reply:** Want quiet company while we make the postcard? We can leave it unfinished. → `private_event`; records {'collaboration': 'quiet company'}.
 - **Reply:** Let's move our postcard session until after your deadline. I'll send my photo now. → `private_rescheduled`; records {'collaboration': 'rescheduled'}.
@@ -159,29 +159,29 @@ ID: `private_event` · SAT  24 OCT     16:42 · Messages / Mizuki
 
 **system:** A song plays softly in the background. You send your rainy Tokyo window; Mizuki sends a small line drawing in return. Neither of you posts it.
 
-**mizuki:** I finished the corner I was stuck on. Quiet company works, apparently.
+**mizuki:** i finished the corner i was stuck on. quiet company works, apparently.
 
-**system:** A private postcard joins Photos. Mizuki keeps working on her application.
+**system:** A private postcard joins Shared attachments. Mizuki keeps working on her application.
 
 **Later:** `private_callback`.
 
 ### Room to finish
 ID: `private_rescheduled` · SAT  24 OCT     16:42 · Messages / Mizuki
 
-**mizuki:** Thank you. Tuesday evening? I want to do this when I'm not watching a deadline.
+**mizuki:** thanks. tuesday evening? i want to do this when i'm not watching a deadline.
 
 **system:** You share the Tokyo window privately. The postcard session moves to Tuesday; tonight Mizuki works on her application.
 
-**mizuki:** Your window has good rain. Keeping that photo.
+**mizuki:** your window has good rain. keeping that photo.
 
 **Later:** `private_callback`.
 
 ### 03 / After the deadline
 ID: `private_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 
-**mizuki:** Submitted. I checked the attachment three times. Four if we're being honest.
+**mizuki:** submitted. i checked the attachment three times. four if we're being honest.
 
-**mizuki:** Can I show you the finished illustration? And I found a short story we could read together.
+**mizuki:** can i show you the finished illustration? and i found a short story we could read together.
 
 **system:** The conversation stays in your message history. There is another evening ahead, when you choose to continue.
 
@@ -202,11 +202,11 @@ ID: `lives_call` · SUN  25 OCT     15:00 · Messages / Mizuki
 
 **system:** Sunday afternoon. A call transcript opens after your completed Saturday handoff.
 
-**mizuki:** Can you hear me? Sorry. My sister says hello. And that I put the shelf upside down.
+**mizuki:** can you hear me? sorry. my sister says hello. and that i put the shelf upside down.
 
 **asahi:** I'd like the shelf's side of the story.
 
-**mizuki:** It's staying silent. Clever shelf.
+**mizuki:** it's staying silent. clever shelf.
 
 **system:** You talk about ordinary weekends, and what a visit might look like. No travel is booked.
 
@@ -217,18 +217,18 @@ ID: `lives_reschedule` · MON  26 OCT     19:30 · Messages / Mizuki
 
 **asahi:** I chose the Sunday review. Could we call Monday evening instead? I'd like to give it proper time.
 
-**mizuki:** Monday works. My sister will have gone home, so you'll miss the shelf assembly commentary.
+**mizuki:** monday works. my sister will have gone home, so you'll miss the shelf assembly commentary.
 
 **system:** Monday evening. After the work review, you and Mizuki talk over dinner on a call. No introduction to Misaki happened this time.
 
-**mizuki:** Tell me about Tokyo on a normal day. Not the postcard version.
+**mizuki:** tell me about tokyo on a normal day. not the postcard version.
 
 **Later:** `lives_callback`.
 
 ### 03 / A possible journey
 ID: `lives_callback` · TUE  27 OCT     20:16 · Calendar / Mizuki
 
-**mizuki:** If we ever meet, I'd rather have an ordinary afternoon than a perfect itinerary.
+**mizuki:** if we ever meet, i'd rather have an ordinary afternoon than a perfect itinerary.
 
 **system:** You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise.
 
@@ -239,21 +239,21 @@ ID: `lives_callback` · TUE  27 OCT     20:16 · Calendar / Mizuki
 ### The smallest party
 ID: `party_evening` · SAT  31 OCT     19:40 · Games / Lantern Quest
 
-**mossbyte:** I put FOUR in the party description. Someone has asked if six counts as four with enthusiasm.
+**mossbyte:** party says FOUR. guy just asked if six was close enough lol
 
-**mizuki:** It does not. I have spoken to mathematics.
+**mizuki:** it does not. i've spoken to mathematics.
 
 **asahi:** Our guide says the bridge is safe if you don't stand on it. A difficult instruction for a bridge.
 
-**mossbyte:** Two new players are nervous about asking for help. Could you show them how we use the lanterns?
+**mossbyte:** two new ppl are stuck with the lanterns. can you show them?
 
-**mizuki:** Only if we actually play together afterward. Last week I spent more time explaining the game than playing it.
+**mizuki:** only if we actually play together afterward. last week i spent more time explaining the game than playing it.
 
-**mossbyte:** Fair. I'll close the party after this run. No surprise additions.
+**mossbyte:** fair enough. closing it after this run. that's everyone
 
 **system:** You light the first stepping stone. A new player waits for your second lantern instead of running ahead.
 
-**mizuki:** There. Better than a perfect run. Someone stayed.
+**mizuki:** hey he waited for us :)
 
 - **Reply:** One for them, then one just us? → `after_game`; records {'ritual': True}.
 - **Reply:** Can we just play tonight? Guide another day. → `party_rest`; records {'ritual': False}.
@@ -271,7 +271,7 @@ ID: `after_game` · SAT  31 OCT     21:15 · Messages / Mizuki
 
 **asahi:** Me too.
 
-**mizuki:** next Saturday? just a short one if we're around
+**mizuki:** next saturday? just a short one if we're around
 
 **system:** Calendar: an optional Saturday check-in. Either person can cancel by saying so.
 
@@ -282,17 +282,17 @@ ID: `after_game` · SAT  31 OCT     21:15 · Messages / Mizuki
 ### An evening that belongs to us
 ID: `party_rest` · SAT  31 OCT     21:15 · Messages / Mizuki
 
-**mizuki:** I didn't know I was tired until we said no to the extra run.
+**mizuki:** i didn't know i was tired until we said no to the extra run.
 
 **asahi:** Daichi sent a picture of four empty party slots. I think he is learning restraint.
 
-**mizuki:** Good for him. Better for us.
+**mizuki:** good for him. better for us.
 
-**mizuki:** I don't need us to establish a whole tradition after knowing each other for a week. Tonight was nice on its own.
+**mizuki:** can we just leave next saturday open? liked tonight. don't want to promise every week yet
 
 **asahi:** We can let it be one nice evening.
 
-**mizuki:** Thank you. I want to come back because I want to, not because we filled a square on a calendar.
+**mizuki:** thanks. i'll ask when i'm around :)
 
 **system:** You leave Saturday open. The next invitation will require a new agreement.
 
@@ -301,19 +301,19 @@ ID: `party_rest` · SAT  31 OCT     21:15 · Messages / Mizuki
 ### The corner she kept
 ID: `illustration_evening` · SAT  31 OCT     20:10 · Messages / Mizuki
 
-**mizuki:** Finished illustration attached. The window is still crooked. Deliberately now, which apparently makes it style.
+**mizuki:** finished it! window still crooked. calling that a style choice
 
 **asahi:** That is also how I describe my laundry pile.
 
-**mizuki:** The client accepted the application sample. I am trying not to turn that into a prediction of my entire future.
+**mizuki:** they accepted the sample. keep opening the email to check lol
 
 **system:** In the attached drawing, one small rectangle of warm light sits beneath a gray sky. Your rainy-window photo is beside it in Photos.
 
-**mizuki:** The story I mentioned is about a person who keeps taking the wrong train because the platform is quiet. I wondered if you'd read a page with me.
+**mizuki:** found that train story in a used bookshop. want to read a page with me?
 
 **asahi:** Out loud? My dramatic voice is mostly my normal voice with worse posture.
 
-**mizuki:** Quietly is fine. I liked knowing someone else was doing something ordinary nearby.
+**mizuki:** lol you don't have to perform it. just thought it'd be nice to read together
 
 - **Reply:** A page and a window photo on Saturdays, when we can? No catching up required. → `reading_evening`; records {'ritual': True}.
 - **Reply:** Let us just read this page tonight. We can decide next time when it comes. → `reading_once`; records {'ritual': False}.
@@ -321,19 +321,19 @@ ID: `illustration_evening` · SAT  31 OCT     20:10 · Messages / Mizuki
 ### Two bookmarks
 ID: `reading_evening` · SAT  31 OCT     21:00 · Messages / Mizuki
 
-**mizuki:** The line I kept: the platform wasn't where she was going, but it was somewhere she could breathe.
+**mizuki:** the line i kept: the platform wasn't where she was going, but it was somewhere she could breathe.
 
 **asahi:** I keep thinking she could also just go home. Then I remember the first apartment I rented in Tokyo.
 
-**mizuki:** Bad apartment?
+**mizuki:** bad apartment?
 
 **asahi:** Fine apartment. Very good walls. Nothing on either side I recognized yet.
 
-**mizuki:** Mine had a kettle that clicked so loudly I thought someone had come in. I liked the sound anyway.
+**mizuki:** mine had a kettle that clicked so loudly i thought someone had come in. i liked the sound anyway.
 
 **asahi:** A page and a window, then. Small enough for a bad week.
 
-**mizuki:** And optional enough for a worse one. I want the tradition, not homework.
+**mizuki:** yeah. can skip if we're tired though? don't want book homework
 
 **system:** Saturday's optional reading check-in appears in Calendar. The finished drawing remains private.
 
@@ -342,15 +342,15 @@ ID: `reading_evening` · SAT  31 OCT     21:00 · Messages / Mizuki
 ### One page is enough
 ID: `reading_once` · SAT  31 OCT     21:00 · Messages / Mizuki
 
-**mizuki:** I reached the bottom. The character finally took her own train. Character development through public transport.
+**mizuki:** i reached the bottom. the character finally took her own train. character development through public transport.
 
 **asahi:** I have eaten dinner while we read. That may also count as development.
 
-**mizuki:** What did you have?
+**mizuki:** what did you have?
 
-**asahi:** A meal assembled from things with different reheating times. Some of it was excellent.
+**asahi:** Leftover curry. Put too much rice on. Still ate it.
 
-**mizuki:** I like knowing these tiny, useless facts. They make the photo feel less like a postcard.
+**mizuki:** lol. it's nice knowing what you had for dinner. makes you seem closer
 
 **system:** You close the attachment without making a standing appointment. Tonight's conversation stays in history.
 
@@ -359,13 +359,13 @@ ID: `reading_once` · SAT  31 OCT     21:00 · Messages / Mizuki
 ### A shelf with witnesses
 ID: `sister_intro` · SAT  31 OCT     15:20 · Messages / Mizuki
 
-**mizuki:** Misaki asked if you are the person who recommended putting a book on the noodle lid.
+**mizuki:** misaki asked if you are the person who recommended putting a book on the noodle lid.
 
-**asahi:** A lasting legacy. I hoped to be remembered for more, but I accept this.
+**asahi:** The book gets all the credit. I just own it.
 
-**mizuki:** She wants to thank you. The shelf instructions were not heavy enough. Are you okay if I add you both to a chat?
+**mizuki:** she says thanks. shelf instructions weren't heavy enough. okay if i add her to a chat?
 
-**mizuki:** You can say not yet. She is not interviewing applicants for a position in my life.
+**mizuki:** or later's fine. promise this isn't an interview lol
 
 - **Reply:** Sure. Tell her I take no responsibility for load-bearing books. → `family_chat`; records {'sister_contact': True}.
 - **Reply:** Another time? I would like to know you a little better first. → `ordinary_call`; records {'sister_contact': False}.
@@ -373,19 +373,19 @@ ID: `sister_intro` · SAT  31 OCT     15:20 · Messages / Mizuki
 ### Three people and a shelf
 ID: `family_chat` · SAT  31 OCT     15:30 · Messages / Mizuki & Misaki
 
-**misaki:** Hello, Asahi. I am told you are responsible for the successful noodles.
+**misaki:** Hi Asahi. You're the book-on-noodles person?
 
 **asahi:** The book did most of the work.
 
-**misaki:** Good. I prefer people who credit their team.
+**misaki:** OK. I'll thank the book.
 
-**mizuki:** The team is a paperback with soup on it.
+**mizuki:** the team is a paperback with soup on it.
 
-**misaki:** I move next month. She has helped every weekend and pretended it takes no time. If she falls asleep during a game, it isn't a review of your personality.
+**misaki:** I'm moving next month. She's been helping every weekend. If she falls asleep mid-game, that's why.
 
-**mizuki:** I can explain my own schedule, you know.
+**mizuki:** i can explain my own schedule, you know.
 
-**misaki:** You can. I will stop. I do want the shelf photograph kept in this chat. Our mother does not need evidence.
+**misaki:** Fair. I'll stop. Please keep the shelf photo here. Mum will never let me hear the end of it.
 
 **asahi:** Understood. Private archive, questionable carpentry.
 
@@ -402,7 +402,7 @@ ID: `ordinary_call` · SAT  31 OCT     20:00 · Messages / Mizuki
 
 **asahi:** I'd like that. Need to wash up though. If I go quiet it's the dishes.
 
-**mizuki:** okay good. was fully prepared to overthink that
+**mizuki:** lol good. otherwise i would sit here wondering what i said
 
 - **Reply:** Saturdays, if we can? "Dishes" means back in a bit. → `small_call`; records {'ritual': True}.
 - **Reply:** Tonight, yes. Can we ask each time though? Saturdays get messy. → `call_once`; records {'ritual': False}.
@@ -412,32 +412,32 @@ ID: `small_call` · SAT  31 OCT     21:00 · Messages / Mizuki
 
 **system:** Call transcript. A tap runs in Tokyo; a cupboard closes in Sapporo.
 
-**mizuki:** Dishes.
+**mizuki:** brb dishes
 
-**asahi:** Understood. I will wait in this highly exclusive silence.
+**asahi:** I'll be here. Trying to find the lid that fits this pan.
 
 **system:** Three minutes later, Mizuki returns to describe a mug whose handle gets hot. Asahi admits he owns a pan lid with no matching pan.
 
-**mizuki:** I don't know why this is nice.
+**mizuki:** i don't know why this is nice.
 
-**asahi:** Maybe we don't have to entertain each other every second.
+**asahi:** Don't mind it. Nice just hearing you there.
 
-**mizuki:** Let's keep that part. If we have a Saturday, we can share some of it. If we don't, we can say so.
+**mizuki:** same. saturday again if we're both around? just say if you're busy
 
 **Later:** `natsumi_invite`.
 
 ### A plan for tonight
 ID: `call_once` · SAT  31 OCT     21:00 · Messages / Mizuki
 
-**mizuki:** Tonight works. I appreciate you saying what you can actually offer.
+**mizuki:** tonight works :) let's sort next time out later
 
 **asahi:** My calendar is mostly guesses. I'm trying to label them.
 
-**mizuki:** Mine includes a box called "probably tired." It is the most accurate one.
+**mizuki:** mine includes a box called "probably tired." it is the most accurate one.
 
 **system:** You eat dinner with the call open. Neither person fills every silence. When Mizuki says she wants to draw alone, the call ends without an argument.
 
-**mizuki:** I liked this. We can ask again. An invitation is nicer than a test.
+**mizuki:** liked this :) gtg draw for a bit. talk later?
 
 **Later:** `natsumi_invite`.
 
@@ -448,7 +448,7 @@ ID: `natsumi_invite` · WED  04 NOV     18:15 · Messages / Natsumi
 
 Major decision: **D02**
 
-**natsumi:** You remember the showcase on Sunday? You said you could help me hang the prints. I have finally bought hooks that fit the wall.
+**natsumi:** Sunday. Prints. You. Still coming? I FINALLY found hooks that fit.
 
 **asahi:** The famous hooks. I was starting to think they were a metaphor.
 
@@ -456,12 +456,12 @@ Major decision: **D02**
 
 **system:** Calendar: the showcase overlaps with the Sunday afternoon Mizuki offered for a longer session. Both people are waiting for an answer.
 
-**natsumi:** I can find another pair of hands if you tell me now. I cannot find one five minutes after opening.
+**natsumi:** Tell me now if you can't. I can find someone. Five minutes after we open is too late.
 
-**natsumi:** Also, I would like you there as my friend. Not just as someone tall enough to reach things.
+**natsumi:** And stay for a bit, yeah? I want my friend there. You can put the ladder down.
 
 - **Reply:** I said I would be there. I will keep Sunday and ask Mizuki for another time. → `showcase`; records {'friend_plan': 'kept', 'commitment': 'Sunday / Natsumi showcase; Mizuki rescheduled'}.
-- **Reply:** Can I help install Saturday and come to the opening briefly? I want to agree a real alternative with you. → `showcase_setup`; records {'friend_plan': 'renegotiated', 'commitment': 'Saturday setup / Sunday brief showcase'}.
+- **Reply:** Can I hang the prints Saturday and stop by briefly Sunday? Would that help? → `showcase_setup`; records {'friend_plan': 'renegotiated', 'commitment': 'Saturday setup / Sunday brief showcase'}.
 - **Reply:** I can do both. Keep me on the full Sunday shift; I will make the other plan fit. → `showcase_missed`; records {'friend_plan': 'missed', 'overpromise': True, 'commitment': 'Two knowingly overlapping Sunday promises'}.
 
 ### The person on this side of the screen
@@ -475,11 +475,11 @@ ID: `showcase` · SUN  08 NOV     16:40 · Messages / Natsumi
 
 **natsumi:** She is. I run a generous institution.
 
-**natsumi:** You checked your phone once, told me who you were answering, and came back. That was nice. I don't need your life to stop for my afternoon.
+**natsumi:** Glad you stayed. You looked about a mile away when you came in. Then you were here.
 
 **system:** Mizuki's message arrives after the showcase: "Thanks for moving our plan instead of disappearing from one. How did it go?"
 
-**natsumi:** Tell this mysterious person I approve of her timing. Then help me remove the hooks we have only just learned to love.
+**natsumi:** Tell her hi. Now help me get these stupid hooks back out.
 
 **Later:** `privacy_request`.
 
@@ -490,11 +490,11 @@ ID: `showcase_setup` · SUN  08 NOV     12:20 · Messages / Natsumi
 
 **asahi:** That is the first positive review of my knot work.
 
-**natsumi:** You came back today, too. Half an hour was half an hour because you told me before I built my expectations around three.
+**natsumi:** Thanks for coming back today too. Half an hour worked. I just needed to know.
 
 **system:** In the photo Natsumi sends, your jacket is visible behind the first visitor. Later, you join Mizuki at the time you agreed together.
 
-**natsumi:** I am keeping one of the unsold prints for you. Not payment. A threat to your empty walls.
+**natsumi:** Kept a print for you. Your walls are depressing me.
 
 **asahi:** My walls are frightened and grateful.
 
@@ -507,11 +507,11 @@ ID: `showcase_missed` · SUN  08 NOV     18:30 · Messages / Natsumi
 
 **asahi:** I lost track of the other session. I thought I could get across town faster.
 
-**natsumi:** You knew the times overlapped. I could have accepted a no. I built the afternoon around your yes.
+**natsumi:** You knew the times clashed. You could've said no. I thought you were coming.
 
 **system:** The showcase goes ahead without you. Its photograph arrives after closing; someone else stands where your ladder was meant to be.
 
-**natsumi:** I don't want an enormous apology tonight. I want a smaller promise that actually happens. Can you collect the remaining boxes tomorrow?
+**natsumi:** Can you pick up the boxes tomorrow? Please check first. I can't do this twice.
 
 - **Reply:** Yes. Send me the collection time. I will decline the other plan before agreeing to this one. → `friend_repair`; records {'friend_repair': True}.
 - **Reply:** I am not going to be available. I will pay the delivery fee and stop promising to turn up. → `friend_distance`; records {'friend_repair': False}.
@@ -521,15 +521,15 @@ ID: `friend_repair` · MON  09 NOV     19:10 · Messages / Natsumi
 
 **system:** You collect the boxes at the agreed time. Natsumi sends a photo of the empty storage corner.
 
-**natsumi:** Thank you. That helped. Yesterday still happened, but so did this.
+**natsumi:** Thanks. Boxes are in. Still annoyed about yesterday, but that helped.
 
 **asahi:** I was trying to be available to everyone without telling anyone what I could actually do.
 
-**natsumi:** Yes. It is a very lonely way to make people like you.
+**natsumi:** Well, it was a crap plan. You know that now.
 
-**natsumi:** I am still your friend. Next time I ask, tell me the actual answer. Even if it is boring.
+**natsumi:** We're okay. Next time just tell me you can't come. I'll survive.
 
-**system:** Her next message is a photograph of one print leaning against your door. A friendship continues with a repaired agreement, not an erased afternoon.
+**system:** She sends a photo of one print leaning against my door. I still need to buy a hook.
 
 **Later:** `privacy_request`.
 
@@ -544,7 +544,7 @@ ID: `friend_distance` · MON  09 NOV     19:10 · Messages / Natsumi
 
 **system:** Natsumi keeps sending occasional ordinary messages. She stops asking you to share responsibility for her work. That change remains true later.
 
-**natsumi:** Go enjoy the person you keep checking your phone for. Just remember there are people in the place you already live.
+**natsumi:** Go talk to her. Ring me sometime too, okay? I miss the idiot I used to get lunch with.
 
 **Later:** `privacy_request`.
 
@@ -553,72 +553,72 @@ ID: `privacy_request` · SAT  14 NOV     20:15 · Messages / Mizuki
 
 Major decision: **D03**
 
-**mizuki:** Work-in-progress attached. This is the application I didn't want to talk about until it existed.
+**mizuki:** here's the draft. finally got it far enough to show someone
 
 **system:** Image description: a tram window reflected over a drawing of a small print shop. A client's draft name appears in one corner.
 
-**mizuki:** Please keep this one between us. The client hasn't announced the project, and that name should not be outside my work folder yet.
+**mizuki:** please don't post this anywhere. client's name is still on it. they haven't announced it yet
 
-**mizuki:** You can ask me about the drawing. You can't put it in the game chat to show people what I do.
+**mizuki:** and that includes game chat, okay? i know daichi asked. this file's just for you
 
 **system:** Daichi has asked whether Mizuki might contribute an illustration to a public route guide. Sharing with a group would be publication, not a private compliment.
 
-- **Reply:** May I ask for a separate approved image for the guide? This draft stays private. I am happy to join a caption-check chat with Misaki if you both want that. → `permission_granted`; records {'privacy': 'permission', 'rupture': False}.
+- **Reply:** Could you make a separate version for the guide? This one stays private. Happy to check the caption with you and Misaki. → `permission_granted`; records {'privacy': 'permission', 'rupture': False}.
 - **Reply:** I will keep it private. We can make the postcard just for ourselves. → `private_collection`; records {'privacy': 'private', 'rupture': False}.
 - **Reply:** I will post this draft in the public game chat anyway. People should see how good it is. → `privacy_breach`; records {'privacy': 'breach', 'rupture': True}.
 
 ### The version she chose
 ID: `permission_granted` · SUN  15 NOV     16:00 · Messages / Mizuki & Misaki
 
-**mizuki:** New attachment. I removed the client layer and drew a different window. This one may go in the route guide, with my name.
+**mizuki:** use this one for the guide. client stuff's gone, different window. put my name on it pls :)
 
-**misaki:** I am helping her check the caption, with permission to be in this chat. Hello again, or hello properly, Asahi.
+**misaki:** Hi Asahi. She asked me to check the caption. Which file are you posting?
 
 **asahi:** Hello properly. I have also been checking that I understand which file is which.
 
-**misaki:** That sounds basic until someone does not do it.
+**misaki:** Good. Easy to mix them up.
 
-**system:** You publish only the approved image. The game guide credits Mizuki; the private draft remains in the private Photos collection.
+**system:** You publish only the approved image. The game guide credits Mizuki; the private draft remains in the private message attachments.
 
-**mizuki:** Someone asked if I would do another little drawing. I said maybe, after my paid work. You didn't answer for me. I noticed.
+**mizuki:** someone wants another drawing. told them maybe after my paid stuff. thanks for letting me answer
 
-**misaki:** Good. She gets to be an artist and a person with a Sunday.
+**misaki:** She's got a deadline. Another drawing can wait.
 
 **Later:** `approved_workshop`.
 
 ### A room she agreed to enter
 ID: `approved_workshop` · WED  18 NOV     20:00 · Games / Lantern Quest
 
-**mossbyte:** Approved image is pinned. Client draft is not in the guide. Everyone has survived reading the caption.
+**mossbyte:** right version's up. checked the credit too. we did it ppl :)
 
-**mizuki:** An historic day for file management.
+**mizuki:** an historic day for file management.
 
 **asahi:** I will try not to let our success change me.
 
 **system:** You and Mizuki run a small drawing-and-route workshop. New players add their own warning symbols to dangerous stones.
 
-**mizuki:** This is fun because I chose to be here. That matters more than whether everybody likes the drawing.
+**mizuki:** lol the skulls are getting worse. glad i came
 
-**mossbyte:** Next workshop can wait. I am learning how not to volunteer people while thanking them.
+**mossbyte:** next one's up to you. won't put you down for it unless you say yes
 
 **Later:** `work_decision`.
 
 ### An audience of one
 ID: `private_collection` · SUN  15 NOV     16:00 · Messages / Mizuki
 
-**mizuki:** Thank you for not making me justify it twice.
+**mizuki:** thank you for not making me justify it twice.
 
 **asahi:** Daichi can make the guide without this picture. It is still a good picture if no one else sees it.
 
-**mizuki:** Sometimes I forget that. Work makes everything feel like a thing that should be posted when it is finished.
+**mizuki:** sometimes i forget that. work makes everything feel like a thing that should be posted when it is finished.
 
-**system:** In Photos, the draft remains marked Private. No public workshop is scheduled. Instead, you exchange one unfinished page each.
+**system:** In Messages, the draft remains marked Private. No public workshop is scheduled. Instead, you exchange one unfinished page each.
 
-**mizuki:** Your page has a rice stain.
+**mizuki:** your page has a rice stain.
 
 **asahi:** That is a separate collaboration with dinner.
 
-**mizuki:** I like the part you drew before you tried to make it presentable. Can we keep that too?
+**mizuki:** i like the part you drew before you tried to make it presentable. can we keep that too?
 
 **Later:** `private_second_page`.
 
@@ -627,51 +627,51 @@ ID: `private_second_page` · WED  18 NOV     20:00 · Messages / Mizuki
 
 **system:** You open a shared call while Mizuki finishes the paid file. The unfinished pages stay in a two-person collection.
 
-**mizuki:** I thought the quiet version of this would feel like missing an opportunity. It feels like having a room with a door.
+**mizuki:** thought i'd feel bad about not posting it. kinda like having a drawing that's just ours
 
 **asahi:** We can open it when we want. Or not.
 
-**mizuki:** Exactly. Tell me one thing you made today that no one is going to applaud.
+**mizuki:** exactly. tell me one thing you made today that no one is going to applaud.
 
 **asahi:** A mostly successful lunch. A folder I can actually find things in. This time.
 
-**mizuki:** I will take those. I made a boundary and a bad cup of tea.
+**mizuki:** lol. told someone no today. then burnt the tea. one out of two
 
 **Later:** `work_decision`.
 
 ### Where the file went
 ID: `privacy_breach` · SUN  15 NOV     16:00 · Messages / Mizuki
 
-**mizuki:** Daichi sent me the link. I asked you not to post that file.
+**mizuki:** daichi sent me the link. i asked you not to post that file.
 
 **asahi:** I wanted people to see your work. I wasn't trying to hurt you.
 
-**mizuki:** I know what you wanted. I am telling you what happened. The draft has a client name on it. Someone downloaded it before Daichi removed the post.
+**mizuki:** someone downloaded it. the client's name is on it, asahi. i have to email them now
 
 **system:** The public workshop is canceled. Misaki does not join the planning chat. Deleting your message does not remove the copy someone saved.
 
-**mizuki:** I need to contact the client. Please do not explain my work to anyone else while I do that.
+**mizuki:** please don't contact the client. let me deal with this
 
-**mizuki:** We will talk about this. Not while I am cleaning it up.
+**mizuki:** we'll talk later. i can't do both right now
 
 **Later:** `canceled_workshop`.
 
 ### The evening that did not happen
 ID: `canceled_workshop` · WED  18 NOV     20:00 · Messages / Daichi
 
-**mossbyte:** I removed the image and asked the person with the copy to delete it. I cannot promise that they did.
+**mossbyte:** took it down. asked the guy to delete his copy. can't tell if he did
 
 **asahi:** Can I join the workshop to explain?
 
-**mossbyte:** There is no workshop. Mizuki canceled it. Making her hear an explanation in front of strangers would be another thing she did not agree to.
+**mossbyte:** there isn't a workshop. she canceled. don't put her in front of everyone to explain this
 
 **system:** The game stays available, but the collaborative event does not. You run the garden alone; the route guide uses plain arrows instead of her drawing.
 
-**mossbyte:** When someone gives you a file, they are not giving you their yes to everything you could do with it.
+**mossbyte:** she said keep it private. i should've checked with her before pinning it too
 
 **asahi:** I understand that more clearly now.
 
-**mossbyte:** Tell her what you will do differently. Then do it. She can still decide it is not enough.
+**mossbyte:** tell her what you've taken down. then give her some room
 
 **Later:** `work_decision`.
 
@@ -682,21 +682,21 @@ ID: `work_decision` · MON  23 NOV     18:05 · Work / Hoshino Studio
 
 Major decision: **D04**
 
-**team:** We need a final layout check on the weekend of the 28th. You asked about travel. There are three ways to cover it; none require pretending we have two of you.
+**team:** Need final layout checks on the 28th. You're asking for leave, so let's work this out now.
 
 **team:** You can take the check and use January leave. You can ask for a Friday handoff if you finish the draft by Thursday. Or you can tell me you are still deciding.
 
 **asahi:** If I promise Friday and miss Thursday, who has to pick it up?
 
-**team:** Someone who has already made their own weekend plans. I am being explicit because last-minute optimism costs other people time.
+**team:** Whoever is still here. They have weekend plans too.
 
 **system:** Mizuki has offered the following weekend for an early visit. A completed Friday handoff would make it feasible; accepting the weekend check means proposing a later visit.
 
-**team:** I would rather approve a smaller plan that happens than reassure everyone with a plan that cannot.
+**team:** Check your dates and tell me which option. I need to put a name on the sheet.
 
-- **Reply:** I will finish the draft Thursday and request the Friday handoff. Please confirm before I book anything. → `work_adjusted`; records {'leave': 'approved', 'work_broken': False, 'work': 'Friday handoff; early December leave approved'}.
-- **Reply:** I will take the weekend check. I will discuss January with Mizuki instead of promising December. → `work_kept`; records {'leave': 'deferred', 'work_broken': False, 'work': 'Weekend check kept; January leave available'}.
-- **Reply:** Put me on the weekend check. I will promise Mizuki the early weekend too and sort it out afterward. → `work_broken`; records {'leave': 'deferred', 'work_broken': True, 'work': 'Overlapping work and travel promises; leave not approved'}.
+- **Reply:** I'll finish the draft Thursday and do the handoff Friday. Please confirm the leave before I book. → `work_adjusted`; records {'leave': 'approved', 'work_broken': False, 'work': 'Friday handoff; early December leave approved'}.
+- **Reply:** I'll take the weekend check. I'll ask Mizuki about January. → `work_kept`; records {'leave': 'deferred', 'work_broken': False, 'work': 'Weekend check kept; January leave available'}.
+- **Reply:** Put me on the weekend check. I'll make the early visit work too. → `work_broken`; records {'leave': 'deferred', 'work_broken': True, 'work': 'Overlapping work and travel promises; leave not approved'}.
 
 ### The handoff
 ID: `work_adjusted` · FRI  27 NOV     18:00 · Work / Hoshino Studio
@@ -705,15 +705,15 @@ ID: `work_adjusted` · FRI  27 NOV     18:00 · Work / Hoshino Studio
 
 **asahi:** I am still finding errors in files I already checked.
 
-**team:** You are a person, not a guarantee. You left a readable list of what remains. That is what a handoff is.
+**team:** Put the remaining errors in the handoff notes. We'll check them Monday.
 
 **system:** Calendar records the approved dates. Nothing has been booked for either person yet.
 
-**team:** In January I can let you own a small project if you want it. You showed me where the risks were instead of concealing them.
+**team:** The January project needs someone to plan the layouts. Interested? Your handoff notes were useful.
 
 **asahi:** Let us talk about the actual workload before I say yes.
 
-**team:** Excellent. You are learning the sentence I wish everyone knew.
+**team:** Fine. We'll go through the hours on Monday.
 
 **Later:** `visit_plan`.
 
@@ -724,13 +724,13 @@ ID: `work_kept` · SAT  28 NOV     18:00 · Work / Hoshino Studio
 
 **asahi:** I wanted to be somewhere else today. I also agreed to do this.
 
-**team:** Both can be true. Put in your January request while the calendar is clear.
+**team:** Get the January leave request in today. Nothing else is booked yet.
 
 **system:** You send Mizuki the available dates rather than a photograph of a booked ticket. She sends back three evenings she can actually keep.
 
-**team:** The next review is yours if you want it. It comes with a planning meeting, not an assumption that you are always here.
+**team:** Want to run the next review? We can go over the hours first.
 
-**asahi:** I would like to plan it. I am getting better at telling the difference.
+**asahi:** Yeah. Let's look at the dates.
 
 **Later:** `visit_plan`.
 
@@ -745,9 +745,9 @@ ID: `work_broken` · SAT  28 NOV     19:30 · Work / Hoshino Studio
 
 **system:** Leave is deferred. The early visit is not booked. You complete a supervised handoff on Monday; the optional January project goes to someone else.
 
-**team:** Next time, choose before the conflict becomes someone else's evening. A no would have been manageable.
+**team:** Tell me earlier next time. I could have found cover.
 
-**asahi:** I owe them an apology and a real handoff. I can do both without asking them to tell me I meant well.
+**asahi:** I'll apologize to them. I'll have the corrected handoff ready Monday.
 
 **Later:** `visit_plan`.
 
@@ -764,13 +764,13 @@ Major decision: **D05**
 
 **system:** Calendar shows Asahi's confirmed work commitments. A ticket will be booked only after both people have agreed to the visit.
 
-**mizuki:** January works too. or we can wait. please don't buy a ticket just because i brought it up
+**mizuki:** january works too. or we can wait. please don't buy a ticket just because i brought it up
 
 **mizuki:** what do you want to do?
 
-- **Reply:** My leave is approved. Can we agree December 5, an afternoon in Sapporo, with separate places to stay? (requires {'leave': 'approved', 'rupture': False}) → `early_arrival`; records {'visit': 'early', 'meeting_plan': 'confirmed', 'commitment': '5 December / First Sapporo afternoon'}.
-- **Reply:** January 16 gives us time to plan. I want to meet you then, after we have talked through what still needs attention. → `late_anticipation`; records {'visit': 'late', 'meeting_plan': 'confirmed', 'commitment': '16 January / First Sapporo afternoon'}.
-- **Reply:** I want to keep getting to know you online for now. Can we revisit travel without treating this as a rejection? → `online_weekend`; records {'visit': 'online', 'meeting_plan': 'postponed', 'commitment': 'Online for now; travel discussion in February'}.
+- **Reply:** Leave's approved. December 5? An afternoon in Sapporo, and I'll get a hotel. (requires {'leave': 'approved', 'rupture': False}) → `early_arrival`; records {'visit': 'early', 'meeting_plan': 'confirmed', 'commitment': '5 December / First Sapporo afternoon'}.
+- **Reply:** January 16? Gives us time to sort things out before I come. → `late_anticipation`; records {'visit': 'late', 'meeting_plan': 'confirmed', 'commitment': '16 January / First Sapporo afternoon'}.
+- **Reply:** Could we keep this online for now? I still want to know you. Just not ready to book a trip. → `online_weekend`; records {'visit': 'online', 'meeting_plan': 'postponed', 'commitment': 'Online for now; travel discussion in February'}.
 
 ### The last three minutes
 ID: `early_arrival` · SAT  05 DEC     13:57 · Messages / Mizuki
@@ -788,58 +788,58 @@ ID: `early_arrival` · SAT  05 DEC     13:57 · Messages / Mizuki
 **mizuki:** yeah. hi. sorry i'm still texting. come over?
 
 - **Reply:** Me too. Can I hug you when I get there, if you still want that? → `early_afternoon`; records {'greeting': 'offered hug'}.
-- **Reply:** We can start with hello and walk a little. There is no test to pass. → `early_afternoon`; records {'greeting': 'quiet hello'}.
+- **Reply:** Hello first? We can walk a bit. I'm nervous too. → `early_afternoon`; records {'greeting': 'quiet hello'}.
 
 ### A photograph with no landmark
 ID: `early_afternoon` · SAT  05 DEC     19:45 · Messages / Mizuki
 
-**mizuki:** Back home. Your tea receipt is in my pocket. I have no idea why I kept it.
+**mizuki:** home. your receipt's in my pocket lol. why did i keep that
 
 **asahi:** Evidence that I can buy a drink in person, after weeks of describing drinks by text.
 
 **system:** Saved note: We asked before moving closer. Then we walked, took a wrong turn, and found a shop where neither of us knew what to order. I liked hearing her decide out loud.
 
-**mizuki:** I was quieter than I expected. You didn't try to turn me back into the version who has time to compose a message.
+**mizuki:** sorry i went quiet so much. easier to type than talk sometimes
 
 **asahi:** I was trying not to explain every silence. I liked walking with you.
 
 **system:** A shared photo is added to Photos: two cups on a scratched table, a scarf on the empty chair, no famous landmark.
 
-**mizuki:** If we do this again, I would like another ordinary afternoon. Longer eventually. Not because this one was insufficient.
+**mizuki:** could do that again. just an afternoon. maybe longer next time?
 
 **Later:** `return_tokyo`.
 
 ### A weekend with a future date
 ID: `late_anticipation` · SAT  05 DEC     19:45 · Messages / Mizuki
 
-**mizuki:** The station was full today. I caught myself looking for someone I know is not arriving until January.
+**mizuki:** the station was full today. i caught myself looking for someone i know is not arriving until january.
 
 **asahi:** Is that nice or awful?
 
-**mizuki:** A little of both. I didn't want to send only the nice half.
+**mizuki:** a little of both. i didn't want to send only the nice half.
 
 **system:** Calendar: January 16. In Photos, our pictures still come from separate cities. I keep wondering what we will choose to photograph together.
 
-**mizuki:** I asked for the afternoon off work. Approved. Have you checked your leave before we buy anything?
+**mizuki:** i asked for the afternoon off work. approved. have you checked your leave before we buy anything?
 
 **asahi:** Yes. We can compare confirmations instead of treating the tickets like a surprise gift.
 
-**mizuki:** Good. I want a meeting we both get to arrive at.
+**mizuki:** okay good. send me yours and i'll send mine
 
 **Later:** `january_preparation`.
 
 ### An afternoon without a ticket
 ID: `online_weekend` · SAT  05 DEC     19:45 · Messages / Mizuki
 
-**mizuki:** No station today. I wondered if I would be disappointed all afternoon. Then I bought bread and thought I could tell you about that instead.
+**mizuki:** no station today. i wondered if i would be disappointed all afternoon. then i bought bread and thought i could tell you about that instead.
 
 **asahi:** I would like the bread report.
 
-**mizuki:** Extremely detailed. Potentially several paragraphs.
+**mizuki:** extremely detailed. potentially several paragraphs.
 
 **system:** Call transcript: we compare photographs from our kitchens, argue amiably about bread, then play one short garden encounter before dinner.
 
-**mizuki:** I still want to know if we will meet. I can live with not deciding today. I can't live with never being allowed to ask.
+**mizuki:** i still want to know if we will meet. i can live with not deciding today. i can't live with never being allowed to ask.
 
 **asahi:** We put the discussion in February. I won't pretend the reminder is a ticket.
 
@@ -869,34 +869,34 @@ ID: `return_tokyo` · SUN  06 DEC     21:10 · Messages / Mizuki
 ### What a ticket cannot say
 ID: `january_preparation` · SAT  12 DEC     20:30 · Messages / Mizuki
 
-**mizuki:** I made a list of places. Then crossed out half because I was designing an advertisement for my city instead of an afternoon with you.
+**mizuki:** i made a list of places. then crossed out half because i was designing an advertisement for my city instead of an afternoon with you.
 
 **asahi:** I would like a place to sit down. Strong contender for first place.
 
-**mizuki:** Revolutionary. I can offer several chairs.
+**mizuki:** revolutionary. i can offer several chairs.
 
 **system:** You compare the actual travel confirmation and an agreed hotel. Neither booking changes relationship mode or implies physical intimacy.
 
-**mizuki:** If we discover that we need more time, the trip can still be a good thing. I want us to be able to say that before it happens.
+**mizuki:** what if we meet and it's weird? still glad we tried. just wanted to say that now
 
-**asahi:** We can come home knowing more, instead of promising what the afternoon must mean.
+**asahi:** Same. We can figure out what we think afterward.
 
 **Later:** `conflict_check`.
 
 ### The question that stays
 ID: `distance_agreement` · SAT  12 DEC     20:30 · Messages / Mizuki
 
-**mizuki:** Someone asked me if I have met you. I said not yet, then wondered if I was promising something neither of us has promised.
+**mizuki:** someone asked me if i've met you. i said not yet, then wondered if i was promising something neither of us has promised.
 
 **asahi:** Would "not so far" be more honest?
 
-**mizuki:** Less pretty. More honest. I don't mind the distance tonight. I mind not knowing which parts I am meant to wait for.
+**mizuki:** less pretty. more honest. i don't mind the distance tonight. i mind not knowing which parts i'm meant to wait for.
 
 **system:** Saved note: We have a plan for February: talk honestly about travel. Until then, the screen is where we meet. I need to know what we are each expecting from it.
 
-**mizuki:** When we talk in February, can we let the answer be specific? Yes to a plan, no to one, or an honest uncertainty we both choose.
+**mizuki:** in february can we actually talk about dates? even if the answer's still no. just don't want to keep guessing
 
-**asahi:** Yes. I will show up for the question, even if I don't know the answer in advance.
+**asahi:** Yeah. I'll make time for it.
 
 **Later:** `conflict_check`.
 
@@ -930,26 +930,26 @@ Major decision: **D06**
 
 **system:** The canceled workshop remains canceled. Repair can open a different private activity; it cannot rewrite the public download.
 
-- **Reply:** I crossed a clear boundary. I will ask before sharing, document what I removed, and accept that some things stay closed. → `repair_action`; records {'repair': 'action'}.
-- **Reply:** I hear you. Can we take a few days, then talk Thursday? I will not share or contact the client in the meantime. → `agreed_space`; records {'repair': 'space'}.
-- **Reply:** You should judge my intention. I am not discussing this again. → `last_repair_offer`; records {'repair': 'refused'}.
+- **Reply:** You told me not to share it. I did anyway. I'll send you the list of what I removed, and ask first from now on. → `repair_action`; records {'repair': 'action'}.
+- **Reply:** Can we talk Thursday? I won't share anything or contact the client while we take a break. → `agreed_space`; records {'repair': 'space'}.
+- **Reply:** I was trying to help. I'm done apologizing for it. → `last_repair_offer`; records {'repair': 'refused'}.
 
 ### The cost of being reassuring
 ID: `promise_repair` · SUN  13 DEC     19:15 · Messages / Mizuki
 
 Major decision: **D06**
 
-**mizuki:** When you said the work weekend and our weekend were both fine, I made plans around it. Then someone else stayed late and I canceled an afternoon I could have used.
+**mizuki:** when you said the work weekend and our weekend were both fine, i made plans around it. then someone else stayed late and i canceled an afternoon i could have used.
 
 **asahi:** I wanted to be the person who could make both things work.
 
-**mizuki:** I wanted an answer I could use. Those are not the same thing.
+**mizuki:** but i cleared the afternoon. i thought you'd checked
 
-**mizuki:** I don't need you to be available all the time. I need you to tell me when you aren't, before I turn your guess into my plan.
+**mizuki:** just tell me if you can't. before i turn down something else, please
 
-- **Reply:** I will compare the actual times before agreeing, and tell you before changing an accepted plan. → `repair_action`; records {'repair': 'action'}.
-- **Reply:** Can we pause planning until Thursday and look at both calendars then? I need time to stop promising out of panic. → `agreed_space`; records {'repair': 'space'}.
-- **Reply:** I was busy. If that is not enough for you, I am not having this conversation. → `last_repair_offer`; records {'repair': 'refused'}.
+- **Reply:** I'll check the times before saying yes. If something changes, I'll tell you before I change the plan. → `repair_action`; records {'repair': 'action'}.
+- **Reply:** Can we stop planning till Thursday? I keep saying yes before I've checked anything. → `agreed_space`; records {'repair': 'space'}.
+- **Reply:** I was busy. I've explained it. I'm not doing this again. → `last_repair_offer`; records {'repair': 'refused'}.
 
 ### No villain in the conversation
 ID: `expectations_talk` · SUN  13 DEC     19:15 · Messages / Mizuki
@@ -962,20 +962,20 @@ Major decision: **D06**
 
 **asahi:** I do stare at the Read thing. More than I'd like to admit.
 
-**mizuki:** sometimes it's literally just the kettle. or Misaki calling
+**mizuki:** sometimes it's literally just the kettle. or misaki calling
 
 **mizuki:** i want to talk to you. just can't always be a whole conversation right then. can that be okay?
 
-- **Reply:** Let us confirm planned calls, and treat ordinary replies as something we send when we have room. → `repair_action`; records {'repair': 'action'}.
-- **Reply:** Can we try a few quiet days and talk Thursday? I want to learn what space feels like without treating it as rejection. → `agreed_space`; records {'repair': 'space'}.
-- **Reply:** If you care, you should always answer when I am waiting. I will not accept less. → `last_repair_offer`; records {'repair': 'refused'}.
+- **Reply:** Let's confirm calls. Normal messages can wait till we're free. I'll stop chasing the Read thing. → `repair_action`; records {'repair': 'action'}.
+- **Reply:** Could we take a few quiet days and talk Thursday? Need to get used to this without checking every five minutes. → `agreed_space`; records {'repair': 'space'}.
+- **Reply:** If you care, you can answer when I'm waiting. That's what I need. → `last_repair_offer`; records {'repair': 'refused'}.
 
 ### Thursday means Thursday
 ID: `agreed_space` · THU  17 DEC     19:30 · Messages / Mizuki
 
 **system:** Calendar reminder: Thursday, 19:30. The quiet days we agreed to are over. I want to return when I said I would.
 
-**mizuki:** hi. Thursday
+**mizuki:** hi. thursday
 
 **asahi:** Hi. Almost messaged you yesterday. Didn't know what to do with the evening.
 
@@ -992,15 +992,15 @@ ID: `repair_action` · FRI  18 DEC     20:00 · Messages / Mizuki
 
 **system:** Asahi writes the agreement in Notes: confirm shared plans, ask before sharing, and let an ordinary reply arrive without treating its timing as proof of love.
 
-**mizuki:** I read it. I want to add that either of us can revise it. We are not making a contract that punishes being human.
+**mizuki:** read it. okay. can we change it if it doesn't work? don't want to make another thing to argue about
 
-**asahi:** Agreed. When something changes, we talk instead of silently rewriting the rule.
+**asahi:** Yeah. Say so if it stops working. I will too.
 
-**mizuki:** I am not promising I will never feel hurt again. I am saying I want to see what we do next.
+**mizuki:** still a bit upset. i do want to try though
 
-**system:** They agree to a private exchange of ordinary photos. It is a new, limited invitation, not a way to erase an earlier evening.
+**system:** She sends a cup of tea. I put the photo in our private attachments. The canceled workshop stays off the calendar.
 
-**mizuki:** Here is today's cup. The tea was bad. You may tell absolutely no one about my sophisticated taste.
+**mizuki:** here is today's cup. the tea was bad. you may tell absolutely no one about my sophisticated taste.
 
 **asahi:** Private archive. Critically important evidence.
 
@@ -1012,35 +1012,35 @@ ID: `repair_action` · FRI  18 DEC     20:00 · Messages / Mizuki
 ### A second chance to hear it
 ID: `last_repair_offer` · THU  17 DEC     19:30 · Messages / Mizuki
 
-**mizuki:** I waited until Thursday because I didn't want this to be decided by the worst moment of a conversation.
+**mizuki:** waited till thursday. didn't want to leave it how we left it
 
-**mizuki:** I will not agree to constant access to my time, or to a boundary counting only when you like the reason.
+**mizuki:** i meant what i said. i need you to listen when i say no. and i can't be here every time you want to talk
 
-**mizuki:** If you want to talk about what you can change, I am willing to listen. If you don't, I am going to end this here.
+**mizuki:** if you want to talk about what you can change, i'm willing to listen. if you don't, i'm going to end this here.
 
 **asahi:** You mean that.
 
-**mizuki:** Yes. I don't want us to learn that saying something clearly only makes the other person explain it away more patiently.
+**mizuki:** yes. i'm tired, asahi. i can't keep explaining it
 
 - **Reply:** I heard a demand when you were explaining a need. I want to talk about what I can change. → `repair_action`; records {'repair': 'action'}.
-- **Reply:** I still refuse. I expect you to accept this arrangement as it is. → `end_unsaid`; records {'relationship_mode': 'separated', 'resolution': 'refused_repair'}.
+- **Reply:** No. I'm not changing this. You need to accept it. → `end_unsaid`; records {'relationship_mode': 'separated', 'resolution': 'refused_repair'}.
 
 ### A quiet answer
 ID: `kept_agreement` · SUN  20 DEC     21:00 · Messages / Mizuki
 
-**mizuki:** I missed the optional check-in yesterday. I sent a message beforehand and went to bed.
+**mizuki:** i missed the optional check-in yesterday. i sent a message beforehand and went to bed.
 
 **asahi:** I saw it. I played one run and went out for groceries. The tomatoes were more expensive than my optimism.
 
-**mizuki:** You didn't ask me to prove I was tired. That made it easier to come back today.
+**mizuki:** thanks for not making it a thing. i just needed sleep
 
 **asahi:** I missed you. I also managed to have a Saturday. Both survived.
 
-**mizuki:** Good. I kept our little thing tonight, if we are still doing it. A page, a lantern, a cup. Whatever shape we started with.
+**mizuki:** still up for our usual thing tonight? if you're around
 
 **system:** They look at the small things they have chosen to share, and decide what they want to keep doing.
 
-- **Reply:** I would like to keep it, when we both can. The right to say not tonight is part of it. (requires {'ritual': True}) → `natsumi_return`; records {'ritual_kept': True}.
+- **Reply:** Yeah. Keep it when we can. Just say if you're tired. (requires {'ritual': True}) → `natsumi_return`; records {'ritual_kept': True}.
 - **Reply:** Tonight is enough. I would rather ask each time than keep a standing ritual. → `natsumi_return`; records {'ritual_kept': False}.
 
 ### A friend with her own January
@@ -1052,7 +1052,7 @@ ID: `natsumi_return` · TUE  22 DEC     18:30 · Messages / Natsumi
 
 **natsumi:** Exactly. I chose wisely.
 
-**natsumi:** I want to hear about your life. I also want to tell you about mine before it turns into advice about the person on your phone.
+**natsumi:** Tell me about her in a minute. Let me have my big news first lol.
 
 **asahi:** Tell me what you are making.
 
@@ -1067,15 +1067,15 @@ ID: `natsumi_return` · TUE  22 DEC     18:30 · Messages / Natsumi
 ### An invitation without a ladder
 ID: `friend_confidant` · WED  23 DEC     19:00 · Messages / Natsumi
 
-**natsumi:** Come see the studio when I get the key. No lifting required. I want you there because you are you.
+**natsumi:** Come see it when I get the key. No ladder this time. Just lunch.
 
 **asahi:** I will check the date and answer properly. That sentence is becoming a personality trait.
 
 **natsumi:** Better than disappearing optimistically.
 
-**asahi:** I think I might be in love with someone far away. I am trying to work out what the sentence asks us to do.
+**asahi:** Think I'm in love with her. Don't really know what to do about the distance.
 
-**natsumi:** Ask her. I can listen, but I can't become the person who tells you what she means.
+**natsumi:** Ask her. I can listen, but I can't read her mind for you.
 
 **natsumi:** And if you want something different, say it while there is still a conversation to have.
 
@@ -1084,13 +1084,13 @@ ID: `friend_confidant` · WED  23 DEC     19:00 · Messages / Natsumi
 ### News rather than a favor
 ID: `friend_update` · WED  23 DEC     19:00 · Messages / Natsumi
 
-**natsumi:** Studio key next week. I have found help with the move already, so this is news rather than a favor.
+**natsumi:** Got the studio key next week. Already booked help with the boxes. Wanted to tell you anyway.
 
 **asahi:** I am glad it is happening. I know I made it harder to ask me for things.
 
-**natsumi:** Yes. I am not saying it to keep punishing you. I am telling you where we are.
+**natsumi:** Yeah. I booked someone else because I needed it sorted.
 
-**natsumi:** We can still get lunch. I am allowed to make a boundary without deciding you are a bad person.
+**natsumi:** We can still get lunch. You can tell me how to hang the menu straight.
 
 **system:** Saved note: Natsumi has arranged the move without me. We still talk. She has stopped building her plans around my answer, and I know why.
 
@@ -1101,18 +1101,18 @@ ID: `relationship` · THU  24 DEC     20:00 · Messages / Mizuki
 
 Major decision: **D07**
 
-**mizuki:** Misaki asked who i was smiling at. said a friend
+**mizuki:** misaki asked who i was smiling at. said a friend
 
 **asahi:** Natsumi's asked about you too.
 
-**mizuki:** i like you, Asahi. as more than that. there. sent it
+**mizuki:** i like you, asahi. as more than that. there. sent it
 
 **mizuki:** you don't have to say it back. would rather know if we're imagining different things. might need a day though
 
 **mizuki:** even if this is where we stop. i'm glad we met
 
 - **Reply:** I like you too. More than friends. Can we try this? → `romantic_date`; records {'relationship_mode': 'romantic'}.
-- **Reply:** I care about you. For me it is friendship. Sorry. I should say that clearly. → `friend_activity`; records {'relationship_mode': 'friends'}.
+- **Reply:** I care about you. But for me it's friendship. Sorry. Should've said that sooner. → `friend_activity`; records {'relationship_mode': 'friends'}.
 - **Reply:** I think we want different things. I should say goodbye instead of keeping you waiting. → `amicable_goodbye`; records {'relationship_mode': 'separated', 'resolution': 'amicable'}.
 
 ### A date, with a declared budget for awkwardness
@@ -1139,19 +1139,19 @@ ID: `romantic_date` · SAT  26 DEC     19:00 · Messages / Mizuki
 ### A different invitation
 ID: `friend_activity` · SAT  26 DEC     19:00 · Messages / Mizuki
 
-**mizuki:** I needed yesterday to be quiet. I wasn't trying to make you change your answer.
+**mizuki:** i needed yesterday to be quiet. i wasn't trying to make you change your answer.
 
-**asahi:** Thank you for telling me. What kind of invitation would feel good now?
+**asahi:** Okay. Want to do something, or leave it another day?
 
-**mizuki:** A game. No pretending the conversation never happened, no trying to turn friendship into a trial period.
+**mizuki:** a game? as friends. need you to mean that bit too
 
 **system:** Saved screenshot: two lanterns beside the safe bank. We played as friends, after saying that was what we both wanted.
 
-**mizuki:** There is still a lot about my day I want to tell you. That was true before I knew what to call this.
+**mizuki:** anyway. bought a new sketchbook. same paper i always buy. exciting news here lol
 
-**asahi:** I would like to keep hearing it. I will ask about the parts you want to share.
+**asahi:** Very exciting. What colour this time?
 
-**mizuki:** Good. Also, I have finally learned which stones are safe. We are about to become intolerably competent.
+**mizuki:** pink again. obviously. cmon, new player's about to fall in
 
 **Later:** `career_followup`.
 
@@ -1166,24 +1166,24 @@ ID: `local_dinner` · WED  23 DEC     20:15 · Messages / Natsumi
 
 **system:** Dinner messages. Asahi puts the phone down while Natsumi describes the studio. Afterward he sends Mizuki the promised update, instead of trying to conduct both conversations at once.
 
-**natsumi:** Thank you for the evening. You were here. I could tell.
+**natsumi:** Thanks for dinner. Forgot how much you hate my sweet coffee lol.
 
-**asahi:** I am trying to make that something people don't have to guess.
+**asahi:** That was coffee? Thought you'd found a way to melt a biscuit.
 
 **Later:** `relationship`.
 
 ### The other side of an honest alternative
 ID: `studio_lunch` · WED  23 DEC     12:30 · Messages / Natsumi
 
-**natsumi:** I kept thinking about how you offered Saturday setup instead of saying you could do everything. Can we do that again with the studio?
+**natsumi:** Free for lunch? Want you to pick some prints with me. Just an hour.
 
 **asahi:** Tell me what you need before I invent a heroic answer.
 
-**natsumi:** One lunch break to choose which prints go in first. I will arrange the actual installation with the building. I want your opinion, not all your time.
+**natsumi:** Pick the first ones to go up. Building's doing the hanging. You can eat and have opinions.
 
-**system:** She sends a contact sheet. Asahi marks two prints whose large empty spaces he likes; Natsumi rejects one and explains why. A friend asks for his eye rather than his constant availability.
+**system:** She sends the contact sheet. I choose two prints with big empty spaces. She crosses one out and circles another. We argue about it over lunch.
 
-**natsumi:** The installation preview is Friday. I will send the result. We made a useful small plan again.
+**natsumi:** Preview's Friday. I'll send a photo. Thanks, that helped.
 
 **Later:** `studio_preview`.
 
@@ -1198,56 +1198,56 @@ ID: `studio_preview` · THU  24 DEC     12:10 · Messages / Natsumi
 
 **natsumi:** I do. It took me a long time to admit that without apologizing for the space.
 
-**natsumi:** You don't need to be at every event to be in my life. Knowing what you can actually offer has made it easier to ask for the right thing.
+**natsumi:** Photo's crooked because I took it. Before you say anything.
 
 **Later:** `relationship`.
 
 ### A use she approved
 ID: `licensed_update` · SAT  19 DEC     18:00 · Messages / Mizuki & Misaki
 
-**mizuki:** Someone wants to print the guide for a small local event. That is a different use from pinning it in the game, so they asked.
+**mizuki:** someone wants to print the guide for an event. asked if that's okay. nice to be asked first lol
 
-**misaki:** I checked the wording because she asked me to. I have no authority over drawings that are not mine.
+**misaki:** She asked me to check the caption again. I have apparently got a job.
 
 **asahi:** Do you want to approve it, decline it, or ask what they are actually printing?
 
-**mizuki:** I asked for the layout and a credit. They sent both. I said yes to this version.
+**mizuki:** i asked for the layout and a credit. they sent both. i said yes to this version.
 
 **system:** The approved print event happens without the private client draft. Mizuki sends a photograph of the credited guide; she chose the audience and the use.
 
-**misaki:** These are the boring details people remember when they decide whether they want to work with someone again.
+**misaki:** Credit's there. Picture is the right one. Looks fine to me.
 
 **Later:** `kept_agreement`.
 
 ### A collection with a door
 ID: `private_update` · SAT  19 DEC     18:00 · Messages / Mizuki
 
-**mizuki:** I cleaned up our little collection. I would like the early work draft removed from the shared view now that the paid version is finished.
+**mizuki:** paid version's finished. can you take the early work draft out of our folder now?
 
 **asahi:** Done. The postcard can stay if you still want it here.
 
-**mizuki:** I do. Thank you for asking about the pictures separately. Keeping one thing did not have to mean keeping everything.
+**mizuki:** yes, keep the postcard :) just wanted the work file out
 
-**system:** Photos: work draft withdrawn from the shared collection at Mizuki's request. The postcard remains in our private folder.
+**system:** Shared attachments: work draft withdrawn from the shared collection at Mizuki's request. The postcard remains in our private folder.
 
-**mizuki:** It feels like we are learning how to keep something without owning every version of it.
+**mizuki:** looked at that postcard again. think the rice stain's grown on me
 
 **Later:** `kept_agreement`.
 
 ### The permission that is still not there
 ID: `boundary_followthrough` · SAT  19 DEC     18:00 · Messages / Mizuki
 
-**mizuki:** I saw the note confirming which posts were removed. I believe you have done what you can about those copies.
+**mizuki:** saw the list. thanks for checking those posts were gone
 
-**asahi:** I won't ask you to send the next work file as proof we are okay.
+**asahi:** Okay. Won't ask for more work pictures.
 
-**mizuki:** Good. I am not ready to share work drafts again. I can send a picture of my lunch. That is an invitation, not a test of whether you have changed enough.
+**mizuki:** good. no work files for now. can send my lunch if you want
 
-**system:** Asahi accepts the limited photo exchange. The public workshop remains canceled, the shared work folder stays closed, and the conversation continues somewhere neither person has to pretend nothing happened.
+**system:** I leave the work folder closed and open her lunch photo. The workshop is still canceled.
 
 **asahi:** Your lunch has a very confident amount of cabbage.
 
-**mizuki:** It is the only project I am prepared to have critically reviewed tonight.
+**mizuki:** lol. fine. review my cabbage. leave the drawings alone tonight
 
 **Later:** `kept_agreement`.
 
@@ -1256,15 +1256,15 @@ ID: `boundary_followthrough` · SAT  19 DEC     18:00 · Messages / Mizuki
 ### The work that continued
 ID: `career_followup` · TUE  05 JAN     18:30 · Work / Hoshino Studio
 
-**team:** January planning. Your work record changes the next assignment; it does not disappear because a relationship has become important.
+**team:** January schedule's ready. Have a look before I assign the next layouts.
 
 **asahi:** I have put my existing commitments in the availability sheet. I want to say what time is real before we fill it.
 
-**team:** Good. We can build around a clear answer. We cannot build around someone silently hoping the week will get longer.
+**team:** Good. I'll work around those evenings.
 
 **system:** Saved note: I opened the work thread before answering another invitation. I want to know which hours are mine to offer.
 
-**team:** Either way, the next week is not a verdict on the rest of your career. Finish the piece that is yours, ask where you need help, then go home.
+**team:** Finish your current piece first. Ask if you need another pair of eyes.
 
 **Later:** `supervised_review`.
 - When {'career_offer': True}: `project_meeting`.
@@ -1272,15 +1272,15 @@ ID: `career_followup` · TUE  05 JAN     18:30 · Work / Hoshino Studio
 ### A small project of his own
 ID: `project_meeting` · WED  06 JAN     18:30 · Work / Hoshino Studio
 
-**team:** The little print layout is yours to plan. You can ask for a review on Wednesday. I am not assigning you the right to stop sleeping.
+**team:** You're planning the print layouts. Review Wednesday, if you want it. Keep the evenings you booked off.
 
 **asahi:** Wednesday review, Friday delivery, two evenings unavailable. I have checked before offering the dates.
 
-**team:** That is a project plan. Surprisingly rare and very welcome.
+**team:** Fine. Put it on the sheet.
 
 **system:** Draft after work: I have a little project of my own to plan. I want to tell you about it. I am excited in a way I had almost forgotten to be.
 
-**asahi:** I used to think being wanted meant being immediately useful. I like having something to tell you after I finish it.
+**asahi:** Actually excited about this one. I'll show you when I've got something.
 
 **Later:** `mizuki_offer`.
 
@@ -1289,7 +1289,7 @@ ID: `supervised_review` · WED  06 JAN     18:30 · Work / Hoshino Studio
 
 **team:** Review finished. The missing files are back where the next person can find them.
 
-**asahi:** I know the small project is assigned elsewhere. I am not asking you to reopen it as proof you have forgiven me.
+**asahi:** Got it. I know the other project went to someone else.
 
 **team:** Thank you. There will be another project. This one needed a plan at the time.
 
@@ -1304,36 +1304,36 @@ ID: `mizuki_offer` · FRI  08 JAN     20:15 · Messages / Mizuki
 
 Major decision: **D08**
 
-**mizuki:** I accepted the illustration job. Two days a week in Otaru, the rest from here. I thought about it for a long time before answering.
+**mizuki:** said yes to the otaru job. two days there, rest from home. just sent the email
 
 **asahi:** How do you feel now that you have said yes?
 
-**mizuki:** Glad. Frightened. Worried you will hear it as a decision about you instead of work I want to try.
+**mizuki:** happy. scared lol. hope you're not upset i decided before we talked
 
-**mizuki:** I am not asking you to choose it for me, or to prove you care by moving. I am asking whether the life I have chosen and the life you have can make room for what we are.
+**mizuki:** i do want the job. don't want you moving here just to make it work either. can we figure out the time?
 
 **system:** Calendar: her workdays beside mine. She has already chosen the job. The question she asked me is what I can offer alongside it.
 
-**mizuki:** I don't want a beautiful answer that becomes somebody else's exhaustion. What can we actually offer?
+**mizuki:** what can we actually manage? please check before saying every weekend
 
-- **Reply:** Let us keep our separate work and agree a realistic next plan together. I want us to choose what fits. → `future_agreed`; records {'future_plan': 'workable', 'ritual_renewed': False}.
-- **Reply:** If you still want our small ritual, I want to give it a place in that plan, with room to cancel and return. (requires {'ritual': True, 'ritual_kept': True}) → `future_agreed`; records {'future_plan': 'workable', 'ritual_renewed': True}.
-- **Reply:** I cannot promise the next step yet. Would you choose an honest uncertain future with me, without waiting on a hidden promise? → `open_conversation`; records {'future_plan': 'explicitly_undecided'}.
-- **Reply:** I respect your choice. Our needs do not fit, and I would rather end this carefully than ask you to give up the job. → `amicable_goodbye`; records {'relationship_mode': 'separated', 'resolution': 'amicable'}.
-- **Reply:** I will promise every weekend, take the extra work and never disappoint anyone again. Please do not ask me to choose. (requires {'work_broken': True}) → `burnout_warning`; records {'future_plan': 'incompatible'}.
+- **Reply:** Keep the job. I want to keep mine too. Let's work out some dates we can manage. → `future_agreed`; records {'future_plan': 'workable', 'ritual_renewed': False}.
+- **Reply:** I'd like to keep our Saturday thing in the plan. When we're both free, same as before. (requires {'ritual': True, 'ritual_kept': True}) → `future_agreed`; records {'future_plan': 'workable', 'ritual_renewed': True}.
+- **Reply:** I still don't know what I can promise. Could we leave it open? You don't have to wait for me. → `open_conversation`; records {'future_plan': 'explicitly_undecided'}.
+- **Reply:** Take the job. I don't think I can make this work, and I shouldn't keep you waiting. → `amicable_goodbye`; records {'relationship_mode': 'separated', 'resolution': 'amicable'}.
+- **Reply:** I'll take the extra work. And every weekend with you. I can do both this time. Trust me. (requires {'work_broken': True}) → `burnout_warning`; records {'future_plan': 'incompatible'}.
 
 ### A plan with space around it
 ID: `future_agreed` · SAT  09 JAN     19:30 · Messages / Mizuki
 
-**mizuki:** Two planned evenings a month, other messages when we have room, and a travel discussion that includes money and leave. That sounds small until I imagine actually doing it.
+**mizuki:** two evenings a month. message when we can. check money and leave before booking. got all that in events
 
-**asahi:** My local life stays in the calendar too. So does yours. We don't have to conceal it to make the plan sound devoted enough.
+**asahi:** Same here. Left the other evenings clear for work and people here.
 
-**mizuki:** Yes. And a canceled evening comes with a message, not a debt we collect from each other later.
+**mizuki:** okay :) just say if you need to cancel. i'll do the same
 
 **system:** Saved note: We both confirmed the arrangement, including the evenings we need for ourselves. I read it again before putting it in Calendar.
 
-**mizuki:** My first workday is Tuesday. I would like to tell you about it afterward. I may also be too tired to do anything but send a picture of my shoes.
+**mizuki:** my first workday is tuesday. i'd like to tell you about it afterward. i may also be too tired to do anything but send a picture of my shoes.
 
 **asahi:** I look forward to a rigorous review of the shoes, whenever it arrives.
 
@@ -1346,33 +1346,33 @@ ID: `future_agreed` · SAT  09 JAN     19:30 · Messages / Mizuki
 ### The date becomes today
 ID: `late_arrival` · SAT  16 JAN     13:55 · Messages / Mizuki
 
-**mizuki:** I am at the exit we agreed. Gray coat. Very serious scarf. Do not confuse me with a vending machine; it has a better pension.
+**mizuki:** i am at the exit we agreed. gray coat. very serious scarf. do not confuse me with a vending machine; it has a better pension.
 
 **asahi:** I am still on the platform. I have read this message three times. It has not stopped being real.
 
-**mizuki:** We are allowed to be different in person. We have already agreed that.
+**mizuki:** we are allowed to be different in person. we have already agreed that.
 
 **system:** Travel note: January 16. This is the first afternoon we will have stood in the same place. I checked the exit number again, although I know it now.
 
-**mizuki:** You can come over slowly. I am not going anywhere for these next three minutes.
+**mizuki:** you can come over slowly. i'm not going anywhere for these next three minutes.
 
 - **Reply:** Can I offer a hug when I get there? A hello is enough if you prefer. → `late_afternoon`; records {'greeting': 'offered hug'}.
-- **Reply:** Let us start with hello. I would like to walk beside you for a while. → `late_afternoon`; records {'greeting': 'quiet hello'}.
+- **Reply:** Let's start with hello. Want to walk for a bit? → `late_afternoon`; records {'greeting': 'quiet hello'}.
 
 ### A chair without a screen between it
 ID: `late_afternoon` · SAT  16 JAN     19:30 · Messages / Mizuki
 
-**mizuki:** Home. I kept the receipt for the tea. Apparently that is the sort of person I am.
+**mizuki:** home. kept the tea receipt. apparently i do that now lol
 
 **asahi:** Someone who may need to return a deeply unremarkable beverage?
 
-**mizuki:** Someone who liked the afternoon and wants a small, silly thing that proves it happened.
+**mizuki:** someone who liked the afternoon and wants a small, silly thing that proves it happened.
 
 **system:** Saved note: We asked before touching. We got lost without making it a competition about whose map was wrong. We sat beside a wall and talked until our tea went cold. There is a photograph of our cups now.
 
-**mizuki:** I liked the person who took a minute to answer. I already liked the person who could edit the answer before sending it. I am glad I have met both.
+**mizuki:** you take longer to answer in person. liked that too
 
-**asahi:** I am glad we let the day be a day instead of a verdict.
+**asahi:** Me too. Really glad I came.
 
 **Later:** `end_distance`.
 - When {'relationship_mode': 'friends'}: `end_friendship`.
@@ -1382,46 +1382,46 @@ ID: `late_afternoon` · SAT  16 JAN     19:30 · Messages / Mizuki
 ### A question without a hidden yes
 ID: `open_conversation` · SAT  09 JAN     19:30 · Messages / Mizuki
 
-**mizuki:** I can choose uncertainty. I cannot choose a waiting room where you know the answer and need me not to ask.
+**mizuki:** okay if you really don't know. please don't say maybe just because it's easier
 
-**asahi:** I do not know. I want you to have that whole answer, even though it gives me less control over what happens next.
+**asahi:** I don't know. Sorry. Wish I had a better answer.
 
-**mizuki:** Then no exclusivity promised by silence, no trip treated as a test, no saying "soon" when we mean "I hope."
+**mizuki:** then no exclusivity promised by silence, no trip treated as a test, no saying "soon" when we mean "i hope."
 
 **system:** Saved note: We agreed to leave the future open. We changed the plans that were still ahead of us together. I am trying to hear the whole answer we gave.
 
-**mizuki:** We can keep an occasional ordinary message if we want. Either of us can also say that is not enough. This is not a promise to stay unchanged until one of us gets brave.
+**mizuki:** we can still talk sometimes. but if it starts hurting, either of us can say stop. okay?
 
 **Later:** `end_open`.
 
 ### The answer he has used before
 ID: `burnout_warning` · SAT  09 JAN     19:30 · Messages / Mizuki
 
-**mizuki:** You promised overlapping weekends before. Work did not get smaller because you wanted it to, and neither did the distance.
+**mizuki:** you promised overlapping weekends before. work did not get smaller because you wanted it to, and neither did the distance.
 
 **asahi:** I can try harder.
 
-**mizuki:** You already tried harder. People stayed late, plans collapsed, and you stopped telling me when you were tired because it sounded less devoted.
+**mizuki:** you already tried harder. people stayed late, plans collapsed, and you stopped telling me when you were tired because it sounded less devoted.
 
-**mizuki:** I am offering a smaller plan. We can keep our jobs, have evenings apart, and decide what time is real. I am not asking you to earn me by becoming less of a person.
+**mizuki:** we could just do less. keep our jobs. have nights off. i'd still want to see you
 
 **system:** Saved note: She offered fewer promises and enough room to keep them. I recognized the answer I had used when two plans needed the same afternoon.
 
 - **Reply:** You are right. I will choose the smaller plan and tell people what I cannot do. → `future_agreed`; records {'future_plan': 'workable', 'ritual_renewed': False}.
-- **Reply:** I refuse to reduce any promise. I expect both of us to keep going like this. → `end_burnout`; records {'relationship_mode': 'separated', 'resolution': 'burnout'}.
+- **Reply:** No. I'm not canceling either plan. We just need to keep going. → `end_burnout`; records {'relationship_mode': 'separated', 'resolution': 'burnout'}.
 
 ### The conversation without a villain
 ID: `amicable_goodbye` · SAT  09 JAN     19:30 · Messages / Mizuki
 
-**mizuki:** I wanted another answer. I can still hear that this is the real one.
+**mizuki:** oh. okay. need a minute
 
-**asahi:** I don't want to turn the things you need into faults because I can't make them fit mine.
+**asahi:** I'm sorry. I care about you. I just can't keep promising this.
 
-**mizuki:** Then let's not make a final promise to talk every day. I need some room to be sad without treating the quiet as a failure.
+**mizuki:** please don't say we'll talk every day. need a bit of space first
 
 **asahi:** I can do that. Would you like the shared collection kept private, or removed from the shared view?
 
-**mizuki:** Private for now. I will decide what I want to keep later. Thank you for asking instead of deciding it is more poetic to delete everything.
+**mizuki:** private for now. i'll sort them later. thanks for asking
 
 **system:** Saved note: We canceled the plans still ahead of us. I kept the photographs we agreed I could keep. The evenings that happened do not become mistakes because this is the last one.
 
@@ -1430,21 +1430,21 @@ ID: `amicable_goodbye` · SAT  09 JAN     19:30 · Messages / Mizuki
 ### A Place for Us
 ID: `end_together` · SAT  20 FEB     19:30 · Messages / Mizuki
 
-**system:** February. A confirmed next visit sits beside two work schedules in Calendar. The first meeting is a saved photograph, not a promise still waiting to be tested.
+**system:** February. Our first meeting photo is in the folder. Beside it, another visit we have both booked leave for.
 
-**mizuki:** I finished my first month. I drew a window today and did not think of it as an audition for the rest of my life.
+**mizuki:** i finished my first month. i drew a window today and did not think of it as an audition for the rest of my life.
 
-**asahi:** I bought a second mug. I am not presenting it as a lease agreement.
+**asahi:** Bought a second mug. Before you ask, yes, another ugly one.
 
-**mizuki:** Good. I would like to use it. Then I would like to go back to the work I chose, and come again when we have agreed.
+**mizuki:** lol. i'll use it. then get my train back so i still have a job
 
-**asahi:** We can build something without pretending distance has become easy.
+**asahi:** I'll check my leave before we book the next one.
 
-**mizuki:** I know what your hello sounds like in a room now. I still look forward to the one on the screen.
+**mizuki:** i know what your hello sounds like in a room now. i still look forward to the one on the screen.
 
 **system:** Saved note, April: She used the second mug. One evening I had work to finish, so she went out while I finished it. We ate dinner afterward and talked about the different afternoons we had had. I like that we are learning how to come back to each other without leaving everything else behind.
 
-**mizuki:** Train ticket saved. Your mug is still ugly. See you Saturday.
+**mizuki:** train ticket saved. your mug is still ugly. see you saturday.
 
 **Ending:** Good / together.
 
@@ -1453,40 +1453,40 @@ ID: `end_distance` · SAT  20 FEB     19:30 · Messages / Mizuki
 
 **system:** February. They have not met. Calendar contains an agreed March travel discussion and two planned evenings, with room around both.
 
-**mizuki:** I am not going to pretend the screen is the same as sitting beside you. I am also not going to call what we have unreal because it happens here.
+**mizuki:** wish you were sitting here. still glad we can do this though
 
-**asahi:** We can want the meeting without treating every week before it as wasted time.
+**asahi:** Me too. Tuesday was good.
 
-**mizuki:** Tuesday was not wasted. You talked me through saving the wrong version of a file and then admitted you had done the same thing at work.
+**mizuki:** tuesday was not wasted. you talked me through saving the wrong version of a file and then admitted you had done the same thing at work.
 
 **asahi:** A relationship founded on version control errors. Very modern.
 
-**mizuki:** A relationship with people in it. We have made a plan we can check, change, and actually keep.
+**mizuki:** lol. events says tuesday again. don't forget dinner this time
 
 **system:** Saved note, April: We had the March conversation. We checked leave and money before circling dates. Until then there are planned calls, ordinary messages, and pictures of lunches neither of us would show anyone else. I still wish she were nearer. I also know when we are going to talk next.
 
-**mizuki:** A picture of my shoes, as promised. Terrible commute. Tell you about it after dinner?
+**mizuki:** a picture of my shoes, as promised. terrible commute. tell you about it after dinner?
 
 **Ending:** Good / distance.
 
 ### Still in the Party
 ID: `end_friendship` · SAT  20 FEB     19:30 · Messages / Mizuki
 
-**mizuki:** Daichi has made a party description so strict it may qualify as a short constitution.
+**mizuki:** daichi put the bridge warning in twice lol. four players and no rushing in caps
 
 **asahi:** Does it mention waiting at bridges?
 
-**mizuki:** Twice. I think you have influenced public policy.
+**mizuki:** twice. man is serious about bridges
 
 **system:** The next invitation is explicitly a friend activity. The friendship plan includes room for new relationships and for evenings when either person is elsewhere.
 
-**mizuki:** I was afraid friendship would mean keeping the conversation but removing every interesting part. It doesn't feel like that now.
+**mizuki:** thought this would get awkward. glad we still do this
 
-**asahi:** We still know things about each other that matter. We can keep learning without waiting for the other person to change the answer.
+**asahi:** Me too. Want to tell me about the sketchbook while we wait?
 
 **system:** Saved note, April: We still play. She tells me about work; I send pictures of things I have cooked badly. There are new people in both of our lives. I am glad we said friendship clearly enough that neither of us has to spend these evenings waiting for a different answer.
 
-**mizuki:** New player at the bridge. Come on. Let's show them where to wait.
+**mizuki:** new player at the bridge. come on. let's show them where to wait.
 
 **Ending:** Neutral / friendship.
 
@@ -1495,15 +1495,15 @@ ID: `end_goodbye` · SAT  20 FEB     19:30 · Messages / Mizuki
 
 **system:** February. The final exchange is reopened once, deliberately. Canceled plans are labeled canceled; memories are not relabeled mistakes.
 
-**mizuki:** I am doing okay. Not beautifully every day. But okay. I wanted you to know that without turning it into another conversation we have to keep going.
+**mizuki:** doing okay. mostly. just wanted you to know. don't think i'm ready for a long chat
 
-**asahi:** I am glad. I have been putting things on my wall. Natsumi says the apartment looks less like a place I am waiting to leave.
+**asahi:** Okay. Natsumi helped put some prints up. Flat looks different now.
 
-**mizuki:** That sounds like something good.
+**mizuki:** that sounds like something good.
 
-**asahi:** Knowing you was something good too. Even though this is where it ends.
+**asahi:** I'm glad I met you, Mizuki.
 
-**mizuki:** Yes. Thank you for the time, Asahi. I mean the ordinary bits as well.
+**mizuki:** me too. take care of yourself, okay?
 
 **system:** Saved note, April: I kept one photograph. Some evenings I look at it, and some I forget it is there. Work still needs doing. Natsumi still has news when we talk. I miss Mizuki without having an answer to send her. Tomorrow I have lunch with someone who is here.
 
@@ -1514,17 +1514,17 @@ ID: `end_goodbye` · SAT  20 FEB     19:30 · Messages / Mizuki
 ### Words Left Unsaid
 ID: `end_unsaid` · THU  17 DEC     19:45 · Messages / Mizuki
 
-**mizuki:** I gave you another opportunity to hear the boundary. You answered by explaining why it should not apply to you.
+**mizuki:** asked you again. you still won't listen. i can't keep doing this
 
-**mizuki:** I am ending this. Please do not contact my sister, my client, or our game friends to ask them to change my mind.
+**mizuki:** please stop contacting me. don't ask misaki or daichi to talk me round either. or the client
 
 **system:** Unsent note: I want to send another explanation.
 
-**system:** Saved note, not a message sent to her: wanting to be understood is not permission to keep entering a conversation someone has ended.
+**system:** Unsent note: Her last message says stop. I close the draft.
 
 **system:** Pending plans are canceled. Past choices remain in their history, and the last refusal stays in the thread beside the offered repair.
 
-**system:** Unsent note, April: I wrote an apology that names what I did. I did not send it through another account. She asked me to stop contacting her. I can learn to hear that sentence without asking her to come back and watch me learn it.
+**system:** Unsent note, April: I wrote an apology. Left it here. She asked me to stop contacting her, so I haven't sent it from another account.
 
 **system:** Saved note: Her last message is still clear. I closed the composer.
 
@@ -1535,11 +1535,11 @@ ID: `end_burnout` · SAT  20 FEB     19:30 · Messages / Mizuki
 
 **system:** The following weeks repeat the pattern Asahi chose to preserve: overlapping promises, rushed apologies, and smaller lives built around avoiding the next disappointment.
 
-**mizuki:** I accepted the smaller plan when I offered it. You kept replacing it with a bigger promise, then asking me to live with what was left.
+**mizuki:** we talked about doing less. then you promised all of it again. i can't keep clearing my evenings and hoping
 
 **asahi:** I thought devotion meant finding a way to do everything.
 
-**mizuki:** I wanted a person with a life. I do not want to keep becoming the reason you say yes to things you cannot do.
+**mizuki:** i miss when we could just talk. now you're tired, i'm upset, and we're apologizing all the time
 
 **system:** Saved note: I read the smaller plan she offered again. I had turned down the one arrangement that left us enough time to live inside it.
 
@@ -1552,32 +1552,32 @@ ID: `end_burnout` · SAT  20 FEB     19:30 · Messages / Mizuki
 ### Maybe, Someday
 ID: `end_open` · SAT  20 FEB     19:30 · Messages / Mizuki
 
-**mizuki:** I passed the station today and thought about the plan we didn't make. I wasn't angry. I wanted to tell you the thought was there.
+**mizuki:** went past the station. thought about you for a bit. wasn't expecting that
 
-**asahi:** I have those too. I am trying to let them be thoughts instead of promises I write on your behalf.
+**asahi:** Do that too. Still don't have an answer about coming.
 
-**mizuki:** I still don't know what this becomes. I do know I don't want to be held in place by an answer neither of us gave.
+**mizuki:** i know. still figuring things out here too
 
-**asahi:** You are free to make your life. I want mine to keep moving too.
+**asahi:** Hope the job's going okay. Been busy here.
 
 **system:** Saved note: No ticket booked. No promise of exclusivity. We said both things aloud before agreeing to keep an occasional conversation.
 
 **system:** Saved note, April: Some weeks we talk. Some we do not. A rainy window arrived on my screen after a quiet month. I opened it after work and sat with it for a while. There are several things I could say. I want to choose the one I mean.
 
-**mizuki:** Same rain here. How has your ordinary day been?
+**mizuki:** same rain here. how has your ordinary day been?
 
 **Ending:** Open / open.
 
 ### The Everyday Hello
 ID: `end_secret` · SAT  20 FEB     19:30 · Messages / Mizuki
 
-**system:** The small ritual was proposed, kept, allowed to pause, and deliberately renewed. Today the final activity is not a grand announcement. Both people have kept an ordinary evening for it.
+**system:** After dinner, I open our conversation. We have kept this evening free.
 
-**mizuki:** Ready?
+**mizuki:** ready?
 
-**asahi:** I have opened the window photo, found the page, and checked that the game is not updating. This is a rigorous cultural program.
+**asahi:** Ready. Dinner's done. Didn't burn anything.
 
-**mizuki:** We only need the part we actually started with. The rest can be there because we like it.
+**mizuki:** lol. ready here too. don't mind if you're still eating
 
 **system:** Party transcript: they carry two lanterns to the old bridge. This time there is no newcomer to guide. Mizuki stops on the safe bank, and Asahi waits beside her until they both choose to go on. (only when {'path': 'guild'})
 
@@ -1585,15 +1585,15 @@ ID: `end_secret` · SAT  20 FEB     19:30 · Messages / Mizuki
 
 **system:** Call transcript: a tap runs in Tokyo and a cupboard closes in Sapporo. Mizuki says "dishes" before stepping away. Asahi finishes dinner. When she returns, they pick up the same ordinary evening. (only when {'path': 'lives'})
 
-**mizuki:** Tell me one thing that would not make a good story.
+**mizuki:** so what did you do today? anything exciting?
 
 **asahi:** I put the right lid on the right pan. On the first attempt.
 
-**mizuki:** Mine is that I had an ordinary Tuesday at a job I wanted. Nothing collapsed. I drew a window. I came home.
+**mizuki:** drew a window. came home. forgot the milk in my tea. average tuesday lol
 
-**asahi:** I would like to hear about another one.
+**asahi:** Did you remember dinner?
 
-**mizuki:** That is what I wanted to ask you too.
+**mizuki:** ...brb toast
 
 **system:** Saved note, April: We still keep our small thing when we can. Last Saturday she was too tired. This Saturday I was late back from the shop. We said so, and found another evening. I remember that first random garden run and how little I knew about the person beside the other lantern. I want to hear what she did on Tuesday.
 

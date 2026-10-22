@@ -9,6 +9,8 @@ try {
     New-Item -ItemType Directory -Force -Path (Join-Path $projectRoot '.local') | Out-Null
     & godot --headless --path $projectRoot --import
     if ($LASTEXITCODE -ne 0) { throw 'Asset import failed.' }
+    & python (Join-Path $projectRoot 'tools/build_content.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Native dialogue compilation or graph audit failed.' }
     & godot --headless --path $projectRoot --script res://tests/test_story.gd
     if ($LASTEXITCODE -ne 0) { throw 'Story tests failed.' }
     & godot --path $projectRoot --script res://tests/test_social.gd
