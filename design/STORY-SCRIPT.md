@@ -7,7 +7,7 @@ Read one branch at a time. Conditions below are authoring notes and never appear
 ## Act 1: A Chance Encounter
 
 ### 01 / A chance encounter
-ID: `invite` · FRI  23 OCT     23:08 · Games / Lantern Quest
+ID: `invite` · FRI  23 OCT     23:08 · Messages / Mizuki
 
 **system:** Random matchmaking pairs you with mizuki for a garden run. You have never met.
 
@@ -19,7 +19,7 @@ ID: `invite` · FRI  23 OCT     23:08 · Games / Lantern Quest
 - **Reply:** I'll take the lantern. You can stop me walking into things. → `bridge`; records {'role': 'lantern'}.
 
 ### The crooked bridge
-ID: `bridge` · FRI  23 OCT     23:08 · Games / Lantern Quest
+ID: `bridge` · FRI  23 OCT     23:08 · Messages / Mizuki
 
 **system:** A stone bridge crosses the dark water. A second lantern flickers on the far bank.
 
@@ -31,7 +31,7 @@ ID: `bridge` · FRI  23 OCT     23:08 · Games / Lantern Quest
 - **Reply:** Want to try the bridge together? We can be damp legends. → `splash`; records {'garden_memory': 'splash'}.
 
 ### A small detour
-ID: `splash` · FRI  23 OCT     23:08 · Games / Lantern Quest
+ID: `splash` · FRI  23 OCT     23:08 · Messages / Mizuki
 
 **system:** The bridge folds into the water. Two tiny characters respawn under the same leaf.
 
@@ -102,7 +102,7 @@ ID: `lives_agreed` · FRI  23 OCT     23:08 · Messages / Mizuki
 ## Act 2: A Place in the Day
 
 ### 02 / A garden for everyone
-ID: `guild_plan` · SAT  24 OCT     16:42 · Games / Lantern Quest
+ID: `guild_plan` · SAT  24 OCT     16:42 · Messages / After Hours
 
 **mossbyte:** hey, Daichi here. mossbyte in game :) got a few ppl asking to join. could you two take separate groups?
 
@@ -112,7 +112,7 @@ ID: `guild_plan` · SAT  24 OCT     16:42 · Games / Lantern Quest
 - **Reply:** Let's make a route guide tonight, then let someone else lead. → `guild_guide`; records {'guild_plan': 'route guide'}.
 
 ### Lanterns in the rain
-ID: `guild_event` · SAT  24 OCT     16:42 · Games / Lantern Quest
+ID: `guild_event` · SAT  24 OCT     16:42 · Messages / After Hours
 
 **system:** You and Mizuki bring three new players through the garden. At the bridge, everyone waits.
 
@@ -123,7 +123,7 @@ ID: `guild_event` · SAT  24 OCT     16:42 · Games / Lantern Quest
 **Later:** `guild_callback`.
 
 ### A map with a warning
-ID: `guild_guide` · SAT  24 OCT     16:42 · Games / Lantern Quest
+ID: `guild_guide` · SAT  24 OCT     16:42 · Messages / After Hours
 
 **system:** You mark safe stones while Mizuki draws a tiny skull on the crooked bridge. A newcomer volunteers to guide.
 
@@ -188,7 +188,7 @@ ID: `private_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 **Later:** `illustration_evening`.
 
 ### 02 / Making room
-ID: `lives_work` · SAT  24 OCT     16:42 · Work / Hoshino Studio
+ID: `lives_work` · SAT  24 OCT     16:42 · Messages / Hoshino Studio
 
 **team:** Monday's handoff needs a check. You can finish Saturday afternoon or take the Sunday review. Both are fine; tell me which.
 
@@ -226,7 +226,7 @@ ID: `lives_reschedule` · MON  26 OCT     19:30 · Messages / Mizuki
 **Later:** `lives_callback`.
 
 ### 03 / A possible journey
-ID: `lives_callback` · TUE  27 OCT     20:16 · Calendar / Mizuki
+ID: `lives_callback` · TUE  27 OCT     20:16 · Messages / Mizuki
 
 **mizuki:** if we ever meet, i'd rather have an ordinary afternoon than a perfect itinerary.
 
@@ -237,7 +237,7 @@ ID: `lives_callback` · TUE  27 OCT     20:16 · Calendar / Mizuki
 **Later:** `sister_intro`.
 
 ### The smallest party
-ID: `party_evening` · SAT  31 OCT     19:40 · Games / Lantern Quest
+ID: `party_evening` · SAT  31 OCT     19:40 · Messages / After Hours
 
 **mossbyte:** party says FOUR. guy just asked if six was close enough lol
 
@@ -587,7 +587,7 @@ ID: `permission_granted` · SUN  15 NOV     16:00 · Messages / Mizuki & Misaki
 **Later:** `approved_workshop`.
 
 ### A room she agreed to enter
-ID: `approved_workshop` · WED  18 NOV     20:00 · Games / Lantern Quest
+ID: `approved_workshop` · WED  18 NOV     20:00 · Messages / After Hours
 
 **mossbyte:** right version's up. checked the credit too. we did it ppl :)
 
@@ -678,7 +678,7 @@ ID: `canceled_workshop` · WED  18 NOV     20:00 · Messages / Daichi
 ## Act 4: The Distance Between Us
 
 ### The days have edges
-ID: `work_decision` · MON  23 NOV     18:05 · Work / Hoshino Studio
+ID: `work_decision` · MON  23 NOV     18:05 · Messages / Hoshino Studio
 
 Major decision: **D04**
 
@@ -699,7 +699,7 @@ Major decision: **D04**
 - **Reply:** Put me on the weekend check. I'll make the early visit work too. → `work_broken`; records {'leave': 'deferred', 'work_broken': True, 'work': 'Overlapping work and travel promises; leave not approved'}.
 
 ### The handoff
-ID: `work_adjusted` · FRI  27 NOV     18:00 · Work / Hoshino Studio
+ID: `work_adjusted` · FRI  27 NOV     18:00 · Messages / Hoshino Studio
 
 **team:** Draft received Thursday. Friday checks are done. Your leave is approved.
 
@@ -718,7 +718,7 @@ ID: `work_adjusted` · FRI  27 NOV     18:00 · Work / Hoshino Studio
 **Later:** `visit_plan`.
 
 ### The weekend he stayed
-ID: `work_kept` · SAT  28 NOV     18:00 · Work / Hoshino Studio
+ID: `work_kept` · SAT  28 NOV     18:00 · Messages / Hoshino Studio
 
 **team:** Thanks for the check. You found the missing export before it went out.
 
@@ -735,7 +735,7 @@ ID: `work_kept` · SAT  28 NOV     18:00 · Work / Hoshino Studio
 **Later:** `visit_plan`.
 
 ### Someone else stayed late
-ID: `work_broken` · SAT  28 NOV     19:30 · Work / Hoshino Studio
+ID: `work_broken` · SAT  28 NOV     19:30 · Messages / Hoshino Studio
 
 **team:** You said the check would be done before leaving. It wasn't. Someone else missed their train to finish it.
 
@@ -1254,7 +1254,7 @@ ID: `boundary_followthrough` · SAT  19 DEC     18:00 · Messages / Mizuki
 ## Act 6: The Next Hello
 
 ### The work that continued
-ID: `career_followup` · TUE  05 JAN     18:30 · Work / Hoshino Studio
+ID: `career_followup` · TUE  05 JAN     18:30 · Messages / Hoshino Studio
 
 **team:** January schedule's ready. Have a look before I assign the next layouts.
 
@@ -1270,7 +1270,7 @@ ID: `career_followup` · TUE  05 JAN     18:30 · Work / Hoshino Studio
 - When {'career_offer': True}: `project_meeting`.
 
 ### A small project of his own
-ID: `project_meeting` · WED  06 JAN     18:30 · Work / Hoshino Studio
+ID: `project_meeting` · WED  06 JAN     18:30 · Messages / Hoshino Studio
 
 **team:** You're planning the print layouts. Review Wednesday, if you want it. Keep the evenings you booked off.
 
@@ -1285,7 +1285,7 @@ ID: `project_meeting` · WED  06 JAN     18:30 · Work / Hoshino Studio
 **Later:** `mizuki_offer`.
 
 ### The task he still has
-ID: `supervised_review` · WED  06 JAN     18:30 · Work / Hoshino Studio
+ID: `supervised_review` · WED  06 JAN     18:30 · Messages / Hoshino Studio
 
 **team:** Review finished. The missing files are back where the next person can find them.
 

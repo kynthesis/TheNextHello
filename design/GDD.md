@@ -3,7 +3,7 @@
 **Game Design Document · v0.3 · 22 October 2026**  
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
 **Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
-**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account through a recreation of old Facebook mobile, presented as a nostalgic mobile social app with exactly seven sections. The latest mobile direction supersedes the earlier desktop site layout.
+**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's account on Noir, a flat nostalgic social network, presented as a nostalgic mobile social app with exactly seven sections. The latest mobile direction supersedes the earlier desktop site layout.
 **Engine:** Godot 4.7.2, selected by the creator's project instructions. A complete playable six-act first draft is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
@@ -120,7 +120,7 @@ Home uses a compact three-column grid with exactly seven sections: News Feed, Pr
 | **Messages** | Direct/group conversations, private attachments, drafts and explicit replies. | Main narrative and meaningful decisions. |
 | **Requests** | Accept or decline requests earned after encounters. | New friendships without changing the chance-meeting origin. |
 
-Settings is a header utility. Lantern Quest and work conversations are nested story contexts reached through Events and Messages. Internal Games/Work/Notes/Calendar save keys are retained for migration.
+Settings and Music are header utilities. All characters communicate through Messages DMs or group chats. Work and Lantern Quest remain story topics; their separate screens are removed. Legacy Games/Work keys migrate into Messages. Events alone holds objectives, progress and next-action links, without mission banners or progress badges.
 
 **Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Photos shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
 
@@ -279,7 +279,7 @@ Within an ending, memories, Natsumi's commitments and communication agreements c
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** Recreate the old Facebook mobile UI from the creator's reference images: blue gradient navigation and white wordmark, a pale gray-lilac background, beveled multicolor icons, red badges and readable labels. Home has a three-column section grid, accepted-friend search, an own-photo shelf and a fixed blue Notifications footer. News Feed and private Messages are separate. White incoming bubbles align left; Asahi's pale-blue replies align right, with small speech tails. Pixel illustrations remain where they carry story context.
+**Visual identity:** Noir uses flat blue navigation, its own white wordmark, a pale gray-lilac background, multicolor icons, red message badges and readable labels. Use solid fills and thin borders, with no bevels, gradients or button shadows. Home has a three-column section grid, accepted-friend search, an own-photo shelf and a fixed blue Notifications footer. News Feed and private Messages are separate. White incoming bubbles align left; Asahi's pale-blue replies align right, with small speech tails. Pixel illustrations remain where they carry story context.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
@@ -431,4 +431,4 @@ This is a whole-game proposal rather than an approved per-system specification. 
 
 Dialogue Manager v4.1.0 is pinned and bundled under its MIT license. Conversations are six native `.dialogue` files in `content/dialogue/`, editable in Godot's Dialogue tab. The custom mobile interface reads them through the addon's runtime. Stable `[ID:...]` keys preserve saved histories and outgoing drafts. Plot facts, response destinations and once-only consequences remain in `content/story.json`; cast details live in `content/characters.json`. Native predicates read state without changing it. Send and Later apply consequences. The build uses the upstream compiler, regenerates the review script/audit cache and replays all eight endings.
 
-The story opens on 23 October 2009 and continues into spring 2010. The fictional network retains the requested Sent/Read presentation. The interface recreates the requested old Facebook references, while fictional Sent/Read and story interactions retain their established behavior. It uses no Facebook account or service. Interface sounds are synthesized recreations. Public profiles show birthdays and selected interests; private motives stay in writer notes and character behavior. Zodiac signs are flavor details with no compatibility score.
+The story opens on 23 October 2009 and continues into spring 2010. The fictional network retains the requested Sent/Read presentation. Noir keeps the nostalgic social-network layout and established fictional Sent/Read interactions. It uses no real social-service account. Interface audio recreates early iOS keyboard ticks, sending whoosh and incoming tri-tone through original synthesis. POV typing is slow and uneven, with word/punctuation pauses and a skip control. Public profiles show birthdays and selected interests; private motives stay in writer notes and character behavior. Zodiac signs are flavor details with no compatibility score.

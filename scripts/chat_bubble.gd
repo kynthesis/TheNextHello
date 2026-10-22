@@ -6,8 +6,8 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 
 func _draw() -> void:
-	var edge := Color("8da4c2") if outgoing else Color("b8bdc5")
-	var fill := Color("d9e7f8") if outgoing else Color("ffffff")
+	var edge := Color("9cb2d0") if outgoing else Color("c2c8d1")
+	var fill := Color("dce9fa") if outgoing else Color("ffffff")
 	var x := size.x - 1 if outgoing else 1.0
 	var direction := 1.0 if outgoing else -1.0
 	var points := PackedVector2Array([Vector2(x, 14), Vector2(x + direction * 7, 20), Vector2(x, 27)])

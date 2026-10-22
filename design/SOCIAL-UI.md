@@ -1,6 +1,6 @@
 # Nostalgic mobile social UI
 
-Creator direction, 22 October 2026: recreate old Facebook mobile using the supplied reference images, including its blue gradients, wordmark, multicolor icons, red badges and chat bubbles. This replaces the previous teal theme direction. The account belongs to Asahi, with Emily is Away's intimate conversations. No desktop sidebars. This remains a local story game with fictional content and no Facebook login or connection.
+Creator direction, 22 October 2026: name the network Noir and flatten the nostalgic social UI. Keep the familiar blue palette and multicolor icon shapes, with solid fills, fine borders and no beveled buttons or gradients. All character conversations use DMs or group chats in Messages. Work and gaming remain story topics, with no separate screens. The account belongs to Asahi. This is a local fictional network with no real social-service login.
 
 ## Seven main sections
 
@@ -14,15 +14,15 @@ Creator direction, 22 October 2026: recreate old Facebook mobile using the suppl
 | Messages | Private DMs, group conversations, call transcripts, drafts and attachments. |
 | Requests | Accept or decline new friend requests after story encounters. |
 
-Settings and Music are header utilities. Games, Work, Notes and Calendar remain stable internal narrative/save keys. They are not extra menu sections. Events links to Lantern Quest and work scenes when the story needs them; the Messages conversation list also provides these links. Legacy Notes/Calendar navigation opens Events.
+Settings and Music are header utilities. All authored scene conversations use Messages: the opening runs in Mizuki's DM, later party scenes in After Hours, and office conversations in Hoshino Studio. Old Games/Work screen keys migrate to Messages without repeating a scene or changing a choice. Legacy Notes/Calendar navigation opens Events. Events alone holds progress, objectives and next-action links; no mission banners, progress badges or feed/home objective cards.
 
 ## Layout and tone
 
-Use a 414×896 portrait app canvas, scaled uniformly to fit the window, centered in plain dark blue-gray margins on desktop. Default window is the portrait size. A glossy blue header carries the white facebook wordmark, Settings and Music. Home has Search friends, exactly seven labeled multicolor icons in a three-column grid, three own-photo thumbnails, an Events link and a fixed blue Notifications footer. Search opens an accepted friend's profile by name. No hardware bezel, wallpaper, large clock, device dock or gesture bar. One standard reading size; metadata and headings have a fixed hierarchy, with no alternate text scaling.
+Use a 414×896 portrait canvas, scaled uniformly inside larger windows with dark blue-gray margins. A flat blue header carries the white Noir wordmark, Settings and Music. Home has accepted-friend search, exactly seven labeled multicolor icons in a three-column grid, three own-photo thumbnails and a flat blue Notifications footer. No hardware bezel, wallpaper, large clock, dock or gesture bar. One standard reading size; headings and metadata have a fixed hierarchy.
 
-Incoming white bubbles align left; Asahi's pale-blue bubbles align right. Both have fine borders, shallow gradients and small speech tails. Square pixel portraits stand in for profile photos. News Feed uses compact blue Like/Comment/Share links on gray-lilac action strips. Skippable typing dots, variable message delays and pauses during Asahi's composition retain the selected wording. Explicit Send commits a reply; Sent/Read never score affection. Only Later advances fictional dates. Buttons, mouse/touch scrolling, visible keyboard focus and Escape provide navigation.
+White incoming bubbles align left; Asahi's pale-blue bubbles align right. Use flat fills, thin outlines and small tails. Square pixel portraits stand in for profile photos. News Feed uses compact blue Like/Comment/Share links on pale action strips. Asahi types one character at a time, usually 110–190 ms per key with additional word and punctuation pauses. Incoming typing waits last 1.2–5 seconds according to message length. Explicit Send commits a reply; typing, Sent/Read and skip controls never change the selected meaning. Only Later advances fictional time.
 
-Interface audio is synthesized: a soft key click during visible composition, a short sending chirp and a glassy two-note inbox bell. These recreate the period's sound; they are not extracted Facebook recordings. Global interface volume still mutes every cue independently of music.
+Original interface synthesis evokes early iOS: soft keyboard ticks, a lower spacebar click, a short sending whoosh and a three-note incoming chime. These are synthesized cues, not Apple recordings. Keys sound once per visible character, with small pitch variations. Instant messages, Reduce motion and Finish typing skip presentation without a burst of skipped clicks. Interface volume mutes all cues independently of music. Notifications opens a manual list of real incoming message snippets; scene titles never appear as mission notifications.
 
 ## Social actions and privacy
 

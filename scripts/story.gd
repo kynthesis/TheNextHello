@@ -3,8 +3,8 @@ extends RefCounted
 ## Plain-data story state. Presentation never applies narrative effects.
 
 const CONTENT_VERSION := "opening-1"
-const APPS := ["Home", "Messages", "Games", "Work", "Photos", "Calendar", "Settings", "Notes"]
-const APP_ALIASES := {"Lantern Quest": "Games", "Desk": "Work", "Gallery": "Photos"}
+const APPS := ["Home", "Messages", "Photos", "Calendar", "Settings", "Notes"]
+const APP_ALIASES := {"Lantern Quest": "Messages", "Games": "Messages", "Desk": "Messages", "Work": "Messages", "Gallery": "Photos"}
 const RETIRED_APPS := ["Moments", "Resonance", "Vista", "Loop", "Bookmark"]
 var characters: Dictionary
 var content: Dictionary
@@ -175,7 +175,13 @@ func _enter(id: String, before: Variant = null) -> void:
 			if not state.facts.has("photo_ids"): state.facts.photo_ids = []
 			if photo not in state.facts.photo_ids: state.facts.photo_ids.append(photo)
 		state.consumed.append(id)
-		state.notifications.append({"id": id, "app": content.nodes[id].app, "text": content.nodes[id].title, "read": false})
+		# Notify only real incoming conversation content. Scene titles and Events
+		# objectives never become notifications or automatic mission banners.
+		if context.app == "Messages":
+			for entry: Dictionary in resolved.lines:
+				if entry.speaker not in ["system", "asahi"]:
+					state.notifications.append({"id": id, "app": "Messages", "text": entry.text, "thread": context.thread, "kind": "message", "read": false})
+					break
 		state.app_updates.Notes = [id]
 		for key: String in ["screenshot", "desk_photo", "postcard", "photo"]:
 			if state.facts.get(key, false) and not previous_facts.get(key, false):
@@ -297,6 +303,7 @@ func valid(data: Variant) -> bool:
 		for notification: Variant in data.notifications:
 			if not notification is Dictionary or not notification.get("id") is String or not notification.get("text") is String or not notification.get("read") is bool or not notification.get("app") in APPS:
 				return false
+			if notification.get("kind") != "message" or not notification.get("thread") is String: return false
 	for entry: Variant in data.log:
 		if not entry is Dictionary or not entry.get("speaker") is String or not entry.get("text") is String:
 			return false
@@ -354,7 +361,7 @@ func load_from(path: String) -> bool:
 			if not state.has("app_updates"):
 				state.app_updates = {"Notes": [state.node]}
 			if not state.has("notifications"):
-				state.notifications = [{"id": state.node, "app": current().app, "text": current().title, "read": false}]
+				state.notifications = []
 			# Preserve prototype saves when the creator renames the cast.
 			for entry: Dictionary in state.log:
 				var context: Dictionary = content.nodes.get(entry.text.get_slice(".", 0), current())
@@ -382,26 +389,45 @@ func _read_json(path: String) -> Variant:
 	return _migrate_apps(parser.data)
 
 func _migrate_apps(data: Variant) -> Variant:
-	# Normalize only known old app IDs. Validation still rejects malformed data.
+	# Redirect removed screens and rehome their transcripts without replaying a scene.
 	if not data is Dictionary or data.get("version") != 1 or data.get("content_version") != CONTENT_VERSION:
 		return data
+	var old_app: String = data.get("app", "") if data.get("app") is String else ""
 	if data.get("app") is String:
 		data.app = "Home" if data.app in RETIRED_APPS else APP_ALIASES.get(data.app, data.app)
 	for key: String in ["scroll", "app_updates"]:
-		if data.get(key) is Dictionary:
-			for old: String in APP_ALIASES:
-				if data[key].has(old):
-					data[key][APP_ALIASES[old]] = data[key][old]
-					data[key].erase(old)
-			for retired: String in RETIRED_APPS:
-				data[key].erase(retired)
+		if not data.get(key) is Dictionary: continue
+		for old: String in APP_ALIASES:
+			if not data[key].has(old): continue
+			var target: String = APP_ALIASES[old]
+			if key == "app_updates" and data[key].get(target) is Array and data[key][old] is Array:
+				for id: Variant in data[key][old]:
+					if id not in data[key][target]: data[key][target].append(id)
+			elif not data[key].has(target) or old == old_app:
+				data[key][target] = data[key][old]
+			data[key].erase(old)
+		for retired: String in RETIRED_APPS: data[key].erase(retired)
+	if data.get("log") is Array:
+		for entry: Variant in data.log:
+			if not entry is Dictionary or not entry.get("text") is String: continue
+			var scene: String = entry.text.get_slice(".", 0)
+			if content.nodes.has(scene) and (not entry.has("app") or entry.app in APPS or entry.app in APP_ALIASES):
+				entry.app = content.nodes[scene].app
+				entry.thread = content.nodes[scene].thread
+			elif entry.get("app") is String:
+				entry.app = APP_ALIASES.get(entry.app, entry.app)
+				if entry.get("thread") == "Lantern Quest": entry.thread = "After Hours"
 	if data.get("notifications") is Array:
 		var kept: Array = []
-		for notification: Variant in data.notifications:
-			if notification is Dictionary and notification.get("app") is String:
-				if notification.app in RETIRED_APPS:
-					continue
-				notification.app = APP_ALIASES.get(notification.app, notification.app)
-			kept.append(notification)
+		for notice: Variant in data.notifications:
+			if notice is Dictionary and notice.get("app") is String:
+				if notice.app in RETIRED_APPS: continue
+				# Historical scene/mission notifications are obsolete. History and
+				# progress remain in the transcript and Events respectively.
+				if notice.get("kind") != "message" and content.nodes.has(notice.get("id", "")) and (notice.app in APPS or notice.app in APP_ALIASES): continue
+				notice.app = APP_ALIASES.get(notice.app, notice.app)
+				if notice.get("kind") == "message" and content.nodes.has(notice.get("id", "")):
+					notice.thread = content.nodes[notice.id].thread
+			kept.append(notice)
 		data.notifications = kept
 	return data

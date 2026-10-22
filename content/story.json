@@ -141,7 +141,7 @@
   "nodes": {
     "invite": {
       "title": "invite.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 1,
       "lines": [
         {
@@ -178,14 +178,14 @@
       "objective": "invite.objective",
       "chapter": 1,
       "chapter_title": "chapter.1.title",
-      "thread": "Lantern Quest",
+      "thread": "Mizuki",
       "timestamp": "FRI  23 OCT     23:08",
       "dialogue": "res://content/dialogue/act_01.dialogue",
       "year": 2009
     },
     "bridge": {
       "title": "bridge.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 1,
       "lines": [
         {
@@ -222,14 +222,14 @@
       "objective": "bridge.objective",
       "chapter": 1,
       "chapter_title": "chapter.1.title",
-      "thread": "Lantern Quest",
+      "thread": "Mizuki",
       "timestamp": "FRI  23 OCT     23:08",
       "dialogue": "res://content/dialogue/act_01.dialogue",
       "year": 2009
     },
     "splash": {
       "title": "splash.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 1,
       "lines": [
         {
@@ -256,7 +256,7 @@
       "objective": "splash.objective",
       "chapter": 1,
       "chapter_title": "chapter.1.title",
-      "thread": "Lantern Quest",
+      "thread": "Mizuki",
       "timestamp": "FRI  23 OCT     23:08",
       "dialogue": "res://content/dialogue/act_01.dialogue",
       "year": 2009
@@ -456,7 +456,7 @@
     },
     "guild_plan": {
       "title": "guild_plan.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -489,14 +489,14 @@
       "objective": "guild_plan.objective",
       "chapter": 2,
       "chapter_title": "chapter.2.title",
-      "thread": "Lantern Quest",
+      "thread": "After Hours",
       "timestamp": "SAT  24 OCT     16:42",
       "dialogue": "res://content/dialogue/act_02.dialogue",
       "year": 2009
     },
     "guild_event": {
       "title": "guild_event.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -520,14 +520,14 @@
       "objective": "guild_event.objective",
       "chapter": 2,
       "chapter_title": "chapter.2.title",
-      "thread": "Lantern Quest",
+      "thread": "After Hours",
       "timestamp": "SAT  24 OCT     16:42",
       "dialogue": "res://content/dialogue/act_02.dialogue",
       "year": 2009
     },
     "guild_guide": {
       "title": "guild_guide.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -551,7 +551,7 @@
       "objective": "guild_guide.objective",
       "chapter": 2,
       "chapter_title": "chapter.2.title",
-      "thread": "Lantern Quest",
+      "thread": "After Hours",
       "timestamp": "SAT  24 OCT     16:42",
       "dialogue": "res://content/dialogue/act_02.dialogue",
       "year": 2009
@@ -731,7 +731,7 @@
     },
     "lives_work": {
       "title": "lives_work.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -847,7 +847,7 @@
     },
     "lives_callback": {
       "title": "lives_callback.title",
-      "app": "Calendar",
+      "app": "Messages",
       "day": 3,
       "lines": [
         {
@@ -882,7 +882,7 @@
     },
     "party_evening": {
       "title": "party_evening.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -938,7 +938,7 @@
       ],
       "chapter": 2,
       "chapter_title": "chapter.2.title",
-      "thread": "Lantern Quest",
+      "thread": "After Hours",
       "timestamp": "SAT  31 OCT     19:40",
       "objective": "party_evening.objective",
       "dialogue": "res://content/dialogue/act_02.dialogue",
@@ -1844,7 +1844,7 @@
     },
     "approved_workshop": {
       "title": "approved_workshop.title",
-      "app": "Games",
+      "app": "Messages",
       "day": 3,
       "lines": [
         {
@@ -1878,7 +1878,7 @@
       },
       "chapter": 3,
       "chapter_title": "chapter.3.title",
-      "thread": "Lantern Quest",
+      "thread": "After Hours",
       "timestamp": "WED  18 NOV     20:00",
       "objective": "approved_workshop.objective",
       "later": "work_decision",
@@ -2066,7 +2066,7 @@
     },
     "work_decision": {
       "title": "work_decision.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {
@@ -2137,7 +2137,7 @@
     },
     "work_adjusted": {
       "title": "work_adjusted.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {
@@ -2184,7 +2184,7 @@
     },
     "work_kept": {
       "title": "work_kept.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {
@@ -2227,7 +2227,7 @@
     },
     "work_broken": {
       "title": "work_broken.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {
@@ -3417,7 +3417,7 @@
     },
     "career_followup": {
       "title": "career_followup.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 6,
       "lines": [
         {
@@ -3461,7 +3461,7 @@
     },
     "project_meeting": {
       "title": "project_meeting.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 6,
       "lines": [
         {
@@ -3500,7 +3500,7 @@
     },
     "supervised_review": {
       "title": "supervised_review.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 6,
       "lines": [
         {
@@ -4723,7 +4723,7 @@
     },
     "wait__lives_work__0": {
       "title": "wait__lives_work__0.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -4744,7 +4744,7 @@
     },
     "wait__lives_work__1": {
       "title": "wait__lives_work__1.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 2,
       "lines": [
         {
@@ -4933,7 +4933,7 @@
     },
     "wait__work_decision__0": {
       "title": "wait__work_decision__0.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {
@@ -4954,7 +4954,7 @@
     },
     "wait__work_decision__1": {
       "title": "wait__work_decision__1.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {
@@ -4975,7 +4975,7 @@
     },
     "wait__work_decision__2": {
       "title": "wait__work_decision__2.title",
-      "app": "Work",
+      "app": "Messages",
       "day": 4,
       "lines": [
         {

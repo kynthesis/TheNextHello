@@ -26,6 +26,7 @@ func _initialize() -> void:
 		check(age == ages[name] and person.age_at_opening == age, "birthday preserves established age: " + name)
 		check(not person.zodiac.is_empty() and not person.hobbies.is_empty() and not person.favorites.is_empty(), "personality has usable profile details: " + name)
 	await social_state()
+	await conversation_migration()
 	await full_paths()
 	check(visited.size() == model.content.nodes.size(), "all authored nodes reachable")
 	check(model.state.node == "invite", "exploration does not mutate original")
@@ -54,14 +55,14 @@ func _initialize() -> void:
 	check(resumed.state.log == delivered_log, "reveal and revisit cannot duplicate messages")
 	DirAccess.remove_absolute("user://test_delivery.json")
 	var badges := await Story.create()
-	check(badges.unread_count("Notes") == 1 and badges.unread_count("Games") == 1, "opening highlights objectives and game invitation")
+	check(badges.unread_count("Notes") == 1 and badges.unread_count("Messages") == 1, "opening records a message and internal Events progress")
 	badges.mark_app_read("Notes")
-	check(badges.unread_count("Notes") == 0 and badges.unread_count("Games") == 1, "reading one app preserves other badges")
+	check(badges.unread_count("Notes") == 0 and badges.unread_count("Messages") == 1, "reading one app preserves other badges")
 	badges.draft("invite.choice.0")
 	(await badges.send())
-	check(badges.unread_count("Games") == 2, "unread bubble counts multiple events")
+	check(badges.unread_count("Messages") == 2, "unread bubble counts multiple events")
 	check(badges.unread_count("Notes") == 1, "changed objective refreshes Notes bubble")
-	badges.mark_app_read("Games")
+	badges.mark_app_read("Messages")
 	badges.draft("bridge.choice.0")
 	(await badges.send())
 	check(badges.unread_count("Photos") == 1, "new screenshot flags Photos")
@@ -88,7 +89,7 @@ func _initialize() -> void:
 	check(loaded.journal() == model.journal(), "Notes objectives restore from saved story state")
 	check((await loaded.send()), "restored draft sends")
 	check(not (await loaded.send()), "second send cannot duplicate transition")
-	check(loaded.state.notifications.size() == 2, "one notification per consumed event")
+	check(loaded.state.notifications.size() == 2, "one notification per incoming conversation update")
 	check(loaded.save_to("user://test_save.json"), "second save makes backup")
 	var corrupt := FileAccess.open("user://test_save.json", FileAccess.WRITE)
 	corrupt.store_string("broken")
@@ -117,9 +118,9 @@ func _initialize() -> void:
 	legacy_file.close()
 	check((await loaded.load_from("user://test_legacy.json")), "earlier prototype save still loads")
 	check(loaded.state.log.back().speaker == "asahi" and loaded.state.facts.commitment == "Call with Mizuki", "saved cast references migrate")
-	check(loaded.state.notifications.size() == 1, "earlier save receives current notification once")
+	check(loaded.state.notifications.is_empty(), "older saves do not recreate obsolete mission notifications")
 	check(loaded.unread_count("Notes") == 1, "earlier save highlights the Notes app")
-	for old: String in ["Lantern Quest", "Desk", "Gallery", "Resonance", "Moments", "Vista", "Loop", "Bookmark"]:
+	for old: String in ["Lantern Quest", "Games", "Desk", "Work", "Gallery", "Resonance", "Moments", "Vista", "Loop", "Bookmark"]:
 		var old_save: Dictionary = model.state.duplicate(true)
 		old_save.app = old
 		old_save.scroll = {"Lantern Quest": 42, "Desk": 81, "Gallery": 12, "Bookmark": 90}
@@ -131,8 +132,8 @@ func _initialize() -> void:
 		check((await loaded.load_from("user://test_legacy.json")), "old app save loads: " + old)
 		check(loaded.state.app == ("Home" if old in Story.RETIRED_APPS else Story.APP_ALIASES[old]), "old app redirects safely: " + old)
 		check(loaded.state.node == model.state.node and loaded.state.draft == model.state.draft and loaded.state.log == model.state.log, "app migration preserves story and draft")
-		check(loaded.state.scroll.Games == 42 and loaded.state.scroll.Work == 81 and loaded.state.scroll.Photos == 12 and not loaded.state.scroll.has("Bookmark"), "scroll IDs migrate")
-		check(loaded.state.notifications[0].app == "Games" and loaded.unread_count("Photos") == 1, "notification and badge links migrate")
+		check(loaded.state.scroll.Messages == (81 if old == "Desk" else 42) and not loaded.state.scroll.has("Games") and not loaded.state.scroll.has("Work") and loaded.state.scroll.Photos == 12 and not loaded.state.scroll.has("Bookmark"), "scroll IDs migrate")
+		check(loaded.state.notifications[0].app == "Messages" and loaded.unread_count("Photos") == 1, "notification and badge links migrate")
 	DirAccess.remove_absolute("user://test_legacy.json")
 	var path_events: Array = []
 	for route in range(3):
@@ -210,3 +211,35 @@ func social_state() -> void:
 	declined.draft("bridge.choice.0"); (await declined.send())
 	check(declined.answer_request("Mizuki", false) and declined.pending_requests().is_empty() and "Mizuki" not in declined.social().friends, "declining a request keeps it out of Friends")
 	for suffix: String in ["", ".bak", ".tmp"]: DirAccess.remove_absolute("user://test_social.json" + suffix)
+
+func conversation_migration() -> void:
+	var paths: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tests/story_paths.json"))
+	for target: String in ["party_evening", "work_decision"]:
+		var run := await Story.create()
+		for fixture: Dictionary in paths:
+			if fixture.name != "node:" + target: continue
+			for step: String in fixture.steps:
+				if step == "later": await run.later()
+				else:
+					run.draft(step)
+					await run.send()
+			break
+		var legacy: Dictionary = run.state.duplicate(true)
+		legacy.app = "Games" if target == "party_evening" else "Work"
+		for entry: Dictionary in legacy.log:
+			if entry.thread in ["Mizuki", "After Hours"] and entry.text.get_slice(".", 0) in ["invite", "bridge", "splash", "guild_plan", "guild_event", "guild_guide", "party_evening"]:
+				entry.app = "Games"
+				entry.thread = "Lantern Quest"
+			elif entry.thread == "Hoshino Studio": entry.app = "Work"
+		legacy.notifications.append({"id": target, "app": legacy.app, "text": target + ".title", "read": false})
+		var file := FileAccess.open("user://test_rehomed.json", FileAccess.WRITE)
+		file.store_string(JSON.stringify(legacy))
+		file.close()
+		var loaded := await Story.create()
+		check(await loaded.load_from("user://test_rehomed.json"), "removed conversation screen migrates: " + target)
+		check(loaded.state.app == "Messages" and loaded.state.node == target and loaded.state.facts == run.state.facts and loaded.state.consumed == run.state.consumed, "migration preserves narrative position and consequences: " + target)
+		check(loaded.state.log == run.state.log, "migration restores every transcript to its DM/group: " + target)
+		check(loaded.state.notifications.all(func(notice: Dictionary) -> bool: return notice.kind == "message"), "mission notices are discarded: " + target)
+		var thread := "After Hours" if target == "party_evening" else "Hoshino Studio"
+		check(thread in loaded.threads() and loaded.visible_log("Messages", "Lantern Quest").is_empty(), "removed categories do not reappear as threads: " + target)
+	DirAccess.remove_absolute("user://test_rehomed.json")
