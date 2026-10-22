@@ -33,7 +33,7 @@ At the ending, suggest Same Time Next Week for `end_together`, `end_distance`, `
 
 ## Generation and file setup
 
-Use each prompt independently. BPM and duration are targets. Choose instrumental generation for the ten instrumental songs and leave the lyrics field empty. The final two songs include original English lyrics and vocal direction. Keep their phrasing conversational.
+Use each prompt independently. BPM and duration are targets. Choose instrumental generation for the ten instrumental songs and leave the lyrics field empty. Your Coat includes a lyrics-generation prompt; Missed the Last Train includes original English lyrics. Same Time Next Week also offers an optional vocal arrangement and lyrics-generation prompt. Keep their phrasing conversational.
 
 The collection belongs on a personal MP3 player in 2009–2010. Let the genres differ, with guitars, small-band performances, drum machines and early home recording. Avoid contemporary festival drops, trap rolls and extreme vocal processing. Reading tracks need restrained dynamics and room between melodic phrases. Generate A and B with the same brief and lyrics, then compare them.
 
@@ -129,6 +129,11 @@ Files: `same_time_next_week_a.wav`, `same_time_next_week_b.wav`.
 Prompt:
 > A quiet instrumental from a modest 2009 independent-film soundtrack. Close upright piano, occasional acoustic-guitar harmonics and a faint cello entering in the second half. The room is quiet after a long conversation. Use a small recurring melody whose last note hangs over a different chord each time. There is warmth in the recording and uncertainty in the harmony. Leave generous pauses and keep the performance intimate. No triumphant resolution, funeral march, percussion, singing or humming. Target 68 BPM, three minutes fifteen seconds. Let the final piano chord decay fully.
 
+Optional vocal arrangement: soft male midrange, English. Use the same intimate piano-and-guitar arrangement, with an unforced vocal and sparse harmonies. Generate the lyrics with the prompt below before generating the song. This arrangement is for deliberate playlist listening or credits; keep the existing instrumental for automatic reading playback. Files: `same_time_next_week_vocal_a.wav`, `same_time_next_week_vocal_b.wav`. It shares the base song's ending unlock.
+
+Lyrics-generation prompt:
+> Write original English lyrics for a quiet 2009 chamber-folk song titled "Same Time Next Week," sung by a man in a close, unforced voice. A familiar weekly conversation has ended, and he is clearing up his room afterward. Show what the calls meant through small details: two cups even though he is alone, a clock he forgot to check, a book left open, something ordinary he saved to tell the other person. The phrase "same time next week" first appears as a remembered habit. By the final chorus it becomes a gentle question whose answer remains unstated. Leave room for the listener to hear continued friendship, a relationship at a distance, or a goodbye. Do not confirm a reunion, breakup, death, booked visit or romantic commitment. Keep the tone tired, affectionate and a little uncertain. Use simple singable language, natural contractions, breathing room and loose rhymes. Structure: [Verse 1], [Chorus], [Verse 2], [Chorus], [Bridge], [Final Chorus]. Around 180–230 words. Keep any technology plausible for 2009–2010. Avoid fate, stars, forever, healing speeches and named game characters. Return only the title and finished lyrics with section tags.
+
 ## 11. Your Coat
 
 Chapter 5, after a mutually chosen romantic date. Indie pop / acoustic pop. Female voice, intimate midrange. English. Target: 102 BPM, about 3 minutes. Optional player selection; keep vocals out of automatic reading playback.
@@ -138,53 +143,8 @@ Files: `your_coat_a.wav`, `your_coat_b.wav`.
 Style prompt:
 > A 2009 acoustic indie-pop song with an intimate female midrange voice. Fingerpicked acoustic guitar in the verse, clean electric guitar and a small live rhythm section joining the chorus. Someone keeps finding ordinary excuses for the person she likes to visit again. Sing the supplied English lyrics with a little embarrassment and a smile in a few words. Natural phrasing, restrained harmonies on the final chorus and no belting. Keep the band warm and the vocal lightly produced. Target 102 BPM, about three minutes, ending with a short guitar outro.
 
-Lyrics:
-
-```text
-[Verse 1]
-Your coat is hanging by the door
-You left a ticket in the sleeve
-I was going to call on Sunday
-Then I thought I'd let you sleep
-
-[Verse 2]
-I bought the coffee that you like
-It's taking up the cupboard space
-I tried a cup on Monday morning
-I still don't like the taste
-
-[Chorus]
-Come and get your coat
-You can stay for dinner too
-I can make enough for two
-If you tell me when you're coming
-I could send it on the train
-You could meet it at your stop
-But I'd rather see you wearing it
-Than put it in a box
-
-[Verse 3]
-You called me from a crowded platform
-I could barely hear a thing
-I said the place was much too quiet
-You said you'd visit in the spring
-
-[Bridge]
-The weather says it's getting colder
-I hope you've got another one
-I know I'm taking ages
-To ask you when you're free
-
-[Final Chorus]
-Come and get your coat
-You can stay for dinner too
-I can make enough for two
-If you tell me when you're coming
-I'll be waiting at the station
-You can call me when you're close
-We can work out all the other things
-When you come and get your coat
-```
+Lyrics-generation prompt:
+> Write original English lyrics for a 2009 acoustic indie-pop song titled "Your Coat," sung by a woman in an intimate, conversational voice. Someone she likes left a coat at her apartment, and she keeps finding small excuses to delay returning it because she wants another visit. Show affection through ordinary details: a ticket in the pocket, coffee she bought for him, dinner for two, checking when his train arrives. Give the singer a little awkward humor and let her gradually become more direct. Make "come and get your coat" the chorus hook. Use short singable lines, natural contractions and occasional loose rhymes. Structure: [Verse 1], [Chorus], [Verse 2], [Chorus], [Bridge], [Final Chorus]. Change a few lines in the final chorus so she actually asks him to come over. Around 200–260 words. Keep technology plausible for 2009–2010. Avoid grand declarations, destiny, forever promises, ornate metaphors and named game characters. This is a fictional artist's song, not a literal account of Asahi and Mizuki. Return only the title and finished lyrics with section tags.
 
 This is a song by an artist in Asahi's library. The coat and visit belong to the singer's story. Unlocking it does not claim Asahi and Mizuki have met or booked travel.
 
