@@ -94,7 +94,30 @@
     "lives_callback.title": "03 / A possible journey",
     "lives_callback.line.0": "If we ever meet, I'd rather have an ordinary afternoon than a perfect itinerary.",
     "lives_callback.line.1": "You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise.",
-    "lives_callback.line.2": "Opening complete. Your call has opened a leave discussion and an everyday-friends introduction. The guild project and private postcard scenes belong to other paths."
+    "lives_callback.line.2": "Opening complete. Your call has opened a leave discussion and an everyday-friends introduction. The guild project and private postcard scenes belong to other paths.",
+    "invite.objective": "Open the guild invitation and choose your role for the garden run.",
+    "chapter.1.title": "Party Invite",
+    "bridge.objective": "Decide with Mizuki how to cross the garden. Choose a reply, then send it.",
+    "splash.objective": "Reply to the bridge mishap and finish your first game session together.",
+    "first_dm.objective": "Read Mizuki's first private message and introduce yourself.",
+    "night.objective": "Choose what you would like to do together next. Each invitation leads to a different activity.",
+    "guild_agreed.objective": "Review your guild plan. When you are ready, use Later to begin the next story day.",
+    "private_agreed.objective": "Review your private postcard plan. When you are ready, use Later to begin the next story day.",
+    "lives_agreed.objective": "Review the proposed call. Use Later when you are ready to check your work availability.",
+    "guild_plan.objective": "Read the guild planning thread and agree on how you and Mizuki will help.",
+    "chapter.2.title": "How We Spend Our Time",
+    "guild_event.objective": "Read how your small-group session went. Use Later when you are ready for the follow-up.",
+    "guild_guide.objective": "Read how your route guide helped the party. Use Later when you are ready for the follow-up.",
+    "guild_callback.objective": "Read Mizuki's next invitation. This completes the playable opening; there are no further objectives in this build.",
+    "chapter.3.title": "Beyond the Username",
+    "private_photo.objective": "Read Mizuki's request and choose whether to work quietly together or reschedule. Her photo is available in Gallery.",
+    "private_event.objective": "Read the outcome of your quiet postcard session. Use Later when you are ready for the follow-up.",
+    "private_rescheduled.objective": "Review the new postcard date. Use Later when you are ready for the follow-up.",
+    "private_callback.objective": "Read Mizuki's follow-up after her deadline. This completes the playable opening; there are no further objectives in this build.",
+    "lives_work.objective": "Choose a work handoff slot, taking the proposed call into account.",
+    "lives_call.objective": "Read your first call with Mizuki. Use Later when you are ready to discuss what comes next.",
+    "lives_reschedule.objective": "Read how your rescheduled call went. Use Later when you are ready for the follow-up.",
+    "lives_callback.objective": "Review your possible journey in Calendar. This completes the playable opening; no trip is booked and there are no further objectives in this build."
   },
   "nodes": {
     "invite": {
@@ -132,7 +155,10 @@
             "role": "lantern"
           }
         }
-      ]
+      ],
+      "objective": "invite.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "bridge": {
       "title": "bridge.title",
@@ -169,7 +195,10 @@
             "garden_memory": "splash"
           }
         }
-      ]
+      ],
+      "objective": "bridge.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "splash": {
       "title": "splash.title",
@@ -196,7 +225,10 @@
           "to": "first_dm",
           "set": {}
         }
-      ]
+      ],
+      "objective": "splash.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "first_dm": {
       "title": "first_dm.title",
@@ -236,7 +268,10 @@
       ],
       "set": {
         "screenshot": true
-      }
+      },
+      "objective": "first_dm.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "night": {
       "title": "night.title",
@@ -281,7 +316,10 @@
             "path": "lives"
           }
         }
-      ]
+      ],
+      "objective": "night.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "guild_agreed": {
       "title": "guild_agreed.title",
@@ -302,7 +340,10 @@
       "set": {
         "commitment": "Saturday / Guild garden with Mizuki",
         "memory": "A second party invite"
-      }
+      },
+      "objective": "guild_agreed.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "private_agreed": {
       "title": "private_agreed.title",
@@ -328,7 +369,10 @@
         "commitment": "Saturday / Private postcard session",
         "memory": "Two cities, two windows",
         "photo_permission": "private"
-      }
+      },
+      "objective": "private_agreed.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "lives_agreed": {
       "title": "lives_agreed.title",
@@ -353,7 +397,10 @@
       "set": {
         "commitment": "Sunday / Call with Mizuki (proposed)",
         "memory": "A voice beyond the game"
-      }
+      },
+      "objective": "lives_agreed.objective",
+      "chapter": 1,
+      "chapter_title": "chapter.1.title"
     },
     "guild_plan": {
       "title": "guild_plan.title",
@@ -386,7 +433,10 @@
             "guild_plan": "route guide"
           }
         }
-      ]
+      ],
+      "objective": "guild_plan.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "guild_event": {
       "title": "guild_event.title",
@@ -410,7 +460,10 @@
       "later": "guild_callback",
       "set": {
         "guild_event": "guided newcomers"
-      }
+      },
+      "objective": "guild_event.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "guild_guide": {
       "title": "guild_guide.title",
@@ -434,7 +487,10 @@
       "later": "guild_callback",
       "set": {
         "guild_event": "published route guide"
-      }
+      },
+      "objective": "guild_guide.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "guild_callback": {
       "title": "guild_callback.title",
@@ -460,7 +516,10 @@
           "small_party",
           "after_game_chat"
         ]
-      }
+      },
+      "objective": "guild_callback.objective",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title"
     },
     "private_photo": {
       "title": "private_photo.title",
@@ -496,7 +555,10 @@
       ],
       "set": {
         "desk_photo": true
-      }
+      },
+      "objective": "private_photo.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "private_event": {
       "title": "private_event.title",
@@ -520,7 +582,10 @@
       "later": "private_callback",
       "set": {
         "postcard": true
-      }
+      },
+      "objective": "private_event.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "private_rescheduled": {
       "title": "private_rescheduled.title",
@@ -544,7 +609,10 @@
       "later": "private_callback",
       "set": {
         "commitment": "Tuesday / Private postcard session"
-      }
+      },
+      "objective": "private_rescheduled.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "private_callback": {
       "title": "private_callback.title",
@@ -570,7 +638,10 @@
           "illustration_followup",
           "buddy_read"
         ]
-      }
+      },
+      "objective": "private_callback.objective",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title"
     },
     "lives_work": {
       "title": "lives_work.title",
@@ -605,7 +676,10 @@
             "commitment": "Monday / Call with Mizuki (confirmed)"
           }
         }
-      ]
+      ],
+      "objective": "lives_work.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "lives_call": {
       "title": "lives_call.title",
@@ -637,7 +711,10 @@
       "later": "lives_callback",
       "set": {
         "call": "Sunday with sister introduction"
-      }
+      },
+      "objective": "lives_call.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "lives_reschedule": {
       "title": "lives_reschedule.title",
@@ -665,7 +742,10 @@
       "later": "lives_callback",
       "set": {
         "call": "Monday dinner call"
-      }
+      },
+      "objective": "lives_reschedule.objective",
+      "chapter": 2,
+      "chapter_title": "chapter.2.title"
     },
     "lives_callback": {
       "title": "lives_callback.title",
@@ -692,7 +772,10 @@
           "friends_introduction"
         ],
         "meeting_plan": "discussing"
-      }
+      },
+      "objective": "lives_callback.objective",
+      "chapter": 3,
+      "chapter_title": "chapter.3.title"
     }
   }
 }

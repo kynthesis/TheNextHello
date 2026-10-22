@@ -4,6 +4,8 @@
 
 ## Ten connected apps
 
+**Notes utility (creator direction):** Chapters, current objectives, next-action links and completed tasks live inside a dedicated Notes app. The home screen stays a phone launcher. The checklist derives from committed story progress, shows only this run's completed events, and never exposes unchosen paths. Opening Notes or following a link cannot complete an objective or advance time. At the prototype's end, Notes states that the opening is complete instead of offering an unimplemented mission. This utility sits alongside the ten story apps below; it does not replace Bookmark's reading notes.
+
 The phone is Asahi's personal device: it contains his routines, interests, friends, and obligations as well as Mizuki's messages. Existing history and a small authored library make it feel lived in. New content follows fictional story time and player actions. Everything is an authored simulation; no external account is required.
 
 | App | What the player can actually do | How it can change events |

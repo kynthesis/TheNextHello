@@ -14,33 +14,31 @@ config/name="The Next Hello"
 run/main_scene="res://scenes/phone.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+MCPGameInspector="*res://addons/swallowtail/services/game_inspector.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=900
 window/size/window_width_override=1280
 window/size/window_height_override=900
-window/stretch/mode="disabled"
-
-[autoload]
-
-_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
-MCPGameInspector="*res://addons/swallowtail/services/game_inspector.gd"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/swallowtail/plugin.cfg", "res://addons/godot_ai/plugin.cfg")
 
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-textures/default_filters/use_nearest_mipmap_filter=false
-textures/canvas_textures/default_texture_filter=0
-
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 
 [swallowtail]
 

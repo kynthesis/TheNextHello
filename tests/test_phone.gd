@@ -96,6 +96,18 @@ func _initialize() -> void:
 	phone.banner_id = ""
 	phone._refresh_overlay()
 	await capture("home")
+	check(phone.frame.find_child("NotesIcon", true, false).badge_count == 1, "new objective shows a numbered app bubble")
+	await tap_icon("NotesIcon")
+	check(phone.story.state.app == "Notes", "Notes is reachable from home")
+	check(phone.story.state.node == "invite", "opening objectives does not advance story")
+	await capture("notes")
+	press("Continue in Lantern Quest  >")
+	await settle()
+	check(phone.story.state.app == "Lantern Quest", "objective links to the correct app")
+	phone._open("Home")
+	await settle()
+	for icon: Node in phone.frame.find_children("NotesIcon", "Button", true, false):
+		check(icon.badge_count == 0, "opening Notes clears bubbles on grid and dock")
 	await swipe(Vector2(340, 540), Vector2(80, 540))
 	check(phone.home_page == 1 and phone.story.state.app == "Home", "mouse swipe changes page without opening an app")
 	await capture("home_page_two")
@@ -108,7 +120,7 @@ func _initialize() -> void:
 	await swipe(Vector2(70, 42), Vector2(70, 210))
 	check(phone.notification_center, "top swipe opens Notification Center")
 	await capture("notifications")
-	press("● Lantern Quest\n01 / Party invite")
+	press("Lantern Quest\n01 / Party invite")
 	await settle()
 	check(phone.story.state.app == "Lantern Quest" and not phone.notification_center, "notification deep-links to app")
 	check(phone.story.state.notifications[0].read, "opening app marks notification read")
@@ -125,6 +137,8 @@ func _initialize() -> void:
 	press("Send reply  >")
 	await settle()
 	check(phone.story.state.node == "bridge", "Send advances story")
+	check(phone.story.unread_count("Notes") == 1, "next objective restores Notes bubble")
+	check(phone.story.unread_count("Lantern Quest") == 0, "messages already displayed in the active app are read")
 	check(phone.story.state.notifications.size() == 2, "one saved notification per new event")
 	await create_timer(0.25).timeout
 	check(phone.banner_id == "bridge", "new event shows notification banner")
@@ -186,7 +200,7 @@ func _initialize() -> void:
 	for panel: Node in phone.frame.find_children("*", "PanelContainer", true, false):
 		if panel.material is ShaderMaterial:
 			glass_count += 1
-	check(glass_count >= 2, "home widget and dock use real glass shaders")
+	check(glass_count >= 1, "home dock uses a glass shader")
 	phone.player.stop()
 	var inspector: Node = root.get_node_or_null("MCPGameInspector")
 	if inspector != null and inspector._error_log != null:

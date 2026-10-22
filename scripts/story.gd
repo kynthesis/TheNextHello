@@ -2,7 +2,7 @@ extends RefCounted
 ## Plain-data story state. Presentation never applies narrative effects.
 
 const CONTENT_VERSION := "opening-1"
-const APPS := ["Home", "Messages", "Lantern Quest", "Moments", "Resonance", "Vista", "Loop", "Bookmark", "Desk", "Gallery", "Calendar", "Settings"]
+const APPS := ["Home", "Messages", "Lantern Quest", "Moments", "Resonance", "Vista", "Loop", "Bookmark", "Desk", "Gallery", "Calendar", "Settings", "Notes"]
 var content: Dictionary
 var state: Dictionary
 var last_error := ""
@@ -12,7 +12,7 @@ func _init() -> void:
 	reset()
 
 func reset() -> void:
-	state = {"version": 1, "content_version": CONTENT_VERSION, "node": "invite", "log": [], "facts": {}, "consumed": [], "draft": "", "app": "Home", "likes": [], "notes": "", "scroll": {}, "track": -1, "music_playing": false, "notifications": []}
+	state = {"version": 1, "content_version": CONTENT_VERSION, "node": "invite", "log": [], "facts": {}, "consumed": [], "draft": "", "app": "Home", "likes": [], "notes": "", "scroll": {}, "track": -1, "music_playing": false, "notifications": [], "app_updates": {}}
 	_enter("invite")
 
 func text(id: String) -> String:
@@ -24,6 +24,18 @@ func current() -> Dictionary:
 func choices() -> Array:
 	return current().get("choices", [])
 
+func journal() -> Dictionary:
+	# Derive the checklist from the run, so loading or browsing cannot award progress.
+	var complete := choices().is_empty() and not current().has("later")
+	var completed: Array = []
+	for id: String in state.consumed:
+		if content.nodes.has(id) and (id != state.node or complete):
+			var node: Dictionary = content.nodes[id]
+			completed.append({"id": id, "title": text(node.title), "chapter": node.chapter})
+	return {"chapter": current().chapter, "title": text(current().chapter_title),
+		"objective": text(current().objective), "app": current().app, "complete": complete,
+		"draft_pending": state.draft != "", "completed": completed}
+
 func draft(id: String) -> bool:
 	for choice: Dictionary in choices():
 		if choice.id == id:
@@ -34,11 +46,12 @@ func draft(id: String) -> bool:
 func send() -> bool:
 	for choice: Dictionary in choices():
 		if choice.id == state.draft:
+			var before: Dictionary = state.facts.duplicate(true)
 			state.log.append({"speaker": "asahi", "text": choice.text})
 			state.consumed.append(choice.id)
 			state.facts.merge(choice.get("set", {}), true)
 			state.draft = ""
-			_enter(choice.to)
+			_enter(choice.to, before)
 			return true
 	return false
 
@@ -48,14 +61,44 @@ func later() -> bool:
 	_enter(current().later)
 	return true
 
-func _enter(id: String) -> void:
+func _enter(id: String, before: Variant = null) -> void:
 	state.node = id
 	if id not in state.consumed:
+		var previous_facts: Dictionary = state.facts.duplicate(true) if before == null else before
 		state.log.append({"speaker": "system", "text": content.nodes[id].title})
 		state.log.append_array(content.nodes[id].get("lines", []).duplicate(true))
 		state.facts.merge(content.nodes[id].get("set", {}), true)
 		state.consumed.append(id)
 		state.notifications.append({"id": id, "app": content.nodes[id].app, "text": content.nodes[id].title, "read": false})
+		state.app_updates.Notes = [id]
+		for key: String in ["screenshot", "desk_photo", "postcard"]:
+			if state.facts.get(key, false) and not previous_facts.get(key, false):
+				_queue_update("Gallery", id)
+		for key: String in ["commitment", "work", "meeting_plan"]:
+			if state.facts.get(key) != previous_facts.get(key):
+				_queue_update("Calendar", id)
+
+func _queue_update(app: String, id: String) -> void:
+	if not state.app_updates.has(app):
+		state.app_updates[app] = []
+	if id not in state.app_updates[app]:
+		state.app_updates[app].append(id)
+
+func unread_count(app: String) -> int:
+	# One event can update a screen and notify it; count it only once.
+	var unread: Dictionary = {}
+	for id: String in state.app_updates.get(app, []):
+		unread[id] = true
+	for notification: Dictionary in state.notifications:
+		if notification.app == app and not notification.read:
+			unread[notification.id] = true
+	return unread.size()
+
+func mark_app_read(app: String) -> void:
+	state.app_updates.erase(app)
+	for notification: Dictionary in state.notifications:
+		if notification.app == app:
+			notification.read = true
 
 func toggle_like(id: String) -> void:
 	if id in state.likes:
@@ -82,6 +125,15 @@ func valid(data: Variant) -> bool:
 		return false
 	if not data.get("music_playing") is bool:
 		return false
+	if data.has("app_updates"):
+		if not data.app_updates is Dictionary:
+			return false
+		for app: Variant in data.app_updates:
+			if app not in APPS or not data.app_updates[app] is Array:
+				return false
+			for id: Variant in data.app_updates[app]:
+				if not id is String:
+					return false
 	if data.has("notifications"):
 		if not data.notifications is Array:
 			return false
@@ -131,6 +183,8 @@ func load_from(path: String) -> bool:
 		var data: Variant = _read_json(candidate)
 		if valid(data):
 			state = data
+			if not state.has("app_updates"):
+				state.app_updates = {"Notes": [state.node]}
 			if not state.has("notifications"):
 				state.notifications = [{"id": state.node, "app": current().app, "text": current().title, "read": false}]
 			# Preserve prototype saves when the creator renames the cast.

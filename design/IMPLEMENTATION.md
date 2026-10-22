@@ -4,6 +4,9 @@ Built 22 October 2026 with Godot 4.7.2. This implements the opening validation m
 
 ## Implemented
 
+- A simple Notes utility holds chapter titles, current objectives, unsent-draft reminders, completed tasks and links to the next app. Home contains app navigation rather than a mission panel. Guidance is authored for all 20 nodes and derives completion from saved transitions, preserving older saves without a schema change.
+- Numbered unread bubbles use saved per-app update IDs alongside notification history. Notes tracks the latest changed objective; Gallery tracks new images; Calendar tracks changed commitments, work availability and meeting plans. The same event is counted once per app. Opening an app clears its own updates, and Mark All as Read clears all bubbles. Older saves gain the new read-state field without losing story progress.
+
 - A fixed 414:896 phone that scales uniformly inside portrait, desktop and ultrawide windows. The iOS-style home screen has app icons, two swipeable pages, a dock, a status bar and a Home indicator. Text reflows inside the same device proportions.
 - Liquid-glass shaders sample the live backdrop with blur, rounded-edge refraction, highlights and subtle edge color separation. Dock, widgets, navigation and notification surfaces take separate backdrop snapshots. Reduce Transparency gives opaque surfaces; Reduce Motion disables app opening transitions and pointer-reactive highlights.
 - Mouse dragging and touch navigate home pages, scroll app content, return Home from the bottom edge, and open Notification Center from the top. Visible button and keyboard alternatives remain available.

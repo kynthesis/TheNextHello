@@ -12,7 +12,11 @@ Open `project.godot` in Godot and press **F6** with `scenes/phone.tscn` open, or
 godot --path .
 ```
 
-Start with the highlighted **Open Lantern Quest** invitation. Select a reply, then press **Send reply** to commit it. **Later** explicitly advances story time. Tap app icons to open them. Swipe or mouse-drag left/right between home pages, drag vertically to scroll, swipe up from the bottom to go Home, and swipe down from the top for Notification Center. The home indicator, page dots and status-bar button provide click/keyboard alternatives; Escape returns Home or closes notifications. Tab and Enter navigate controls.
+Open **Notes** for your current chapter, objective, and completed tasks. Press **Continue in Lantern Quest** to start the opening. Notes always links to the app where your next action takes place, and updates from your saved story progress without revealing unchosen paths. Chapter and objective guidance stays inside Notes rather than a home-screen mission panel.
+
+Red numbered bubbles on app icons show unseen updates. New objectives flag Notes, new photos flag Gallery, and changed plans flag Calendar. Opening an app clears only its own bubble; read status persists across saves. Updates already displayed in the active app do not remain marked as new.
+
+Select a reply, then press **Send reply** to commit it. **Later** explicitly advances story time. Tap app icons to open them. Swipe or mouse-drag left/right between home pages, drag vertically to scroll, swipe up from the bottom to go Home, and swipe down from the top for Notification Center. The home indicator, page dots and status-bar button provide click/keyboard alternatives; Escape returns Home or closes notifications. Tab and Enter navigate controls.
 
 The iOS-style shell uses liquid-glass shaders on the dock, widgets, navigation and notifications: live backdrop blur, edge refraction, and highlights. The device always keeps its **414:896 aspect ratio**, including at 200% text size. Settings offers window resolution presets, separate music/interface volumes, Reduce Motion, Reduce Transparency, manual saving and a new-opening confirmation. New story events create saved, tappable notifications with unread badges and original sounds; ordinary navigation never advances the story.
 

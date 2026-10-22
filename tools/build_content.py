@@ -132,6 +132,34 @@ node("lives_callback", "03 / A possible journey", "Calendar", 3, [
     ("system", "You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise."),
     ("system", "Opening complete. Your call has opened a leave discussion and an everyday-friends introduction. The guild project and private postcard scenes belong to other paths.")], facts={"available_events": ["leave_discussion", "friends_introduction"], "meeting_plan": "discussing"})
 
+goals = {
+    "invite": "Open the guild invitation and choose your role for the garden run.",
+    "bridge": "Decide with Mizuki how to cross the garden. Choose a reply, then send it.",
+    "splash": "Reply to the bridge mishap and finish your first game session together.",
+    "first_dm": "Read Mizuki's first private message and introduce yourself.",
+    "night": "Choose what you would like to do together next. Each invitation leads to a different activity.",
+    "guild_agreed": "Review your guild plan. When you are ready, use Later to begin the next story day.",
+    "private_agreed": "Review your private postcard plan. When you are ready, use Later to begin the next story day.",
+    "lives_agreed": "Review the proposed call. Use Later when you are ready to check your work availability.",
+    "guild_plan": "Read the guild planning thread and agree on how you and Mizuki will help.",
+    "guild_event": "Read how your small-group session went. Use Later when you are ready for the follow-up.",
+    "guild_guide": "Read how your route guide helped the party. Use Later when you are ready for the follow-up.",
+    "private_photo": "Read Mizuki's request and choose whether to work quietly together or reschedule. Her photo is available in Gallery.",
+    "private_event": "Read the outcome of your quiet postcard session. Use Later when you are ready for the follow-up.",
+    "private_rescheduled": "Review the new postcard date. Use Later when you are ready for the follow-up.",
+    "lives_work": "Choose a work handoff slot, taking the proposed call into account.",
+    "lives_call": "Read your first call with Mizuki. Use Later when you are ready to discuss what comes next.",
+    "lives_reschedule": "Read how your rescheduled call went. Use Later when you are ready for the follow-up.",
+    "guild_callback": "Read Mizuki's next invitation. This completes the playable opening; there are no further objectives in this build.",
+    "private_callback": "Read Mizuki's follow-up after her deadline. This completes the playable opening; there are no further objectives in this build.",
+    "lives_callback": "Review your possible journey in Calendar. This completes the playable opening; no trip is booked and there are no further objectives in this build.",
+}
+chapters = {1: "Party Invite", 2: "How We Spend Our Time", 3: "Beyond the Username"}
+for key, data in nodes.items():
+    data["objective"] = string(f"{key}.objective", goals[key])
+    data["chapter"] = data["day"]
+    data["chapter_title"] = string(f"chapter.{data['day']}.title", chapters[data["day"]])
+
 out = Path(__file__).resolve().parents[1] / "content" / "opening.json"
 out.parent.mkdir(exist_ok=True)
 out.write_text(json.dumps({"strings": strings, "nodes": nodes}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -1,8 +1,8 @@
 extends Button
 ## Code-native home-screen icons with a shared rounded-square silhouette.
 var app := "Messages"
-var badge := false
-const COLORS := {"Messages": "35cb65", "Lantern Quest": "454dbc", "Moments": "d96d9e", "Resonance": "f14a68", "Vista": "ed5354", "Loop": "202635", "Bookmark": "eb9a3e", "Desk": "4c8bdc", "Gallery": "f5f5f7", "Calendar": "fafafa", "Settings": "89919c"}
+var badge_count := 0
+const COLORS := {"Messages": "35cb65", "Lantern Quest": "454dbc", "Moments": "d96d9e", "Resonance": "f14a68", "Vista": "ed5354", "Loop": "202635", "Bookmark": "eb9a3e", "Desk": "4c8bdc", "Gallery": "f5f5f7", "Calendar": "fafafa", "Settings": "89919c", "Notes": "f3c84b"}
 
 func _draw() -> void:
 	var box := StyleBoxFlat.new()
@@ -11,6 +11,10 @@ func _draw() -> void:
 	draw_style_box(box, Rect2(Vector2(5, 5), Vector2(62, 62)))
 	var white := Color.WHITE
 	match app:
+		"Notes":
+			draw_style_box(_box(white, 4), Rect2(19, 17, 34, 39))
+			for y in [28, 36, 44]:
+				draw_line(Vector2(25, y), Vector2(47, y), Color("b99a42"), 2, true)
 		"Messages", "Moments":
 			draw_style_box(_box(white, 11), Rect2(17, 20, 38, 27))
 			draw_colored_polygon(PackedVector2Array([Vector2(22, 43), Vector2(22, 54), Vector2(35, 43)]), white)
@@ -52,9 +56,13 @@ func _draw() -> void:
 			draw_circle(Vector2(36, 36), 6, white)
 	if has_focus():
 		draw_style_box(_box(Color.TRANSPARENT, 18, Color("a4d5ff")), Rect2(1, 1, 70, 70))
-	if badge:
-		draw_circle(Vector2(62, 10), 10, Color("ff453a"))
-		draw_string(ThemeDB.fallback_font, Vector2(59, 15), "1", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, white)
+	if badge_count > 0:
+		var count_text := "99+" if badge_count > 99 else str(badge_count)
+		var width := 20.0 if count_text.length() == 1 else 30.0
+		draw_style_box(_box(Color("ff453a"), 10, white), Rect2(72 - width, 0, width, 20))
+		var font := ThemeDB.fallback_font
+		var text_width := font.get_string_size(count_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x
+		draw_string(font, Vector2(72 - width / 2 - text_width / 2, 14), count_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, white)
 
 func _box(color: Color, radius: int, border := Color.TRANSPARENT) -> StyleBoxFlat:
 	var box := StyleBoxFlat.new()

@@ -175,9 +175,7 @@ func _open(app: String) -> void:
 	notification_center = false
 	banner_id = ""
 	banner_timer.stop()
-	for notification: Dictionary in story.state.notifications:
-		if notification.app == app:
-			notification.read = true
+	story.mark_app_read(app)
 	confirm_later = false
 	confirm_restart = false
 	status = ""
@@ -294,6 +292,7 @@ func _render() -> void:
 		"Gallery": _gallery()
 		"Calendar": _calendar()
 		"Settings": _settings()
+		"Notes": _notes()
 	if story.state.track >= 0:
 		var music_glass := PanelContainer.new()
 		column.add_child(music_glass)
@@ -373,9 +372,9 @@ func _app_tile(app: String, parent: Node, with_label := true) -> void:
 	icon.custom_minimum_size = Vector2(72, 72)
 	icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	icon.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	for notification: Dictionary in story.state.notifications:
-		if notification.app == app and not notification.read:
-			icon.badge = true
+	icon.badge_count = story.unread_count(app)
+	if icon.badge_count > 0:
+		icon.tooltip_text += " / %d new updates" % icon.badge_count
 	for state_name: String in ["normal", "hover", "pressed", "focus"]:
 		icon.add_theme_stylebox_override(state_name, StyleBoxEmpty.new())
 	icon.focus_entered.connect(icon.queue_redraw)
@@ -395,7 +394,7 @@ func _home_dock(parent: Node) -> void:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 4)
 	glass.add_child(row)
-	for app: String in ["Messages", "Gallery", "Calendar", "Settings"]:
+	for app: String in ["Messages", "Notes", "Calendar", "Settings"]:
 		_app_tile(app, row, false)
 
 func _set_page(page: int) -> void:
@@ -441,6 +440,7 @@ func _announce() -> void:
 func _refresh_overlay() -> void:
 	if not is_instance_valid(frame):
 		return
+	_refresh_app_badges()
 	var old := frame.get_node_or_null("NotificationOverlay")
 	if old:
 		frame.remove_child(old)
@@ -490,10 +490,17 @@ func _refresh_overlay() -> void:
 			_button("Dismiss", func() -> void: banner_id = ""; _refresh_overlay(), stack)
 
 func _mark_notifications_read() -> void:
-	for notification: Dictionary in story.state.notifications:
-		notification.read = true
+	for app: String in Story.APPS:
+		story.mark_app_read(app)
 	_autosave()
 	_refresh_overlay()
+
+func _refresh_app_badges() -> void:
+	for icon: Node in frame.find_children("*", "Button", true, false):
+		if icon.get_script() == AppIcon:
+			icon.badge_count = story.unread_count(icon.app)
+			icon.tooltip_text = "Open " + icon.app + (" / %d new updates" % icon.badge_count if icon.badge_count > 0 else "")
+			icon.queue_redraw()
 
 func _play_sound(cue: String) -> void:
 	if sound_volume <= 0 or not sounds.has(cue):
@@ -599,16 +606,12 @@ func _home() -> void:
 	var clock := _label(_story_date().right(5), 64, Color.WHITE)
 	clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(clock)
-	var widget := _card("UP NEXT", story.text(story.current().title))
-	_glass(widget.get_parent() as PanelContainer, 28, 0.54, 16)
-	var open_story := _button("Open " + story.current().app + "  >", _open.bind(story.current().app), widget)
-	open_story.add_theme_stylebox_override("normal", _style(Color(1, 1, 1, 0.6)))
 	var grid := GridContainer.new()
 	grid.columns = 4
 	grid.add_theme_constant_override("h_separation", 8)
 	grid.add_theme_constant_override("v_separation", 18)
 	body.add_child(grid)
-	var apps: Array = ["Messages", "Lantern Quest", "Moments", "Resonance", "Vista", "Loop", "Bookmark", "Desk"] if home_page == 0 else ["Gallery", "Calendar", "Settings"]
+	var apps: Array = ["Notes", "Messages", "Lantern Quest", "Moments", "Resonance", "Vista", "Loop", "Bookmark"] if home_page == 0 else ["Desk", "Gallery", "Calendar", "Settings"]
 	for app: String in apps:
 		_app_tile(app, grid)
 	var pages := HBoxContainer.new()
@@ -621,6 +624,21 @@ func _home() -> void:
 		dot.tooltip_text = "Home page %d" % (i + 1)
 		dot.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 		dot.add_theme_color_override("font_color", Color.WHITE)
+
+func _notes() -> void:
+	var journal: Dictionary = story.journal()
+	body.add_child(_label("Story notes", 26))
+	body.add_child(_label("Asahi's place to keep track of what comes next.", 14, MUTED))
+	_card("CHAPTER %d" % int(journal.chapter), journal.title)
+	var objective := _card("OPENING COMPLETE" if journal.complete else "CURRENT OBJECTIVE", journal.objective)
+	if journal.draft_pending:
+		objective.add_child(_label("You have an unsent draft. Review it before pressing Send.", 14, CORAL))
+	_button(("Read in " if journal.complete else "Continue in ") + journal.app + "  >", _open.bind(journal.app), objective)
+	if not journal.completed.is_empty():
+		body.add_child(_label("Completed", 20))
+		for entry: Dictionary in journal.completed:
+			_card("✓ CHAPTER %d" % int(entry.chapter), entry.title)
+	body.add_child(_label("Objectives update as your story progresses. Browsing Notes never advances time or makes a choice.", 13, MUTED))
 
 func _conversation() -> void:
 	var is_game: bool = story.state.app == "Lantern Quest"
@@ -685,6 +703,7 @@ func _send() -> void:
 	if story.send():
 		_play_sound("sent")
 		story.state.app = story.current().app
+		story.mark_app_read(story.state.app)
 		_autosave()
 		_render()
 		_scroll_bottom.call_deferred()
@@ -693,6 +712,7 @@ func _send() -> void:
 func _later() -> void:
 	if story.later():
 		story.state.app = story.current().app
+		story.mark_app_read(story.state.app)
 		confirm_later = false
 		_autosave()
 		_render()
