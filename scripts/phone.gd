@@ -3,12 +3,14 @@ extends Control
 const Story := preload("res://scripts/story.gd")
 const PixelArt := preload("res://scripts/pixel_art.gd")
 const AppIcon := preload("res://scripts/app_icon.gd")
-const GlassShader := preload("res://shaders/liquid_glass.gdshader")
+const PaperShader := preload("res://shaders/paper.gdshader")
 const PHONE_SIZE := Vector2(414, 896)
-const INK := Color("1c1c1e")
-const MUTED := Color("737780")
-const CORAL := Color("007aff")
-const SURFACE := Color("ffffff")
+const INK := Color("26354a")
+const MUTED := Color("68675f")
+const CORAL := Color("a64e43")
+const SURFACE := Color("fff8e9")
+const PAPER := Color("f1e5ce")
+const RULE := Color("cfbea0")
 const TRACKS := ["Window seat", "Two small lanterns", "After the rain", "A little closer"]
 const APP_MARKS := ["", "...", "+", "o", "~", ">", "II", "=", "#", "[]", "31"]
 var story := Story.new()
@@ -44,7 +46,7 @@ var sounds: Dictionary = {}
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
-	RenderingServer.set_default_clear_color(Color("181c2a"))
+	RenderingServer.set_default_clear_color(Color("222f40"))
 	player = AudioStreamPlayer.new()
 	player.name = "Music"
 	add_child(player)
@@ -98,7 +100,7 @@ func _style(color: Color, border := Color.TRANSPARENT) -> StyleBoxFlat:
 	box.bg_color = color
 	box.border_color = border
 	box.set_border_width_all(1 if border.a > 0 else 0)
-	box.set_corner_radius_all(12)
+	box.set_corner_radius_all(5)
 	box.content_margin_left = 16
 	box.content_margin_right = 16
 	box.content_margin_top = 12
@@ -109,15 +111,16 @@ func _theme() -> Theme:
 	var result := Theme.new()
 	result.default_font_size = int(16 * text_scale)
 	result.set_color("font_color", "Label", INK)
-	result.set_color("font_color", "Button", INK)
 	result.set_color("font_color", "Button", CORAL)
-	result.set_color("font_hover_color", "Button", Color("005bc4"))
+	result.set_color("font_hover_color", "Button", INK)
 	result.set_color("font_focus_color", "Button", CORAL)
-	result.set_stylebox("normal", "Button", _style(SURFACE))
-	result.set_stylebox("hover", "Button", _style(Color("eef4fc")))
-	result.set_stylebox("pressed", "Button", _style(Color("dceaff")))
-	result.set_stylebox("focus", "Button", _style(Color.TRANSPARENT, CORAL))
-	result.set_stylebox("disabled", "Button", _style(Color("202433")))
+	result.set_stylebox("normal", "Button", _style(SURFACE, RULE))
+	result.set_stylebox("hover", "Button", _style(Color("f4dfc4"), CORAL))
+	result.set_stylebox("pressed", "Button", _style(Color("e9c7ad"), CORAL))
+	var focus := _style(Color.TRANSPARENT, INK)
+	focus.set_border_width_all(2)
+	result.set_stylebox("focus", "Button", focus)
+	result.set_stylebox("disabled", "Button", _style(PAPER, RULE))
 	result.set_color("font_disabled_color", "Button", MUTED)
 	result.set_constant("separation", "VBoxContainer", 12)
 	result.set_constant("separation", "HBoxContainer", 10)
@@ -146,7 +149,11 @@ func _button(text: String, action: Callable, parent: Node = null) -> Button:
 
 func _card(title: String, copy: String, parent: Node = null) -> VBoxContainer:
 	var panel := PanelContainer.new()
-	panel.add_theme_stylebox_override("panel", _style(SURFACE))
+	var card_style := _style(SURFACE, RULE)
+	card_style.shadow_color = Color(0.15, 0.17, 0.20, 0.08)
+	card_style.shadow_size = 2
+	card_style.shadow_offset = Vector2(0, 2)
+	panel.add_theme_stylebox_override("panel", card_style)
 	(parent if parent != null else body).add_child(panel)
 	var stack := VBoxContainer.new()
 	panel.add_child(stack)
@@ -191,9 +198,6 @@ func _layout() -> void:
 	frame.size = PHONE_SIZE
 	frame.scale = Vector2.ONE * factor
 	frame.position = (size - PHONE_SIZE * factor) / 2
-	for panel: Node in frame.find_children("*", "PanelContainer", true, false):
-		if panel.material is ShaderMaterial:
-			panel.material.set_shader_parameter("pixel_scale", factor)
 	var side: Control = ui.get_node_or_null("Side")
 	if side:
 		side.visible = frame.position.x >= 310
@@ -210,9 +214,9 @@ func _render() -> void:
 	side.position = Vector2(48, 88)
 	side.size = Vector2(260, 400)
 	ui.add_child(side)
-	side.add_child(_label("A STORY IN SMALL MOMENTS", 11, CORAL))
+	side.add_child(_label("A STORY IN SMALL MOMENTS", 11, Color("dfa58b")))
 	side.add_child(_label("The Next\nHello", 44, Color("e9e4dd")))
-	side.add_child(_label("Tokyo  /  Sapporo", 15, MUTED))
+	side.add_child(_label("Tokyo  /  Sapporo", 15, Color("c4c3b4")))
 	var space := Control.new()
 	space.custom_minimum_size.y = 24
 	side.add_child(space)
@@ -223,9 +227,9 @@ func _render() -> void:
 	ui.add_child(frame)
 	var bezel := Panel.new()
 	bezel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var shell := _style(Color("101114"), Color("777984"))
+	var shell := _style(INK, Color("a8a391"))
 	shell.set_border_width_all(2)
-	shell.set_corner_radius_all(52)
+	shell.set_corner_radius_all(24)
 	bezel.add_theme_stylebox_override("panel", shell)
 	bezel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	frame.add_child(bezel)
@@ -234,8 +238,8 @@ func _render() -> void:
 	screen.position = Vector2(10, 10)
 	screen.size = PHONE_SIZE - Vector2(20, 20)
 	screen.clip_contents = true
-	var surface := _style(Color("f2f2f7"))
-	surface.set_corner_radius_all(42)
+	var surface := _style(PAPER)
+	surface.set_corner_radius_all(16)
 	surface.set_content_margin_all(0)
 	screen.add_theme_stylebox_override("panel", surface)
 	frame.add_child(screen)
@@ -246,6 +250,7 @@ func _render() -> void:
 		wallpaper_material.shader = preload("res://shaders/rounded_wallpaper.gdshader")
 		wallpaper.material = wallpaper_material
 		wallpaper.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		wallpaper.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		wallpaper.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		screen.add_child(wallpaper)
 	var margins := MarginContainer.new()
@@ -259,10 +264,10 @@ func _render() -> void:
 	margins.add_child(column)
 	_status_bar(column)
 	if story.state.app != "Home":
-		var header := HBoxContainer.new()
+		var header: BoxContainer = VBoxContainer.new() if text_scale > 1.5 else HBoxContainer.new()
 		var navigation := PanelContainer.new()
 		column.add_child(navigation)
-		_glass(navigation, 24, 0.80, 4)
+		_paper_surface(navigation, 4)
 		navigation.add_child(header)
 		var back := _button("‹ Home", func() -> void: _open("Home"), header)
 		back.autowrap_mode = TextServer.AUTOWRAP_OFF
@@ -296,7 +301,7 @@ func _render() -> void:
 	if story.state.track >= 0:
 		var music_glass := PanelContainer.new()
 		column.add_child(music_glass)
-		_glass(music_glass, 24, 0.65, 3)
+		_paper_surface(music_glass, 3)
 		var music_button := _button(("Pause  /  " if player.playing else "Play  /  ") + TRACKS[int(story.state.track)], _toggle_music, music_glass)
 		music_button.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 	var dock := VBoxContainer.new()
@@ -313,8 +318,8 @@ func _render() -> void:
 	var pill := Panel.new()
 	pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	pill.position = Vector2(116, 13)
-	pill.size = Vector2(130, 5)
-	pill.add_theme_stylebox_override("panel", _style(Color.WHITE if story.state.app == "Home" else INK))
+	pill.size = Vector2(130, 4)
+	pill.add_theme_stylebox_override("panel", _style(SURFACE if story.state.app == "Home" else INK))
 	home.add_child(pill)
 	_refresh_overlay()
 	_layout.call_deferred()
@@ -335,19 +340,18 @@ func _status_bar(column: VBoxContainer) -> void:
 	var bar := Control.new()
 	bar.custom_minimum_size.y = 46
 	column.add_child(bar)
-	var time := _label(_story_date().right(5), 16, Color.WHITE if story.state.app == "Home" else INK)
+	var time := _label(_story_date().right(5), 16, INK)
 	time.add_theme_font_size_override("font_size", 16)
 	time.position = Vector2(12, 9)
 	time.size = Vector2(70, 24)
 	bar.add_child(time)
-	var island := Panel.new()
-	island.position = Vector2(122, 3)
-	island.size = Vector2(118, 32)
-	island.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var island_style := _style(Color("050508"))
-	island_style.set_corner_radius_all(18)
-	island.add_theme_stylebox_override("panel", island_style)
-	bar.add_child(island)
+	var signal_name := _label("hello / offline", 11, MUTED)
+	signal_name.position = Vector2(126, 13)
+	signal_name.size = Vector2(116, 24)
+	signal_name.autowrap_mode = TextServer.AUTOWRAP_OFF
+	signal_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	signal_name.add_theme_font_size_override("font_size", 11)
+	bar.add_child(signal_name)
 	var notifications := _button("•••  82%", _show_notifications, bar)
 	notifications.name = "Notifications"
 	notifications.tooltip_text = "Notification Center / swipe down from the top"
@@ -355,7 +359,7 @@ func _status_bar(column: VBoxContainer) -> void:
 	notifications.size = Vector2(104, 42)
 	notifications.custom_minimum_size.y = 42
 	notifications.add_theme_font_size_override("font_size", 14)
-	notifications.add_theme_color_override("font_color", Color.WHITE if story.state.app == "Home" else INK)
+	notifications.add_theme_color_override("font_color", INK)
 	notifications.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 
 func _app_tile(app: String, parent: Node, with_label := true) -> void:
@@ -383,14 +387,14 @@ func _app_tile(app: String, parent: Node, with_label := true) -> void:
 	icon.pressed.connect(_play_sound.bind("tap"))
 	tile.add_child(icon)
 	if with_label:
-		var label := _label(app, 11, Color.WHITE)
+		var label := _label(app, 11, INK)
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tile.add_child(label)
 
 func _home_dock(parent: Node) -> void:
 	var glass := PanelContainer.new()
 	parent.add_child(glass)
-	_glass(glass, 30, 0.14, 4)
+	_paper_surface(glass, 6)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 4)
 	glass.add_child(row)
@@ -462,7 +466,7 @@ func _refresh_overlay() -> void:
 	glass.set_corner_radius_all(24)
 	overlay.add_theme_stylebox_override("panel", glass)
 	layer.add_child(overlay)
-	_glass(overlay, 26, 0.76 if notification_center else 0.64, 16)
+	_paper_surface(overlay, 16)
 	var stack := VBoxContainer.new()
 	overlay.add_child(stack)
 	if notification_center:
@@ -532,10 +536,6 @@ func _sound(cue: String) -> AudioStreamWAV:
 func _input(event: InputEvent) -> void:
 	if not is_instance_valid(frame):
 		return
-	if event is InputEventMouseMotion and not reduce_motion:
-		for panel: Node in frame.find_children("*", "PanelContainer", true, false):
-			if panel.material is ShaderMaterial:
-				panel.material.set_shader_parameter("pointer_position", panel.get_global_transform().affine_inverse() * event.position)
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			_begin_gesture(event.position)
@@ -600,14 +600,20 @@ func _gesture_scroller() -> ScrollContainer:
 	return scroller
 
 func _home() -> void:
-	var greeting := _label(_story_date().substr(0, 11), 15, Color.WHITE)
+	var masthead := _label("A LITTLE CLOSER, EVERY DAY", 11, CORAL)
+	masthead.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	body.add_child(masthead)
+	var greeting := _label(_story_date().substr(0, 11), 15, INK)
 	greeting.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(greeting)
-	var clock := _label(_story_date().right(5), 64, Color.WHITE)
+	var clock := _label(_story_date().right(5), 54, INK)
 	clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.add_child(clock)
+	var caption := _label("Tokyo  ·  Under the same sky  ·  Sapporo", 11, MUTED)
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	body.add_child(caption)
 	var grid := GridContainer.new()
-	grid.columns = 4
+	grid.columns = 2 if text_scale > 1.0 else 4
 	grid.add_theme_constant_override("h_separation", 8)
 	grid.add_theme_constant_override("v_separation", 18)
 	body.add_child(grid)
@@ -623,14 +629,19 @@ func _home() -> void:
 		dot.custom_minimum_size.x = 48
 		dot.tooltip_text = "Home page %d" % (i + 1)
 		dot.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-		dot.add_theme_color_override("font_color", Color.WHITE)
+		dot.add_theme_color_override("font_color", INK)
 
 func _notes() -> void:
 	var journal: Dictionary = story.journal()
-	body.add_child(_label("Story notes", 26))
+	body.add_child(_label("ASAHI'S NOTEBOOK", 11, CORAL))
+	body.add_child(_label("Small things to remember", 26))
 	body.add_child(_label("Asahi's place to keep track of what comes next.", 14, MUTED))
 	_card("CHAPTER %d" % int(journal.chapter), journal.title)
 	var objective := _card("OPENING COMPLETE" if journal.complete else "CURRENT OBJECTIVE", journal.objective)
+	var bookmark := _style(SURFACE, RULE)
+	bookmark.border_width_left = 4
+	bookmark.border_color = CORAL
+	(objective.get_parent() as PanelContainer).add_theme_stylebox_override("panel", bookmark)
 	if journal.draft_pending:
 		objective.add_child(_label("You have an unsent draft. Review it before pressing Send.", 14, CORAL))
 	_button(("Read in " if journal.complete else "Continue in ") + journal.app + "  >", _open.bind(journal.app), objective)
@@ -655,12 +666,11 @@ func _conversation() -> void:
 			body.add_child(_label(story.text(entry.text), 12, MUTED))
 		else:
 			var card := _card("YOU / asahi" if speaker == "asahi" else speaker, story.text(entry.text))
-			var bubble := _style(Color("007aff") if speaker == "asahi" else Color("e4e5ea"))
-			bubble.set_corner_radius_all(18)
+			var bubble := _style(Color("ecd0b9") if speaker == "asahi" else SURFACE, RULE)
+			bubble.set_corner_radius_all(5)
+			bubble.border_width_right = 4 if speaker == "asahi" else 1
+			bubble.border_width_left = 1 if speaker == "asahi" else 4
 			(card.get_parent() as PanelContainer).add_theme_stylebox_override("panel", bubble)
-			if speaker == "asahi":
-				for label: Node in card.get_children():
-					if label is Label: label.add_theme_color_override("font_color", Color.WHITE)
 	if story.current().app != story.state.app:
 		_button("Continue in " + story.current().app + "  >", _open.bind(story.current().app))
 	else:
@@ -911,7 +921,7 @@ func _settings() -> void:
 	for scale_value: float in [1.0, 1.5, 2.0]:
 		_button("Text size  %d%%" % int(scale_value * 100), func() -> void: _remember(); text_scale = scale_value; _save_settings(); _render())
 	_button("Reduce motion: " + ("On" if reduce_motion else "Off"), func() -> void: reduce_motion = not reduce_motion; _save_settings(); _render())
-	_button("Reduce transparency: " + ("On" if reduce_transparency else "Off"), func() -> void: reduce_transparency = not reduce_transparency; _save_settings(); _render())
+	_button("Simplify paper texture: " + ("On" if reduce_transparency else "Off"), func() -> void: reduce_transparency = not reduce_transparency; _save_settings(); _render())
 	body.add_child(_label("WINDOW RESOLUTION", 12, CORAL))
 	for resolution: Vector2i in [Vector2i(1280, 720), Vector2i(1280, 900), Vector2i(1920, 1080), Vector2i(2560, 1440), Vector2i(480, 1040)]:
 		_button("%d × %d" % [resolution.x, resolution.y], _set_resolution.bind(resolution))
@@ -987,23 +997,12 @@ func _set_resolution(resolution: Vector2i) -> void:
 	_layout()
 	_save_settings()
 
-func _glass(panel: PanelContainer, radius: float, opacity: float, margin: int) -> void:
-	var style := _style(Color.WHITE, Color(1, 1, 1, 0.5))
-	style.set_corner_radius_all(int(radius))
+func _paper_surface(panel: PanelContainer, margin: int) -> void:
+	var style := _style(SURFACE, RULE)
 	style.set_content_margin_all(margin)
 	panel.add_theme_stylebox_override("panel", style)
 	if reduce_transparency:
 		return
-	# Each surface takes its own snapshot, so stacked glass refracts the current backdrop.
-	var snapshot := BackBufferCopy.new()
-	snapshot.copy_mode = BackBufferCopy.COPY_MODE_VIEWPORT
-	panel.get_parent().add_child(snapshot)
-	panel.get_parent().move_child(snapshot, panel.get_index())
 	var material := ShaderMaterial.new()
-	material.shader = GlassShader
-	material.set_shader_parameter("radius", radius)
-	material.set_shader_parameter("tint", Color(0.97, 0.98, 1.0, opacity))
+	material.shader = PaperShader
 	panel.material = material
-	panel.resized.connect(func() -> void: material.set_shader_parameter("rect_size", panel.size))
-	material.set_shader_parameter("rect_size", panel.size)
-	material.set_shader_parameter("pixel_scale", frame.scale.x)

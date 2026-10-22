@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode unshaded;
 uniform vec2 rect_size = vec2(394.0, 876.0);
-uniform float radius = 42.0;
+uniform float radius = 16.0;
 void fragment() {
     vec2 p = (UV - vec2(0.5)) * rect_size;
     vec2 q = abs(p) - rect_size * 0.5 + vec2(radius);

@@ -266,7 +266,7 @@ Within an ending, shared memories choose callbacks, Natsumi's commitment chooses
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** An iOS-style personal phone with liquid-glass dock, widgets, navigation, and notification surfaces, as directed by the creator. Glass blurs and refracts its backdrop with rounded highlights; conversation surfaces use readable dark text on light backgrounds and blue outgoing bubbles. Authored photos and the game-within-the-game retain pixel art. Reduce Transparency provides opaque alternatives.
+**Visual identity:** A cozy Japanese stationery-inspired personal phone. The creator lifted the earlier iOS theme restriction and accepted this visual pass. Warm cream paper (#fff8e9), midnight-blue ink (#26354a), muted coral (#a64e43), sage and ochre define the palette. Small-radius panels, subtle stationary paper fibers, grid-drawn pixel icons and a layered pixel landscape replace the glass shell. Incoming messages use cream; outgoing messages use warm peach, with speaker labels and opposite border accents. Notes reads as a personal notebook with a coral objective marker. Simplify Paper Texture disables decorative grain. Authored photos and the game-within-the-game retain pixel art.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 

@@ -15,3 +15,9 @@
 - Avoid reading files larger than 100 KB unless the task requires them.
 - Verify APIs, versions, flags, package names, and commit IDs using code or documentation.
 - Use `cto measure` for Claude-context estimates. Preview `cto prune` or `cto compress` with `--dry-run` before applying changes; preserve project instructions and CLI-first preferences.
+
+# Commit messages
+
+- Always provide commit messages in the format `vMAJOR.MINOR.PATCH: message`.
+- Check `git log` before choosing the next version; do not guess or reuse a version.
+- Choose the increment to match the change: patch for fixes and small polish, minor for substantial features or visual updates, major for a major milestone or breaking overhaul. During pre-1.0 development, substantial additions normally increment the minor version.

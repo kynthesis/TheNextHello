@@ -81,6 +81,7 @@ func fitted(label: String) -> void:
 	check(is_equal_approx(visual.x / visual.y, 414.0 / 896.0), label + " fixed phone ratio")
 	check(phone.frame.position.x >= 0 and phone.frame.position.y >= 0 and phone.frame.position.x + visual.x <= root.size.x + 1 and phone.frame.position.y + visual.y <= root.size.y + 1, label + " complete device fits")
 	check(phone.screen.size.is_equal_approx(Vector2(394, 876)), label + " app canvas stays fixed")
+	check(phone.body.size.x <= phone.scroller.size.x + 1, label + " content fits without horizontal clipping")
 
 func _initialize() -> void:
 	await process_frame
@@ -159,6 +160,9 @@ func _initialize() -> void:
 	check(phone.player.playing, "music plays")
 	phone._open("Messages")
 	check(phone.player.playing, "music continues between apps")
+	await settle()
+	phone._scroll_bottom()
+	await capture("messages")
 	phone._toggle_music()
 	check(not phone.player.playing, "music pauses")
 	phone.sfx.stop()
@@ -179,6 +183,11 @@ func _initialize() -> void:
 	await settle()
 	fitted("200 percent text")
 	await capture("large_text")
+	for app: String in ["Home", "Notes"]:
+		phone._open(app)
+		await settle()
+		fitted(app + " 200 percent text")
+		await capture(app.to_lower() + "_large_text")
 	phone._set_resolution(Vector2i(1280, 900))
 	await settle()
 	check(root.size == Vector2i(1280, 900), "resolution setting resizes window")
@@ -192,7 +201,7 @@ func _initialize() -> void:
 	for panel: Node in phone.frame.find_children("*", "PanelContainer", true, false):
 		if panel.material is ShaderMaterial:
 			glass_count += 1
-	check(glass_count == 0, "reduce transparency replaces glass with opaque surfaces")
+	check(glass_count == 0, "simplified surfaces disable paper texture")
 	phone.reduce_transparency = false
 	phone._render()
 	await settle()
@@ -200,7 +209,7 @@ func _initialize() -> void:
 	for panel: Node in phone.frame.find_children("*", "PanelContainer", true, false):
 		if panel.material is ShaderMaterial:
 			glass_count += 1
-	check(glass_count >= 1, "home dock uses a glass shader")
+	check(glass_count >= 1, "home dock uses paper texture")
 	phone.player.stop()
 	var inspector: Node = root.get_node_or_null("MCPGameInspector")
 	if inspector != null and inspector._error_log != null:
