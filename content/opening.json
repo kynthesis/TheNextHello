@@ -1,24 +1,24 @@
 {
   "strings": {
-    "invite.title": "01 / Party invite",
-    "invite.line.0": "One spot left for the garden run. asahi, meet mizuki. She knows the way. Mostly.",
-    "invite.line.1": "That was ONE bridge.",
+    "invite.title": "01 / A chance encounter",
+    "invite.line.0": "Random matchmaking pairs you with mizuki for a garden run. You have never met.",
+    "invite.line.1": "Hi. Looks like we got the same garden. First time here?",
     "invite.line.2": "Hey, asahi. I'll carry the lantern if you keep an eye on the path?",
     "invite.reply.0": "Deal. Slow and steady. I'd like to see the garden.",
     "invite.reply.1": "I'll take the lantern. You can stop me walking into things.",
     "bridge.title": "The crooked bridge",
     "bridge.line.0": "A stone bridge crosses the dark water. A second lantern flickers on the far bank.",
     "bridge.line.1": "The shortcut is probably safe. Which is what I said last time.",
-    "bridge.line.2": "Can confirm. Very damp evening.",
+    "bridge.line.2": "I fell in last time. Very damp evening.",
     "bridge.reply.0": "Let's light the stepping stones. I'll wait for you.",
     "bridge.reply.1": "Want to try the bridge together? We can be damp legends.",
     "splash.title": "A small detour",
     "splash.line.0": "The bridge folds into the water. Two tiny characters respawn under the same leaf.",
     "splash.line.1": "Well. The leaf is nice.",
-    "splash.line.2": "Screenshot saved. For historical purposes.",
+    "splash.line.2": "You save a screenshot of the two of you under the leaf.",
     "splash.reply.0": "Next time, we take the stones. Keeping the screenshot though.",
     "first_dm.title": "A new conversation",
-    "first_dm.line.0": "Lantern garden screenshot added to Gallery. A private message arrives from mizuki.",
+    "first_dm.line.0": "Lantern garden screenshot added to Photos. A private message arrives from mizuki.",
     "first_dm.line.1": "Thanks for waiting back there. Most people just run to the reward.",
     "first_dm.line.2": "I'm Mizuki, by the way. In Sapporo. Currently losing a fight with a cup noodle lid.",
     "first_dm.reply.0": "Asahi. Tokyo. Put a book on it. Finally, a use for my unread pile.",
@@ -27,12 +27,12 @@
     "night.line.0": "The lid has surrendered. Nice to meet you, Asahi.",
     "night.line.1": "I draw for work. Today I drew the same window six times. The garden was a good change.",
     "night.line.2": "I'd like to do something again, if you would. Doesn't have to be the game.",
-    "night.reply.0": "Let's help with Daichi's guild garden this weekend. Together?",
+    "night.reply.0": "Another garden run this weekend? We could play together again.",
     "night.reply.1": "Want to swap window photos? Maybe make something small together.",
     "night.reply.2": "I'd like to know your everyday life. A call, when we're both free?",
     "guild_agreed.title": "One more party",
-    "guild_agreed.line.0": "Yes. But if Daichi asks us to lead all twelve people, we're negotiating.",
-    "guild_agreed.line.1": "Saturday's guild garden is in Calendar. Daichi will open a planning thread tomorrow.",
+    "guild_agreed.line.0": "Yes. Maybe open a small party? As long as we get to play together.",
+    "guild_agreed.line.1": "Saturday's garden run is in Calendar. You and Mizuki will open a public party together.",
     "private_agreed.title": "Two windows",
     "private_agreed.line.0": "I'd like that. Two cities, two windows. Maybe a little illustrated postcard?",
     "private_agreed.line.1": "Just between us for now. Rough work makes me shy.",
@@ -42,7 +42,7 @@
     "lives_agreed.line.1": "Fair warning: my everyday life contains a lot of arguing with furniture.",
     "lives_agreed.line.2": "Sunday's call is in Calendar. Tomorrow, check your work schedule before confirming.",
     "guild_plan.title": "02 / A garden for everyone",
-    "guild_plan.line.0": "Slight complication. New players signed up. Could you two lead separate groups?",
+    "guild_plan.line.0": "Hi, I'm Daichi. Thanks for opening the party. A few more new players want to join. Could you lead separate groups?",
     "guild_plan.line.1": "I was looking forward to playing together. Could we guide one small group instead?",
     "guild_plan.reply.0": "One small group. We'll show them the safe route together.",
     "guild_plan.reply.1": "Let's make a route guide tonight, then let someone else lead.",
@@ -57,16 +57,16 @@
     "guild_callback.title": "03 / The next invitation",
     "guild_callback.line.0": "Daichi asked before adding people this time. I think we started something.",
     "guild_callback.line.1": "Next Saturday, same garden? I'd like a little time with just you after.",
-    "guild_callback.line.2": "Opening complete. Your shared guild activity has opened a small-party invitation and a private after-game conversation. The collaboration and visit-preparation scenes belong to other paths.",
+    "guild_callback.line.2": "Opening complete. Your shared game activity has opened a small-party invitation and a private after-game conversation. The collaboration and visit-preparation scenes belong to other paths.",
     "private_photo.title": "02 / The mug has a new job",
-    "private_photo.line.0": "Mizuki shared a private desk photo. Open Gallery to inspect it or read this description: pens in a mug, a half-finished illustration on a laptop, rain against the window.",
+    "private_photo.line.0": "Mizuki shared a private desk photo. Open Photos to inspect it or read this description: pens in a mug, a half-finished illustration on a laptop, rain against the window.",
     "private_photo.line.1": "Window attempt seven. Application deadline Monday. Please keep this one between us.",
     "private_photo.reply.0": "Want quiet company while we make the postcard? We can leave it unfinished.",
     "private_photo.reply.1": "Let's move our postcard session until after your deadline. I'll send my photo now.",
     "private_event.title": "A room in two cities",
-    "private_event.line.0": "Resonance plays softly. You send your rainy Tokyo window; Mizuki sends a small line drawing in return. Neither of you posts it.",
+    "private_event.line.0": "A song plays softly in the background. You send your rainy Tokyo window; Mizuki sends a small line drawing in return. Neither of you posts it.",
     "private_event.line.1": "I finished the corner I was stuck on. Quiet company works, apparently.",
-    "private_event.line.2": "A private postcard joins Gallery. Mizuki keeps working on her application.",
+    "private_event.line.2": "A private postcard joins Photos. Mizuki keeps working on her application.",
     "private_rescheduled.title": "Room to finish",
     "private_rescheduled.line.0": "Thank you. Tuesday evening? I want to do this when I'm not watching a deadline.",
     "private_rescheduled.line.1": "You share the Tokyo window privately. The postcard session moves to Tuesday; tonight Mizuki works on her application.",
@@ -74,7 +74,7 @@
     "private_callback.title": "03 / After the deadline",
     "private_callback.line.0": "Submitted. I checked the attachment three times. Four if we're being honest.",
     "private_callback.line.1": "Can I show you the finished illustration? And I found a short story we could read together.",
-    "private_callback.line.2": "Opening complete. Your private activity has opened an illustration follow-up and a buddy-read invitation. The guild leadership and visit-preparation scenes belong to other paths.",
+    "private_callback.line.2": "Opening complete. Your private activity has opened an illustration follow-up and a buddy-read invitation. The group activity and visit-preparation scenes belong to other paths.",
     "lives_work.title": "02 / Making room",
     "lives_work.line.0": "Monday's handoff needs a check. You can finish Friday afternoon or take the Sunday review. Both are fine; tell me which.",
     "lives_work.line.1": "Mizuki's proposed call is Sunday afternoon. Friday work is available; taking Sunday means explicitly rescheduling the call.",
@@ -94,23 +94,23 @@
     "lives_callback.title": "03 / A possible journey",
     "lives_callback.line.0": "If we ever meet, I'd rather have an ordinary afternoon than a perfect itinerary.",
     "lives_callback.line.1": "You compare a future leave window and agree to discuss it again. A visit is a possibility, not a promise.",
-    "lives_callback.line.2": "Opening complete. Your call has opened a leave discussion and an everyday-friends introduction. The guild project and private postcard scenes belong to other paths.",
-    "invite.objective": "The guild invited me to a garden run. I need to pick a role.",
-    "chapter.1.title": "Party Invite",
+    "lives_callback.line.2": "Opening complete. Your call has opened a leave discussion and an everyday-friends introduction. The game project and private postcard scenes belong to other paths.",
+    "invite.objective": "Random matchmaking put me with mizuki. I need to pick a role for our garden run.",
+    "chapter.1.title": "A Chance Encounter",
     "bridge.objective": "I should check with Mizuki before we cross that bridge.",
     "splash.objective": "That bridge didn't go to plan. I still owe everyone a reply.",
     "first_dm.objective": "Mizuki sent me a private message. I should introduce myself properly.",
     "night.objective": "I'd like to spend more time with Mizuki. What should I suggest?",
-    "guild_agreed.objective": "A guild project with Mizuki. The plan is in Calendar; I'll pick this up later.",
+    "guild_agreed.objective": "Another game session with Mizuki. The plan is in Calendar; I'll pick this up later.",
     "private_agreed.objective": "A postcard, just between us. I've kept the plan in Calendar for later.",
     "lives_agreed.objective": "We might have a call. I need to check my work schedule first.",
-    "guild_plan.objective": "The guild is making plans. Mizuki and I need to decide how to help.",
+    "guild_plan.objective": "Our public party is making plans. Mizuki and I need to decide how to help.",
     "chapter.2.title": "How We Spend Our Time",
     "guild_event.objective": "I've kept the messages from our small party. I'll check back later.",
-    "guild_guide.objective": "Our route guide is in the guild thread. I'll check back later.",
-    "guild_callback.objective": "Mizuki suggested another guild activity. I've kept her message for later.",
+    "guild_guide.objective": "Our route guide is in the party thread. I'll check back later.",
+    "guild_callback.objective": "Mizuki suggested another game session. I've kept her message for later.",
     "chapter.3.title": "Beyond the Username",
-    "private_photo.objective": "Mizuki sent a photo and asked about working together. I should reply; I've kept her photo in Gallery.",
+    "private_photo.objective": "Mizuki sent a photo and asked about working together. I should reply; I've kept her photo in Photos.",
     "private_event.objective": "I've saved our postcard session. I'll check in after her deadline.",
     "private_rescheduled.objective": "The new postcard date is in Calendar. I'll check in later.",
     "private_callback.objective": "Mizuki got back to me after her deadline. I've kept her message for later.",
@@ -122,11 +122,11 @@
   "nodes": {
     "invite": {
       "title": "invite.title",
-      "app": "Lantern Quest",
+      "app": "Games",
       "day": 1,
       "lines": [
         {
-          "speaker": "mossbyte",
+          "speaker": "system",
           "text": "invite.line.0"
         },
         {
@@ -162,7 +162,7 @@
     },
     "bridge": {
       "title": "bridge.title",
-      "app": "Lantern Quest",
+      "app": "Games",
       "day": 1,
       "lines": [
         {
@@ -174,7 +174,7 @@
           "text": "bridge.line.1"
         },
         {
-          "speaker": "mossbyte",
+          "speaker": "mizuki",
           "text": "bridge.line.2"
         }
       ],
@@ -202,7 +202,7 @@
     },
     "splash": {
       "title": "splash.title",
-      "app": "Lantern Quest",
+      "app": "Games",
       "day": 1,
       "lines": [
         {
@@ -214,7 +214,7 @@
           "text": "splash.line.1"
         },
         {
-          "speaker": "mossbyte",
+          "speaker": "system",
           "text": "splash.line.2"
         }
       ],
@@ -338,7 +338,7 @@
       "choices": [],
       "later": "guild_plan",
       "set": {
-        "commitment": "Saturday / Guild garden with Mizuki",
+        "commitment": "Saturday / Garden run with Mizuki",
         "memory": "A second party invite"
       },
       "objective": "guild_agreed.objective",
@@ -404,7 +404,7 @@
     },
     "guild_plan": {
       "title": "guild_plan.title",
-      "app": "Lantern Quest",
+      "app": "Games",
       "day": 2,
       "lines": [
         {
@@ -440,7 +440,7 @@
     },
     "guild_event": {
       "title": "guild_event.title",
-      "app": "Lantern Quest",
+      "app": "Games",
       "day": 2,
       "lines": [
         {
@@ -467,7 +467,7 @@
     },
     "guild_guide": {
       "title": "guild_guide.title",
-      "app": "Lantern Quest",
+      "app": "Games",
       "day": 2,
       "lines": [
         {
@@ -645,7 +645,7 @@
     },
     "lives_work": {
       "title": "lives_work.title",
-      "app": "Desk",
+      "app": "Work",
       "day": 2,
       "lines": [
         {

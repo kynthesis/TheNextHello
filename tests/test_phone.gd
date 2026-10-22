@@ -114,23 +114,29 @@ func _initialize() -> void:
 	phone.banner_id = ""
 	phone._refresh_overlay()
 	await capture("home")
+	var launcher_apps: Array = []
+	for icon: Node in phone.body.find_children("*", "Button", true, false):
+		if icon.get_script() == phone.AppIcon:
+			launcher_apps.append(icon.app)
+	check(launcher_apps == ["Messages", "Games", "Work", "Photos", "Calendar", "Notes", "Settings"], "launcher contains exactly seven clearly named apps")
+	phone._open("Resonance")
+	check(phone.story.state.app == "Home", "retired apps cannot be opened")
 	check(phone.frame.find_child("NotesIcon", true, false).badge_count == 1, "new objective shows a numbered app bubble")
 	await tap_icon("NotesIcon")
 	check(phone.story.state.app == "Notes", "Notes is reachable from home")
 	check(phone.story.state.node == "invite", "opening objectives does not advance story")
 	await capture("notes")
-	press("Continue in Lantern Quest  >")
+	press("Continue in Games  >")
 	await settle()
-	check(phone.story.state.app == "Lantern Quest", "objective links to the correct app")
+	check(phone.story.state.app == "Games", "objective links to the correct app")
 	phone._open("Home")
 	await settle()
 	for icon: Node in phone.frame.find_children("NotesIcon", "Button", true, false):
-		check(icon.badge_count == 0, "opening Notes clears bubbles on grid and dock")
+		check(icon.badge_count == 0, "opening Notes clears its app badge")
 	await swipe(Vector2(340, 540), Vector2(80, 540))
-	check(phone.home_page == 1 and phone.story.state.app == "Home", "mouse swipe changes page without opening an app")
-	await capture("home_page_two")
+	check(phone.story.state.app == "Home", "horizontal swipe stays on the single home page")
 	await swipe(Vector2(80, 540), Vector2(340, 540), true)
-	check(phone.home_page == 0, "touch swipe returns to first page")
+	check(phone.story.state.app == "Home", "touch swipe stays on the single home page")
 	await tap_icon("MessagesIcon")
 	check(phone.story.state.app == "Messages", "tapping an icon opens its app")
 	await swipe(Vector2(205, 859), Vector2(205, 640))
@@ -138,13 +144,13 @@ func _initialize() -> void:
 	await swipe(Vector2(70, 42), Vector2(70, 210))
 	check(phone.notification_center, "top swipe opens Notification Center")
 	await capture("notifications")
-	press("Lantern Quest\n01 / Party invite")
+	press("Games\n01 / A chance encounter")
 	await settle()
-	check(phone.story.state.app == "Lantern Quest" and not phone.notification_center, "notification deep-links to app")
+	check(phone.story.state.app == "Games" and not phone.notification_center, "notification deep-links to app")
 	check(phone.story.state.notifications[0].read, "opening app marks notification read")
 	var count: int = phone.story.state.notifications.size()
 	phone._open("Home")
-	phone._open("Lantern Quest")
+	phone._open("Games")
 	await settle()
 	check(phone.story.state.notifications.size() == count, "reopening app cannot replay notifications")
 	var reply: String = phone.story.text(phone.story.choices()[0].text)
@@ -156,7 +162,7 @@ func _initialize() -> void:
 	await settle()
 	check(phone.story.state.node == "bridge", "Send advances story")
 	check(phone.story.unread_count("Notes") == 1, "next objective restores Notes bubble")
-	check(phone.story.unread_count("Lantern Quest") == 0, "messages already displayed in the active app are read")
+	check(phone.story.unread_count("Games") == 0, "messages already displayed in the active app are read")
 	check(phone.story.state.notifications.size() == 2, "one saved notification per new event")
 	await create_timer(0.25).timeout
 	check(phone.banner_id == "bridge", "new event shows notification banner")
@@ -173,15 +179,10 @@ func _initialize() -> void:
 		phone._open(app)
 		await settle()
 		check(phone.body.get_child_count() > 0, app + " renders content")
-	phone._play_track(0)
-	check(phone.player.playing, "music plays")
 	phone._open("Messages")
-	check(phone.player.playing, "music continues between apps")
 	await settle()
 	phone._scroll_bottom()
 	await capture("messages")
-	phone._toggle_music()
-	check(not phone.player.playing, "music pauses")
 	phone.sfx.stop()
 	phone.sound_volume = 0
 	phone._play_sound("received")
@@ -204,23 +205,6 @@ func _initialize() -> void:
 	check(root.size == Vector2i(1280, 900), "resolution setting resizes window")
 	phone.story.reset()
 	phone._open("Home")
-	phone.reduce_transparency = true
-	phone._render()
-	await settle()
-	var glass_count := 0
-	for panel: Node in phone.frame.find_children("*", "PanelContainer", true, false):
-		if panel.material is ShaderMaterial:
-			glass_count += 1
-	check(glass_count == 0, "simplified surfaces disable paper texture")
-	phone.reduce_transparency = false
-	phone._render()
-	await settle()
-	glass_count = 0
-	for panel: Node in phone.frame.find_children("*", "PanelContainer", true, false):
-		if panel.material is ShaderMaterial:
-			glass_count += 1
-	check(glass_count >= 1, "home dock uses paper texture")
-	phone.player.stop()
 	var inspector: Node = root.get_node_or_null("MCPGameInspector")
 	if inspector != null and inspector._error_log != null:
 		var runtime_errors: Dictionary = inspector._error_log.poll(0, false)

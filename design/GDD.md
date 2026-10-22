@@ -3,7 +3,7 @@
 **Game Design Document · v0.3 · 22 October 2026**  
 **Status:** Proposed first design; ready for creative review, not an approved production baseline.  
 **Design basis:** The creator's pitch, genres, Steam tags, and direction for a Japanese game with a male protagonist and female love interest. The female love interest lives in Hokkaido, as directed by the creator. Tachibana Asahi, 29, and Yukimura Mizuki, 23, are creator-confirmed. Cities within each region and biographies remain proposals.
-**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; an immersive phone with music, social stories/reels/posts/friends, long video, short video, books, and work apps.
+**Confirmed direction:** Japanese game; male protagonist; female love interest in Hokkaido; consequential branching story; target platforms PC/Steam, iOS, and Android; Asahi's personal phone with only seven essential, plainly named apps: Messages, Games, Work, Photos, Calendar, Notes, and Settings.
 **Engine:** Godot 4.7.2, selected by the creator's project instructions. The opening prototype is implemented; see [implementation notes](IMPLEMENTATION.md) for scope and validation.
 
 ## 1. The promise
@@ -28,7 +28,7 @@
 
 **Audience:** Players who enjoy intimate interactive fiction, slow-burn romance, everyday character detail, and emotionally distinct endings. Adult characters; final content rating and localization markets remain undecided.
 
-**Format:** Offline singleplayer targeting PC/Steam, iOS, and Android, as directed by the creator. Premium pricing is a proposal. One central love interest, three supporting contacts, six narrative acts, three distinct relationship paths, and four ending families. Target a 3–4 hour first playthrough and 15–30 minute sessions. Duration is a writing and playtest target, not a measured claim.
+**Format:** Offline singleplayer targeting PC/Steam, iOS, and Android, as directed by the creator. Premium pricing is a proposal. One central love interest, three supporting contacts, six narrative acts, three distinct relationship paths, and eight endings. Target a 3–4 hour first playthrough and 15–30 minute sessions. Duration is a writing and playtest target, not a measured claim.
 
 ## 2. Design pillars
 
@@ -50,7 +50,7 @@ The player uses a fictional phone. All contacts and online-game players are auth
 
 ### Included in the proposed release
 
-- Ten functional app surfaces: Messages, Lantern Quest, Moments, Resonance, Vista, Loop, Bookmark, Desk, Gallery, and Calendar. See [Phone apps and immersion](PHONE-APPS.md).
+- Seven essential app surfaces: Messages, Games, Work, Photos, Calendar, Notes, and Settings. See [Phone apps and immersion](PHONE-APPS.md).
 - One central relationship with three distinct story paths and a complete friendship alternative.
 - Major choices that open and close authored events before the ending, with lasting consequences.
 - Three supporting characters with individual needs and resolutions.
@@ -70,14 +70,14 @@ The protagonist is male and the love interest is female, as directed by the crea
 
 **Setting proposal:** Contemporary Japan. Asahi lives in Tokyo and Mizuki in Sapporo, Hokkaido. Distance comes from living in different cities, limited leave, travel planning, and mismatched routines. Seasonal street photos, train-station check-ins, convenience-store snacks, and everyday messages establish place through the phone. Keep cultural details specific to each character rather than relying on stereotypes.
 
-**Central couple:** Tachibana Asahi and Yukimura Mizuki, who first know each other through their game usernames.
+**Central couple:** Tachibana Asahi and Yukimura Mizuki, who first know each other through their game usernames. Their first meeting is purely coincidental: random matchmaking places them in the same Lantern Quest session. No guild or mutual friend introduces them. Daichi only appears later as a player joining an open party.
 
 | Character | Proposed identity | Desire and contradiction | Narrative function |
 |---|---|---|---|
 | Tachibana Asahi / `asahi` (player) | Japanese man, 29, he/him; junior office worker in Tokyo; editable given/display name and one of three avatars | Wants connection while settling into a demanding new routine; defines how much to disclose. | Expressive protagonist with enough fixed circumstances to support authored drama. |
 | Yukimura Mizuki / `mizuki` | Japanese woman, 23, she/her; illustrator living in Sapporo, Hokkaido | Wants to be known, but uses humor and helpfulness to avoid asking for support. Considering a local work opportunity. | Central romance and possible lasting friend. |
 | Natsumi | 24, she/her; player's longtime local friend | Wants reliable friendship while preparing a small creative showcase; fears becoming an afterthought. | A relationship worth maintaining in its own right. |
-| Daichi / `mossbyte` | 27, he/him; guild organizer | Wants the group to stay welcoming, but avoids conflict until plans become messy. | Bridge between game acquaintance and shared social circle. |
+| Daichi / `mossbyte` | 27, he/him; a fellow player who joins a later public party | Wants the group to stay welcoming, but avoids conflict until plans become messy. | A later game friend with his own needs; does not introduce Asahi and Mizuki. |
 | Misaki | 29, she/her; Mizuki's older sister | Wants Mizuki to build a sustainable life; has her own move to arrange. | Gives Mizuki a life beyond the player's attention; enters a shared chat with consent. |
 
 **Protagonist customization:** Editable given/display name, avatar, and recurring preference choices such as favorite weather or comfort food. Asahi is a male protagonist with he/him pronouns; Mizuki is the female love interest. Preferences create callbacks, never compatibility locks.
@@ -106,30 +106,25 @@ No currency, grind, affection farming, or mandatory collectible hunt. Optional i
 
 ## 6. The phone and its connected apps
 
-Working app names are fictional placeholders. The requested YouTube-style and TikTok-style experiences are proposed as in-universe video apps, Vista and Loop. All media is authored for the game. See [Phone apps and immersion](PHONE-APPS.md) for detailed interactions, cross-app effects, and prototype content.
+The launcher contains only seven essential apps with familiar names. Lantern Quest remains the game title inside Games. Standalone social feeds, music, video, short-video and book apps are outside the current scope. Relevant shared media or interests may appear in authored Messages scenes without adding a separate browsing app. See [Phone apps and immersion](PHONE-APPS.md).
 
 | App | Player actions | Purpose | Example connection |
 |---|---|---|---|
-| **Messages** | Direct and group conversations; choose replies, reactions, and attachments; reread history. | Main narrative and relationship expression. | A game-night mistake becomes an inside joke in a direct message. |
-| **Lantern Quest** | Read guild chat, choose a cooperative role, play short authored encounters. | Establish the relationship through doing something together. | A screenshot becomes the first image in the shared Gallery collection. |
-| **Moments** | Browse posts, stories, reels/shorts, and friend profiles; manage authored friend requests; comment, react, and choose posting audience. | Show lives outside the direct conversation; contrast public and private context. | Ask about a work-in-progress photo before assuming a vague caption concerns you. |
-| **Resonance** | Listen, like tracks, build playlists, share music. | Personal routine and a shared listening space. | An agreed listening invitation opens a private activity. |
-| **Vista** | Watch authored videos, save links, browse creators and relevant comments. | Deliberate watching and project ideas. | A shared tutorial can lead to a creative collaboration. |
-| **Loop** | Browse a finite short-video feed, follow creators, save/share clips. | Discover interests beyond the existing friend group. | A shared clip can lead to an explicit invitation or expectations discussion. |
-| **Bookmark** | Read original excerpts, mark passages, keep notes, share quotes. | Interior life and optional shared interests. | An agreed buddy-read opens a dedicated conversation. |
-| **Desk** | Team chat, assignments, task board, leave requests, work choices. | Asahi's independent responsibilities and goals. | Assignment and leave outcomes change feasible visit dates and later work scenes. |
-| **Gallery** | Inspect authored images, read descriptions, select an attachment, revisit shared memories. | Make observation and remembering playable. | Share a rainy-window photo because Mizuki previously described missing that sound. |
-| **Calendar** | Compare availability, review commitments, propose a date or travel window, confirm or revise plans. | Make distance and practical agreements tangible. | Move a game night around Natsumi's showcase; a confirmed plan appears in Messages. |
+| **Messages** | Direct/group conversations, call transcripts, drafts and explicit replies. | Main narrative and relationship expression. | A game-night mistake becomes an inside joke in a direct message. |
+| **Games** | Open Lantern Quest, read party chat, choose cooperative actions. | Establish closeness through doing something together. | A screenshot becomes a memory in Photos. |
+| **Work** | Team messages, handoffs, leave and availability choices. | Asahi's independent responsibilities. | A work agreement changes feasible visit dates. |
+| **Photos** | Inspect images and descriptions, revisit shared memories. | Make observing and remembering personal. | A private photo provides context for a reply. |
+| **Calendar** | Review commitments, availability and travel plans. | Make practical agreements tangible. | A changed commitment is reflected in Messages. |
+| **Notes** | Read first-person reminders, chapters, next-action links and completed entries. | Keep guidance inside Asahi's personal device. | An unsent reply stays on his reminder list. |
+| **Settings** | Account, display, sound, reduced motion and saves. | Access essential preferences and recovery. | Restore an unsent draft without advancing time. |
 
-**Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Gallery shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
+**Cross-app rule:** A content item has one canonical identity and state. Opening the same photo through a message or Photos shows the same caption, permissions, and history. Posting an image does not automatically send it privately.
 
 **Discoverability:** Notifications lead directly to their scene. If an attachment matters to a choice, the choice panel offers a direct link to inspect it. Icons have text labels; essential actions never depend on recognizing a tiny symbol.
 
 ### Example connected interaction
 
-Mizuki posts a blurred sketch labeled “third try.” The player can ask about it privately, react publicly, or move on. Asking reveals a deadline and unlocks an offer to reschedule tonight's game. The revised Calendar plan changes Daichi's guild chat. Later, Mizuki remembers that the player made room without demanding an explanation.
-
-Ignoring the post does not cause an invisible penalty. The core conversation still surfaces the deadline. The optional interaction changes how that conversation begins.
+Mizuki sends a work-in-progress sketch in Messages. Asahi can ask about it or offer to reschedule tonight's game. The image appears in Photos; an agreed schedule change appears in Calendar and changes the party conversation in Games. Optional context never becomes a hidden progression requirement.
 
 ## 7. Messaging and meaningful choices
 
@@ -180,7 +175,7 @@ Use explicit narrative facts and small, hidden state categories. There is no vis
 | `active_rupture` | none / named issue | Created by a substantial conflict; resolved only by its repair scene or acknowledged separation. |
 | `communication_agreement` | unset / agreed / needs_revision | Records a practical expectation, such as how to cancel plans. |
 | `meeting_plan` | unraised / discussing / confirmed / postponed / declined / completed | Changes through explicit proposals and responses. |
-| `future_plan` | unset / workable / incompatible | Records the plan for the currently agreed relationship mode; revisit it if that mode changes. |
+| `future_plan` | unset / workable / incompatible / explicitly_undecided | Records the mutually acknowledged plan; explicitly_undecided requires the open-ending conversation and is never inferred from missing data. |
 | `shared_memories` | Set of stable memory IDs | Added once per meaningful event; used for dialogue and epilogue details. |
 | `commitments` | Records: person, event, status | proposed / accepted / kept / renegotiated / missed; resolved by authored story actions. |
 
@@ -216,7 +211,7 @@ Time advances only when the player chooses **Later**, **Go to sleep**, or a clea
 
 ## 10. Lantern Quest: the game within the game
 
-**Fiction:** A cozy cooperative fantasy game about carrying lanterns through ruined gardens. The small guild uses it as a place to spend time together.
+**Fiction:** A cozy cooperative fantasy game about carrying lanterns through ruined gardens. Asahi and Mizuki first meet by chance through random matchmaking, with no party membership, mutual contact, or arranged introduction. They choose whether to play together again afterward.
 
 **Format:** Three reusable encounter templates—light a route, protect a companion, and choose a shared reward—recombined across five authored sessions. Each session lasts roughly 2–4 minutes and contains 2–3 turn-based decisions.
 
@@ -232,24 +227,24 @@ The opening session teaches the complete loop: coordinate with `mizuki`, recover
 
 | Act | Shared dramatic purpose | What can differ through choices |
 |---|---|---|
-| 1. **Party Invite** | Establish Asahi, Mizuki, and their first game session. | The next invitation can be a guild activity, private photo exchange, or personal call. |
+| 1. **A Chance Encounter** | Establish Asahi, Mizuki, and their first game session. | The next invitation can be a party activity, private photo exchange, or personal call. |
 | 2. **How We Spend Our Time** | Establish the relationship's habits through actions. | The player chooses an activity with Mizuki's agreement; this selects Game-first, Private connection, or Shared lives. Commitments determine which people take part. |
-| 3. **Beyond the Username** | Decide what to reveal and who to include. | Guild disagreement, a private creative collaboration, or preparation for a visit. A friend can become a confidant, stay uninvolved, or become someone owed a repair. |
+| 3. **Beyond the Username** | Decide what to reveal and who to include. | Party disagreement, a private creative collaboration, or preparation for a visit. A friend can become a confidant, stay uninvolved, or become someone owed a repair. |
 | 4. **The Distance Between Us** | Experience the consequences of prior commitments. | An early meeting, a privacy conflict, a canceled collaboration, or an honest scheduling negotiation. A conflict does not occur if its trigger never happened. |
 | 5. **What Comes Next** | Choose practical and emotional next steps. | Post-meeting adjustment, an unrepaired issue, a friendship transition, or a first-meeting proposal. Mizuki makes her own work decision; support affects the shared plan, not ownership of her career. |
 | 6. **The Next Hello** | Resolve the relationship's future. | First meeting, second meeting, continued distance with a concrete plan, friendship, or separation. Earlier choices determine which proposals remain credible and available. |
 
 ### Different paths, different events
 
-- **Game-first:** The guild remains the shared space. A group obligation and leadership disagreement test how the couple communicates publicly. Meeting may begin as a group event; guild participation can continue or end depending on conduct and commitments.
-- **Private connection:** Photos, calls, and an optional creative collaboration deepen the relationship away from the guild. Choices about permission and promises determine whether the collaboration is completed, canceled, or becomes a privacy conflict. A private visit is proposed later.
+- **Game-first:** The party remains the shared space. A group obligation and leadership disagreement test how the couple communicates publicly. Meeting may begin as a group event; party participation can continue or end depending on conduct and commitments.
+- **Private connection:** Photos, calls, and an optional creative collaboration deepen the relationship away from the party. Choices about permission and promises determine whether the collaboration is completed, canceled, or becomes a privacy conflict. A private visit is proposed later.
 - **Shared lives:** The couple introduces friends and explores an earlier Hokkaido visit. Accepting a mutually feasible visit leads to an act-four meeting and new scenes about returning to distance afterward. Declining it leads to an alternate planning sequence, not the same trip with different dialogue.
 
 No route is the correct way to love Mizuki. Good communication can avoid a preventable argument but does not remove practical tradeoffs. Every route supports romance, friendship, and separation, with different histories.
 
 ### The in-person meeting
 
-The meeting is playable and resolved on screen. The meeting can occur in act four or act six. Calendar records the agreed place; Messages handles arrival; the phone then opens a short illustrated scene with dialogue choices for the first greeting and conversation. A new shared photo returns the player to Gallery afterward.
+The meeting is playable and resolved on screen. The meeting can occur in act four or act six. Calendar records the agreed place; Messages handles arrival; the phone then opens a short illustrated scene with dialogue choices for the first greeting and conversation. A new shared photo returns the player to Photos afterward.
 
 Use a small set of bespoke pixel illustrations rather than a navigable environment. The first greeting can be a joke, an honest admission of nerves, or a quiet hello. A touch or hug requires an offered choice and reciprocal acceptance. The scene acknowledges that in-person chemistry may differ without making either person deceptive.
 
@@ -257,24 +252,30 @@ If the pair postpones or separates, the final act uses a fully authored conversa
 
 ## 12. Endings and resolution rules
 
-Four ending families share contextual variants. They are emotional outcomes, with no gold/silver ranking. Each has a final conversation, a new image or phone-state change, and a short epilogue several months later.
+Eight planned endings cover good, bad, neutral, open and secret outcomes. The creator requested this wider range; the names and exact eligibility below are working proposals. Categories are internal authoring labels, not a visible score or judgment of the player. Each ending needs its own final conversation, a photo or phone-state change, and an epilogue. A changed closing caption alone is not another ending.
 
-| Ending | Eligibility | Resolution |
+| Category | Ending | Eligibility and resolution |
 |---|---|---|
-| **A Place for Us** | Romantic agreement, completed meeting, workable future plan, no unresolved rupture. | They choose a concrete next step while retaining their own lives. Avoid implying that immediate relocation proves love. |
-| **Same Sky, New Plan** | Romantic agreement, postponed meeting, workable future plan, no unresolved rupture. | They continue at a mutually chosen pace; a specific revised plan makes the ending complete. |
-| **Still in the Party** | Friendship explicitly agreed, before or after meeting. | Intimacy becomes a sustainable friendship; future guild and everyday contact continue. |
-| **Thank You for the Time** | Either explicitly ends the relationship, future needs are incompatible, or a named rupture remains unresolved after the offered repair. | They acknowledge what mattered and let the relationship end. Tone varies with care and unresolved hurt. |
+| Good | **A Place for Us** | Mutual romance, completed meeting, workable plan and no unresolved rupture. They take a concrete next step while retaining independent lives. Relocation is not required. |
+| Good | **Same Sky, New Plan** | Mutual romance, a deliberately postponed meeting, workable long-distance plan and no unresolved rupture. They enact a shared routine and agree when to revisit travel. |
+| Bad | **Words Left Unsaid** | A named serious rupture remains unresolved because an explicit repair opportunity and follow-up were refused. The final exchange shows the lost trust and resulting separation. One awkward reply never qualifies. |
+| Bad | **Nothing Left to Give** | Repeated knowingly incompatible promises have harmed both people's independent commitments; offered opportunities to reduce demands or renegotiate were rejected. An authored burnout conversation ends the relationship. Honest unavailability, rest, work obligations or a boundary cannot trigger this ending by themselves. |
+| Neutral | **Still in the Party** | Both explicitly choose friendship and agree a sustainable friendship plan. It is a complete relationship, with its own final activity and future contact. |
+| Neutral | **Thank You for the Time** | They mutually acknowledge incompatibility or respectfully choose to separate, without an unresolved qualifying harm. They recognize what mattered and say goodbye. Separation is not automatically a bad ending. |
+| Open | **Maybe, Someday** | Both explicitly choose to leave the future undecided, with no unaddressed rupture. A final conversation states what remains uncertain and whether contact continues. The emotional scene is complete even though the future remains open; missing data never selects it. |
+| Secret | **The Everyday Hello** | A good-ending plan is eligible and a mutually chosen recurring ritual has been kept and renewed through authored scenes. Both choose to give that ritual a place in their future. A distinct playable ordinary-day finale shows the life they have built, rather than merely changing an epilogue caption. Equivalent ritual opportunities must exist on every central path. |
 
-**Resolver order:** (1) Explicit separation, unresolved rupture after repair opportunity, or an incompatible plan for the currently agreed relationship resolves to Thank You for the Time. (2) Mutual friendship with a workable friendship plan resolves to Still in the Party. (3) Romantic agreement plus workable plan resolves by completed or postponed meeting status to A Place for Us or Same Sky, New Plan. If romantic plans prove incompatible, the final conversation explicitly offers friendship; accepting it revises both relationship mode and future plan before resolution.
+**Resolver order:** Resolve authored harm first: refused repair selects Words Left Unsaid; repeated overcommitment with the burnout confrontation selects Nothing Left to Give. If both harm flags exist, the final confrontation explicitly identifies the active cause; there is no arbitrary hidden tie-break. A cleared rupture can no longer select either bad ending. Then resolve an explicit amicable separation to Thank You for the Time, mutual friendship with a workable friendship plan to Still in the Party, or mutually acknowledged uncertainty to Maybe, Someday. A workable romantic plan resolves by completed/postponed meeting to A Place for Us/Same Sky, New Plan; qualifying shared-ritual scenes and mutual renewal replace that base finale with The Everyday Hello.
 
-**Completeness guard:** Before resolution, undefined relationship mode or future plan always triggers a clarifying conversation. An unraised or discussing meeting status triggers a planning conversation; a confirmed meeting plays its scheduled act-four or act-six sequence and becomes completed. A romantic pair with a declined meeting must explicitly revise the plan, choose friendship, or separate. The resolver runs only after these steps. No hidden default ending fills an undefined state.
+**Completeness guard:** Undefined relationship mode, unset future plan or contradictory commitments triggers a clarifying conversation. An explicitly undecided future is a distinct authored state for the open ending. Unraised/discussing travel receives planning context; confirmed travel must play before a completed-meeting ending. Declining travel requires an explicit decision about a continuing arrangement, friendship, uncertainty or separation. No hidden default ending fills missing state.
 
-Within an ending, shared memories choose callbacks, Natsumi's commitment chooses her closing message, and communication agreements shape the final exchange. Optional completion percentage never determines eligibility.
+**Secret-ending rules:** No perfect-reply score, feed completion, hidden collectible hunt, extra app, or prior acquaintance is required. Earlier choices must produce observable ritual scenes; discovery can reward paying attention without concealing required context. The secret ending never reveals that the initial meeting was arranged or that the couple already knew each other. Asahi and Mizuki still meet entirely by chance.
+
+Within an ending, memories, Natsumi's commitments and communication agreements choose contextual details. These variants do not add to the count of eight endings. Names and categories appear in replay records only after discovery, with any hints spoiler gated. The opening prototype still has no implemented release ending or resolver.
 
 ## 13. Presentation, art, and audio direction
 
-**Visual identity:** A cozy Japanese stationery-inspired personal phone. The creator lifted the earlier iOS theme restriction and accepted this visual pass. Warm cream paper (#fff8e9), midnight-blue ink (#26354a), muted coral (#a64e43), sage and ochre define the palette. Small-radius panels, subtle stationary paper fibers, grid-drawn pixel icons and a layered pixel landscape replace the glass shell. Incoming messages use cream; outgoing messages use warm peach, with speaker labels and opposite border accents. Notes reads as a personal notebook with a coral objective marker. Simplify Paper Texture disables decorative grain. Authored photos and the game-within-the-game retain pixel art.
+**Visual identity:** Minimal, story-focused phone UI. Use a plain warm background, midnight-blue text, a restrained coral accent, familiar pixel icons and readable labels. Home contains seven apps once each, a small date and the status-bar clock. No decorative wallpaper, oversized clock, duplicate app dock, textured surfaces or external title/instructions. Conversations use simple cream/peach panels and clear speakers; Notes keeps only the useful chapter, reminder and history information. Pixel illustrations remain where they carry story context, such as shared photos and the game itself.
 
 **Pixel treatment:** Low-resolution art with a consistent pixel grid, nearest-neighbor image scaling, and restrained animation. Render dialogue as accessible UI text rather than baking it into pixel images. Offer a readable non-pixel font.
 
@@ -288,9 +289,9 @@ Within an ending, shared memories choose callbacks, Natsumi's commitment chooses
 
 **Audio:** Small electronic and acoustic motifs; environmental room tone; distinct but soft message sounds. Reuse the shared-ritual motif at the meeting with a warmer arrangement. Silence supports difficult conversations. Separate music, ambience, and interface volume controls. All audio-only information also appears in text.
 
-**Provisional asset budget:** Ten app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, six music cues, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos.
+**Provisional asset budget:** Seven app icon families, four contact/avatar sets plus three player avatars, 24 unique photo illustrations, six meeting/ending illustrations, six music cues, and approximately twelve interface/game sound effects. Shared templates and altered crops can recur but do not count as new unique photos.
 
-The ten-app expansion also requires original music/video/book content and additional work/social UI. The earlier illustration/music counts are provisional and require a revised asset breakdown after the branching prototype; see PHONE-APPS.md for initial media samples.
+The earlier standalone social/music/video/book app expansion is deferred. Keep content focused on the existing relationship scenes and revise provisional illustration/audio counts after the branching prototype; see PHONE-APPS.md for the essential app scope.
 
 This establishes direction for a later art bible; it does not approve an asset-production style or commission final art.
 
@@ -310,14 +311,14 @@ Title → New Game / Continue / Load / Settings → Phone home → App → Threa
 - Skip-read mode stops at unseen variants and decisions, including changed image captions. It never makes a choice automatically.
 - Clear focus indicators; state communicated through labels and symbols as well as color.
 - Legible contrast, scalable controls, and scrolling for long replies; no timed reading or precision clicking.
-- No information available only through audio. Text scaling and keyboard access are launch requirements; screen-reader support requires an early feasibility investigation before any compatibility claim.
+- No information available only through audio. Readable standard-size text and keyboard access are launch requirements; screen-reader support requires an early feasibility investigation before any compatibility claim.
 - Optional content notes describing themes and a menu path to revisit them. Proposed themes include loneliness, interpersonal conflict, and relationship separation.
 
 **Layout acceptance targets:** At 1280×720, 1920×1080, and 2560×1440, plus a 21:9 window, required controls remain reachable and messages do not overlap. At the standard text size, use wrapping and scrolling rather than clipping. Also verify narrow and tall mobile portrait layouts, safe-area cutouts, touch-only navigation, and standard text without clipped Send/Back controls. Supported OS versions and minimum devices remain to be selected. These are future test conditions, not completed verification.
 
 ## 15. Progress, replay, and saving
 
-**Progress feedback:** Chapter titles, dated conversation history, shared Gallery collections, and changed everyday routines. No public relationship ranking.
+**Progress feedback:** Chapter titles, dated conversation history, shared Photos collections, and changed everyday routines. No public relationship ranking.
 
 **Save behavior:** Save at any stable interaction, including an unsent draft or unanswered choice. If an animation is active, finish its current atomic message transition before capturing state. Loading reconstructs the same interaction without reapplying consequences.
 
@@ -333,18 +334,18 @@ Settings and globally seen text live separately from playthrough state. Seen-tex
 
 | Content | Proposed first-release budget |
 |---|---|
-| Narrative acts / authored scenes | 6 / 42 across all paths; sequence varies by run |
+| Narrative acts / authored scenes | 6 / 44 across all paths; sequence varies by run |
 | Shared foundation scenes | 6 |
 | Path-specific scenes | 18: 6 per central path |
 | Conditional cross-path events | 8, including early/late meeting and commitment outcomes |
 | Optional social scenes | 4 |
-| Ending sequences | 6 sequences serving 4 outcome families, including different histories of meeting |
+| Ending sequences | 8 distinct ending sequences: 2 good, 2 bad, 2 neutral, 1 open, 1 secret |
 | Major decisions | 8, with additional expressive replies and smaller consequential actions |
 | Lantern Quest sessions | Up to 5 per run, drawn from authored scene content |
 | Total authored words | Revised target 45,000–60,000 across paths; validate production cost in the branching prototype |
 | Words seen per typical run | 18,000–24,000; validate 3–4 hour duration with readers |
 
-The six scene buckets total 42 (6 shared + 18 path-specific + 8 conditional + 4 optional + 6 ending). They are exclusive accounting categories, not a promise that every run sees all scenes. The larger total writing budget replaces the earlier 28,000–36,000-word estimate. Reassess art and audio counts against approved branch scripts before commissioning them.
+The six scene buckets now total 44 (6 shared + 18 path-specific + 8 conditional + 4 optional + 8 ending). The broader ending plan adds two finale scenes to the previous budget; ritual and consequence setup must fit within the existing path/conditional scenes. They are exclusive accounting categories, not a promise that every run sees all scenes. The larger total writing budget replaces the earlier 28,000–36,000-word estimate. Reassess art and audio counts against approved branch scripts before commissioning them.
 
 **Scene definition:** One bounded interaction with an entry condition, dramatic purpose, and terminal state. A genuinely different event needs its own scene ID; a changed greeting does not. Eight major choices are specified in [the branching ledger](BRANCHING-STORY.md). No single playthrough can experience all three central paths or all mutually exclusive outcomes.
 
@@ -360,7 +361,7 @@ The six scene buckets total 42 (6 shared + 18 path-specific + 8 conditional + 4 
 
 ### First playable: prove the opening connection
 
-Build a branching prototype of the introduction and one major choice with three playable continuations: guild activity, private collaboration, and visit planning. Include a save/load round trip and a later event that changes on each continuation. Temporary art is sufficient; measure duration rather than forcing all paths into a fixed demo length. Graybox UI and temporary art are sufficient.
+Build a branching prototype of the introduction and one major choice with three playable continuations: party activity, private collaboration, and visit planning. Include a save/load round trip and a later event that changes on each continuation. Temporary art is sufficient; measure duration rather than forcing all paths into a fixed demo length. Graybox UI and temporary art are sufficient.
 
 **Question to answer:** Do players recognize that their actions changed the events of the relationship, and do the apps make those consequences understandable?
 
@@ -387,13 +388,13 @@ These are release acceptance targets. The opening prototype has automated narrat
 | Area | Acceptance criterion |
 |---|---|
 | Choices matter | Each of the eight major decisions changes the next playable event and at least two later event/action opportunities. Compare runs from identical pre-choice states; wording-only changes fail. |
-| Narrative coverage | All three central paths, four ending families, and eight major decisions have reachable test paths; every node terminates or has a valid transition; every reachable choice set has an available option. |
+| Narrative coverage | All three central paths, eight endings, and eight major decisions have reachable test paths; every node terminates or has a valid transition; every reachable choice set has an available option. |
 | Consent and boundaries | Friendship, declining a call, and setting rest boundaries remain viable; character responses acknowledge explicit requests. |
 | Repair | Every route to an unresolved-rupture ending includes the offered repair conversation and a clear player decision. |
 | Time | Waiting in real time or reopening the game changes no narrative deadline or commitment. |
 | App consistency | The same photo, commitment, or message has the same state wherever opened; optional content is not a hidden progression requirement. |
 | Save integrity | Quit/reload at an unanswered choice, unsent draft, image view, and day transition reproduces state without duplicate side effects; a failed save can recover the prior valid state. |
-| Reading comfort | Required navigation works by keyboard; largest text fits through reflow; reduced motion and instant delivery preserve every choice. |
+| Reading comfort | Required navigation works by keyboard; standard text fits through wrapping and scrolling; reduced motion and instant delivery preserve every choice. |
 | Ending coherence | Resolver covers every reachable final state; contradictory or missing agreements route to clarification before resolution. |
 
 | Risk | Mitigation | Evidence needed |
@@ -414,7 +415,7 @@ Creator direction establishes a Japanese game, a male protagonist, a female love
 | Romance structure | One central love interest with friendship as a complete alternative. | Before committing to the full narrative outline. |
 | Identities and setting | Male protagonist Tachibana Asahi and female love interest Yukimura Mizuki; Tokyo–Hokkaido setting, with Sapporo as the proposed city and Japanese supporting cast. | Names and ages confirmed; review cities and biographies before final character art. |
 | Tone and content | Hopeful adult romance, emotional friction, non-explicit intimacy. | Before detailed script and content-rating planning. |
-| Length and scale | Six acts, three central paths, 3–4 hours per run, four ending families; revised 42-scene budget. | Reassess after first playable reading times. |
+| Length and scale | Six acts, three central paths, 3–4 hours per run, eight endings; revised 44-scene budget. | Reassess after first playable reading times. |
 | Meeting presentation | Phone-led arrival followed by illustrated dialogue vignettes. | Prototype before commissioning final illustrations. |
 | Platform and technology | PC/Steam, iOS, and Android confirmed as targets; Godot 4.7.2 selected. OS minimums and release order undecided. | Validate save lifecycle, touch UI, and builds during prototype before production implementation. |
 | Input and access | Mouse/keyboard on PC and touch on mobile; investigate screen-reader feasibility. | During the first playable. |

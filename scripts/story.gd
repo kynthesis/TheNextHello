@@ -2,7 +2,9 @@ extends RefCounted
 ## Plain-data story state. Presentation never applies narrative effects.
 
 const CONTENT_VERSION := "opening-1"
-const APPS := ["Home", "Messages", "Lantern Quest", "Moments", "Resonance", "Vista", "Loop", "Bookmark", "Desk", "Gallery", "Calendar", "Settings", "Notes"]
+const APPS := ["Home", "Messages", "Games", "Work", "Photos", "Calendar", "Settings", "Notes"]
+const APP_ALIASES := {"Lantern Quest": "Games", "Desk": "Work", "Gallery": "Photos"}
+const RETIRED_APPS := ["Moments", "Resonance", "Vista", "Loop", "Bookmark"]
 var content: Dictionary
 var state: Dictionary
 var last_error := ""
@@ -73,7 +75,7 @@ func _enter(id: String, before: Variant = null) -> void:
 		state.app_updates.Notes = [id]
 		for key: String in ["screenshot", "desk_photo", "postcard"]:
 			if state.facts.get(key, false) and not previous_facts.get(key, false):
-				_queue_update("Gallery", id)
+				_queue_update("Photos", id)
 		for key: String in ["commitment", "work", "meeting_plan"]:
 			if state.facts.get(key) != previous_facts.get(key):
 				_queue_update("Calendar", id)
@@ -191,6 +193,9 @@ func load_from(path: String) -> bool:
 			for entry: Dictionary in state.log:
 				if entry.speaker == "haru": entry.speaker = "asahi"
 				if entry.speaker == "yuzu": entry.speaker = "mizuki"
+				# Stable line IDs now describe the corrected chance encounter.
+				if entry.text in ["invite.line.0", "splash.line.2"]: entry.speaker = "system"
+				if entry.text == "bridge.line.2": entry.speaker = "mizuki"
 			for key: String in state.facts:
 				if state.facts[key] is String:
 					state.facts[key] = state.facts[key].replace("Yui", "Mizuki")
@@ -204,4 +209,29 @@ func _read_json(path: String) -> Variant:
 	var parser := JSON.new()
 	if parser.parse(FileAccess.get_file_as_string(path)) != OK:
 		return null
-	return parser.data
+	return _migrate_apps(parser.data)
+
+func _migrate_apps(data: Variant) -> Variant:
+	# Normalize only known old app IDs. Validation still rejects malformed data.
+	if not data is Dictionary or data.get("version") != 1 or data.get("content_version") != CONTENT_VERSION:
+		return data
+	if data.get("app") is String:
+		data.app = "Home" if data.app in RETIRED_APPS else APP_ALIASES.get(data.app, data.app)
+	for key: String in ["scroll", "app_updates"]:
+		if data.get(key) is Dictionary:
+			for old: String in APP_ALIASES:
+				if data[key].has(old):
+					data[key][APP_ALIASES[old]] = data[key][old]
+					data[key].erase(old)
+			for retired: String in RETIRED_APPS:
+				data[key].erase(retired)
+	if data.get("notifications") is Array:
+		var kept: Array = []
+		for notification: Variant in data.notifications:
+			if notification is Dictionary and notification.get("app") is String:
+				if notification.app in RETIRED_APPS:
+					continue
+				notification.app = APP_ALIASES.get(notification.app, notification.app)
+			kept.append(notification)
+		data.notifications = kept
+	return data

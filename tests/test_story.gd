@@ -17,23 +17,26 @@ func _initialize() -> void:
 	walk(model)
 	check(visited.size() == model.content.nodes.size(), "all authored nodes reachable")
 	check(model.state.node == "invite", "exploration does not mutate original")
+	check(model.text("invite.line.0").contains("Random matchmaking"), "opening establishes a chance encounter")
+	for entry: Dictionary in model.state.log:
+		check(entry.speaker != "mossbyte", "Daichi does not introduce the couple")
 	check(not model.send(), "no send without draft")
 	var badges := Story.new()
-	check(badges.unread_count("Notes") == 1 and badges.unread_count("Lantern Quest") == 1, "opening highlights objectives and game invitation")
+	check(badges.unread_count("Notes") == 1 and badges.unread_count("Games") == 1, "opening highlights objectives and game invitation")
 	badges.mark_app_read("Notes")
-	check(badges.unread_count("Notes") == 0 and badges.unread_count("Lantern Quest") == 1, "reading one app preserves other badges")
+	check(badges.unread_count("Notes") == 0 and badges.unread_count("Games") == 1, "reading one app preserves other badges")
 	badges.draft("invite.choice.0")
 	badges.send()
-	check(badges.unread_count("Lantern Quest") == 2, "unread bubble counts multiple events")
+	check(badges.unread_count("Games") == 2, "unread bubble counts multiple events")
 	check(badges.unread_count("Notes") == 1, "changed objective refreshes Notes bubble")
-	badges.mark_app_read("Lantern Quest")
+	badges.mark_app_read("Games")
 	badges.draft("bridge.choice.0")
 	badges.send()
-	check(badges.unread_count("Gallery") == 1, "new screenshot flags Gallery")
-	badges.mark_app_read("Gallery")
+	check(badges.unread_count("Photos") == 1, "new screenshot flags Photos")
+	badges.mark_app_read("Photos")
 	badges.draft("first_dm.choice.0")
 	badges.send()
-	check(badges.unread_count("Gallery") == 0, "unchanged photo does not reappear as new")
+	check(badges.unread_count("Photos") == 0, "unchanged photo does not reappear as new")
 	badges.draft("night.choice.0")
 	badges.send()
 	check(badges.unread_count("Calendar") == 1, "choice-created commitment flags Calendar")
@@ -84,6 +87,20 @@ func _initialize() -> void:
 	check(loaded.state.log.back().speaker == "asahi" and loaded.state.facts.commitment == "Call with Mizuki", "saved cast references migrate")
 	check(loaded.state.notifications.size() == 1, "earlier save receives current notification once")
 	check(loaded.unread_count("Notes") == 1, "earlier save highlights the Notes app")
+	for old: String in ["Lantern Quest", "Desk", "Gallery", "Resonance", "Moments", "Vista", "Loop", "Bookmark"]:
+		var old_save: Dictionary = model.state.duplicate(true)
+		old_save.app = old
+		old_save.scroll = {"Lantern Quest": 42, "Desk": 81, "Gallery": 12, "Bookmark": 90}
+		old_save.app_updates = {"Gallery": ["invite"], "Desk": ["invite"]}
+		old_save.notifications[0].app = "Lantern Quest"
+		var old_file := FileAccess.open("user://test_legacy.json", FileAccess.WRITE)
+		old_file.store_string(JSON.stringify(old_save))
+		old_file.close()
+		check(loaded.load_from("user://test_legacy.json"), "old app save loads: " + old)
+		check(loaded.state.app == ("Home" if old in Story.RETIRED_APPS else Story.APP_ALIASES[old]), "old app redirects safely: " + old)
+		check(loaded.state.node == model.state.node and loaded.state.draft == model.state.draft and loaded.state.log == model.state.log, "app migration preserves story and draft")
+		check(loaded.state.scroll.Games == 42 and loaded.state.scroll.Work == 81 and loaded.state.scroll.Photos == 12 and not loaded.state.scroll.has("Bookmark"), "scroll IDs migrate")
+		check(loaded.state.notifications[0].app == "Games" and loaded.unread_count("Photos") == 1, "notification and badge links migrate")
 	DirAccess.remove_absolute("user://test_legacy.json")
 	var path_events: Array = []
 	for route in range(3):
@@ -107,6 +124,7 @@ func _initialize() -> void:
 
 func walk(model: RefCounted) -> void:
 	visited[model.state.node] = true
+	check(model.current().app in Story.APPS, "story node uses an essential app")
 	var journal: Dictionary = model.journal()
 	check(journal.objective != "" and journal.app == model.current().app, "every node has actionable objective guidance")
 	check(model.content.strings.has(model.current().objective), "objective has a stable string ID")

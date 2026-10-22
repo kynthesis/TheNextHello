@@ -14,7 +14,7 @@ All options below require clearly presented context. Mizuki can accept, decline,
 
 | ID | Decision and immediate event | Persistent fact | At least two later event/action consequences |
 |---|---|---|---|
-| D01 | Choose the next shared activity: join a guild project, offer a private creative collaboration, or introduce everyday friends and discuss a visit. Play a different follow-up scene for each. | Central path and first mutual commitment. | Distinct act-three event; distinct act-four conflict or opportunity. A guild leadership scene, collaborative deadline, and early visit preparation are separate content, not interchangeable dialogue. |
+| D01 | Choose the next shared activity: join a party project, offer a private creative collaboration, or introduce everyday friends and discuss a visit. Play a different follow-up scene for each. | Central path and first mutual commitment. | Distinct act-three event; distinct act-four conflict or opportunity. A party leadership scene, collaborative deadline, and early visit preparation are separate content, not interchangeable dialogue. |
 | D02 | A genuinely overlapping commitment: keep Natsumi's showcase plan, renegotiate before agreeing to Mizuki's event, or knowingly double-book and later choose what to miss. Play the attended event. | Attended, renegotiated, and missed events remain recorded. | Natsumi either offers a later planning/help scene or requires a friendship repair first; Mizuki's alternative event either happens, is replaced with a rescheduled activity, or creates a broken-promise conversation. Declining honestly never counts as breaking a promise. |
 | D03 | Share Mizuki's private work-in-progress image after obtaining permission, keep it private, or publish despite an explicit request not to. Confirmation states the audience and the known boundary. | Permission, publication, and third-party exposure. | Consensual publication can open a group creative session; keeping it private preserves a private-only collaboration; violating privacy cancels that session and requires an accountability scene before further sharing. Deleting the post cannot erase who saw it. |
 | D04 | A work assignment overlaps the proposed visit: accept the assignment, request a feasible adjustment, or decline after discussing the stated work consequence. Play the work response. | Assignment responsibility and approved leave/availability. | Visit dates or host arrangements change; a later work handoff or career conversation becomes available or closes. Honest unavailability never reduces generic affection. Adjustment can be refused; there is no universal cost-free option. |
@@ -27,7 +27,7 @@ The ledger is a minimum content contract. Major decisions do not all appear in e
 
 ## Observable divergence examples
 
-**Run A:** Asahi joins the guild project, keeps Natsumi's showcase commitment, and postpones travel around work. The player experiences guild disagreement, Natsumi's event, and a late first meeting. Mizuki has not already met him in act five.
+**Run A:** Asahi joins the party project, keeps Natsumi's showcase commitment, and postpones travel around work. The player experiences party disagreement, Natsumi's event, and a late first meeting. Mizuki has not already met him in act five.
 
 **Run B:** Asahi and Mizuki plan a feasible early visit and agree to introduce friends. The player experiences preparations, meeting in Hokkaido, and the difficult return to separate routines. The final act concerns a next visit or practical future, not the same first greeting as Run A.
 
@@ -42,3 +42,9 @@ For each decision, save an identical pre-choice fixture and follow each availabl
 Validate all route transitions, early/late/no-meeting states, friend resolutions, and intentional separation. No scene may require an optional clue without a fallback source. No unresolved choice set can have zero available options. Re-entering an app must never replay an event's state effects.
 
 After a completed run, a spoiler-gated history can explain “You kept the showcase commitment; Natsumi later helped with the visit.” Do not reveal alternate-path content until the player requests it. The normal playthrough communicates consequences through people and events, without exposing numeric affection scores.
+
+## Ending coverage
+
+The planned release has eight distinct endings: two good, two bad, two neutral (friendship and amicable separation), one explicitly open, and one secret. GDD section 12 owns the names and resolver rules. Each requires a reachable fixture, a distinct final scene and an exclusion test. Test that healthy boundaries cannot cause a bad ending, unset state cannot cause the open ending, and equivalent shared-ritual choices can unlock the secret ending on each central path. Secret eligibility cannot contradict the couple's coincidental first meeting or depend on removed apps.
+
+Legacy `guild_*` node/choice IDs remain internal compatibility identifiers for the renamed game-party path; they do not imply a guild in the fiction.
